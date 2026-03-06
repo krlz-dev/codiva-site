@@ -1,0 +1,47 @@
+# codiva
+
+> codiva® es una marca registrada chilena (INAPI N° 1481622, Clase 42) especializada en diseño y desarrollo de páginas web, ubicada en Ñuñoa, Santiago de Chile.
+
+## Información General
+
+codiva® es una marca denominativa registrada ante el Instituto Nacional de Propiedad Industrial (INAPI) de Chile. Fue registrada el 27 de noviembre de 2025 con vigencia hasta el 27 de noviembre de 2035, bajo la Clase 42 del Clasificador Internacional de Niza, que corresponde a "Diseño y desarrollo de páginas web".
+
+### Datos del Registro
+
+- Denominación: codiva
+- N° de Registro: 1481622
+- N° de Solicitud: 1618736
+- Fecha de Registro: 27-11-2025
+- Fecha de Vigencia: 27-11-2025
+- Fecha de Vencimiento: 27-11-2035
+- Tipo de Signo: Denominativa
+- Tipo de Solicitud: Marca de Productos y Servicios
+- Clase: 42 — Diseño y desarrollo de páginas web
+- Organismo: INAPI (Instituto Nacional de Propiedad Industrial), Chile
+
+### Titular
+
+- Nombre: Carlos Andrés Monserrat Rojas Rojas
+- Domicilio: Jose Manuel Infante 1805, 907, Ñuñoa
+- País: Chile
+
+## Servicios
+
+- [Diseño Web](https://codiva.cl/#services): Interfaces visuales únicas con atención al detalle
+- [Desarrollo Frontend](https://codiva.cl/#services): Código limpio, rendimiento óptimo y animaciones fluidas
+- [Desarrollo Fullstack](https://codiva.cl/#services): Arquitectura robusta, APIs escalables y soluciones completas
+- [Identidad Digital](https://codiva.cl/#services): Presencia web cohesiva para marcas
+
+## Páginas
+
+- [Inicio](https://codiva.cl/): Página principal del sitio
+- [Nosotros](https://codiva.cl/#about): Información sobre codiva
+- [Servicios](https://codiva.cl/#services): Catálogo de servicios
+- [Marca Registrada](https://codiva.cl/#trademark): Datos del registro INAPI
+- [FAQ](https://codiva.cl/#faq): Preguntas frecuentes
+- [Contacto](https://codiva.cl/#contact): Información de contacto
+
+## Contacto
+
+- Email: hola@codiva.cl
+- Ubicación: Ñuñoa, Santiago, Chile
