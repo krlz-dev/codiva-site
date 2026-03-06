@@ -183,6 +183,22 @@ button {
   width: 100%;
 }
 
+.nav__lang {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem 0.6rem;
+  transition: all var(--duration-fast) ease;
+}
+
+.nav__lang:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .nav__burger {
   display: none;
   flex-direction: column;
