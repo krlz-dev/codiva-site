@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">CODIVA</title>
+  <defs>
+    <style>
+      .bg { fill: #0A0A0A; }
+      .l { stroke: #BEFF00; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .l-sq { stroke: #BEFF00; fill: none; stroke-linecap: square; }
+      .t { fill: #BEFF00; }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin-rev {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      .ring-outer { animation: spin 30s linear infinite; transform-origin: 250px 250px; }
+      .ring-inner { animation: spin-rev 45s linear infinite; transform-origin: 250px 250px; }
+      .ring-mid { animation: spin 60s linear infinite; transform-origin: 250px 250px; }
+    </style>
+
+    <!-- Text paths for rotating CODIVA text -->
+    <path id="textCircleOuter" d="M 250,250 m -190,0 a 190,190 0 1,1 380,0 a 190,190 0 1,1 -380,0" fill="none"/>
+    <path id="textCircleInner" d="M 250,250 m -148,0 a 148,148 0 1,1 296,0 a 148,148 0 1,1 -296,0" fill="none"/>
+    <path id="textCircleMid" d="M 250,250 m -170,0 a 170,170 0 1,1 340,0 a 170,170 0 1,1 -340,0" fill="none"/>
+  </defs>
+
+  <rect width="500" height="500" class="bg"/>
+
+  <!-- ═══ OUTER RING — "CODIVA" repeated, rotating clockwise ═══ -->
+  <g class="ring-outer">
+    <!-- Outer circle -->
+    <circle cx="250" cy="250" r="210" class="l" stroke-width="1" opacity="0.15"/>
+    <circle cx="250" cy="250" r="195" class="l" stroke-width="0.5" opacity="0.08"/>
+
+    <!-- Rotating text -->
+    <text class="t" font-family="'Inter', 'SF Pro Display', Arial, sans-serif"
+          font-size="11" font-weight="400" letter-spacing="0.6em" opacity="0.5">
+      <textPath href="#textCircleOuter">
+        CODIVA &#x2022; TECHNOLOGY &#x2022; SOFTWARE &#x2022; DEVELOPMENT &#x2022; CODIVA &#x2022; TECHNOLOGY &#x2022; SOFTWARE &#x2022; DEVELOPMENT &#x2022;
+      </textPath>
+    </text>
+
+    <!-- Tick marks around outer ring -->
+    <g stroke="#BEFF00" stroke-width="1" opacity="0.12">
+      <line x1="250" y1="40" x2="250" y2="50"/>
+      <line x1="250" y1="450" x2="250" y2="460"/>
+      <line x1="40" y1="250" x2="50" y2="250"/>
+      <line x1="450" y1="250" x2="460" y2="250"/>
+    </g>
+  </g>
+
+  <!-- ═══ MIDDLE RING — runes/dots, rotating counter ═══ -->
+  <g class="ring-mid">
+    <circle cx="250" cy="250" r="170" class="l" stroke-width="0.5" opacity="0.1"/>
+
+    <!-- Small diamond markers at cardinal points -->
+    <g fill="#BEFF00" opacity="0.2">
+      <rect x="247" y="77" width="6" height="6" transform="rotate(45 250 80)"/>
+      <rect x="247" y="417" width="6" height="6" transform="rotate(45 250 420)"/>
+      <rect x="77" y="247" width="6" height="6" transform="rotate(45 80 250)"/>
+      <rect x="417" y="247" width="6" height="6" transform="rotate(45 420 250)"/>
+    </g>
+  </g>
+
+  <!-- ═══ INNER RING — "CODIVA" repeated, counter-rotating ═══ -->
+  <g class="ring-inner">
+    <circle cx="250" cy="250" r="150" class="l" stroke-width="1" opacity="0.12"/>
+    <circle cx="250" cy="250" r="142" class="l" stroke-width="0.5" opacity="0.06"/>
+
+    <text class="t" font-family="'Inter', 'SF Pro Display', Arial, sans-serif"
+          font-size="9" font-weight="300" letter-spacing="0.5em" opacity="0.3">
+      <textPath href="#textCircleInner">
+        C &#x2022; O &#x2022; D &#x2022; I &#x2022; V &#x2022; A &#x2022; C &#x2022; O &#x2022; D &#x2022; I &#x2022; V &#x2022; A &#x2022; C &#x2022; O &#x2022; D &#x2022; I &#x2022; V &#x2022; A &#x2022; C &#x2022; O &#x2022; D &#x2022; I &#x2022; V &#x2022; A &#x2022;
+      </textPath>
+    </text>
+  </g>
+
+  <!-- ═══ STATIC INNER CIRCLE ═══ -->
+  <circle cx="250" cy="250" r="105" class="l" stroke-width="1.5" opacity="0.18"/>
+
+  <!-- ═══ CENTER SYMBOL — the CODIVA rune (static) ═══ -->
+  <g transform="translate(250, 250)">
+
+    <!-- C: left arc -->
+    <path d="M 0,-54 C -36,-54 -50,-30 -50,0 C -50,30 -36,54 0,54"
+          class="l-sq" stroke-width="5"/>
+    <!-- D: right arc -->
+    <path d="M 0,-54 C 36,-54 50,-30 50,0 C 50,30 36,54 0,54"
+          class="l-sq" stroke-width="5"/>
+
+    <!-- I: center stave -->
+    <line x1="0" y1="-58" x2="0" y2="58" class="l-sq" stroke-width="5.5"/>
+
+    <!-- V: upper chevron -->
+    <polyline points="-30,-43 0,-17 30,-43" class="l" stroke-width="3.5"/>
+
+    <!-- A: lower chevron + crossbar -->
+    <polyline points="-30,43 0,17 30,43" class="l" stroke-width="3.5"/>
+    <line x1="-17" y1="33" x2="17" y2="33" class="l" stroke-width="2.5"/>
+
+    <!-- Subtle glow behind symbol -->
+    <circle cx="0" cy="0" r="65" fill="#BEFF00" opacity="0.02"/>
+
+  </g>
+
+  <!-- Small corner dots -->
+  <g fill="#BEFF00" opacity="0.08">
+    <circle cx="30" cy="30" r="2"/>
+    <circle cx="470" cy="30" r="2"/>
+    <circle cx="30" cy="470" r="2"/>
+    <circle cx="470" cy="470" r="2"/>
+  </g>
+
+</svg>
