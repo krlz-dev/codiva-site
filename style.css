@@ -20,8 +20,9 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -282,10 +283,7 @@ button {
 
 .hero__title-line {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
 .hero__subtitle {
@@ -589,54 +587,11 @@ button {
   justify-content: center;
 }
 
-.trademark__badge {
-  width: clamp(260px, 30vw, 380px);
-  height: clamp(260px, 30vw, 380px);
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: var(--color-bg-elevated);
-}
-
-.trademark__badge::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--color-accent), transparent 30%, transparent 70%, var(--color-accent));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 1px), black calc(100% - 1px));
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1px), black calc(100% - 1px));
-  animation: rotateBadge 8s linear infinite;
-}
-
-.trademark__badge-inner {
-  text-align: center;
-}
-
-.trademark__badge-reg {
+.trademark__logo {
+  width: clamp(240px, 30vw, 380px);
+  height: auto;
   display: block;
-  font-size: 2rem;
-  color: var(--color-accent);
-  margin-bottom: 0.5rem;
-}
-
-.trademark__badge-name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-}
-
-.trademark__badge-year {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--color-text-dim);
-  letter-spacing: 0.2em;
-  margin-top: 0.5rem;
+  filter: drop-shadow(0 0 40px rgba(190, 255, 0, 0.06));
 }
 
 .trademark__heading {
@@ -670,8 +625,8 @@ button {
 }
 
 .trademark__val {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   font-weight: 500;
   text-align: right;
 }
@@ -892,9 +847,6 @@ button {
   to { transform: translateX(50%); }
 }
 
-@keyframes rotateBadge {
-  to { transform: rotate(360deg); }
-}
 
 /* --- SCROLL REVEAL --- */
 [data-animate="reveal"],
