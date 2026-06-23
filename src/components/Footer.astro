@@ -1,0 +1,18 @@
+---
+const { t } = Astro.props;
+const { footer } = t;
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">codiva<span class="reg">®</span></span>
+        <span class="footer__copy">{footer.copy}</span>
+      </div>
+      <div class="footer__meta">
+        {footer.meta.map((m) => <span>{m}</span>)}
+      </div>
+    </div>
+  </div>
+</footer>

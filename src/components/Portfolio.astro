@@ -1,0 +1,55 @@
+---
+const { t } = Astro.props;
+const { projects } = t;
+---
+
+<section class="portfolio" id="projects" aria-labelledby="portfolio-heading">
+  <div class="container">
+    <div class="section-label">{projects.label}</div>
+    <h2 class="portfolio__heading" id="portfolio-heading" data-animate="reveal">{projects.heading}</h2>
+    <ul class="portfolio__list">
+      {projects.items.map((p, i) => (
+        <li class="portfolio__item" data-animate="fade">
+          <span class="portfolio__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <div class="portfolio__main">
+            {p.image && (p.url ? (
+              <a class="portfolio__media" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`${p.linkLabel} — ${p.name}`}>
+                <img src={p.image} alt={`${p.name} — captura de pantalla`} width="1200" height="750" loading="lazy" decoding="async" />
+              </a>
+            ) : (
+              <div class="portfolio__media">
+                <img src={p.image} alt={`${p.name} — captura de pantalla`} width="1200" height="750" loading="lazy" decoding="async" />
+              </div>
+            ))}
+            <div class="portfolio__head">
+              <h3 class="portfolio__name">{p.name}</h3>
+              <span class="portfolio__meta">
+                <span class="portfolio__year">{p.year}</span>
+                <span class="portfolio__sep" aria-hidden="true">·</span>
+                <span class="portfolio__type">{p.type}</span>
+              </span>
+            </div>
+            <p class="portfolio__desc">{p.desc}</p>
+            <div class="portfolio__footer">
+              <ul class="portfolio__tags">
+                {p.tags.map((tag) => <li class="portfolio__tag">{tag}</li>)}
+              </ul>
+              {p.url && (
+                <a
+                  class="portfolio__link"
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${p.linkLabel} — ${p.name}`}
+                >
+                  {p.linkLabel}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

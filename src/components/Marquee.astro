@@ -1,0 +1,17 @@
+---
+// Scrolling marquee. Repeats the word set 3x (matching the original markup),
+// with a dot separator after every word.
+const { items, reverse = false } = Astro.props;
+const repeated = [...items, ...items, ...items];
+---
+
+<div class={`marquee${reverse ? ' marquee--reverse' : ''}`} aria-hidden="true">
+  <div class={`marquee__track${reverse ? ' marquee__track--reverse' : ''}`}>
+    {repeated.map((word) => (
+      <>
+        <span>{word}</span>
+        <span class="marquee__dot"></span>
+      </>
+    ))}
+  </div>
+</div>

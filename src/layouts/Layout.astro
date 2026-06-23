@@ -1,0 +1,132 @@
+---
+import '../styles/global.css';
+
+const { t } = Astro.props;
+const { meta, schema, htmlLang } = t;
+---
+
+<!DOCTYPE html>
+<html lang={htmlLang} data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <meta name="keywords" content={meta.keywords} />
+    <meta name="author" content="Carlos Andrés Monserrat Rojas Rojas" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <link rel="canonical" href={meta.canonical} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={meta.ogUrl} />
+    <meta property="og:title" content={meta.ogTitle} />
+    <meta property="og:description" content={meta.ogDescription} />
+    <meta property="og:image" content="https://codiva.cl/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={meta.ogLocale} />
+    <meta property="og:site_name" content="codiva®" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={meta.ogUrl} />
+    <meta name="twitter:title" content={meta.twitterTitle} />
+    <meta name="twitter:description" content={meta.twitterDescription} />
+    <meta name="twitter:image" content="https://codiva.cl/og-image.png" />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Ñuñoa, Santiago" />
+    <meta name="geo.position" content="-33.4569;-70.5990" />
+    <meta name="ICBM" content="-33.4569, -70.5990" />
+
+    <!-- Language / Alternate -->
+    <link rel="alternate" hreflang="es" href="https://codiva.cl/" />
+    <link rel="alternate" hreflang="en" href="https://codiva.cl/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://codiva.cl/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org structured data -->
+    {schema.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // codiva® — interactions & animations (nav scroll, mobile menu, scroll reveal, smooth anchors)
+      const nav = document.getElementById('nav');
+      window.addEventListener(
+        'scroll',
+        () => nav?.classList.toggle('nav--scrolled', window.scrollY > 60),
+        { passive: true }
+      );
+
+      const burger = document.getElementById('burger');
+      const navLinks = document.getElementById('navLinks');
+
+      burger?.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navLinks?.classList.toggle('open');
+        const isOpen = !!navLinks?.classList.contains('open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        burger.setAttribute(
+          'aria-label',
+          isOpen ? burger.dataset.closeLabel || 'Close menu' : burger.dataset.openLabel || 'Open menu'
+        );
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      navLinks?.querySelectorAll('.nav__link').forEach((link) => {
+        link.addEventListener('click', () => {
+          burger?.classList.remove('active');
+          navLinks.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const siblings = Array.from(entry.target.parentElement?.children || []).filter((el) =>
+                el.hasAttribute('data-animate')
+              );
+              const delay = siblings.indexOf(entry.target) * 100;
+              setTimeout(() => entry.target.classList.add('is-visible'), delay);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      );
+      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

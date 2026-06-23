@@ -1,0 +1,40 @@
+---
+// Full page composition shared by both locales (es + en).
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Marquee from './Marquee.astro';
+import About from './About.astro';
+import Services from './Services.astro';
+import Plans from './Plans.astro';
+import Portfolio from './Portfolio.astro';
+import Faq from './Faq.astro';
+import Contact from './Contact.astro';
+import Team from './Team.astro';
+import Footer from './Footer.astro';
+
+const { t } = Astro.props;
+---
+
+<Layout t={t}>
+  <Nav t={t} />
+  <Hero t={t} />
+  <Marquee items={t.marquee1} />
+  <main>
+    <About t={t} />
+    <Services t={t} />
+    <Plans t={t} />
+    <Marquee items={t.marquee2} reverse />
+    <Portfolio t={t} />
+    <Faq t={t} />
+    <Contact t={t} />
+    <Team t={t} />
+  </main>
+  <section class="tech" aria-label={t.techLabel}>
+    <div class="container">
+      <span class="tech__label">{t.techLabel}</span>
+    </div>
+    <Marquee items={t.tech} />
+  </section>
+  <Footer t={t} />
+</Layout>

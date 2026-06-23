@@ -1,0 +1,29 @@
+---
+const { t } = Astro.props;
+const { nav } = t;
+---
+
+<nav class="nav" id="nav" aria-label={nav.ariaLabel}>
+  <div class="nav__logo">
+    <a href="#hero" aria-label={nav.logoAria}>codiva<span class="reg">®</span></a>
+  </div>
+  <div class="nav__links" id="navLinks" role="menubar">
+    {nav.links.map((l) => (
+      <a href={l.href} class="nav__link" role="menuitem">{l.label}</a>
+    ))}
+    <a href={nav.langSwitch.href} class="nav__lang" aria-label={nav.langSwitch.aria}>
+      {nav.langSwitch.label}
+    </a>
+  </div>
+  <button
+    class="nav__burger"
+    id="burger"
+    aria-label={nav.burgerOpen}
+    aria-expanded="false"
+    data-open-label={nav.burgerOpen}
+    data-close-label={nav.burgerClose}
+  >
+    <span></span>
+    <span></span>
+  </button>
+</nav>

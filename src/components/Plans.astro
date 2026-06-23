@@ -1,0 +1,51 @@
+---
+const { t } = Astro.props;
+const { plans, contact } = t;
+const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
+const sup = plans.support;
+---
+
+<section class="plans" id="plans" aria-labelledby="plans-heading">
+  <div class="container">
+    <div class="section-label">{plans.label}</div>
+    <h2 class="plans__heading" id="plans-heading" data-animate="reveal">{plans.heading}</h2>
+    <p class="plans__intro" data-animate="fade">{plans.intro}</p>
+
+    <div class="plans__grid">
+      {plans.tiers.map((tier) => (
+        <article class={`plan${tier.featured ? ' plan--featured' : ''}`} data-animate="fade">
+          {tier.badge && <span class="plan__badge">{tier.badge}</span>}
+          <h3 class="plan__name">{tier.name}</h3>
+          <div class="plan__price">{tier.price}</div>
+          <p class="plan__tagline">{tier.tagline}</p>
+          <ul class="plan__features">
+            {tier.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <a
+            class={`btn ${tier.featured ? 'btn--primary' : 'btn--ghost'} plan__cta`}
+            href={wa(tier.waMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >{tier.cta}</a>
+        </article>
+      ))}
+    </div>
+
+    <div class="plan-support" data-animate="fade">
+      <div class="plan-support__main">
+        <span class="plan-support__label">{sup.label}</span>
+        <h3 class="plan-support__name">{sup.name}</h3>
+        <p class="plan-support__desc">{sup.desc}</p>
+        <ul class="plan-support__features">
+          {sup.features.map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+      <div class="plan-support__cta">
+        <span class="plan-support__price">{sup.price}</span>
+        <a class="btn btn--primary" href={wa(sup.waMessage)} target="_blank" rel="noopener noreferrer">{sup.cta}</a>
+      </div>
+    </div>
+
+    <p class="plans__note" data-animate="fade">{plans.note}</p>
+  </div>
+</section>

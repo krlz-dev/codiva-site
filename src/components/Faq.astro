@@ -1,0 +1,19 @@
+---
+const { t } = Astro.props;
+const { faq } = t;
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-label">{faq.label}</div>
+    <h2 class="faq__heading" id="faq-heading" data-animate="reveal">{faq.heading}</h2>
+    <div class="faq__grid">
+      {faq.items.map((item) => (
+        <details class="faq__item" data-animate="fade">
+          <summary class="faq__question">{item.q}</summary>
+          <div class="faq__answer" set:html={item.aHtml}></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
