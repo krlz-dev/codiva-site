@@ -123,7 +123,7 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Brand symbol',
-    eyebrow: 'Web & software development — Santiago, Chile',
+    eyebrow: 'Web & software development',
     subtitle: 'Software · Web · Apps · Services',
     ctaPrimary: 'Start a project',
     ctaGhost: 'Explore',
