@@ -155,15 +155,36 @@ export default {
       'codiva combina diseño de alto nivel con desarrollo técnico preciso para crear sitios web, aplicaciones, apps móviles y software a medida que funcionan impecablemente.',
       'Trabajo de forma independiente con startups y empresas que buscan una identidad digital sólida y productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
     ],
-    trademark: {
-      label: 'Marca registrada',
-      note: 'codiva® es una marca registrada en Chile ante el INAPI, a nombre de <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, bajo la cual presto servicios profesionales independientes de diseño y desarrollo. El nombre y su uso comercial están protegidos por ley.',
-      rows: [
-        { key: 'Registro INAPI', valHtml: 'N° 1481622' },
-        { key: 'Clase', valHtml: '42 — Diseño y desarrollo de páginas web' },
-        { key: 'Vigencia', valHtml: '<time datetime="2025-11-27">2025</time> – <time datetime="2035-11-27">2035</time>' },
-      ],
+  },
+
+  trademark: {
+    meta: {
+      title: 'Marca Registrada — codiva® | INAPI N° 1481622',
+      description: 'codiva® es una marca registrada en Chile ante INAPI (N° 1481622, Clase 42), a nombre de Carlos Andrés Monserrat Rojas Rojas.',
+      keywords: 'codiva marca registrada, INAPI 1481622, marca registrada Chile, Clase 42',
+      canonical: 'https://codiva.cl/marca/',
+      ogUrl: 'https://codiva.cl/marca/',
+      ogTitle: 'Marca Registrada — codiva®',
+      ogDescription: 'Marca registrada en Chile ante INAPI N° 1481622, Clase 42.',
+      ogLocale: 'es_CL',
+      twitterTitle: 'Marca Registrada — codiva®',
+      twitterDescription: 'Marca registrada en Chile ante INAPI N° 1481622, Clase 42.',
     },
+    label: 'Marca registrada',
+    heading: 'codiva® es una marca registrada',
+    note: 'codiva® es una marca registrada en Chile ante el Instituto Nacional de Propiedad Industrial (INAPI), a nombre de <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, bajo la cual presto servicios profesionales independientes de diseño y desarrollo. El nombre y su uso comercial están protegidos por ley.',
+    rows: [
+      { key: 'Denominación', valHtml: 'codiva' },
+      { key: 'Titular', valHtml: 'Carlos Andrés Monserrat Rojas Rojas' },
+      { key: 'N° de Registro', valHtml: '1481622' },
+      { key: 'N° de Solicitud', valHtml: '1618736' },
+      { key: 'Fecha de Registro', valHtml: '<time datetime="2025-11-27">27 de noviembre de 2025</time>' },
+      { key: 'Vigencia hasta', valHtml: '<time datetime="2035-11-27">27 de noviembre de 2035</time>' },
+      { key: 'Tipo de Signo', valHtml: 'Denominativa' },
+      { key: 'Clase', valHtml: '42 — Diseño y desarrollo de páginas web' },
+      { key: 'Organismo', valHtml: 'INAPI — Instituto Nacional de Propiedad Industrial, Chile' },
+    ],
+    back: '← Volver al inicio',
   },
 
   services: {
@@ -317,7 +338,7 @@ export default {
   },
 
   footer: {
-    copy: '© 2025 codiva. Todos los derechos reservados.',
-    meta: ['codiva® — marca registrada INAPI N° 1481622'],
+    copy: 'Todos los derechos reservados.',
+    legal: { href: '/marca/', label: 'codiva® — marca registrada INAPI N° 1481622' },
   },
 };

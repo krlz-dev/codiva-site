@@ -142,15 +142,36 @@ export default {
       'codiva combines high-end design with precise technical development to build websites, web applications, mobile apps, and custom software that work flawlessly.',
       'I work independently with startups and companies looking for a strong digital identity and products that feel cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
-    trademark: {
-      label: 'Registered trademark',
-      note: 'codiva® is a trademark registered in Chile with INAPI under the name of <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, under which I provide independent professional design and development services. The name and its commercial use are protected by law.',
-      rows: [
-        { key: 'INAPI registration', valHtml: 'No. 1481622' },
-        { key: 'Class', valHtml: '42 — Web design and development' },
-        { key: 'Validity', valHtml: '<time datetime="2025-11-27">2025</time> – <time datetime="2035-11-27">2035</time>' },
-      ],
+  },
+
+  trademark: {
+    meta: {
+      title: 'Registered Trademark — codiva® | INAPI #1481622',
+      description: 'codiva® is a trademark registered in Chile with INAPI (#1481622, Class 42) under the name of Carlos Andrés Monserrat Rojas Rojas.',
+      keywords: 'codiva registered trademark, INAPI 1481622, trademark Chile, Class 42',
+      canonical: 'https://codiva.cl/en/trademark/',
+      ogUrl: 'https://codiva.cl/en/trademark/',
+      ogTitle: 'Registered Trademark — codiva®',
+      ogDescription: 'Trademark registered in Chile with INAPI #1481622, Class 42.',
+      ogLocale: 'en_US',
+      twitterTitle: 'Registered Trademark — codiva®',
+      twitterDescription: 'Trademark registered in Chile with INAPI #1481622, Class 42.',
     },
+    label: 'Registered trademark',
+    heading: 'codiva® is a registered trademark',
+    note: 'codiva® is a trademark registered in Chile with the National Institute of Industrial Property (INAPI), under the name of <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, under which I provide independent professional design and development services. The name and its commercial use are protected by law.',
+    rows: [
+      { key: 'Name', valHtml: 'codiva' },
+      { key: 'Holder', valHtml: 'Carlos Andrés Monserrat Rojas Rojas' },
+      { key: 'Registration #', valHtml: '1481622' },
+      { key: 'Application #', valHtml: '1618736' },
+      { key: 'Registration Date', valHtml: '<time datetime="2025-11-27">November 27, 2025</time>' },
+      { key: 'Valid until', valHtml: '<time datetime="2035-11-27">November 27, 2035</time>' },
+      { key: 'Sign Type', valHtml: 'Denominative' },
+      { key: 'Class', valHtml: '42 — Web design and development' },
+      { key: 'Authority', valHtml: 'INAPI — National Institute of Industrial Property, Chile' },
+    ],
+    back: '← Back to home',
   },
 
   services: {
@@ -304,7 +325,7 @@ export default {
   },
 
   footer: {
-    copy: '© 2025 codiva. All rights reserved.',
-    meta: ['codiva® — registered trademark INAPI #1481622'],
+    copy: 'All rights reserved.',
+    legal: { href: '/en/trademark/', label: 'codiva® — registered trademark INAPI #1481622' },
   },
 };

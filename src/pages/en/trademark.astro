@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import en from '../../i18n/en.js';
+
+const tm = en.trademark;
+const t = { ...en, meta: tm.meta, schema: [] };
+---
+
+<Layout t={t}>
+  <header class="subpage-nav">
+    <div class="container subpage-nav__inner">
+      <a href="/en/" class="subpage-nav__logo" aria-label={en.nav.logoAria}>codiva<span class="reg">®</span></a>
+      <a href="/en/" class="subpage-nav__back">{tm.back}</a>
+    </div>
+  </header>
+  <main class="trademark-page">
+    <div class="container trademark-page__inner">
+      <div class="section-label">{tm.label}</div>
+      <h1 class="trademark-page__heading">{tm.heading}</h1>
+      <p class="trademark-page__note" set:html={tm.note}></p>
+      <dl class="trademark-page__list">
+        {tm.rows.map((row) => (
+          <div class="trademark-page__row">
+            <dt class="trademark-page__key">{row.key}</dt>
+            <dd class="trademark-page__val" set:html={row.valHtml}></dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </main>
+  <Footer t={en} />
+</Layout>

@@ -539,81 +539,96 @@ button {
   margin-bottom: 1.5rem;
 }
 
-/* --- TRADEMARK NOTE (compact, folded into About) --- */
-.trademark-note {
-  margin-top: 2.5rem;
-  padding: 1.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-bg-elevated);
+/* --- SUBPAGE NAV (trademark, legal pages) --- */
+.subpage-nav {
+  border-bottom: 1px solid var(--color-border);
 }
 
-.trademark-note__head {
+.subpage-nav__inner {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  height: 80px;
 }
 
-.trademark-note__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.4rem;
-  height: 1.4rem;
-  border: 1px solid var(--color-accent);
-  border-radius: 50%;
+.subpage-nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.subpage-nav__logo .reg {
   color: var(--color-accent);
-  font-size: 0.7rem;
-  font-weight: 600;
-  flex-shrink: 0;
 }
 
-.trademark-note__label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-dim);
-}
-
-.trademark-note__text {
-  font-size: 0.9rem;
-  line-height: 1.7;
+.subpage-nav__back {
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
+  transition: color var(--duration-fast) ease;
 }
 
-.trademark-note__text strong {
+.subpage-nav__back:hover {
+  color: var(--color-accent);
+}
+
+/* --- TRADEMARK PAGE --- */
+.trademark-page {
+  padding: clamp(3rem, 8vh, 6rem) 0 var(--section-pad);
+  min-height: 60vh;
+}
+
+.trademark-page__inner {
+  max-width: 720px;
+}
+
+.trademark-page__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.trademark-page__note {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+}
+
+.trademark-page__note strong {
   color: var(--color-text);
   font-weight: 600;
 }
 
-.trademark-note__list {
+.trademark-page__list {
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--color-border);
 }
 
-.trademark-note__row {
+.trademark-page__row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 1.5rem;
-  padding: 0.7rem 0;
+  gap: 2rem;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.trademark-note__key {
-  font-size: 0.75rem;
+.trademark-page__key {
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--color-text-dim);
   flex-shrink: 0;
 }
 
-.trademark-note__val {
+.trademark-page__val {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: right;
 }
 
@@ -1244,6 +1259,15 @@ button {
   letter-spacing: 0.03em;
 }
 
+.footer__legal {
+  color: var(--color-text-dim);
+  transition: color var(--duration-fast) ease;
+}
+
+.footer__legal:hover {
+  color: var(--color-accent);
+}
+
 /* --- ANIMATIONS --- */
 @keyframes fadeUp {
   to {
@@ -1392,12 +1416,12 @@ button {
     right: 2rem;
   }
 
-  .trademark-note__row {
+  .trademark-page__row {
     flex-direction: column;
     gap: 0.3rem;
   }
 
-  .trademark-note__val {
+  .trademark-page__val {
     text-align: left;
   }
 }

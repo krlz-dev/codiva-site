@@ -1,6 +1,8 @@
 ---
 const { t } = Astro.props;
 const { footer } = t;
+// Current year, evaluated at build time (updates on each deploy).
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer" role="contentinfo">
@@ -8,10 +10,10 @@ const { footer } = t;
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="footer__logo">codiva<span class="reg">®</span></span>
-        <span class="footer__copy">{footer.copy}</span>
+        <span class="footer__copy">© {year} codiva. {footer.copy}</span>
       </div>
       <div class="footer__meta">
-        {footer.meta.map((m) => <span>{m}</span>)}
+        <a href={footer.legal.href} class="footer__legal">{footer.legal.label}</a>
       </div>
     </div>
   </div>

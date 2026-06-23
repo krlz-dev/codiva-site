@@ -1,7 +1,6 @@
 ---
 const { t } = Astro.props;
 const { about } = t;
-const tm = about.trademark;
 ---
 
 <section class="about" id="about" aria-labelledby="about-heading">
@@ -15,21 +14,6 @@ const tm = about.trademark;
         {about.paragraphs.map((p) => (
           <p class="about__text" data-animate="fade">{p}</p>
         ))}
-        <aside class="trademark-note" id="trademark" aria-label={tm.label} data-animate="fade">
-          <div class="trademark-note__head">
-            <span class="trademark-note__badge" aria-hidden="true">®</span>
-            <span class="trademark-note__label">{tm.label}</span>
-          </div>
-          <p class="trademark-note__text" set:html={tm.note}></p>
-          <dl class="trademark-note__list">
-            {tm.rows.map((row) => (
-              <div class="trademark-note__row">
-                <dt class="trademark-note__key">{row.key}</dt>
-                <dd class="trademark-note__val" set:html={row.valHtml}></dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
       </div>
     </div>
   </div>
