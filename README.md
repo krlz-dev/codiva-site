@@ -28,6 +28,7 @@ src/
     global.css          # design system
 scripts/
   generate-og-image.mjs # regenerates public/og-image.png
+  fonts/                # IBM Plex Sans TTFs (OFL) used to render the OG image
 .github/workflows/
   deploy.yml            # build + deploy to GitHub Pages
 ```
@@ -52,6 +53,11 @@ To regenerate the social share image after a brand tweak:
 ```bash
 node scripts/generate-og-image.mjs
 ```
+
+The share image is rendered in **IBM Plex Sans** (the site typeface). The font
+files are bundled under `scripts/fonts/` — licensed under the SIL Open Font
+License (see `scripts/fonts/OFL.txt`) — and exposed to the renderer via a
+temporary fontconfig, so no system font install is required.
 
 ## Deployment
 
