@@ -1,0 +1,23 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  footer: Content['footer'];
+}
+
+const { footer } = Astro.props;
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">codiva<span class="reg">®</span></span>
+        <span class="footer__copy" set:html={footer.copy}></span>
+      </div>
+      <div class="footer__meta">
+        {footer.meta.map((item) => <span>{item}</span>)}
+      </div>
+    </div>
+  </div>
+</footer>

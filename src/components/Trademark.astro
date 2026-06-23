@@ -1,0 +1,33 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  trademark: Content['trademark'];
+}
+
+const { trademark } = Astro.props;
+---
+
+<section class="trademark" id="trademark" aria-labelledby="trademark-heading">
+  <div class="container">
+    <div class="section-label">{trademark.label}</div>
+    <div class="trademark__grid">
+      <div class="trademark__visual" data-animate="reveal">
+        <img src="/codiva-magic.svg" alt={trademark.logoAlt} class="trademark__logo" width="340" height="340" />
+      </div>
+      <div class="trademark__info">
+        <h2 class="trademark__heading" id="trademark-heading" data-animate="reveal">{trademark.heading}</h2>
+        <div class="trademark__details">
+          <dl class="trademark__list">
+            {trademark.rows.map((row) => (
+              <div class="trademark__row" data-animate="fade">
+                <dt class="trademark__key">{row.key}</dt>
+                <dd class="trademark__val" set:html={row.val}></dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

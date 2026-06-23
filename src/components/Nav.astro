@@ -1,0 +1,32 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  nav: Content['nav'];
+}
+
+const { nav } = Astro.props;
+---
+
+<nav class="nav" id="nav" aria-label={nav.ariaLabel}>
+  <div class="nav__logo">
+    <a href="#hero" aria-label={nav.brandAria}>codiva<span class="reg">®</span></a>
+  </div>
+  <div class="nav__links" id="navLinks" role="menubar">
+    {nav.links.map((link) => (
+      <a href={link.href} class="nav__link" role="menuitem">{link.label}</a>
+    ))}
+    <a href={nav.lang.href} class="nav__lang" aria-label={nav.lang.aria}>{nav.lang.label}</a>
+  </div>
+  <button
+    class="nav__burger"
+    id="burger"
+    aria-label={nav.burgerOpen}
+    aria-expanded="false"
+    data-label-open={nav.burgerOpen}
+    data-label-close={nav.burgerClose}
+  >
+    <span></span>
+    <span></span>
+  </button>
+</nav>

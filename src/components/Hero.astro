@@ -1,0 +1,33 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  hero: Content['hero'];
+}
+
+const { hero } = Astro.props;
+---
+
+<header class="hero" id="hero">
+  <div class="hero__bg">
+    <div class="hero__grid-overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__logo-wrap">
+      <img src="/codiva-magic.svg" alt={hero.logoAlt} class="hero__logo" width="340" height="340" />
+    </div>
+    <p class="hero__eyebrow">{hero.eyebrow}</p>
+    <h1 class="hero__title">
+      <span class="hero__title-line" data-animate="split">codiva</span>
+    </h1>
+    <p class="hero__subtitle">{hero.subtitle}</p>
+    <div class="hero__cta">
+      <a href="#contact" class="btn btn--primary">{hero.ctaPrimary}</a>
+      <a href="#about" class="btn btn--ghost">{hero.ctaSecondary}</a>
+    </div>
+  </div>
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</header>

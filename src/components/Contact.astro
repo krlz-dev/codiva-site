@@ -1,0 +1,21 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  contact: Content['contact'];
+}
+
+const { contact } = Astro.props;
+---
+
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="section-label">{contact.label}</div>
+      <h2 class="contact__heading" id="contact-heading" data-animate="reveal" set:html={contact.heading}></h2>
+      <p class="contact__text" data-animate="fade">{contact.text}</p>
+      <a href={`mailto:${contact.email}`} class="contact__email" data-animate="fade">{contact.email}</a>
+      <address class="contact__location" data-animate="fade">{contact.location}</address>
+    </div>
+  </div>
+</section>

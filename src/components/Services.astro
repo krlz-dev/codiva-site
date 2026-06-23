@@ -1,0 +1,26 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  services: Content['services'];
+}
+
+const { services } = Astro.props;
+---
+
+<section class="services" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-label">{services.label}</div>
+    <h2 class="services__heading" id="services-heading" data-animate="reveal">{services.heading}</h2>
+    <div class="services__grid">
+      {services.cards.map((card) => (
+        <article class="service-card" data-animate="card">
+          <div class="service-card__number">{card.number}</div>
+          <h3 class="service-card__title">{card.title}</h3>
+          <p class="service-card__desc">{card.desc}</p>
+          <div class="service-card__line"></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

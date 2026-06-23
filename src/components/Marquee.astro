@@ -1,0 +1,23 @@
+---
+interface Props {
+  words: string[];
+  repeat?: number;
+  reverse?: boolean;
+}
+
+const { words, repeat = 3, reverse = false } = Astro.props;
+
+// Repeat the base words so the track loops seamlessly under the CSS transform.
+const items = Array.from({ length: repeat }, () => words).flat();
+---
+
+<div class:list={['marquee', { 'marquee--reverse': reverse }]} aria-hidden="true">
+  <div class:list={['marquee__track', { 'marquee__track--reverse': reverse }]}>
+    {items.map((word) => (
+      <>
+        <span>{word}</span>
+        <span class="marquee__dot"></span>
+      </>
+    ))}
+  </div>
+</div>

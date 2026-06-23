@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Trademark from '../components/Trademark.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact.astro';
+import { getContent } from '../i18n/content';
+
+const c = getContent('es');
+---
+
+<BaseLayout content={c}>
+  <Hero hero={c.hero} />
+  <Marquee words={c.marquee1} />
+  <main>
+    <About about={c.about} />
+    <Services services={c.services} />
+    <Marquee words={c.marquee2} reverse />
+    <Trademark trademark={c.trademark} />
+    <Faq faq={c.faq} />
+    <Contact contact={c.contact} />
+  </main>
+</BaseLayout>

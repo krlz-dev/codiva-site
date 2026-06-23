@@ -1,0 +1,26 @@
+---
+import type { Content } from '../i18n/content';
+
+interface Props {
+  faq: Content['faq'];
+}
+
+const { faq } = Astro.props;
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-label">{faq.label}</div>
+    <h2 class="faq__heading" id="faq-heading" data-animate="reveal">{faq.heading}</h2>
+    <div class="faq__grid">
+      {faq.items.map((item) => (
+        <details class="faq__item" data-animate="fade">
+          <summary class="faq__question">{item.q}</summary>
+          <div class="faq__answer">
+            <p set:html={item.a}></p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
