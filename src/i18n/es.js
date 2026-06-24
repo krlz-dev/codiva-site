@@ -270,6 +270,16 @@ export default {
     heading: 'Proyectos que hemos desarrollado',
     items: [
       {
+        name: 'Asistente Constitucional',
+        year: '2025',
+        type: 'Asistente IA (RAG)',
+        tags: ['LegalTech', 'RAG', 'Asistente IA'],
+        image: '/portfolio/asistente-constitucional.webp',
+        desc: 'Asistente conversacional con RAG sobre la Constitución Política de Bolivia (2009). Permite consultar en lenguaje natural los 411 artículos, con búsqueda, navegación por categorías y respuestas fundamentadas y citadas a partir del texto constitucional, sin alucinaciones.',
+        url: 'https://asistente-constitucional.vercel.app/',
+        linkLabel: 'Visitar sitio',
+      },
+      {
         name: 'kit-a',
         year: '2025',
         type: 'Aplicación web',
