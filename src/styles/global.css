@@ -499,7 +499,7 @@ button {
 .team__desc {
   display: block;
   margin-top: 0.45rem;
-  max-width: 24ch;
+  max-width: 30ch;
   font-size: 0.85rem;
   line-height: 1.5;
   color: var(--color-text-muted);

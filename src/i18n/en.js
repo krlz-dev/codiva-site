@@ -139,8 +139,8 @@ export default {
     label: 'About',
     headingHtml: 'A two-person studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'codiva is a boutique studio of two senior people with complementary roles: Carlos on engineering, architecture, backend, and AI, and Marina on design, UX/UI, and frontend. Between the two of us we cover design, frontend, backend, AI, and deployment — without outsourcing anything.',
-      'That means you talk directly with the people building your product, with no middlemen. We work with startups and companies looking for a strong digital identity and products that feel cared for in every detail, based in Ñuñoa, Santiago, Chile.',
+      'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI — Java, Scala, RAG/LLM, and distributed systems; Marina on product design and frontend — fullstack JavaScript, React/Next, and BFF. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
+      'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience — including healthcare SaaS on the FHIR standard and distributed systems — we work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
   },
 
@@ -319,8 +319,8 @@ export default {
     label: 'Team',
     heading: 'Two people, one complete product',
     members: [
-      { name: 'Carlos Rojas', role: 'Engineering · AI · Architecture', desc: 'Backend, AI/RAG, infrastructure, and distributed systems. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Engineering, AI, and architecture' },
-      { name: 'Marina Alekseeva', role: 'Design · UX/UI · Frontend', desc: 'Product and interface design. React, Next, and Flutter, with her own portfolio.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Design, UX/UI, and frontend' },
+      { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer: Java, Scala, and Angular. AI/RAG, distributed systems, and architecture. Mobile with Flutter. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
+      { name: 'Marina Alekseeva', role: 'Design · Frontend · Fullstack JS', desc: 'Frontend-focused software engineer. Product design and UX/UI, fullstack JavaScript and BFF (React/Next). Mobile with Flutter.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
     ],
   },
 
