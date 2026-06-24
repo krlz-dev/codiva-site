@@ -139,7 +139,7 @@ export default {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI — Java, Scala, RAG/LLM, and distributed systems; Marina on product design and frontend — fullstack JavaScript, React/Next, and BFF. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
+      'codiva is a boutique senior software engineering studio. We cover the whole product — product design, frontend, backend, AI/RAG, mobile, and deployment — with a stack that spans React, Next, and Flutter to Java and Scala, without outsourcing anything.',
       'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience — including healthcare SaaS on the FHIR standard and distributed systems — we work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
   },

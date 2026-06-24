@@ -152,7 +152,7 @@ export default {
     label: 'Nosotros',
     headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
-      'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA —Java, Scala, RAG/LLM y sistemas distribuidos—; Marina en diseño de producto y frontend —fullstack JavaScript, React/Next y BFF—. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue sin subcontratar a nadie.',
+      'codiva es un estudio boutique de ingeniería de software senior. Cubrimos el producto completo —diseño de producto, frontend, backend, IA/RAG, móvil y despliegue— con un stack que va de React, Next y Flutter a Java y Scala, sin subcontratar a nadie.',
       'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia —incluyendo SaaS de salud con estándar FHIR y sistemas distribuidos— trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
     ],
   },
