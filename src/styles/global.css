@@ -1,24 +1,39 @@
 /* ============================================
    codiva® — Design System
    Inspired by landonorris.com aesthetic
-   Dark theme, lime accent, smooth motion
+   Light default (charcoal on warm paper) + dark theme, lime accent, smooth motion
    ============================================ */
 
 /* --- CUSTOM PROPERTIES --- */
+/* Default theme: light — elegant charcoal on warm paper.
+   Dark theme lives under [data-theme="dark"] below. */
 :root {
-  --color-bg: #0a0a0a;
-  --color-bg-elevated: #111111;
-  --color-bg-card: #161616;
-  --color-surface: #1a1a1a;
-  --color-border: #222222;
-  --color-text: #f0f0f0;
-  --color-text-muted: #888888;
-  --color-text-dim: #555555;
-  --color-accent: #BEFF00;
-  --color-accent-hover: #d4ff55;
-  --color-accent-dim: rgba(190, 255, 0, 0.08);
+  --color-bg: #f4f3ee;
+  --color-bg-elevated: #faf9f5;
+  --color-bg-card: #ffffff;
+  --color-surface: #eceae2;
+  --color-border: #e0ddd3;
+  --color-text: #2c3033;
+  --color-text-muted: #6b7178;
+  --color-text-dim: #8a8e87;
+  --color-heading: #191c1e;
+  /* Light mode is fully monochrome — every "accent" resolves to charcoal.
+     The lime brand colour lives only under [data-theme='dark']. */
+  --color-accent: #2b2f33;
+  --color-accent-hover: #1a1d20;
+  --color-accent-dim: rgba(43, 47, 51, 0.08);
+  --color-accent-text: #2b2f33;
+  --color-accent-glow: rgba(30, 34, 38, 0.05);
+  --color-on-accent: #f4f3ee;
+  --color-bg-nav: rgba(244, 243, 238, 0.85);
   --color-white: #ffffff;
   --color-black: #000000;
+
+  /* Primary button — charcoal in light, lime in dark (see [data-theme='dark']). */
+  --color-btn-bg: #1e2225;
+  --color-btn-bg-hover: #2c3033;
+  --color-btn-text: #f4f3ee;
+  --color-btn-shadow: rgba(25, 28, 30, 0.22);
 
   --font-display: 'IBM Plex Sans', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
@@ -36,6 +51,35 @@
   --container-max: 1400px;
   --container-pad: clamp(1.5rem, 4vw, 4rem);
   --section-pad: clamp(5rem, 12vh, 10rem);
+}
+
+/* Dark theme — original palette, opt-in via the nav toggle (saved in localStorage). */
+[data-theme='dark'] {
+  --color-bg: #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-bg-card: #161616;
+  --color-surface: #1a1a1a;
+  --color-border: #222222;
+  --color-text: #f0f0f0;
+  --color-text-muted: #888888;
+  --color-text-dim: #555555;
+  --color-heading: #ffffff;
+  --color-accent: #BEFF00;
+  --color-accent-hover: #d4ff55;
+  --color-accent-dim: var(--color-accent-glow);
+  --color-accent-text: var(--color-accent);
+  --color-accent-glow: rgba(190, 255, 0, 0.07);
+  --color-on-accent: #000000;
+  --color-bg-nav: rgba(10, 10, 10, 0.9);
+  --color-btn-bg: var(--color-accent);
+  --color-btn-bg-hover: var(--color-accent-hover);
+  --color-btn-text: var(--color-black);
+  --color-btn-shadow: rgba(190, 255, 0, 0.2);
+}
+
+/* Smooth the moment of switching themes. */
+body {
+  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
 /* --- RESET --- */
@@ -66,7 +110,7 @@ a {
 
 em {
   font-style: italic;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 img {
@@ -84,7 +128,7 @@ button {
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-black);
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
@@ -105,14 +149,14 @@ button {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   margin-bottom: 3rem;
 }
 
 .reg {
   font-size: 0.4em;
   vertical-align: super;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* --- NAV --- */
@@ -130,7 +174,7 @@ button {
 }
 
 .nav--scrolled {
-  background: rgba(10, 10, 10, 0.9);
+  background: var(--color-bg-nav);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding-top: 1rem;
@@ -147,7 +191,7 @@ button {
 }
 
 .nav__logo a:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .nav__links {
@@ -176,7 +220,7 @@ button {
 }
 
 .nav__link:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .nav__link:hover::after {
@@ -195,8 +239,58 @@ button {
 }
 
 .nav__lang:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   border-color: var(--color-accent);
+}
+
+.nav__theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.nav__theme:hover {
+  color: var(--color-accent-text);
+  border-color: var(--color-accent);
+  transform: rotate(15deg);
+}
+
+.nav__theme-icon {
+  display: none;
+}
+
+/* Show the icon for the theme you'd switch TO. */
+.nav__theme-moon {
+  display: block;
+}
+
+[data-theme='dark'] .nav__theme-moon {
+  display: none;
+}
+
+[data-theme='dark'] .nav__theme-sun {
+  display: block;
+}
+
+/* Hero logo: charcoal variant for light, lime variant for dark.
+   Compound selectors keep specificity above the base .hero__logo { display: block }. */
+.hero__logo.hero__logo--dark {
+  display: none;
+}
+
+[data-theme='dark'] .hero__logo.hero__logo--light {
+  display: none;
+}
+
+[data-theme='dark'] .hero__logo.hero__logo--dark {
+  display: block;
 }
 
 .nav__burger {
@@ -243,8 +337,8 @@ button {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(190, 255, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(190, 255, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--color-accent-glow) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-accent-glow) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
@@ -281,7 +375,7 @@ button {
   height: auto;
   display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 0 60px rgba(190, 255, 0, 0.08));
+  filter: drop-shadow(0 0 60px var(--color-accent-glow));
 }
 
 .hero__title {
@@ -290,7 +384,7 @@ button {
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.05em;
-  color: var(--color-white);
+  color: var(--color-heading);
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(40px);
@@ -299,6 +393,10 @@ button {
 
 .hero__title-line {
   display: inline-block;
+  color: var(--color-heading);
+}
+
+[data-theme='dark'] .hero__title-line {
   color: var(--color-accent);
 }
 
@@ -367,14 +465,14 @@ button {
 }
 
 .btn--primary {
-  background: var(--color-accent);
-  color: var(--color-black);
+  background: var(--color-btn-bg);
+  color: var(--color-btn-text);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-btn-bg-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(190, 255, 0, 0.2);
+  box-shadow: 0 10px 30px var(--color-btn-shadow);
 }
 
 .btn--ghost {
@@ -385,7 +483,7 @@ button {
 
 .btn--ghost:hover {
   border-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   transform: translateY(-2px);
 }
 
@@ -485,7 +583,7 @@ button {
 }
 
 .team__link:hover .team__name {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .team__role {
@@ -493,7 +591,7 @@ button {
   margin-top: 0.2rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .team__desc {
@@ -569,7 +667,7 @@ button {
 }
 
 .subpage-nav__logo .reg {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .subpage-nav__back {
@@ -579,7 +677,7 @@ button {
 }
 
 .subpage-nav__back:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* --- TRADEMARK PAGE --- */
@@ -695,7 +793,7 @@ button {
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
   position: relative;
@@ -712,7 +810,7 @@ button {
 }
 
 .service-card:hover .service-card__title {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .service-card__desc {
@@ -771,7 +869,7 @@ button {
 .portfolio__index {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   padding-top: 0.5rem;
 }
 
@@ -864,7 +962,7 @@ button {
   gap: 0.4rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   white-space: nowrap;
   transition: gap var(--duration-fast) ease;
 }
@@ -914,7 +1012,7 @@ button {
 
 .plan--featured {
   border-color: var(--color-accent);
-  box-shadow: 0 0 40px rgba(190, 255, 0, 0.06);
+  box-shadow: 0 0 40px var(--color-accent-glow);
 }
 
 .plan__badge {
@@ -922,7 +1020,7 @@ button {
   top: -0.7rem;
   left: 2rem;
   background: var(--color-accent);
-  color: var(--color-black);
+  color: var(--color-on-accent);
   font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
@@ -943,7 +1041,7 @@ button {
   font-family: var(--font-display);
   font-size: 1.9rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   letter-spacing: -0.02em;
   margin: 0.75rem 0 0.35rem;
 }
@@ -975,7 +1073,7 @@ button {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 600;
 }
 
@@ -1000,7 +1098,7 @@ button {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .plan-support__name {
@@ -1037,7 +1135,7 @@ button {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 600;
 }
 
@@ -1111,7 +1209,7 @@ button {
   content: '+';
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   transition: transform var(--duration-fast) var(--ease-out-expo);
   flex-shrink: 0;
   margin-left: 2rem;
@@ -1123,7 +1221,7 @@ button {
 }
 
 .faq__item[open] .faq__question {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .faq__answer {
@@ -1138,7 +1236,7 @@ button {
 }
 
 .faq__answer a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1197,7 +1295,7 @@ button {
   font-family: var(--font-mono);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   position: relative;
   transition: opacity var(--duration-fast) ease;
 }
@@ -1274,7 +1372,7 @@ button {
 }
 
 .footer__legal:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* --- ANIMATIONS --- */

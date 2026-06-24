@@ -130,6 +130,7 @@ export default {
       { href: '#contact', label: 'Contacto' },
     ],
     langSwitch: { href: '/en/', label: 'EN', aria: 'Switch to English' },
+    themeToggle: { toDark: 'Activar modo oscuro', toLight: 'Activar modo claro' },
     burgerOpen: 'Abrir menú de navegación',
     burgerClose: 'Cerrar menú de navegación',
   },

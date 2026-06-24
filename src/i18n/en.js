@@ -117,6 +117,7 @@ export default {
       { href: '#contact', label: 'Contact' },
     ],
     langSwitch: { href: '/', label: 'ES', aria: 'Cambiar a Español' },
+    themeToggle: { toDark: 'Switch to dark mode', toLight: 'Switch to light mode' },
     burgerOpen: 'Open navigation menu',
     burgerClose: 'Close navigation menu',
   },
