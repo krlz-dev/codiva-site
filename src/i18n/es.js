@@ -136,8 +136,8 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Símbolo de marca',
-    eyebrow: 'Dúo senior · end-to-end',
-    subtitle: 'Un dúo senior que construye tu producto completo: diseño, frontend, backend e IA. Sin intermediarios.',
+    eyebrow: 'Estudio boutique · end-to-end',
+    subtitle: 'Construimos tu producto completo: diseño, frontend, backend e IA. Sin intermediarios.',
     ctaPrimary: 'Iniciar proyecto',
     ctaGhost: 'Explorar',
   },
@@ -150,7 +150,7 @@ export default {
 
   about: {
     label: 'Nosotros',
-    headingHtml: 'Un estudio de dos que construye tu producto <em>de principio a fin</em>',
+    headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
       'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA —Java, Scala, RAG/LLM y sistemas distribuidos—; Marina en diseño de producto y frontend —fullstack JavaScript, React/Next y BFF—. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue sin subcontratar a nadie.',
       'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia —incluyendo SaaS de salud con estándar FHIR y sistemas distribuidos— trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
@@ -172,7 +172,7 @@ export default {
     },
     label: 'Marca registrada',
     heading: 'codiva® es una marca registrada',
-    note: 'codiva® es una marca registrada en Chile ante el Instituto Nacional de Propiedad Industrial (INAPI), a nombre de <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, bajo la cual presto servicios profesionales independientes de diseño y desarrollo. El nombre y su uso comercial están protegidos por ley.',
+    note: 'codiva® es una marca registrada en Chile ante el Instituto Nacional de Propiedad Industrial (INAPI), a nombre de <strong>Carlos Andrés Monserrat Rojas Rojas</strong>, bajo la cual prestamos servicios profesionales independientes de diseño y desarrollo. El nombre y su uso comercial están protegidos por ley.',
     rows: [
       { key: 'Denominación', valHtml: 'codiva' },
       { key: 'Titular', valHtml: 'Carlos Andrés Monserrat Rojas Rojas' },
@@ -251,7 +251,7 @@ export default {
     support: {
       label: 'Soporte continuo',
       name: 'SEO & Google Analytics',
-      desc: 'Lanzar no basta: te ayudo a que te encuentren en Google y a entender qué hacen tus visitantes. Configuración, seguimiento de métricas y mejoras mes a mes para que tu sitio crezca.',
+      desc: 'Lanzar no basta: te ayudamos a que te encuentren en Google y a entender qué hacen tus visitantes. Configuración, seguimiento de métricas y mejoras mes a mes para que tu sitio crezca.',
       features: [
         'Google Analytics 4 + Search Console',
         'SEO técnico y de contenido',
@@ -320,10 +320,10 @@ export default {
     text: '¿Tienes un proyecto en mente? Conversemos sobre cómo podemos llevarlo al siguiente nivel.',
     whatsapp: {
       number: '56957173936',
-      label: 'Escríbeme por WhatsApp',
+      label: 'Escríbenos por WhatsApp',
       message: 'Hola codiva 👋, me interesa cotizar un proyecto.',
     },
-    emailLabel: 'O escríbeme a',
+    emailLabel: 'O escríbenos a',
     email: 'contactos@codiva.cl',
     location: 'Ñuñoa, Santiago — Chile',
   },
