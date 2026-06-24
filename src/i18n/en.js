@@ -257,6 +257,16 @@ export default {
     heading: 'Projects we have built',
     items: [
       {
+        name: 'eConstitucional',
+        year: '2025',
+        type: 'Web platform',
+        tags: ['LegalTech', 'RAG', 'AI'],
+        image: '/portfolio/econstitucional.webp',
+        desc: "Query platform for Bolivia's 2009 Political Constitution with a RAG-based AI assistant. Users browse all 411 articles by category and ask questions in natural language, getting answers grounded directly in the constitutional text.",
+        url: 'https://www.econstitucional.com.bo/',
+        linkLabel: 'Visit site',
+      },
+      {
         name: 'kit-a',
         year: '2025',
         type: 'Web app',

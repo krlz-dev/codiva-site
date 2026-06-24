@@ -270,6 +270,16 @@ export default {
     heading: 'Proyectos que hemos desarrollado',
     items: [
       {
+        name: 'eConstitucional',
+        year: '2025',
+        type: 'Plataforma web',
+        tags: ['LegalTech', 'RAG', 'IA'],
+        image: '/portfolio/econstitucional.webp',
+        desc: 'Plataforma de consulta de la Constitución Política del Estado de Bolivia (2009) con un asistente de IA basado en RAG. Permite explorar los 411 artículos por categorías y hacer preguntas en lenguaje natural, con respuestas fundamentadas directamente en el texto constitucional.',
+        url: 'https://www.econstitucional.com.bo/',
+        linkLabel: 'Visitar sitio',
+      },
+      {
         name: 'kit-a',
         year: '2025',
         type: 'Aplicación web',
