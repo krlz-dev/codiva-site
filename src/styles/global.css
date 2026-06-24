@@ -456,7 +456,7 @@ button {
 
 .team__link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.1rem;
 }
 
@@ -493,6 +493,15 @@ button {
   margin-top: 0.2rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.team__desc {
+  display: block;
+  margin-top: 0.45rem;
+  max-width: 24ch;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--color-text-muted);
 }
 

@@ -15,6 +15,7 @@ const { team } = t;
             <span class="team__info">
               <span class="team__name">{m.name}</span>
               <span class="team__role">{m.role}</span>
+              {m.desc && <span class="team__desc">{m.desc}</span>}
             </span>
           </a>
         </li>

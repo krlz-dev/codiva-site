@@ -136,8 +136,8 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Símbolo de marca',
-    eyebrow: 'Diseño y desarrollo web',
-    subtitle: 'Software · Web · Apps · Servicios',
+    eyebrow: 'Estudio boutique · dúo senior',
+    subtitle: 'Diseño y frontend + ingeniería e IA. Hablas directo con quienes construyen tu producto.',
     ctaPrimary: 'Iniciar proyecto',
     ctaGhost: 'Explorar',
   },
@@ -150,10 +150,10 @@ export default {
 
   about: {
     label: 'Nosotros',
-    headingHtml: 'Creamos experiencias digitales que <em>trascienden</em>',
+    headingHtml: 'Un estudio de dos que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
-      'codiva combina diseño de alto nivel con desarrollo técnico preciso para crear sitios web, aplicaciones, apps móviles y software a medida que funcionan impecablemente.',
-      'Trabajo de forma independiente con startups y empresas que buscan una identidad digital sólida y productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
+      'codiva es un estudio boutique de dos personas senior con roles complementarios: Carlos en ingeniería, arquitectura, backend e IA, y Marina en diseño, UX/UI y frontend. Entre los dos cubrimos diseño, frontend, backend, IA y despliegue sin subcontratar a nadie.',
+      'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Trabajamos con startups y empresas que buscan una identidad digital sólida y productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
     ],
   },
 
@@ -330,10 +330,10 @@ export default {
 
   team: {
     label: 'Equipo',
-    heading: 'Quienes dan vida a los proyectos',
+    heading: 'Dos personas, un producto completo',
     members: [
-      { name: 'Carlos Rojas', role: 'Ingeniero de Software', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de Software' },
-      { name: 'Marina Alekseeva', role: 'Desarrolladora Front-End', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Desarrolladora Front-End' },
+      { name: 'Carlos Rojas', role: 'Ingeniería · IA · Arquitectura', desc: 'Backend, IA/RAG, infraestructura y sistemas distribuidos. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniería, IA y arquitectura' },
+      { name: 'Marina Alekseeva', role: 'Diseño · UX/UI · Frontend', desc: 'Diseño de producto e interfaces. React, Next y Flutter, con portafolio propio.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Diseño, UX/UI y frontend' },
     ],
   },
 

@@ -123,8 +123,8 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Brand symbol',
-    eyebrow: 'Web & software development',
-    subtitle: 'Software · Web · Apps · Services',
+    eyebrow: 'Boutique studio · senior duo',
+    subtitle: 'Design and frontend + engineering and AI. You talk directly with the people building your product.',
     ctaPrimary: 'Start a project',
     ctaGhost: 'Explore',
   },
@@ -137,10 +137,10 @@ export default {
 
   about: {
     label: 'About',
-    headingHtml: 'We create digital experiences that <em>transcend</em>',
+    headingHtml: 'A two-person studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'codiva combines high-end design with precise technical development to build websites, web applications, mobile apps, and custom software that work flawlessly.',
-      'I work independently with startups and companies looking for a strong digital identity and products that feel cared for in every detail, based in Ñuñoa, Santiago, Chile.',
+      'codiva is a boutique studio of two senior people with complementary roles: Carlos on engineering, architecture, backend, and AI, and Marina on design, UX/UI, and frontend. Between the two of us we cover design, frontend, backend, AI, and deployment — without outsourcing anything.',
+      'That means you talk directly with the people building your product, with no middlemen. We work with startups and companies looking for a strong digital identity and products that feel cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
   },
 
@@ -317,10 +317,10 @@ export default {
 
   team: {
     label: 'Team',
-    heading: 'The people behind the projects',
+    heading: 'Two people, one complete product',
     members: [
-      { name: 'Carlos Rojas', role: 'Software Engineer', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software Engineer' },
-      { name: 'Marina Alekseeva', role: 'Front-End Developer', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Front-End Developer' },
+      { name: 'Carlos Rojas', role: 'Engineering · AI · Architecture', desc: 'Backend, AI/RAG, infrastructure, and distributed systems. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Engineering, AI, and architecture' },
+      { name: 'Marina Alekseeva', role: 'Design · UX/UI · Frontend', desc: 'Product and interface design. React, Next, and Flutter, with her own portfolio.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Design, UX/UI, and frontend' },
     ],
   },
 
