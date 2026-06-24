@@ -136,8 +136,8 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Símbolo de marca',
-    eyebrow: 'Estudio boutique · dúo senior',
-    subtitle: 'Diseño y frontend + ingeniería e IA. Hablas directo con quienes construyen tu producto.',
+    eyebrow: 'Dúo senior · end-to-end',
+    subtitle: 'Un dúo senior que construye tu producto completo: diseño, frontend, backend e IA. Sin intermediarios.',
     ctaPrimary: 'Iniciar proyecto',
     ctaGhost: 'Explorar',
   },
