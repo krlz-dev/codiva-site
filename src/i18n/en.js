@@ -328,7 +328,7 @@ export default {
 
   team: {
     label: 'Team',
-    heading: 'Two people, one complete product',
+    heading: 'The people behind',
     members: [
       { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer: Java, Scala, and Angular. AI/RAG, distributed systems, and architecture. Mobile with Flutter. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
       { name: 'Marina Alekseeva', role: 'Design · Frontend · Fullstack JS', desc: 'Frontend-focused software engineer. Product design and UX/UI, fullstack JavaScript and BFF (React/Next). Mobile with Flutter.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },

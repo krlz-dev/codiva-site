@@ -341,7 +341,7 @@ export default {
 
   team: {
     label: 'Equipo',
-    heading: 'Dos personas, un producto completo',
+    heading: 'Las personas detrás',
     members: [
       { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack: Java, Scala y Angular. IA/RAG, sistemas distribuidos y arquitectura. Móvil con Flutter. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
       { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Fullstack JS', desc: 'Ingeniera de software orientada a frontend. Diseño de producto y UX/UI, fullstack JavaScript y BFF (React/Next). Móvil con Flutter.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
