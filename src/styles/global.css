@@ -971,6 +971,88 @@ button {
   gap: 0.7rem;
 }
 
+/* Heading row with an inline "view all" link (homepage teaser). */
+.portfolio__intro-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.portfolio--teaser .portfolio__heading {
+  margin-bottom: 0;
+}
+
+.portfolio--teaser .portfolio__list {
+  margin-top: 3rem;
+}
+
+.portfolio__viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-accent-text);
+  white-space: nowrap;
+  transition: gap var(--duration-fast) ease;
+}
+
+.portfolio__viewall:hover {
+  gap: 0.7rem;
+}
+
+/* Full projects page intro paragraph. */
+.portfolio__intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 64ch;
+  margin: 1.5rem 0 3.5rem;
+}
+
+.portfolio__teaser-cta {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Closing CTA on the full projects page. */
+.portfolio__cta {
+  margin-top: 4rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.portfolio__cta-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+
+/* --- PROJECTS PAGE --- */
+.projects-page {
+  padding-top: clamp(2rem, 5vh, 4rem);
+  min-height: 60vh;
+}
+
+.projects-page .portfolio {
+  padding-top: clamp(2rem, 6vh, 4rem);
+}
+
+/* Intro paragraph supplies the spacing below the page heading. */
+.projects-page .portfolio__heading {
+  margin-bottom: 0;
+}
+
 /* --- PLANS --- */
 .plans {
   padding: var(--section-pad) 0;
@@ -1000,7 +1082,8 @@ button {
   align-items: stretch;
 }
 
-.plan {
+/* Engagement models — lead with the offering and outcome, not a price. */
+.model {
   display: flex;
   flex-direction: column;
   padding: 2.5rem 2rem;
@@ -1010,12 +1093,12 @@ button {
   position: relative;
 }
 
-.plan--featured {
+.model--featured {
   border-color: var(--color-accent);
   box-shadow: 0 0 40px var(--color-accent-glow);
 }
 
-.plan__badge {
+.model__badge {
   position: absolute;
   top: -0.7rem;
   left: 2rem;
@@ -1030,29 +1113,51 @@ button {
   border-radius: 100px;
 }
 
-.plan__name {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+.model__top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
-.plan__price {
-  font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-weight: 700;
+.model__step {
+  color: var(--color-text-dim);
+}
+
+.model__phase {
   color: var(--color-accent-text);
-  letter-spacing: -0.02em;
-  margin: 0.75rem 0 0.35rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--color-border);
 }
 
-.plan__tagline {
-  font-size: 0.9rem;
+.model__name {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Timeline/scope label replaces the old loud price — quiet, secondary. */
+.model__meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  margin: 0.5rem 0 1.25rem;
+}
+
+.model__tagline {
+  font-size: 0.92rem;
+  line-height: 1.65;
   color: var(--color-text-muted);
   margin-bottom: 1.75rem;
 }
 
-.plan__features {
+.model__features {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -1061,7 +1166,7 @@ button {
   flex-grow: 1;
 }
 
-.plan__features li {
+.model__features li {
   font-size: 0.88rem;
   line-height: 1.5;
   color: var(--color-text-muted);
@@ -1069,7 +1174,7 @@ button {
   position: relative;
 }
 
-.plan__features li::before {
+.model__features li::before {
   content: '✓';
   position: absolute;
   left: 0;
@@ -1077,88 +1182,16 @@ button {
   font-weight: 600;
 }
 
-.plan__cta {
+.model__cta {
   width: 100%;
 }
 
-.plan-support {
-  margin-top: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2.5rem;
-  align-items: center;
-  padding: 2.5rem;
-  border: 1px solid var(--color-accent);
-  border-radius: 6px;
-  background: var(--color-accent-dim);
-}
-
-.plan-support__label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-accent-text);
-}
-
-.plan-support__name {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0.4rem 0 0.75rem;
-}
-
-.plan-support__desc {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  max-width: 62ch;
-  margin-bottom: 1.25rem;
-}
-
-.plan-support__features {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-}
-
-.plan-support__features li {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  padding-left: 1.4rem;
-  position: relative;
-}
-
-.plan-support__features li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent-text);
-  font-weight: 600;
-}
-
-.plan-support__cta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.85rem;
-  white-space: nowrap;
-}
-
-.plan-support__price {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-dim);
-}
-
 .plans__note {
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
   color: var(--color-text-dim);
+  max-width: 72ch;
 }
 
 /* --- FAQ --- */
@@ -1436,15 +1469,6 @@ button {
 
   .plans__grid {
     grid-template-columns: 1fr;
-  }
-
-  .plan-support {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .plan-support__cta {
-    width: 100%;
   }
 }
 

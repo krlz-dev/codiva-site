@@ -2,7 +2,6 @@
 const { t } = Astro.props;
 const { plans, contact } = t;
 const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
-const sup = plans.support;
 ---
 
 <section class="plans" id="plans" aria-labelledby="plans-heading">
@@ -12,38 +11,27 @@ const sup = plans.support;
     <p class="plans__intro" data-animate="fade">{plans.intro}</p>
 
     <div class="plans__grid">
-      {plans.tiers.map((tier) => (
-        <article class={`plan${tier.featured ? ' plan--featured' : ''}`} data-animate="fade">
-          {tier.badge && <span class="plan__badge">{tier.badge}</span>}
-          <h3 class="plan__name">{tier.name}</h3>
-          <div class="plan__price">{tier.price}</div>
-          <p class="plan__tagline">{tier.tagline}</p>
-          <ul class="plan__features">
-            {tier.features.map((f) => <li>{f}</li>)}
+      {plans.models.map((m) => (
+        <article class={`model${m.featured ? ' model--featured' : ''}`} data-animate="fade">
+          {m.badge && <span class="model__badge">{m.badge}</span>}
+          <div class="model__top">
+            <span class="model__step">{m.step}</span>
+            <span class="model__phase">{m.phase}</span>
+          </div>
+          <h3 class="model__name">{m.name}</h3>
+          <span class="model__meta">{m.meta}</span>
+          <p class="model__tagline">{m.tagline}</p>
+          <ul class="model__features">
+            {m.features.map((f) => <li>{f}</li>)}
           </ul>
           <a
-            class={`btn ${tier.featured ? 'btn--primary' : 'btn--ghost'} plan__cta`}
-            href={wa(tier.waMessage)}
+            class={`btn ${m.featured ? 'btn--primary' : 'btn--ghost'} model__cta`}
+            href={wa(m.waMessage)}
             target="_blank"
             rel="noopener noreferrer"
-          >{tier.cta}</a>
+          >{m.cta}</a>
         </article>
       ))}
-    </div>
-
-    <div class="plan-support" data-animate="fade">
-      <div class="plan-support__main">
-        <span class="plan-support__label">{sup.label}</span>
-        <h3 class="plan-support__name">{sup.name}</h3>
-        <p class="plan-support__desc">{sup.desc}</p>
-        <ul class="plan-support__features">
-          {sup.features.map((f) => <li>{f}</li>)}
-        </ul>
-      </div>
-      <div class="plan-support__cta">
-        <span class="plan-support__price">{sup.price}</span>
-        <a class="btn btn--primary" href={wa(sup.waMessage)} target="_blank" rel="noopener noreferrer">{sup.cta}</a>
-      </div>
     </div>
 
     <p class="plans__note" data-animate="fade">{plans.note}</p>

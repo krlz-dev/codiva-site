@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 
-const { t } = Astro.props;
+const { t, altEs = 'https://codiva.cl/', altEn = 'https://codiva.cl/en/' } = Astro.props;
 const { meta, schema, htmlLang } = t;
 ---
 
@@ -57,9 +57,9 @@ const { meta, schema, htmlLang } = t;
     <meta name="ICBM" content="-33.4569, -70.5990" />
 
     <!-- Language / Alternate -->
-    <link rel="alternate" hreflang="es" href="https://codiva.cl/" />
-    <link rel="alternate" hreflang="en" href="https://codiva.cl/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://codiva.cl/" />
+    <link rel="alternate" hreflang="es" href={altEs} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altEs} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

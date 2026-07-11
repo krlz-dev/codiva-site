@@ -1,14 +1,31 @@
 ---
-const { t } = Astro.props;
-const { projects } = t;
+const { t, variant = 'full' } = Astro.props;
+const { projects, contact } = t;
+const isTeaser = variant === 'teaser';
+const items = isTeaser ? projects.items.slice(0, 3) : projects.items;
+const heading = isTeaser ? (projects.teaserHeading || projects.heading) : projects.heading;
+const Heading = isTeaser ? 'h2' : 'h1';
+const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
 ---
 
-<section class="portfolio" id="projects" aria-labelledby="portfolio-heading">
+<section class={`portfolio${isTeaser ? ' portfolio--teaser' : ''}`} id="projects" aria-labelledby="portfolio-heading">
   <div class="container">
     <div class="section-label">{projects.label}</div>
-    <h2 class="portfolio__heading" id="portfolio-heading" data-animate="reveal">{projects.heading}</h2>
+    <div class="portfolio__intro-row">
+      <Heading class="portfolio__heading" id="portfolio-heading" data-animate="reveal">{heading}</Heading>
+      {isTeaser && (
+        <a class="portfolio__viewall" href={projects.viewAllHref} data-animate="fade">
+          {projects.viewAll}
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </div>
+    {!isTeaser && projects.intro && (
+      <p class="portfolio__intro" data-animate="fade">{projects.intro}</p>
+    )}
+
     <ul class="portfolio__list">
-      {projects.items.map((p, i) => (
+      {items.map((p, i) => (
         <li class="portfolio__item" data-animate="fade">
           <span class="portfolio__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <div class="portfolio__main">
@@ -51,5 +68,20 @@ const { projects } = t;
         </li>
       ))}
     </ul>
+
+    {isTeaser && (
+      <div class="portfolio__teaser-cta">
+        <a class="btn btn--ghost" href={projects.viewAllHref}>{projects.viewAll}</a>
+      </div>
+    )}
+
+    {!isTeaser && projects.cta && (
+      <div class="portfolio__cta" data-animate="fade">
+        <p class="portfolio__cta-text">{projects.cta.text}</p>
+        <a class="btn btn--primary" href={wa(projects.cta.waMessage)} target="_blank" rel="noopener noreferrer">
+          {projects.cta.label}
+        </a>
+      </div>
+    )}
   </div>
 </section>
