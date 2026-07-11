@@ -198,7 +198,7 @@ export default {
   plans: {
     label: 'Cómo trabajamos',
     heading: 'Una forma de trabajar, no una lista de precios',
-    intro: 'No vendemos sitios por página. Nos asociamos con un número acotado de empresas al año para diseñar y construir el software en el que apoyan su negocio. Cada proyecto lo llevan dos ingenieros senior —sin juniors, sin traspasos, sin equipos rotativos.',
+    intro: 'No vendemos sitios por página. Nos asociamos con un número acotado de empresas al año para diseñar y construir el software en el que apoyan su negocio. Cada proyecto lo llevan las mismas dos personas de principio a fin, sin intermediarios ni traspasos.',
     models: [
       {
         step: '01',
@@ -222,7 +222,7 @@ export default {
         meta: 'Proyecto completo · a medida',
         badge: 'Lo más pedido',
         featured: true,
-        tagline: 'Dos ingenieros senior, embebidos y responsables, llevando tu producto de cero a producción. Diseño, frontend, backend e IA —construido para durar.',
+        tagline: 'Nos integramos a tu equipo y respondemos por el resultado: llevamos tu producto de cero a producción. Diseño, frontend, backend e IA —construido para durar.',
         features: [
           'Diseño de producto y frontend',
           'Backend, APIs e integraciones',
@@ -237,7 +237,7 @@ export default {
         phase: 'Escalar',
         name: 'Alianza Continua',
         meta: 'Colaboración mensual',
-        tagline: 'Para productos ya en marcha: un equipo senior que sigue entregando mes a mes y cuida tu código como propio. Incluye SEO técnico y analítica para que crezcas con datos.',
+        tagline: 'Para productos ya en marcha: seguimos entregando mes a mes y cuidamos tu código como propio. Incluye SEO técnico y analítica para que crezcas con datos.',
         features: [
           'Evolución y nuevas funcionalidades',
           'SEO técnico + Google Analytics 4',
@@ -248,7 +248,7 @@ export default {
         waMessage: 'Hola codiva 👋, me interesa una alianza continua o soporte.',
       },
     ],
-    note: 'Tomamos pocos proyectos a la vez para que cada uno reciba a dos ingenieros senior, no un equipo rotativo. La inversión se define según el alcance —conversemos sin compromiso.',
+    note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin. La inversión se define según el alcance —conversemos sin compromiso.',
   },
 
   projects: {
@@ -267,14 +267,14 @@ export default {
     meta: {
       title: 'Proyectos — Software, Apps y Plataformas a Medida | codiva®',
       description:
-        'Trabajos seleccionados de codiva®: plataformas web, aplicaciones móviles, SaaS y sistemas con IA/RAG diseñados y construidos por dos ingenieros senior en Santiago de Chile.',
+        'Trabajos seleccionados de codiva®: plataformas web, aplicaciones móviles, SaaS y sistemas con IA/RAG diseñados y construidos de principio a fin en Santiago de Chile.',
       keywords:
         'proyectos codiva, portafolio desarrollo software chile, plataformas web, aplicaciones móviles, SaaS, RAG IA, casos de éxito, Santiago Chile',
       canonical: 'https://codiva.cl/proyectos/',
       ogUrl: 'https://codiva.cl/proyectos/',
       ogTitle: 'Proyectos — codiva®',
       ogDescription:
-        'Plataformas web, aplicaciones móviles, SaaS y sistemas con IA construidos por dos ingenieros senior en Santiago de Chile.',
+        'Plataformas web, aplicaciones móviles, SaaS y sistemas con IA construidos de principio a fin en Santiago de Chile.',
       ogLocale: 'es_CL',
       twitterTitle: 'Proyectos — codiva®',
       twitterDescription:

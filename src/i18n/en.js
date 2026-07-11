@@ -185,7 +185,7 @@ export default {
   plans: {
     label: 'How we work',
     heading: 'A way of working, not a price list',
-    intro: "We don't sell websites by the page. We partner with a small number of companies each year to design and build the software they run their business on. Every project is led by two senior engineers — no juniors, no handoffs, no rotating team.",
+    intro: "We don't sell websites by the page. We partner with a small number of companies each year to design and build the software they run their business on. Every project is led by the same two people from start to finish — no middlemen, no handoffs, no rotating team.",
     models: [
       {
         step: '01',
@@ -209,7 +209,7 @@ export default {
         meta: 'Full project · custom',
         badge: 'Most requested',
         featured: true,
-        tagline: 'Two senior engineers, embedded and accountable, taking your product from zero to production. Design, frontend, backend and AI — built to last.',
+        tagline: 'We embed with your team and own the outcome, taking your product from zero to production. Design, frontend, backend and AI — built to last.',
         features: [
           'Product design and frontend',
           'Backend, APIs and integrations',
@@ -224,7 +224,7 @@ export default {
         phase: 'Scale',
         name: 'Ongoing Partnership',
         meta: 'Monthly collaboration',
-        tagline: 'For products already live: a senior team that keeps shipping, month after month, treating your codebase like our own. Includes technical SEO and analytics so you grow with data.',
+        tagline: 'For products already live: we keep shipping, month after month, treating your codebase like our own. Includes technical SEO and analytics so you grow with data.',
         features: [
           'Evolution and new features',
           'Technical SEO + Google Analytics 4',
@@ -235,7 +235,7 @@ export default {
         waMessage: 'Hi codiva 👋, I am interested in an ongoing partnership or support.',
       },
     ],
-    note: "We take on a small number of projects at a time so each one gets two senior engineers, not a rotating team. Investment is defined by scope — let's talk, no commitment.",
+    note: "We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team. Investment is defined by scope — let's talk, no commitment.",
   },
 
   projects: {
@@ -254,14 +254,14 @@ export default {
     meta: {
       title: 'Projects — Custom Software, Apps &amp; Platforms | codiva®',
       description:
-        'Selected work by codiva®: web platforms, mobile apps, SaaS, and AI/RAG systems designed and built by two senior engineers in Santiago, Chile.',
+        'Selected work by codiva®: web platforms, mobile apps, SaaS, and AI/RAG systems designed and built end to end in Santiago, Chile.',
       keywords:
         'codiva projects, software development portfolio chile, web platforms, mobile apps, SaaS, RAG AI, case studies, Santiago Chile',
       canonical: 'https://codiva.cl/en/projects/',
       ogUrl: 'https://codiva.cl/en/projects/',
       ogTitle: 'Projects — codiva®',
       ogDescription:
-        'Web platforms, mobile apps, SaaS, and AI systems built by two senior engineers in Santiago, Chile.',
+        'Web platforms, mobile apps, SaaS, and AI systems built end to end in Santiago, Chile.',
       ogLocale: 'en_US',
       twitterTitle: 'Projects — codiva®',
       twitterDescription:
