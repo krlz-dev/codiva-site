@@ -16,5 +16,13 @@ const { about } = t;
         ))}
       </div>
     </div>
+    {about.capabilities && (
+      <div class="about__capabilities" id="capabilities" data-animate="fade" aria-label={about.capabilitiesLabel}>
+        <span class="about__capabilities-label">{about.capabilitiesLabel}</span>
+        <ul class="about__capabilities-list">
+          {about.capabilities.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+    )}
   </div>
 </section>

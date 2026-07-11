@@ -646,6 +646,44 @@ button {
   margin-bottom: 1.5rem;
 }
 
+/* Compact capability strip — the "what we build" keywords, folded in from
+   the former standalone Services grid. */
+.about__capabilities {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+.about__capabilities-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-text);
+}
+
+.about__capabilities-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about__capabilities-list li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+}
+
 /* --- SUBPAGE NAV (trademark, legal pages) --- */
 .subpage-nav {
   border-bottom: 1px solid var(--color-border);
@@ -737,103 +775,6 @@ button {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   text-align: right;
-}
-
-/* --- SERVICES --- */
-.services {
-  padding: var(--section-pad) 0;
-  background: var(--color-bg-elevated);
-}
-
-.services__heading {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: 4rem;
-}
-
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-}
-
-.service-card {
-  padding: 3rem;
-  border: 1px solid var(--color-border);
-  position: relative;
-  overflow: hidden;
-  transition: background var(--duration-med) var(--ease-out-expo);
-  margin-top: -1px;
-  margin-left: -1px;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-accent-dim), transparent);
-  opacity: 0;
-  transition: opacity var(--duration-med) var(--ease-out-expo);
-}
-
-.service-card:hover::before {
-  opacity: 1;
-}
-
-.service-card:hover {
-  background: var(--color-bg-card);
-}
-
-.service-card__number {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-accent-text);
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.service-card__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  position: relative;
-  transition: color var(--duration-fast) ease;
-}
-
-.service-card:hover .service-card__title {
-  color: var(--color-accent-text);
-}
-
-.service-card__desc {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  position: relative;
-}
-
-.service-card__line {
-  position: absolute;
-  bottom: 0;
-  left: 3rem;
-  right: 3rem;
-  height: 1px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--duration-med) var(--ease-out-expo);
-}
-
-.service-card:hover .service-card__line {
-  transform: scaleX(1);
 }
 
 /* --- PORTFOLIO --- */
@@ -1463,10 +1404,6 @@ button {
     gap: 3rem;
   }
 
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
-
   .plans__grid {
     grid-template-columns: 1fr;
   }
@@ -1538,15 +1475,6 @@ button {
 }
 
 @media (max-width: 480px) {
-  .service-card {
-    padding: 2rem;
-  }
-
-  .service-card__line {
-    left: 2rem;
-    right: 2rem;
-  }
-
   .trademark-page__row {
     flex-direction: column;
     gap: 0.3rem;

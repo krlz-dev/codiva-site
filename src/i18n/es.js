@@ -123,7 +123,6 @@ export default {
     logoAria: 'codiva - Inicio',
     links: [
       { href: '#about', label: 'Nosotros' },
-      { href: '#services', label: 'Servicios' },
       { href: '#plans', label: 'Cómo trabajamos' },
       { href: '/proyectos', label: 'Proyectos' },
       { href: '#faq', label: 'FAQ' },
@@ -156,6 +155,14 @@ export default {
       'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA —Java, Scala, RAG/LLM y sistemas distribuidos—; Marina en diseño de producto y frontend —fullstack JavaScript, React/Next y BFF—. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue sin subcontratar a nadie.',
       'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia —incluyendo SaaS de salud con estándar FHIR y sistemas distribuidos— trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
     ],
+    capabilitiesLabel: 'Qué construimos',
+    capabilities: [
+      'Software a medida',
+      'Aplicaciones web y móviles',
+      'Plataformas y SaaS',
+      'APIs y microservicios',
+      'IA / RAG',
+    ],
   },
 
   trademark: {
@@ -186,17 +193,6 @@ export default {
       { key: 'Organismo', valHtml: 'INAPI — Instituto Nacional de Propiedad Industrial, Chile' },
     ],
     back: '← Volver al inicio',
-  },
-
-  services: {
-    label: 'Servicios',
-    heading: 'Lo que hacemos',
-    cards: [
-      { number: '01', title: 'Diseño y Desarrollo Web', desc: 'Sitios y plataformas web con diseño de alto nivel y código preciso, construidos para durar.' },
-      { number: '02', title: 'Aplicaciones Web &amp; Móviles', desc: 'Apps nativas, PWAs y aplicaciones web complejas con experiencias fluidas en toda plataforma.' },
-      { number: '03', title: 'Software a Medida', desc: 'Sistemas, ERPs, dashboards y soluciones de software personalizadas para tu negocio.' },
-      { number: '04', title: 'APIs &amp; Microservicios', desc: 'Arquitectura escalable, APIs REST/GraphQL, integraciones y servicios cloud.' },
-    ],
   },
 
   plans: {

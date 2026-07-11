@@ -33,18 +33,20 @@ codiva es un estudio boutique de dos ingenieros de software senior. No vendemos 
 - Desarrollo de Producto (proyecto completo a medida): dos ingenieros senior llevan el producto de cero a producción —diseño, frontend, backend e IA.
 - Alianza Continua (colaboración mensual): evolución continua, SEO técnico, analítica y soporte para productos ya en marcha.
 
-## Servicios
+## Qué construimos
 
-- [Diseño y Desarrollo Web](https://codiva.cl/#services): Sitios y plataformas web con diseño de alto nivel y código preciso, construidos para durar
-- [Aplicaciones Web y Móviles](https://codiva.cl/#services): Apps nativas, PWAs y aplicaciones web complejas
-- [Software a Medida](https://codiva.cl/#services): Sistemas, ERPs, dashboards y soluciones personalizadas
-- [APIs y Microservicios](https://codiva.cl/#services): Arquitectura escalable, APIs REST/GraphQL e integraciones
+Capacidades técnicas de codiva ([ver](https://codiva.cl/#capabilities)):
+
+- Software a medida: sistemas, ERPs, dashboards y soluciones personalizadas
+- Aplicaciones web y móviles: apps nativas, PWAs y aplicaciones web complejas
+- Plataformas y SaaS: productos web con diseño de alto nivel y código preciso, construidos para durar
+- APIs y microservicios: arquitectura escalable, APIs REST/GraphQL e integraciones
+- IA / RAG: asistentes y sistemas basados en modelos de lenguaje
 
 ## Páginas
 
 - [Inicio](https://codiva.cl/): Página principal del sitio
-- [Nosotros](https://codiva.cl/#about): Información sobre codiva
-- [Servicios](https://codiva.cl/#services): Catálogo de servicios
+- [Nosotros](https://codiva.cl/#about): El estudio, el equipo y qué construimos
 - [Cómo trabajamos](https://codiva.cl/#plans): Modelos de colaboración (Sprint, Desarrollo, Alianza)
 - [Proyectos](https://codiva.cl/proyectos/): Trabajos seleccionados — plataformas, apps y software a medida
 - [Marca Registrada](https://codiva.cl/marca/): Datos del registro INAPI

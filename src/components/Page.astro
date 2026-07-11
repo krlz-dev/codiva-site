@@ -5,7 +5,6 @@ import Nav from './Nav.astro';
 import Hero from './Hero.astro';
 import Marquee from './Marquee.astro';
 import About from './About.astro';
-import Services from './Services.astro';
 import Plans from './Plans.astro';
 import Portfolio from './Portfolio.astro';
 import Faq from './Faq.astro';
@@ -22,7 +21,6 @@ const { t } = Astro.props;
   <Marquee items={t.marquee1} />
   <main>
     <About t={t} />
-    <Services t={t} />
     <Plans t={t} />
     <Marquee items={t.marquee2} reverse />
     <Portfolio t={t} variant="teaser" />

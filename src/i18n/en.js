@@ -110,7 +110,6 @@ export default {
     logoAria: 'codiva - Home',
     links: [
       { href: '#about', label: 'About' },
-      { href: '#services', label: 'Services' },
       { href: '#plans', label: 'How we work' },
       { href: '/en/projects', label: 'Projects' },
       { href: '#faq', label: 'FAQ' },
@@ -143,6 +142,14 @@ export default {
       'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI — Java, Scala, RAG/LLM, and distributed systems; Marina on product design and frontend — fullstack JavaScript, React/Next, and BFF. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
       'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience — including healthcare SaaS on the FHIR standard and distributed systems — we work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
+    capabilitiesLabel: 'What we build',
+    capabilities: [
+      'Custom software',
+      'Web & mobile apps',
+      'Platforms & SaaS',
+      'APIs & microservices',
+      'AI / RAG',
+    ],
   },
 
   trademark: {
@@ -173,17 +180,6 @@ export default {
       { key: 'Authority', valHtml: 'INAPI — National Institute of Industrial Property, Chile' },
     ],
     back: '← Back to home',
-  },
-
-  services: {
-    label: 'Services',
-    heading: 'What we do',
-    cards: [
-      { number: '01', title: 'Web Design &amp; Development', desc: 'Websites and web platforms with high-end design and precise code, built to last.' },
-      { number: '02', title: 'Web &amp; Mobile Apps', desc: 'Native apps, PWAs, and complex web applications with seamless cross-platform experiences.' },
-      { number: '03', title: 'Custom Software', desc: 'Systems, ERPs, dashboards, and tailored software solutions for your business.' },
-      { number: '04', title: 'APIs &amp; Microservices', desc: 'Scalable architecture, REST/GraphQL APIs, integrations, and cloud services.' },
-    ],
   },
 
   plans: {
