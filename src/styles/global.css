@@ -325,6 +325,10 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Reserve space for the fixed nav (top) and the scroll indicator (bottom)
+     so the vertically-centered content never crowds either on short screens. */
+  padding-top: clamp(6rem, 13vh, 9rem);
+  padding-bottom: clamp(6.5rem, 12vh, 9rem);
 }
 
 .hero__bg {
@@ -357,21 +361,21 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s var(--ease-out-expo) 0.5s forwards;
 }
 
 .hero__logo-wrap {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: scale(0.9);
   animation: logoReveal 1.2s var(--ease-out-expo) 0.2s forwards;
 }
 
 .hero__logo {
-  width: clamp(200px, 30vw, 340px);
+  width: clamp(160px, 22vw, 250px);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -405,7 +409,7 @@ button {
   font-weight: 300;
   color: var(--color-text-muted);
   letter-spacing: 0.02em;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s var(--ease-out-expo) 0.8s forwards;
