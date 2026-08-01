@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Dashboards from '../components/Dashboards.astro';
+import Footer from '../components/Footer.astro';
+import es from '../i18n/es.js';
+
+const db = es.dashboards;
+
+// Page-specific SEO meta + structured data (overrides the homepage shell).
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: db.meta.ogTitle,
+    description: db.meta.description,
+    url: db.meta.canonical,
+    inLanguage: 'es-CL',
+    isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: db.demos.map((demo, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: demo.name,
+          description: demo.blurb,
+          creator: { '@type': 'Organization', name: 'codiva', url: 'https://codiva.cl' },
+        },
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://codiva.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Dashboards', item: db.meta.canonical },
+    ],
+  },
+];
+
+const t = { ...es, meta: db.meta, schema };
+---
+
+<Layout t={t} altEs="https://codiva.cl/dashboards/" altEn="https://codiva.cl/en/dashboards/">
+  <header class="subpage-nav">
+    <div class="container subpage-nav__inner">
+      <a href="/" class="subpage-nav__logo" aria-label={es.nav.logoAria}>codiva<span class="reg">®</span></a>
+      <a href="/" class="subpage-nav__back">{db.back}</a>
+    </div>
+  </header>
+  <main class="dashboards-page">
+    <Dashboards t={es} variant="full" />
+  </main>
+  <Footer t={es} />
+</Layout>
