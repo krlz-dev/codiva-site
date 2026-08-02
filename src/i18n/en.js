@@ -146,8 +146,8 @@ export default {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI — Java, Scala, RAG/LLM, and distributed systems; Marina on product design and frontend — fullstack JavaScript, React/Next, and BFF. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
-      'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience — including healthcare SaaS on the FHIR standard and distributed systems — we work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
+      'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI; Marina on product design and frontend. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
+      'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience, we care for what you rarely see — scalability, performance, availability, security, and maintainability: the attributes that decide whether a product holds up over time. We work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
     ],
     capabilitiesLabel: 'What we build',
     capabilities: [
@@ -155,7 +155,7 @@ export default {
       'Web & mobile apps',
       'Platforms & SaaS',
       'APIs & microservices',
-      'AI / RAG',
+      'Artificial intelligence',
     ],
   },
 
@@ -220,7 +220,7 @@ export default {
         features: [
           'Product design and frontend',
           'Backend, APIs and integrations',
-          'AI / RAG where it adds value',
+          'AI where it adds value',
           'Production-grade code and deployment',
         ],
         cta: 'Tell us about your project',
@@ -786,8 +786,8 @@ export default {
     label: 'Team',
     heading: 'The people behind',
     members: [
-      { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer: Java, Scala, and Angular. AI/RAG, distributed systems, and architecture. Mobile with Flutter. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
-      { name: 'Marina Alekseeva', role: 'Design · Frontend · Fullstack JS', desc: 'Frontend-focused software engineer. Product design and UX/UI, fullstack JavaScript and BFF (React/Next). Mobile with Flutter.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
+      { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer focused on architecture, distributed systems, and AI. Designs for scalability, performance, and security, and works on mobile too. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
+      { name: 'Marina Alekseeva', role: 'Design · Frontend · Product', desc: 'Frontend-focused software engineer and product designer (UX/UI), with a fullstack base. Builds accessible, fast, and maintainable interfaces, and works on mobile too.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
     ],
   },
 

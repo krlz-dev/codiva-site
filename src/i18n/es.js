@@ -159,8 +159,8 @@ export default {
     label: 'Nosotros',
     headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
-      'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA —Java, Scala, RAG/LLM y sistemas distribuidos—; Marina en diseño de producto y frontend —fullstack JavaScript, React/Next y BFF—. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue sin subcontratar a nadie.',
-      'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia —incluyendo SaaS de salud con estándar FHIR y sistemas distribuidos— trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
+      'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA; Marina en diseño de producto y frontend. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar a nadie.',
+      'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia, cuidamos lo que casi nunca se ve —escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad—: los atributos que deciden si un producto aguanta en el tiempo. Trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
     ],
     capabilitiesLabel: 'Qué construimos',
     capabilities: [
@@ -168,7 +168,7 @@ export default {
       'Aplicaciones web y móviles',
       'Plataformas y SaaS',
       'APIs y microservicios',
-      'IA / RAG',
+      'Inteligencia artificial',
     ],
   },
 
@@ -233,7 +233,7 @@ export default {
         features: [
           'Diseño de producto y frontend',
           'Backend, APIs e integraciones',
-          'IA / RAG cuando aporta valor',
+          'IA cuando aporta valor',
           'Código production-grade y despliegue',
         ],
         cta: 'Cuéntanos tu proyecto',
@@ -799,8 +799,8 @@ export default {
     label: 'Equipo',
     heading: 'Las personas detrás',
     members: [
-      { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack: Java, Scala y Angular. IA/RAG, sistemas distribuidos y arquitectura. Móvil con Flutter. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
-      { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Fullstack JS', desc: 'Ingeniera de software orientada a frontend. Diseño de producto y UX/UI, fullstack JavaScript y BFF (React/Next). Móvil con Flutter.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
+      { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack, enfocado en arquitectura, sistemas distribuidos e IA. Diseña pensando en escalabilidad, rendimiento y seguridad, y también trabaja en móvil. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
+      { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Producto', desc: 'Ingeniera de software orientada a frontend y diseño de producto (UX/UI), con base fullstack. Construye interfaces accesibles, rápidas y mantenibles, y también trabaja en móvil.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
     ],
   },
 

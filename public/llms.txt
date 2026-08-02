@@ -40,8 +40,10 @@ Capacidades técnicas de codiva ([ver](https://codiva.cl/#capabilities)):
 - Software a medida: sistemas, ERPs, dashboards y soluciones personalizadas
 - Aplicaciones web y móviles: apps nativas, PWAs y aplicaciones web complejas
 - Plataformas y SaaS: productos web con diseño de alto nivel y código preciso, construidos para durar
-- APIs y microservicios: arquitectura escalable, APIs REST/GraphQL e integraciones
-- IA / RAG: asistentes y sistemas basados en modelos de lenguaje
+- APIs y microservicios: arquitectura escalable, APIs e integraciones
+- Inteligencia artificial: asistentes y automatización con IA
+
+Cuidamos los atributos de calidad que no siempre se ven: escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad.
 
 ## Páginas
 
@@ -49,6 +51,8 @@ Capacidades técnicas de codiva ([ver](https://codiva.cl/#capabilities)):
 - [Nosotros](https://codiva.cl/#about): El estudio, el equipo y qué construimos
 - [Cómo trabajamos](https://codiva.cl/#plans): Modelos de colaboración (Sprint, Desarrollo, Alianza)
 - [Proyectos](https://codiva.cl/proyectos/): Trabajos seleccionados — plataformas, apps y software a medida
+- [Dashboards](https://codiva.cl/dashboards/): Showcase de dashboards y paneles de datos (analítica, ventas, finanzas)
+- [Cómo construimos](https://codiva.cl/como-construimos/): Método e ingeniería — descubrimiento, spec-driven, Atomic Design, micro frontends, arquitectura y seguridad
 - [Marca Registrada](https://codiva.cl/marca/): Datos del registro INAPI
 - [FAQ](https://codiva.cl/#faq): Preguntas frecuentes
 - [Contacto](https://codiva.cl/#contact): Información de contacto
