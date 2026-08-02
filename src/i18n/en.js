@@ -117,7 +117,6 @@ export default {
         children: [
           { href: '/en/projects', label: 'Projects' },
           { href: '/en/dashboards', label: 'Dashboards' },
-          { href: '/en/how-we-build', label: 'How we build' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -244,6 +243,11 @@ export default {
       },
     ],
     note: "We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team. Investment is defined by scope — let's talk, no commitment.",
+    more: {
+      text: 'Behind each phase there is a method. The detail of how we design and build — discovery, specs, components and architecture — lives on its own page.',
+      label: 'See how we build',
+      href: '/en/how-we-build',
+    },
   },
 
   projects: {

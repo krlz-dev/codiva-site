@@ -35,5 +35,12 @@ const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURICo
     </div>
 
     <p class="plans__note" data-animate="fade">{plans.note}</p>
+
+    {plans.more && (
+      <div class="plans__more" data-animate="fade">
+        <p class="plans__more-text">{plans.more.text}</p>
+        <a class="btn btn--ghost" href={plans.more.href}>{plans.more.label} <span aria-hidden="true">→</span></a>
+      </div>
+    )}
   </div>
 </section>

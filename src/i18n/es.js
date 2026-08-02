@@ -130,7 +130,6 @@ export default {
         children: [
           { href: '/proyectos', label: 'Proyectos' },
           { href: '/dashboards', label: 'Dashboards' },
-          { href: '/como-construimos', label: 'Cómo construimos' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -257,6 +256,11 @@ export default {
       },
     ],
     note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin. La inversión se define según el alcance —conversemos sin compromiso.',
+    more: {
+      text: 'Detrás de cada fase hay un método. El detalle de cómo diseñamos y construimos —descubrimiento, specs, componentes y arquitectura— vive en una página aparte.',
+      label: 'Ver cómo construimos',
+      href: '/como-construimos',
+    },
   },
 
   projects: {
