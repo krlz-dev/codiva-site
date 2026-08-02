@@ -1,0 +1,62 @@
+---
+// Client-education section: Spec-Driven Development — the spec as the source of
+// truth that bridges requirements and building. Static, theme-aware; reuses the
+// shared method/arch styles. Content from t.spec.
+const { t } = Astro.props;
+const S = t.spec;
+const check = 'M20 6 9 17l-5-5';
+---
+
+<section class="dashboards spec" aria-labelledby="spec-heading">
+  <div class="container">
+    <div class="section-label">{S.label}</div>
+    <h2 class="dashboards__heading" id="spec-heading" data-animate="reveal">{S.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{S.intro}</p>
+    <blockquote class="spec-quote" data-animate="fade">“{S.quote}”</blockquote>
+
+    <div class="arch__stack">
+      {/* The 7-stage flow */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{S.flowTitle}</h3>
+        <p class="method__lead">{S.flowLead}</p>
+        <ol class="stages">
+          {S.stages.map((st, i) => (
+            <li class="stage">
+              <span class="stage__num">{String(i + 1).padStart(2, '0')}</span>
+              <span>
+                <span class="stage__name">{st.name}</span>
+                <span class="stage__desc">{st.desc}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Why it matters + how teams use it */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{S.whyTitle}</h3>
+        <ul class="dod dod--spaced">
+          {S.why.map((item) => (
+            <li class="dod__item">
+              <svg class="dod__ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="arch__sub">
+          <h4 class="arch__subtitle">{S.practiceTitle}</h4>
+          <p class="method__lead">{S.practiceLead}</p>
+          <div class="chips">
+            {S.chips.map((c) => <span class="chip">{c}</span>)}
+          </div>
+          <p class="spec-caveat">{S.caveat}</p>
+        </div>
+
+        <a class="method__credit" href={S.creditHref} target="_blank" rel="noopener noreferrer">
+          {S.creditPre} <strong>{S.creditLabel}</strong> <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

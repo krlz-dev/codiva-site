@@ -591,6 +591,38 @@ export default {
     },
   },
 
+  spec: {
+    label: 'Spec-Driven Development',
+    heading: 'El spec como fuente de verdad',
+    intro: 'En vez de programar “a ojo” y esperar lo mejor, escribimos primero una especificación precisa de qué debe hacer el sistema. Esa spec es la fuente de verdad; el código es un artefacto que la realiza y se verifica contra ella. Conecta directo con las historias y los criterios de aceptación de la etapa anterior.',
+    quote: 'El spec declara la intención; el código la realiza.',
+    flowTitle: 'El flujo, paso a paso',
+    flowLead: 'Un pipeline claro que lleva de la intención a código verificado — y en cada etapa queda un artefacto revisable.',
+    stages: [
+      { name: 'Constitución', desc: 'Las reglas del proyecto que todos —personas y agentes— respetan.' },
+      { name: 'Especificar', desc: 'La intención y los criterios de aceptación, aún sin decisiones técnicas.' },
+      { name: 'Clarificar', desc: 'Sacar a la luz las ambigüedades antes de planificar.' },
+      { name: 'Planificar', desc: 'La arquitectura y las decisiones técnicas.' },
+      { name: 'Tareas', desc: 'Dividir en ítems pequeños y entregables.' },
+      { name: 'Implementar', desc: 'Construir con verificación en cada paso.' },
+      { name: 'Analizar', desc: 'Cruzar spec ↔ plan ↔ tareas para que todo siga alineado.' },
+    ],
+    whyTitle: 'Por qué te conviene',
+    why: [
+      'El esfuerzo se concentra en definir bien la intención, no en tipear a ciegas.',
+      'Documentación viva: trazabilidad entre lo pedido y lo construido.',
+      'Con requisitos claros, los asistentes de IA aciertan más a la primera.',
+      'La spec perdura y explica el porqué, más allá del código generado.',
+    ],
+    practiceTitle: 'En la práctica',
+    practiceLead: 'El punto medio que adoptan los equipos es “spec-anchored”: la spec y el código evolucionan juntos, con tests automáticos que fuerzan que sigan alineados. Los criterios se escriben sin ambigüedad y cada cambio cita su spec — trazabilidad de punta a punta.',
+    chips: ['Spec como fuente de verdad', 'Criterios sin ambigüedad', 'Tests de alineación', 'Trazabilidad en commits', 'Asistentes de IA guiados'],
+    caveat: 'Y algo honesto: la herramienta impone disciplina, pero no reemplaza el criterio — la spec es justamente donde ahora ocurre el pensar.',
+    creditPre: 'Lectura recomendada',
+    creditLabel: 'Spec-Driven Development in 2026',
+    creditHref: 'https://dev.to/krlz/spec-driven-development-in-2026-what-it-is-the-tooling-and-how-teams-actually-use-it-2fk2',
+  },
+
   methodology: {
     label: 'Cómo lo construimos',
     heading: 'Sistemas, no pantallas',

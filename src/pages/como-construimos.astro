@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Discovery from '../components/Discovery.astro';
+import SpecDriven from '../components/SpecDriven.astro';
 import Methodology from '../components/Methodology.astro';
 import Architecture from '../components/Architecture.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
@@ -59,6 +60,7 @@ const t = { ...es, meta, schema };
   </header>
   <main class="dashboards-page">
     <Discovery t={es} />
+    <SpecDriven t={es} />
     <Methodology t={es} />
     <Architecture t={es} />
     <aside class="related" aria-label={es.dashboards.label}>

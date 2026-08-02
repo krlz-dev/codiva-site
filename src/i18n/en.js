@@ -578,6 +578,38 @@ export default {
     },
   },
 
+  spec: {
+    label: 'Spec-Driven Development',
+    heading: 'The spec as the source of truth',
+    intro: 'Instead of coding “by feel” and hoping for the best, we first write a precise specification of what the system must do. That spec is the source of truth; the code is an artifact that realizes it and is verified against it. It connects directly to the stories and acceptance criteria from the previous stage.',
+    quote: 'The spec declares intent; the code realizes it.',
+    flowTitle: 'The flow, step by step',
+    flowLead: 'A clear pipeline that goes from intent to verified code — and every stage leaves a reviewable artifact.',
+    stages: [
+      { name: 'Constitution', desc: 'The project-wide rules everyone — people and agents — obeys.' },
+      { name: 'Specify', desc: 'The intent and acceptance criteria, with no tech choices yet.' },
+      { name: 'Clarify', desc: 'Surface ambiguities before planning.' },
+      { name: 'Plan', desc: 'The architecture and technical decisions.' },
+      { name: 'Tasks', desc: 'Break it into small, shippable items.' },
+      { name: 'Implement', desc: 'Build with verification at every step.' },
+      { name: 'Analyze', desc: 'Cross-check spec ↔ plan ↔ tasks so everything stays aligned.' },
+    ],
+    whyTitle: 'Why it works for you',
+    why: [
+      'Effort goes into defining intent well, not typing blindly.',
+      'Living documentation: traceability between what was asked and what was built.',
+      'With clear requirements, AI assistants get it right more often on the first try.',
+      'The spec outlives the generated code and explains the why.',
+    ],
+    practiceTitle: 'In practice',
+    practiceLead: 'The middle ground teams adopt is “spec-anchored”: the spec and the code evolve together, with automated tests enforcing that they stay aligned. Criteria are written unambiguously and every change cites its spec — traceability end to end.',
+    chips: ['Spec as source of truth', 'Unambiguous criteria', 'Alignment tests', 'Traceability in commits', 'Guided AI assistants'],
+    caveat: 'And an honest note: tooling enforces discipline but does not replace judgment — the spec is exactly where the thinking now happens.',
+    creditPre: 'Recommended reading',
+    creditLabel: 'Spec-Driven Development in 2026',
+    creditHref: 'https://dev.to/krlz/spec-driven-development-in-2026-what-it-is-the-tooling-and-how-teams-actually-use-it-2fk2',
+  },
+
   methodology: {
     label: 'How we build it',
     heading: 'Systems, not screens',
