@@ -1,0 +1,163 @@
+---
+// Client-education section: the backend / infrastructure engineering behind the
+// dashboards. Data-processing pipeline, vertical vs. horizontal scaling, quality
+// attributes, tech-for-the-problem, a real stack (Docker/K8s/ECS/RDS/Redis) and
+// token-based security. Static, theme-aware, with simple CSS/inline-SVG diagrams.
+const { t } = Astro.props;
+const A = t.architecture;
+const check = 'M20 6 9 17l-5-5';
+---
+
+<section class="dashboards arch" aria-labelledby="arch-heading">
+  <div class="container">
+    <div class="section-label">{A.label}</div>
+    <h2 class="dashboards__heading" id="arch-heading" data-animate="reveal">{A.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{A.intro}</p>
+
+    <div class="arch__stack">
+      {/* ---------------- Data pipeline ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{A.pipeline.title}</h3>
+        <p class="method__lead">{A.pipeline.lead}</p>
+        <div class="flow" role="img" aria-label={A.pipeline.title}>
+          {A.pipeline.nodes.map((n, i) => (
+            <Fragment>
+              <div class={`flow__node${n.scale ? ' flow__node--scale' : ''}`}>
+                <span class="flow__name">{n.name}</span>
+                <span class="flow__sub">{n.sub}</span>
+              </div>
+              {i < A.pipeline.nodes.length - 1 && <span class="flow__arrow" aria-hidden="true">→</span>}
+            </Fragment>
+          ))}
+        </div>
+        <p class="arch__note">{A.pipeline.note}</p>
+      </div>
+
+      {/* ---------------- Scaling ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{A.scaling.title}</h3>
+        <p class="method__lead">{A.scaling.lead}</p>
+        <div class="scale2">
+          <div class="scalecard">
+            <span class="scalecard__tag">{A.scaling.vertical.tag}</span>
+            <div class="scaleviz scaleviz--v" aria-hidden="true">
+              <span class="vbox vbox--s"></span>
+              <span class="scalearrow">→</span>
+              <span class="vbox vbox--l">CPU · RAM</span>
+            </div>
+            <span class="scalecard__t">{A.scaling.vertical.title}</span>
+            <p class="scalecard__d">{A.scaling.vertical.desc}</p>
+          </div>
+          <div class="scalecard">
+            <span class="scalecard__tag scalecard__tag--h">{A.scaling.horizontal.tag}</span>
+            <div class="scaleviz scaleviz--h" aria-hidden="true">
+              <span class="lb">{A.scaling.lbLabel}</span>
+              <span class="hstem"></span>
+              <span class="hrow">
+                <span class="hnode">{A.scaling.nodeLabel}</span>
+                <span class="hnode">{A.scaling.nodeLabel}</span>
+                <span class="hnode">{A.scaling.nodeLabel}</span>
+              </span>
+            </div>
+            <span class="scalecard__t">{A.scaling.horizontal.title}</span>
+            <p class="scalecard__d">{A.scaling.horizontal.desc}</p>
+          </div>
+        </div>
+        <a class="method__credit" href={A.scaling.creditHref} target="_blank" rel="noopener noreferrer">
+          {A.scaling.creditPre} <strong>{A.scaling.creditLabel}</strong> <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      {/* ---------------- Quality attributes + tech choice ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{A.quality.title}</h3>
+        <p class="method__lead">{A.quality.lead}</p>
+        <div class="qgrid">
+          {A.quality.items.map((it) => (
+            <div class="qcard">
+              <span class="qcard__name">{it.name}</span>
+              <span class="qcard__desc">{it.desc}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="arch__sub">
+          <h4 class="arch__subtitle">{A.quality.techTitle}</h4>
+          <p class="method__lead">{A.quality.techLead}</p>
+          <ul class="techlist">
+            {A.quality.tech.map((x) => (
+              <li class="techrow">
+                <span class="techrow__p">{x.problem}</span>
+                <span class="techrow__arrow" aria-hidden="true">→</span>
+                <span class="techrow__t">{x.tool}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a class="method__credit" href={A.quality.creditHref} target="_blank" rel="noopener noreferrer">
+          {A.quality.creditPre} <strong>{A.quality.creditLabel}</strong> <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      {/* ---------------- Stack example ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{A.stack.title}</h3>
+        <p class="method__lead">{A.stack.lead}</p>
+        <div class="tiers" aria-hidden="true">
+          {A.stack.tiers.map((tr, i) => (
+            <Fragment>
+              <div class={`tier${tr.scale ? ' tier--scale' : ''}`}>
+                <div class="tier__main">
+                  <span class="tier__name">{tr.name}</span>
+                  <span class="tier__sub">{tr.sub}</span>
+                </div>
+                {tr.scale && (
+                  <div class="tier__reps"><i></i><i></i><i></i><i></i></div>
+                )}
+                {tr.split && (
+                  <div class="tier__split">
+                    {tr.split.map((s) => <span class="tier__chip">{s}</span>)}
+                  </div>
+                )}
+              </div>
+              {i < A.stack.tiers.length - 1 && <span class="tier__link" aria-hidden="true"></span>}
+            </Fragment>
+          ))}
+        </div>
+        <div class="chips">
+          {A.stack.chips.map((c) => <span class="chip">{c}</span>)}
+        </div>
+        <p class="arch__note">{A.stack.note}</p>
+      </div>
+
+      {/* ---------------- Security ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{A.security.title}</h3>
+        <p class="method__lead">{A.security.lead}</p>
+        <div class="flow flow--sec" role="img" aria-label={A.security.title}>
+          {A.security.flow.map((n, i) => (
+            <Fragment>
+              <div class="flow__node">
+                <span class="flow__name">{n.name}</span>
+                <span class="flow__sub">{n.sub}</span>
+              </div>
+              {i < A.security.flow.length - 1 && <span class="flow__arrow" aria-hidden="true">→</span>}
+            </Fragment>
+          ))}
+        </div>
+        <ul class="mf__benefits arch__techniques">
+          {A.security.techniques.map((tq) => (
+            <li class="mf__benefit">
+              <svg class="mf__benefit-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg>
+              <span>
+                <span class="mf__benefit-title">{tq.name}</span>
+                <span class="mf__benefit-desc">{tq.desc}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

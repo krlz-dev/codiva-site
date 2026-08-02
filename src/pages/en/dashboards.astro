@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Dashboards from '../../components/Dashboards.astro';
 import CaseStudy from '../../components/CaseStudy.astro';
 import Methodology from '../../components/Methodology.astro';
+import Architecture from '../../components/Architecture.astro';
 import Footer from '../../components/Footer.astro';
 import en from '../../i18n/en.js';
 
@@ -55,6 +56,7 @@ const t = { ...en, meta: db.meta, schema };
     <CaseStudy t={en} />
     <Dashboards t={en} variant="full" />
     <Methodology t={en} />
+    <Architecture t={en} />
   </main>
   <Footer t={en} />
 </Layout>
