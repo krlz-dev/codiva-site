@@ -1,0 +1,126 @@
+---
+// Client-education section: how the dashboards above are built.
+// Explains Atomic Design (each level shown with a live specimen from the very
+// components on this page) and Micro Frontends. Static, theme-aware.
+const { t } = Astro.props;
+const m = t.methodology;
+const a = m.atomic;
+const mf = m.micro;
+---
+
+<section class="dashboards method" aria-labelledby="method-heading">
+  <div class="container">
+    <div class="section-label">{m.label}</div>
+    <h2 class="dashboards__heading" id="method-heading" data-animate="reveal">{m.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{m.intro}</p>
+
+    <div class="method__grid">
+      {/* ---------------- Atomic Design ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{a.title}</h3>
+        <p class="method__lead">{a.lead}</p>
+
+        <ol class="atomic">
+          {a.levels.map((lvl, i) => (
+            <li class="atomic__step">
+              <div class="atomic__head">
+                <span class="atomic__num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="atomic__name">{lvl.name}</span>
+              </div>
+              <p class="atomic__desc">{lvl.desc}</p>
+
+              <div class="atomic__specimen" aria-hidden="true">
+                {i === 0 && (
+                  <div class="spx spx--wrap">
+                    <span class="badge badge--paid">Ganado</span>
+                    <span class="tag">Pro</span>
+                    <span class="dchip" data-active="true">Filtro</span>
+                    <span class="spx-input">Buscar…</span>
+                  </div>
+                )}
+                {i === 1 && (
+                  <div class="spx spx--wrap">
+                    <span class="spx-kpi">
+                      <span class="spx-kpi__l">Conversión</span>
+                      <span class="spx-kpi__v">2.4%</span>
+                      <span class="spx-kpi__d">▴ +0.6%</span>
+                    </span>
+                    <span class="spx-search">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                      Buscar cliente…
+                    </span>
+                  </div>
+                )}
+                {i === 2 && (
+                  <div class="spx spx-card">
+                    <span class="spx-card__t">Tráfico por canal</span>
+                    <span class="spx-vbars">
+                      <i style="height:70%"></i><i style="height:45%"></i><i style="height:88%"></i><i style="height:32%"></i><i style="height:60%"></i>
+                    </span>
+                  </div>
+                )}
+                {i === 3 && (
+                  <div class="spx spx-wire">
+                    <span class="spx-wire__kpis"><i></i><i></i><i></i></span>
+                    <span class="spx-wire__big"></span>
+                    <span class="spx-wire__rows"><i></i><i></i><i></i></span>
+                  </div>
+                )}
+                {i === 4 && (
+                  <div class="spx spx-wire spx-wire--filled">
+                    <span class="spx-wire__kpis"><i></i><i></i><i></i></span>
+                    <span class="spx-wire__big">
+                      <svg viewBox="0 0 120 40" preserveAspectRatio="none"><path d="M2 34 C 20 30, 30 22, 46 20 S 78 12, 96 8 L 118 4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                    </span>
+                    <span class="spx-wire__rows"><i></i><i></i><i></i></span>
+                  </div>
+                )}
+              </div>
+
+              <p class="atomic__ex"><span class="atomic__ex-label">{a.specimenLabel}:</span> {lvl.ex}</p>
+            </li>
+          ))}
+        </ol>
+
+        <a class="method__credit" href={a.creditHref} target="_blank" rel="noopener noreferrer">
+          {a.creditPre} <strong>{a.creditName}</strong>
+          <span class="method__credit-url">{a.creditLabel}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      {/* ---------------- Micro Frontends ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{mf.title}</h3>
+        <p class="method__lead">{mf.lead}</p>
+
+        <div class="mf" aria-hidden="true">
+          <div class="mf__shell">
+            <span class="mf__shell-label">{mf.shell}</span>
+            <div class="mf__panels">
+              {mf.panels.map((p) => (
+                <div class="mf__panel">
+                  <span class="mf__panel-dot"></span>
+                  <span class="mf__panel-name">{p}</span>
+                  <span class="mf__panel-note">{mf.panelNote}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <ul class="mf__benefits">
+          {mf.benefits.map((b) => (
+            <li class="mf__benefit">
+              <svg class="mf__benefit-ic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>
+                <span class="mf__benefit-title">{b.title}</span>
+                <span class="mf__benefit-desc">{b.desc}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

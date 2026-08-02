@@ -507,6 +507,41 @@ export default {
     sourceLabels: { search: 'Search', ads: 'Ads', referral: 'Referral', social: 'Social', direct: 'Direct' },
   },
 
+  methodology: {
+    label: 'How we build it',
+    heading: 'Systems, not screens',
+    intro: 'None of the panels above is a loose mockup: each one is composed with Atomic Design and a micro-frontend architecture. It is the same approach we apply to your product so it can grow without becoming unmanageable — and we think understanding it helps you make better decisions.',
+    atomic: {
+      title: 'Atomic Design',
+      lead: "Brad Frost's methodology: the interface is built from minimal, reusable pieces that combine into increasingly complex components. The result is consistency by design, not by discipline — and a system that documents and scales itself.",
+      specimenLabel: 'In these panels',
+      levels: [
+        { name: 'Atoms', desc: 'The indivisible building blocks of the interface.', ex: 'Badges, buttons, filter chips, inputs, tags.' },
+        { name: 'Molecules', desc: 'Small groups of atoms that work as one unit.', ex: 'The KPI tile (label + value + delta) or the search bar.' },
+        { name: 'Organisms', desc: 'Complete, self-contained sections of the interface.', ex: 'The customers table with filters and pagination, or a chart card.' },
+        { name: 'Templates', desc: 'The structure and layout, still without real data.', ex: 'The dashboard grid: where the KPIs, charts and table live.' },
+        { name: 'Pages', desc: 'The template with real content — what your user finally sees.', ex: 'The panels above, now with metrics, statuses and data.' },
+      ],
+      creditPre: 'Methodology by',
+      creditName: 'Brad Frost',
+      creditLabel: 'atomicdesign.bradfrost.com',
+      creditHref: 'https://atomicdesign.bradfrost.com',
+    },
+    micro: {
+      title: 'Micro Frontends',
+      lead: 'Each panel can be an independent application — with its own team, deploy cycle and even its own technology — composed inside a single shell. You scale piece by piece, without rewriting everything at once.',
+      shell: 'Shell / container',
+      panels: ['Analytics', 'Sales', 'Finance'],
+      panelNote: 'independent deploy',
+      benefits: [
+        { title: 'Independent deploys', desc: 'Each team ships its panel without blocking the others.' },
+        { title: 'Domain ownership', desc: 'One team owns its vertical end to end.' },
+        { title: 'Incremental adoption', desc: 'Add or migrate modules without rewriting the app.' },
+        { title: 'Fault isolation', desc: 'If one panel fails, the rest keeps working.' },
+      ],
+    },
+  },
+
   faq: {
     label: 'FAQ',
     heading: 'Frequently asked questions',

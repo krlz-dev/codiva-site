@@ -2370,3 +2370,261 @@ button {
   .case__kpis { grid-template-columns: 1fr 1fr; }
   .dfilters { width: 100%; }
 }
+
+/* ============================================
+   METHODOLOGY — atomic design + micro frontends
+   ============================================ */
+.method__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+.method__block {
+  border: 1px solid var(--color-border);
+  border-radius: var(--dash-radius);
+  background: var(--color-bg-card);
+  padding: clamp(1.25rem, 2.6vw, 2rem);
+}
+.method__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+.method__lead {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* --- Atomic ladder --- */
+.atomic {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.atomic__step {
+  position: relative;
+  padding: 1.15rem 0 1.15rem 0;
+  border-top: 1px solid var(--color-border);
+}
+.atomic__step:first-child { border-top: none; padding-top: 0.25rem; }
+.atomic__head { display: flex; align-items: center; gap: 0.7rem; }
+.atomic__num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border-radius: 6px;
+  padding: 0.18rem 0.42rem;
+  line-height: 1;
+}
+.atomic__name {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+.atomic__desc {
+  margin-top: 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.atomic__specimen {
+  margin: 0.85rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--dash-radius-sm);
+  background: var(--color-bg-elevated);
+}
+.atomic__ex { font-size: 0.8rem; line-height: 1.5; color: var(--color-text-muted); }
+.atomic__ex-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  font-weight: 500;
+}
+
+/* Specimens */
+.spx--wrap { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.spx-input {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  background: var(--color-bg-card);
+}
+.spx-kpi {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--dash-radius-sm);
+  padding: 0.6rem 0.75rem;
+  background: var(--color-bg-card);
+  min-width: 110px;
+}
+.spx-kpi__l { font-size: 0.68rem; color: var(--color-text-muted); }
+.spx-kpi__v { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-heading); line-height: 1.1; }
+.spx-kpi__d { font-family: var(--font-mono); font-size: 0.68rem; color: var(--good); }
+.spx-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  background: var(--color-bg-card);
+}
+.spx-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--dash-radius-sm);
+  padding: 0.7rem 0.85rem;
+  background: var(--color-bg-card);
+}
+.spx-card__t { display: block; font-size: 0.72rem; color: var(--color-text-muted); margin-bottom: 0.55rem; }
+.spx-vbars { display: flex; align-items: flex-end; gap: 0.4rem; height: 46px; }
+.spx-vbars i {
+  flex: 1;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(var(--dash-line), color-mix(in srgb, var(--dash-line) 55%, transparent));
+}
+.spx-wire { display: flex; flex-direction: column; gap: 0.4rem; }
+.spx-wire__kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+.spx-wire__kpis i { height: 22px; border: 1px dashed var(--color-border); border-radius: 5px; }
+.spx-wire__big { height: 46px; border: 1px dashed var(--color-border); border-radius: 5px; display: block; }
+.spx-wire__rows { display: flex; flex-direction: column; gap: 0.3rem; }
+.spx-wire__rows i { height: 9px; border: 1px dashed var(--color-border); border-radius: 3px; }
+.spx-wire--filled .spx-wire__kpis i {
+  border: none;
+  background: var(--color-surface);
+  border-left: 2px solid var(--dash-line);
+}
+.spx-wire--filled .spx-wire__big {
+  border: none;
+  background: var(--color-surface);
+  color: var(--dash-line);
+  padding: 0.35rem 0.5rem;
+}
+.spx-wire--filled .spx-wire__big svg { width: 100%; height: 100%; display: block; }
+.spx-wire--filled .spx-wire__rows i { border: none; background: var(--color-surface); }
+
+.method__credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+  width: 100%;
+  transition: color var(--duration-fast) ease;
+}
+.method__credit strong { color: var(--color-heading); font-weight: 600; }
+.method__credit-url {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-text-dim);
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.method__credit:hover { color: var(--color-accent-text); }
+.method__credit:hover .method__credit-url { border-color: var(--color-accent); color: var(--color-accent-text); }
+
+/* --- Micro frontends diagram --- */
+.mf { margin: 1.75rem 0; }
+.mf__shell {
+  border: 1.5px dashed var(--color-text-dim);
+  border-radius: var(--dash-radius);
+  padding: 0.9rem;
+  position: relative;
+  background: var(--color-bg-elevated);
+}
+.mf__shell-label {
+  position: absolute;
+  top: -0.62rem;
+  left: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  background: var(--color-bg-card);
+  padding: 0 0.45rem;
+}
+.mf__panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-top: 0.35rem; }
+.mf__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--dash-radius-sm);
+  padding: 0.75rem 0.7rem;
+  background: var(--color-bg-card);
+}
+.mf__panel-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--dash-line);
+}
+.mf__panel-name { font-size: 0.82rem; font-weight: 600; color: var(--color-heading); }
+.mf__panel-note {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-dim);
+}
+
+.mf__benefits { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-top: 0.5rem; }
+.mf__benefit { display: flex; gap: 0.65rem; align-items: flex-start; }
+.mf__benefit-ic { flex-shrink: 0; margin-top: 0.15rem; color: var(--color-accent-text); }
+.mf__benefit-title { display: block; font-size: 0.9rem; font-weight: 600; color: var(--color-heading); }
+.mf__benefit-desc { display: block; font-size: 0.84rem; line-height: 1.5; color: var(--color-text-muted); margin-top: 0.1rem; }
+
+@media (max-width: 860px) {
+  .method__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .mf__panels { grid-template-columns: 1fr; }
+}
+
+/* Cross-link from the portfolio to the dashboards showcase */
+.related { padding: 0 0 var(--section-pad); }
+.related__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.related__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-text);
+}
+.related__text {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}

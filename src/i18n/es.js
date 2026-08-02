@@ -520,6 +520,41 @@ export default {
     sourceLabels: { search: 'Búsqueda', ads: 'Anuncios', referral: 'Referido', social: 'Social', direct: 'Directo' },
   },
 
+  methodology: {
+    label: 'Cómo lo construimos',
+    heading: 'Sistemas, no pantallas',
+    intro: 'Ninguno de los paneles de arriba es una maqueta suelta: cada uno se compone con Atomic Design y una arquitectura de micro frontends. Es el mismo enfoque que aplicamos a tu producto para que crezca sin volverse inmanejable — y creemos que entenderlo te ayuda a tomar mejores decisiones.',
+    atomic: {
+      title: 'Atomic Design',
+      lead: 'Metodología de Brad Frost: la interfaz se construye desde piezas mínimas y reutilizables que se combinan en componentes cada vez más complejos. El resultado es consistencia por diseño, no por disciplina, y un sistema que documenta y escala solo.',
+      specimenLabel: 'En estos paneles',
+      levels: [
+        { name: 'Átomos', desc: 'Los ladrillos indivisibles de la interfaz.', ex: 'Insignias, botones, chips de filtro, campos, etiquetas.' },
+        { name: 'Moléculas', desc: 'Grupos pequeños de átomos que funcionan como una unidad.', ex: 'La tarjeta de KPI (etiqueta + valor + variación) o la barra de búsqueda.' },
+        { name: 'Organismos', desc: 'Secciones completas y autónomas de la interfaz.', ex: 'La tabla de clientes con filtros y paginación, o una tarjeta de gráfico.' },
+        { name: 'Plantillas', desc: 'La estructura y disposición, todavía sin datos reales.', ex: 'La grilla del dashboard: dónde viven los KPIs, los gráficos y la tabla.' },
+        { name: 'Páginas', desc: 'La plantilla con contenido real — lo que finalmente ve tu usuario.', ex: 'Los paneles de arriba, ya con métricas, estados y datos.' },
+      ],
+      creditPre: 'Metodología de',
+      creditName: 'Brad Frost',
+      creditLabel: 'atomicdesign.bradfrost.com',
+      creditHref: 'https://atomicdesign.bradfrost.com',
+    },
+    micro: {
+      title: 'Micro Frontends',
+      lead: 'Cada panel puede ser una aplicación independiente —con su propio equipo, su ciclo de despliegue y hasta su propia tecnología— que se compone dentro de un mismo shell. Escalas por partes, sin reescribir todo de una vez.',
+      shell: 'Shell / contenedor',
+      panels: ['Analítica', 'Ventas', 'Finanzas'],
+      panelNote: 'deploy independiente',
+      benefits: [
+        { title: 'Despliegues independientes', desc: 'Cada equipo publica su panel sin bloquear a los demás.' },
+        { title: 'Propiedad por dominio', desc: 'Un equipo es dueño de su vertical de principio a fin.' },
+        { title: 'Adopción incremental', desc: 'Agregas o migras módulos sin reescribir la aplicación.' },
+        { title: 'Aislamiento de fallos', desc: 'Si un panel falla, el resto sigue funcionando.' },
+      ],
+    },
+  },
+
   faq: {
     label: 'Preguntas Frecuentes',
     heading: 'Preguntas frecuentes',

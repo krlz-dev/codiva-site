@@ -55,6 +55,15 @@ const t = { ...es, meta: pr.meta, schema };
   </header>
   <main class="projects-page">
     <Portfolio t={es} variant="full" />
+    <aside class="related" aria-label={es.dashboards.label}>
+      <div class="container related__inner">
+        <div>
+          <span class="related__eyebrow">{es.dashboards.label}</span>
+          <p class="related__text">{es.dashboards.teaserHeading}</p>
+        </div>
+        <a class="btn btn--ghost" href={es.dashboards.viewAllHref}>{es.dashboards.viewAll} ↗</a>
+      </div>
+    </aside>
   </main>
   <Footer t={es} />
 </Layout>
