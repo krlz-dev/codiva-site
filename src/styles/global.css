@@ -227,6 +227,61 @@ button {
   width: 100%;
 }
 
+/* --- Nav dropdown group --- */
+.nav__group { position: relative; display: inline-flex; }
+.nav__grouptrigger { display: inline-flex; align-items: center; gap: 0.3rem; }
+.nav__chev { transition: transform var(--duration-fast) ease; }
+.nav__group:hover .nav__chev,
+.nav__group:focus-within .nav__chev { transform: rotate(180deg); }
+.nav__dropdown {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 22px 44px -26px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease,
+    visibility var(--duration-fast) ease;
+  z-index: 120;
+}
+/* Transparent hover bridge so the gap doesn't drop the hover. */
+.nav__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.7rem;
+  left: 0;
+  right: 0;
+  height: 0.7rem;
+}
+.nav__group:hover .nav__dropdown,
+.nav__group:focus-within .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav__droplink {
+  padding: 0.55rem 0.75rem;
+  border-radius: 9px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+.nav__droplink::after { display: none; }
+.nav__droplink:hover {
+  background: var(--color-surface);
+  color: var(--color-accent-text);
+}
+
 .nav__lang {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -1551,6 +1606,32 @@ button {
   .nav__links .nav__link {
     font-size: 1.5rem;
     color: var(--color-text);
+  }
+
+  /* Group expands inline inside the full-screen mobile menu. */
+  .nav__group {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav__chev { display: none; }
+  .nav__dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    min-width: 0;
+    padding: 0;
+    gap: 0.85rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    align-items: center;
+  }
+  .nav__dropdown::before { display: none; }
+  .nav__links .nav__droplink {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
   }
 
   .nav__burger {

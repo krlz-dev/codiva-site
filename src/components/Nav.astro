@@ -9,7 +9,21 @@ const { nav } = t;
   </div>
   <div class="nav__links" id="navLinks" role="menubar">
     {nav.links.map((l) => (
-      <a href={l.href} class="nav__link" role="menuitem">{l.label}</a>
+      l.children ? (
+        <div class="nav__group">
+          <a href={l.href} class="nav__link nav__grouptrigger" role="menuitem" aria-haspopup="true">
+            {l.label}
+            <svg class="nav__chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </a>
+          <div class="nav__dropdown" role="menu">
+            {l.children.map((c) => (
+              <a href={c.href} class="nav__link nav__droplink" role="menuitem">{c.label}</a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a href={l.href} class="nav__link" role="menuitem">{l.label}</a>
+      )
     ))}
     <a href={nav.langSwitch.href} class="nav__lang" aria-label={nav.langSwitch.aria}>
       {nav.langSwitch.label}
