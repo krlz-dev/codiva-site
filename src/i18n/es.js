@@ -154,7 +154,7 @@ export default {
   marquee2: ['diseño', 'desarrollo', 'identidad digital', 'santiago · chile'],
 
   techLabel: 'Tecnologías que utilizamos',
-  tech: ['Hostinger', 'Docker', 'Java', 'Scala', 'JavaScript', 'Python', 'Google Analytics'],
+  tech: ['Hostinger', 'Contenedores', 'Java', 'Scala', 'JavaScript', 'Python', 'Google Analytics'],
 
   about: {
     label: 'Nosotros',
@@ -622,12 +622,12 @@ export default {
         { name: 'Observabilidad', desc: 'Métricas y logs para ver qué ocurre.' },
       ],
       techTitle: 'Elegir la tecnología correcta para el problema',
-      techLead: 'No existe una herramienta que sirva para todo. Parte del trabajo es emparejar cada problema con la pieza adecuada:',
+      techLead: 'No existe una herramienta que sirva para todo. Emparejamos cada problema con la categoría de tecnología adecuada — y dentro de ella elegimos la mejor opción para tu caso, sin atarnos a una marca:',
       tech: [
-        { problem: 'Datos relacionales y transacciones', tool: 'PostgreSQL' },
-        { problem: 'Caché y baja latencia', tool: 'Redis' },
-        { problem: 'Búsqueda de texto', tool: 'OpenSearch' },
-        { problem: 'Eventos y streaming', tool: 'Kafka' },
+        { problem: 'Datos relacionales y transacciones', tool: 'Base de datos relacional' },
+        { problem: 'Caché y baja latencia', tool: 'Caché en memoria' },
+        { problem: 'Búsqueda de texto', tool: 'Motor de búsqueda' },
+        { problem: 'Eventos y streaming', tool: 'Cola de mensajes / streaming' },
         { problem: 'Archivos y objetos', tool: 'Almacenamiento de objetos' },
       ],
       creditPre: 'Lectura recomendada',

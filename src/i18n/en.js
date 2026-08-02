@@ -141,7 +141,7 @@ export default {
   marquee2: ['design', 'development', 'digital identity', 'santiago · chile'],
 
   techLabel: 'Technologies we use',
-  tech: ['Hostinger', 'Docker', 'Java', 'Scala', 'JavaScript', 'Python', 'Google Analytics'],
+  tech: ['Hostinger', 'Containers', 'Java', 'Scala', 'JavaScript', 'Python', 'Google Analytics'],
 
   about: {
     label: 'About',
@@ -609,12 +609,12 @@ export default {
         { name: 'Observability', desc: 'Metrics and logs to see what happens.' },
       ],
       techTitle: 'Choosing the right technology for the problem',
-      techLead: 'There is no single tool that fits everything. Part of the job is matching each problem to the right piece:',
+      techLead: 'There is no single tool that fits everything. We match each problem to the right category of technology — and within it we pick the best option for your case, without tying ourselves to a brand:',
       tech: [
-        { problem: 'Relational data and transactions', tool: 'PostgreSQL' },
-        { problem: 'Cache and low latency', tool: 'Redis' },
-        { problem: 'Text search', tool: 'OpenSearch' },
-        { problem: 'Events and streaming', tool: 'Kafka' },
+        { problem: 'Relational data and transactions', tool: 'Relational database' },
+        { problem: 'Cache and low latency', tool: 'In-memory cache' },
+        { problem: 'Text search', tool: 'Search engine' },
+        { problem: 'Events and streaming', tool: 'Message queue / streaming' },
         { problem: 'Files and objects', tool: 'Object storage' },
       ],
       creditPre: 'Recommended reading',
