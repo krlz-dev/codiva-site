@@ -1732,6 +1732,44 @@ button {
   padding-top: clamp(2rem, 5vh, 4rem);
   min-height: 60vh;
 }
+
+/* In-page section index (sticky) for the long educational pages */
+.pagenav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+}
+.pagenav__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  height: 52px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pagenav__inner::-webkit-scrollbar { display: none; }
+.pagenav__label {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+}
+.pagenav__links { display: flex; gap: 1.5rem; }
+.pagenav__link {
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: color var(--duration-fast) ease;
+}
+.pagenav__link:hover { color: var(--color-accent-text); }
+/* Offset anchor targets so they don't hide under the sticky index. */
+.disc, .spec, .method, .arch { scroll-margin-top: 68px; }
 .dashboards-page .dashboards {
   padding-top: clamp(2rem, 6vh, 4rem);
 }

@@ -5,7 +5,7 @@
     <loc>https://codiva.cl/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/"/>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
     <loc>https://codiva.cl/en/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/"/>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,7 +21,7 @@
     <loc>https://codiva.cl/proyectos/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/"/>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,9 +29,41 @@
     <loc>https://codiva.cl/en/projects/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/"/>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/dashboards/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/dashboards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/dashboards/"/>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/dashboards/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/dashboards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/dashboards/"/>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/como-construimos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/como-construimos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/how-we-build/"/>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/how-we-build/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/como-construimos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/how-we-build/"/>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://codiva.cl/marca/</loc>

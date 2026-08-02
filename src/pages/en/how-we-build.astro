@@ -11,29 +11,59 @@ import en from '../../i18n/en.js';
 const meta = {
   title: 'How We Build — Engineering, Atomic Design & Architecture | codiva®',
   description:
-    'How codiva® builds software: Atomic Design, micro frontends and design tokens on the frontend; data processing, scaling, quality attributes, a real stack (Docker, Kubernetes, AWS ECS, RDS, Redis) and token-based security.',
+    'How codiva® builds software: discovery and requirements, spec-driven development, Atomic Design, micro frontends and design tokens on the frontend; data processing, scaling, quality attributes, a real cloud stack and token-based security.',
   keywords:
-    'atomic design, micro frontends, design tokens, software architecture, scalability, non-functional requirements, kubernetes, docker, aws ecs, rds, redis, jwt, openid connect, software engineering chile',
+    'atomic design, micro frontends, design tokens, spec-driven development, user stories, acceptance criteria, software architecture, scalability, non-functional requirements, jwt security, openid connect, software engineering chile',
   canonical: 'https://codiva.cl/en/how-we-build/',
   ogUrl: 'https://codiva.cl/en/how-we-build/',
   ogTitle: 'How we build — codiva®',
   ogDescription:
-    'The engineering behind the product: Atomic Design, micro frontends, design tokens, scaling, quality, stack and security.',
+    'The engineering behind the product: discovery, spec-driven, Atomic Design, micro frontends, design tokens, scaling, quality and security.',
   ogLocale: 'en',
   twitterTitle: 'How we build — codiva®',
   twitterDescription:
-    'Atomic Design, micro frontends, scalable architecture and security — explained simply.',
+    'Discovery, specs, Atomic Design, micro frontends, scalable architecture and security — explained simply.',
 };
+
+const sections = [
+  { id: 'discovery', nav: 'Discovery', name: en.discovery.heading, desc: en.discovery.intro },
+  { id: 'spec', nav: 'Spec-Driven', name: en.spec.heading, desc: en.spec.intro },
+  { id: 'methodology', nav: 'Frontend', name: en.methodology.heading, desc: en.methodology.intro },
+  { id: 'architecture', nav: 'Architecture', name: en.architecture.heading, desc: en.architecture.intro },
+];
+const topics = [
+  'Atomic Design', 'Micro Frontends', 'Design Tokens', 'Spec-Driven Development',
+  'User stories', 'Acceptance criteria', 'Scalability',
+  'Non-functional requirements', 'Cloud architecture', 'Token-based security',
+];
+const citations = [
+  { name: en.discovery.acceptance.creditLabel, url: en.discovery.acceptance.creditHref },
+  { name: en.spec.creditLabel, url: en.spec.creditHref },
+  { name: `${en.methodology.atomic.creditLabel} — Brad Frost`, url: en.methodology.atomic.creditHref },
+  { name: en.architecture.scaling.creditLabel, url: en.architecture.scaling.creditHref },
+  { name: en.architecture.quality.creditLabel, url: en.architecture.quality.creditHref },
+];
 
 const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: meta.ogTitle,
+    headline: meta.ogTitle,
     description: meta.description,
     url: meta.canonical,
     inLanguage: 'en',
     isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
+    publisher: { '@type': 'Organization', name: 'codiva', url: 'https://codiva.cl' },
+    keywords: meta.keywords,
+    about: topics.map((name) => ({ '@type': 'DefinedTerm', name })),
+    hasPart: sections.map((s) => ({
+      '@type': 'WebPageElement',
+      name: s.name,
+      description: s.desc,
+      url: `${meta.canonical}#${s.id}`,
+    })),
+    citation: citations.map((c) => ({ '@type': 'CreativeWork', name: c.name, url: c.url })),
   },
   {
     '@context': 'https://schema.org',
@@ -58,6 +88,16 @@ const t = { ...en, meta, schema };
       </div>
     </div>
   </header>
+
+  <nav class="pagenav" aria-label="On this page">
+    <div class="container pagenav__inner">
+      <span class="pagenav__label">On this page</span>
+      <div class="pagenav__links">
+        {sections.map((s) => <a href={`#${s.id}`} class="pagenav__link">{s.nav}</a>)}
+      </div>
+    </div>
+  </nav>
+
   <main class="dashboards-page">
     <Discovery t={en} />
     <SpecDriven t={en} />
