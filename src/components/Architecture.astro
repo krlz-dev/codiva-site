@@ -22,6 +22,7 @@ const cubeTop = 'M3 8l9 5 9-5';
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{A.pipeline.title}</h3>
         <p class="method__lead">{A.pipeline.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{A.youGetLabel}</span>{A.pipeline.youGet}</p>
         <div class="flow" role="img" aria-label={A.pipeline.title}>
           {A.pipeline.nodes.map((n, i) => (
             <Fragment>
@@ -40,6 +41,7 @@ const cubeTop = 'M3 8l9 5 9-5';
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{A.scaling.title}</h3>
         <p class="method__lead">{A.scaling.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{A.youGetLabel}</span>{A.scaling.youGet}</p>
         <div class="scale2">
           <div class="scalecard">
             <span class="scalecard__tag">{A.scaling.vertical.tag}</span>
@@ -75,6 +77,7 @@ const cubeTop = 'M3 8l9 5 9-5';
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{A.quality.title}</h3>
         <p class="method__lead">{A.quality.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{A.youGetLabel}</span>{A.quality.youGet}</p>
         <div class="qgrid">
           {A.quality.items.map((it) => (
             <div class="qcard">
@@ -107,6 +110,7 @@ const cubeTop = 'M3 8l9 5 9-5';
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{A.stack.title}</h3>
         <p class="method__lead">{A.stack.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{A.youGetLabel}</span>{A.stack.youGet}</p>
         <div class="tiers" aria-hidden="true">
           {A.stack.tiers.map((tr, i) => (
             <Fragment>
@@ -152,6 +156,7 @@ const cubeTop = 'M3 8l9 5 9-5';
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{A.security.title}</h3>
         <p class="method__lead">{A.security.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{A.youGetLabel}</span>{A.security.youGet}</p>
         <div class="flow flow--sec" role="img" aria-label={A.security.title}>
           {A.security.flow.map((n, i) => (
             <Fragment>

@@ -475,9 +475,9 @@ export default {
   },
 
   caseStudy: {
-    label: 'Simulated case',
+    label: 'Interactive demo',
     heading: 'Conversion, sales & products',
-    sub: 'An interactive sample panel for an e-commerce/SaaS client: conversion metrics, a sales trend, best-selling products and a customers table with live search, filters, sorting and pagination.',
+    sub: 'A demo panel for a typical e-commerce/SaaS client —with sample data— that you can try live: conversion metrics, a sales trend, best-selling products and a customers table with search, filters, sorting and pagination.',
     kpis: {
       conversion: 'Conversion rate',
       sales: 'Sales',
@@ -582,9 +582,12 @@ export default {
     label: 'How we build it',
     heading: 'Systems, not screens',
     intro: 'None of the panels above is a loose mockup: each one is composed with Atomic Design and a micro-frontend architecture. It is the same approach we apply to your product so it can grow without becoming unmanageable — and we think understanding it helps you make better decisions.',
+    reassure: 'You don’t need to master these technical concepts. Under each one, we sum up in a single line what your product gains.',
+    youGetLabel: 'For you',
     atomic: {
       title: 'Atomic Design',
       lead: "Brad Frost's methodology: the interface is built from minimal, reusable pieces that combine into increasingly complex components. The result is consistency by design, not by discipline — and a system that documents and scales itself.",
+      youGet: 'Faster, cheaper changes: adjust one piece and it updates across the whole product — no inconsistencies.',
       specimenLabel: 'In these panels',
       levels: [
         { name: 'Atoms', desc: 'The indivisible building blocks of the interface.', ex: 'Badges, buttons, filter chips, inputs, tags.' },
@@ -601,6 +604,7 @@ export default {
     micro: {
       title: 'Micro Frontends',
       lead: 'Each panel can be an independent application — with its own team, deploy cycle and even its own technology — composed inside a single shell. You scale piece by piece, without rewriting everything at once.',
+      youGet: 'Your product grows in parts: we add or change modules without slowing the rest or redoing everything.',
       shell: 'Shell / container',
       panels: ['Analytics', 'Sales', 'Finance'],
       panelNote: 'independent deploy',
@@ -614,6 +618,7 @@ export default {
     tokens: {
       title: 'Design Tokens',
       lead: 'The single source of truth for the visual language: color, typography and borders live as variables, not scattered values. They are defined once and propagate everywhere — which is why the same system supports light and dark mode without duplicating design.',
+      youGet: 'A consistent visual identity across the whole product —light and dark mode included— without redoing the design.',
       hint: 'Try the theme switch above and watch these tokens change live.',
       colorLabel: 'Color',
       typeLabel: 'Typography',
@@ -637,9 +642,11 @@ export default {
     label: 'Behind the scenes',
     heading: 'The engineering you don’t see',
     intro: 'A beautiful dashboard is the tip of the iceberg. Underneath sit services that process data, scale on demand and protect your information. This is how we think about that part — the one almost nobody sees, but that decides whether your product holds up when it really matters.',
+    youGetLabel: 'For you',
     pipeline: {
       title: 'Data processing at scale',
       lead: 'Data comes in, gets transformed and is served through a chain of stateless services. Because no step holds information on its own, we can multiply whichever ones are saturated without anything breaking.',
+      youGet: 'It handles more data and more users without downtime: when a peak hits, the system scales itself.',
       nodes: [
         { name: 'Sources', sub: 'apps · IoT · APIs' },
         { name: 'Ingest', sub: 'API / events' },
@@ -653,6 +660,7 @@ export default {
     scaling: {
       title: 'Scaling right: vertical vs. horizontal',
       lead: 'There are two ways to handle more load. Choosing the right one — or combining them — saves money and prevents outages.',
+      youGet: 'You pay for what you need and your product stays up during your busiest moments.',
       vertical: { tag: 'Vertical', title: 'A more powerful machine', desc: 'More CPU and memory on the same server. Simple, but it has a ceiling and a single point of failure.' },
       horizontal: { tag: 'Horizontal', title: 'More identical machines', desc: 'Several instances behind a load balancer. Scales almost without limit and tolerates failures — requires stateless services.' },
       lbLabel: 'Load balancer',
@@ -664,6 +672,7 @@ export default {
     quality: {
       title: 'Quality attributes we care about',
       lead: 'These "non-functional requirements" never show up in a demo, but they are what make a system reliable in production. These are the ones we watch most:',
+      youGet: 'A product that’s reliable day to day: fast, secure and available when your customers use it.',
       items: [
         { name: 'Scalability', desc: 'Grows with demand without a full redesign.' },
         { name: 'Performance', desc: 'Fast responses, even under heavy load.' },
@@ -688,6 +697,7 @@ export default {
     stack: {
       title: 'A cloud, vendor-agnostic stack',
       lead: 'This is what a typical architecture we operate looks like: stateless containers that scale themselves in the cloud, with a managed database and cache. It is vendor-agnostic — the same architecture runs on any cloud, with no lock-in.',
+      youGet: 'No vendor lock-in and no overpaying: the same architecture runs on any cloud.',
       compute: {
         replica: 'Replica',
         more: '+ N',
@@ -705,6 +715,7 @@ export default {
     security: {
       title: 'Token-based security',
       lead: 'Modern authentication avoids storing sessions on the server: the user identifies once and receives a signed token that travels with every request. It fits stateless services perfectly.',
+      youGet: 'Your users’ data protected, with controlled access and current standards.',
       flow: [
         { name: 'User', sub: 'signs in' },
         { name: 'Identity Provider', sub: 'OpenID Connect' },

@@ -2538,6 +2538,39 @@ button {
   color: var(--color-text-muted);
 }
 
+/* Reassurance lead-in under the section intro: "you don't need to master this". */
+.method__reassure {
+  margin-top: 0.85rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--color-accent);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Per-block buyer benefit — translates the technical block into plain value. */
+.method__youget {
+  margin-top: 1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-accent-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-heading);
+}
+.method__youget-label {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  vertical-align: 0.06em;
+}
+
 /* --- Atomic ladder --- */
 .atomic {
   list-style: none;

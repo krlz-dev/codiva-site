@@ -144,7 +144,7 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Símbolo de marca',
-    eyebrow: 'Estudio boutique · end-to-end',
+    eyebrow: 'Estudio boutique · de principio a fin',
     subtitle: 'Construimos tu producto completo: diseño, frontend, backend e IA. Sin intermediarios.',
     ctaPrimary: 'Iniciar proyecto',
     ctaGhost: 'Explorar',
@@ -488,9 +488,9 @@ export default {
   },
 
   caseStudy: {
-    label: 'Caso simulado',
+    label: 'Demo interactivo',
     heading: 'Conversión, ventas y productos',
-    sub: 'Un panel interactivo de ejemplo para un cliente de e-commerce/SaaS: métricas de conversión, tendencia de ventas, productos más vendidos y una tabla de clientes con búsqueda, filtros, ordenamiento y paginación en vivo.',
+    sub: 'Un panel de demostración para un cliente tipo de e-commerce/SaaS —con datos de ejemplo— que puedes probar en vivo: métricas de conversión, tendencia de ventas, productos más vendidos y una tabla de clientes con búsqueda, filtros, ordenamiento y paginación.',
     kpis: {
       conversion: 'Tasa de conversión',
       sales: 'Ventas',
@@ -595,9 +595,12 @@ export default {
     label: 'Cómo lo construimos',
     heading: 'Sistemas, no pantallas',
     intro: 'Ninguno de los paneles de arriba es una maqueta suelta: cada uno se compone con Atomic Design y una arquitectura de micro frontends. Es el mismo enfoque que aplicamos a tu producto para que crezca sin volverse inmanejable — y creemos que entenderlo te ayuda a tomar mejores decisiones.',
+    reassure: 'No necesitas dominar estos conceptos técnicos. Bajo cada uno resumimos, en una línea, lo que gana tu producto.',
+    youGetLabel: 'Para ti',
     atomic: {
       title: 'Atomic Design',
       lead: 'Metodología de Brad Frost: la interfaz se construye desde piezas mínimas y reutilizables que se combinan en componentes cada vez más complejos. El resultado es consistencia por diseño, no por disciplina, y un sistema que documenta y escala solo.',
+      youGet: 'Cambios más rápidos y baratos: se ajusta una pieza y se actualiza en todo el producto, sin inconsistencias.',
       specimenLabel: 'En estos paneles',
       levels: [
         { name: 'Átomos', desc: 'Los ladrillos indivisibles de la interfaz.', ex: 'Insignias, botones, chips de filtro, campos, etiquetas.' },
@@ -614,6 +617,7 @@ export default {
     micro: {
       title: 'Micro Frontends',
       lead: 'Cada panel puede ser una aplicación independiente —con su propio equipo, su ciclo de despliegue y hasta su propia tecnología— que se compone dentro de un mismo shell. Escalas por partes, sin reescribir todo de una vez.',
+      youGet: 'Tu producto crece por partes: agregamos o cambiamos módulos sin frenar el resto ni rehacer todo.',
       shell: 'Shell / contenedor',
       panels: ['Analítica', 'Ventas', 'Finanzas'],
       panelNote: 'deploy independiente',
@@ -627,6 +631,7 @@ export default {
     tokens: {
       title: 'Design Tokens',
       lead: 'La fuente única de verdad del lenguaje visual: color, tipografía y bordes viven como variables, no como valores sueltos. Se definen una vez y se propagan a todo — por eso el mismo sistema soporta modo claro y oscuro sin duplicar el diseño.',
+      youGet: 'Una identidad visual coherente en todo el producto —modo claro y oscuro incluidos— sin rehacer el diseño.',
       hint: 'Prueba el interruptor de tema arriba y observa estos tokens cambiar en vivo.',
       colorLabel: 'Color',
       typeLabel: 'Tipografía',
@@ -650,9 +655,11 @@ export default {
     label: 'Detrás de escena',
     heading: 'La ingeniería que no se ve',
     intro: 'Un dashboard bonito es la punta del iceberg. Debajo hay servicios que procesan datos, escalan bajo demanda y protegen la información. Así pensamos esa parte — la que casi nadie ve, pero que decide si tu producto aguanta cuando de verdad importa.',
+    youGetLabel: 'Para ti',
     pipeline: {
       title: 'Procesamiento de datos a escala',
       lead: 'Los datos entran, se transforman y se sirven a través de una cadena de servicios sin estado (stateless). Como ningún paso guarda información en sí mismo, podemos multiplicar los que estén saturados sin que nada se rompa.',
+      youGet: 'Aguanta más datos y más usuarios sin caídas: cuando llega un peak, el sistema se multiplica solo.',
       nodes: [
         { name: 'Fuentes', sub: 'apps · IoT · APIs' },
         { name: 'Ingesta', sub: 'API / eventos' },
@@ -666,6 +673,7 @@ export default {
     scaling: {
       title: 'Escalar bien: vertical vs. horizontal',
       lead: 'Hay dos formas de aguantar más carga. Elegir la correcta —o combinarlas— ahorra dinero y evita caídas.',
+      youGet: 'Pagas por lo que necesitas y tu producto no se cae en los momentos de más demanda.',
       vertical: { tag: 'Vertical', title: 'Una máquina más potente', desc: 'Más CPU y memoria en el mismo servidor. Simple, pero tiene un techo y un punto único de falla.' },
       horizontal: { tag: 'Horizontal', title: 'Más máquinas iguales', desc: 'Varias instancias detrás de un balanceador. Escala casi sin límite y tolera fallos — requiere servicios sin estado.' },
       lbLabel: 'Balanceador',
@@ -677,6 +685,7 @@ export default {
     quality: {
       title: 'Atributos de calidad que cuidamos',
       lead: 'Los "requisitos no funcionales" no aparecen en una demo, pero son los que hacen que un sistema sea confiable en producción. Estos son los que más miramos:',
+      youGet: 'Un producto confiable en el día a día: rápido, seguro y disponible cuando tus clientes lo usan.',
       items: [
         { name: 'Escalabilidad', desc: 'Crece con la demanda sin rediseñar todo.' },
         { name: 'Rendimiento', desc: 'Respuestas rápidas, incluso con carga alta.' },
@@ -701,6 +710,7 @@ export default {
     stack: {
       title: 'Un stack en la nube, agnóstico',
       lead: 'Así se ve una arquitectura típica que operamos: contenedores sin estado que escalan solos en la nube, con base de datos y caché gestionadas. Es agnóstica al proveedor — la misma arquitectura corre en cualquier nube, sin atarte a un vendor.',
+      youGet: 'Sin quedar amarrado a un proveedor y sin pagar de más: la misma arquitectura corre en cualquier nube.',
       compute: {
         replica: 'Réplica',
         more: '+ N',
@@ -718,6 +728,7 @@ export default {
     security: {
       title: 'Seguridad basada en tokens',
       lead: 'La autenticación moderna evita guardar sesiones en el servidor: el usuario se identifica una vez y recibe un token firmado que viaja en cada petición. Encaja perfecto con servicios sin estado.',
+      youGet: 'Los datos de tus usuarios protegidos, con accesos controlados y estándares actuales.',
       flow: [
         { name: 'Usuario', sub: 'inicia sesión' },
         { name: 'Identity Provider', sub: 'OpenID Connect' },

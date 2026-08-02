@@ -20,12 +20,14 @@ const tk = m.tokens;
       </div>
     </div>
     <p class="dashboards__intro" data-animate="fade">{m.intro}</p>
+    <p class="method__reassure" data-animate="fade">{m.reassure}</p>
 
     <div class="method__grid">
       {/* ---------------- Atomic Design ---------------- */}
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{a.title}</h3>
         <p class="method__lead">{a.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{m.youGetLabel}</span>{a.youGet}</p>
 
         <ol class="atomic">
           {a.levels.map((lvl, i) => (
@@ -101,6 +103,7 @@ const tk = m.tokens;
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{mf.title}</h3>
         <p class="method__lead">{mf.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{m.youGetLabel}</span>{mf.youGet}</p>
 
         <div class="mf" aria-hidden="true">
           <div class="mf__shell">
@@ -134,6 +137,7 @@ const tk = m.tokens;
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{tk.title}</h3>
         <p class="method__lead">{tk.lead}</p>
+        <p class="method__youget"><span class="method__youget-label">{m.youGetLabel}</span>{tk.youGet}</p>
 
         <div class="tokens">
           <div class="tokens__group">
