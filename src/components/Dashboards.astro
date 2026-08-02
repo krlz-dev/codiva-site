@@ -247,10 +247,10 @@ const donutOf = (items) => {
                         <tbody>
                           {demo.orders.rows.map((r) => (
                             <tr>
-                              <td class="mono">{r.id}</td>
-                              <td>{r.customer}</td>
-                              <td class="ta-r mono">{r.total}</td>
-                              <td class="ta-r"><span class={`badge badge--${r.status}`}>{demo.statusLabels[r.status]}</span></td>
+                              <td class="mono" data-label={demo.orders.cols.id}>{r.id}</td>
+                              <td data-label={demo.orders.cols.customer}>{r.customer}</td>
+                              <td class="ta-r mono" data-label={demo.orders.cols.total}>{r.total}</td>
+                              <td class="ta-r" data-label={demo.orders.cols.status}><span class={`badge badge--${r.status}`}>{demo.statusLabels[r.status]}</span></td>
                             </tr>
                           ))}
                         </tbody>
@@ -314,10 +314,10 @@ const donutOf = (items) => {
                         <tbody>
                           {demo.tx.rows.map((r) => (
                             <tr>
-                              <td>{r.name}</td>
-                              <td class="dim">{r.date}</td>
-                              <td class={`ta-r mono amt amt--${r.dir}`}>{r.amount}</td>
-                              <td class="ta-r"><span class={`badge badge--${r.status}`}>{demo.statusLabels[r.status]}</span></td>
+                              <td data-label={demo.tx.cols.name}>{r.name}</td>
+                              <td class="dim" data-label={demo.tx.cols.date}>{r.date}</td>
+                              <td class={`ta-r mono amt amt--${r.dir}`} data-label={demo.tx.cols.amount}>{r.amount}</td>
+                              <td class="ta-r" data-label={demo.tx.cols.status}><span class={`badge badge--${r.status}`}>{demo.statusLabels[r.status]}</span></td>
                             </tr>
                           ))}
                         </tbody>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Dashboards from '../components/Dashboards.astro';
+import CaseStudy from '../components/CaseStudy.astro';
 import Footer from '../components/Footer.astro';
 import es from '../i18n/es.js';
 
@@ -51,6 +52,7 @@ const t = { ...es, meta: db.meta, schema };
     </div>
   </header>
   <main class="dashboards-page">
+    <CaseStudy t={es} />
     <Dashboards t={es} variant="full" />
   </main>
   <Footer t={es} />

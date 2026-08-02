@@ -1,0 +1,313 @@
+---
+// Interactive "simulated client case" dashboard — conversion, sales & products.
+// Charts are static build-time SVG; the customers table is progressively
+// enhanced with vanilla JS for search, status filters, column sorting and
+// pagination. Without JS it still renders every row (accessible fallback).
+const { t } = Astro.props;
+const c = t.caseStudy;
+
+// --- SVG helpers (shared geometry) ---
+const CW = 640, CH = 150, PAD = 8, BASE = CH - PAD;
+const scale = (data) => {
+  const max = Math.max(...data);
+  const min = Math.min(0, Math.min(...data));
+  const span = max - min || 1;
+  const step = (CW - PAD * 2) / (data.length - 1);
+  return data.map((v, i) => ({ x: PAD + i * step, y: PAD + (CH - PAD * 2) * (1 - (v - min) / span) }));
+};
+const smooth = (pts) => {
+  let dd = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+  for (let i = 1; i < pts.length; i++) {
+    const p0 = pts[i - 1], p1 = pts[i], mx = (p0.x + p1.x) / 2;
+    dd += ` C ${mx.toFixed(1)} ${p0.y.toFixed(1)}, ${mx.toFixed(1)} ${p1.y.toFixed(1)}, ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`;
+  }
+  return dd;
+};
+const areaOf = (pts) => `${smooth(pts)} L ${pts[pts.length - 1].x.toFixed(1)} ${BASE} L ${pts[0].x.toFixed(1)} ${BASE} Z`;
+
+// --- Simulated data (locale-neutral, mapped to localized labels) ---
+const kpis = [
+  { key: 'conversion', value: '2.4%', delta: '+0.6%', dir: 'pos' },
+  { key: 'sales', value: '$128.4k', delta: '+8.2%', dir: 'pos' },
+  { key: 'customers', value: '1,180', delta: '+4.5%', dir: 'pos' },
+  { key: 'aov', value: '$109', delta: '+3.1%', dir: 'pos' },
+];
+const salesData = [32, 35, 34, 38, 41, 45, 44, 49, 52, 55, 58, 63];
+const salesLabels = ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+const funnelValues = [48200, 12800, 3400, 1180];
+const funnelMax = funnelValues[0];
+const products = [
+  { label: 'Plan Pro', v: 100, val: '$52.4k' },
+  { label: 'Plan Enterprise', v: 73, val: '$38.1k' },
+  { label: 'Add-on Analytics', v: 37, val: '$19.6k' },
+  { label: 'Plan Starter', v: 24, val: '$12.3k' },
+  { label: 'Soporte Premium', v: 16, val: '$8.7k' },
+];
+
+// Customers table dataset. status -> badge class: won=paid, pending=pending, lost=failed.
+const badgeClass = { won: 'paid', pending: 'pending', lost: 'failed' };
+const clients = [
+  { name: 'Lucía Fuentes', source: 'search', plan: 'pro', amount: 1890, status: 'won' },
+  { name: 'Diego Rojas', source: 'ads', plan: 'starter', amount: 74, status: 'pending' },
+  { name: 'Camila Soto', source: 'referral', plan: 'enterprise', amount: 3120, status: 'won' },
+  { name: 'Martín Vera', source: 'social', plan: 'starter', amount: 58, status: 'lost' },
+  { name: 'Valentina Díaz', source: 'search', plan: 'pro', amount: 1490, status: 'won' },
+  { name: 'Joaquín Muñoz', source: 'direct', plan: 'pro', amount: 980, status: 'pending' },
+  { name: 'Isidora Castro', source: 'referral', plan: 'enterprise', amount: 4260, status: 'won' },
+  { name: 'Benjamín Rojas', source: 'ads', plan: 'starter', amount: 129, status: 'won' },
+  { name: 'Antonia Silva', source: 'search', plan: 'pro', amount: 1740, status: 'won' },
+  { name: 'Matías Torres', source: 'social', plan: 'starter', amount: 49, status: 'lost' },
+  { name: 'Florencia Pérez', source: 'direct', plan: 'enterprise', amount: 2890, status: 'won' },
+  { name: 'Sebastián Vera', source: 'ads', plan: 'pro', amount: 1120, status: 'pending' },
+  { name: 'Josefa Morales', source: 'referral', plan: 'pro', amount: 1560, status: 'won' },
+  { name: 'Tomás Herrera', source: 'search', plan: 'starter', amount: 88, status: 'won' },
+  { name: 'Emilia Navarro', source: 'social', plan: 'enterprise', amount: 3980, status: 'won' },
+  { name: 'Vicente Araya', source: 'ads', plan: 'starter', amount: 62, status: 'lost' },
+  { name: 'Catalina Reyes', source: 'direct', plan: 'pro', amount: 1340, status: 'won' },
+  { name: 'Agustín Flores', source: 'search', plan: 'pro', amount: 1015, status: 'pending' },
+  { name: 'Fernanda Cortés', source: 'referral', plan: 'enterprise', amount: 5120, status: 'won' },
+  { name: 'Ignacio Bravo', source: 'ads', plan: 'starter', amount: 143, status: 'won' },
+  { name: 'Sofía Méndez', source: 'search', plan: 'pro', amount: 1680, status: 'won' },
+  { name: 'Nicolás Vega', source: 'social', plan: 'starter', amount: 51, status: 'lost' },
+  { name: 'Renata Gómez', source: 'direct', plan: 'enterprise', amount: 3450, status: 'won' },
+  { name: 'Cristóbal Núñez', source: 'ads', plan: 'pro', amount: 1290, status: 'pending' },
+  { name: 'Amanda Rivas', source: 'referral', plan: 'pro', amount: 1610, status: 'won' },
+  { name: 'Felipe Salazar', source: 'search', plan: 'starter', amount: 96, status: 'won' },
+  { name: 'Trinidad Fuentes', source: 'social', plan: 'enterprise', amount: 4020, status: 'won' },
+  { name: 'Maximiliano Ortiz', source: 'ads', plan: 'starter', amount: 71, status: 'lost' },
+];
+const fmt = (n) => '$' + n.toLocaleString('en-US');
+const statusKeys = ['won', 'pending', 'lost'];
+const planLabels = { starter: 'Starter', pro: 'Pro', enterprise: 'Enterprise' };
+---
+
+<section class="dashboards case" aria-labelledby="case-heading">
+  <div class="container">
+    <div class="section-label">{c.label}</div>
+    <h2 class="dashboards__heading" id="case-heading" data-animate="reveal">{c.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{c.sub}</p>
+
+    <div class="case__panel" data-case data-showing={c.table.showing} data-of={c.table.of} data-page={c.table.page} data-animate="fade">
+      {/* KPI row */}
+      <div class="case__kpis">
+        {kpis.map((k) => (
+          <div class="kpi">
+            <span class="kpi__label">{c.kpis[k.key]}</span>
+            <span class="kpi__value">{k.value}</span>
+            <span class={`kpi__delta kpi__delta--${k.dir}`}>
+              <span aria-hidden="true">▴</span>{k.delta}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Charts row */}
+      <div class="case__charts">
+        <div class="card card--sales">
+          <div class="card__head">
+            <div>
+              <span class="card__title">{c.charts.salesTitle}</span>
+              <span class="card__sub">{c.charts.salesSub}</span>
+            </div>
+            <span class="card__note card__note--pos">+8.2%</span>
+          </div>
+          <svg class="chart" viewBox={`0 0 ${CW} ${CH}`} preserveAspectRatio="none" role="img" aria-label={c.charts.salesTitle}>
+            <defs>
+              <linearGradient id="grad-case" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" class="chart__g0" />
+                <stop offset="100%" class="chart__g1" />
+              </linearGradient>
+            </defs>
+            <path d={areaOf(scale(salesData))} fill="url(#grad-case)" />
+            <path d={smooth(scale(salesData))} class="chart__line" fill="none" />
+          </svg>
+          <div class="chart__axis">
+            {salesLabels.map((l) => <span>{l}</span>)}
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card__title">{c.charts.funnelTitle}</span>
+          <ul class="funnel">
+            {c.funnel.map((label, i) => (
+              <li class="funnel__row">
+                <span class="funnel__label">{label}</span>
+                <span class="funnel__track">
+                  <span class="funnel__fill" style={`width:${Math.round((funnelValues[i] / funnelMax) * 100)}%`}></span>
+                </span>
+                <span class="funnel__val">
+                  {funnelValues[i].toLocaleString('en-US')}
+                  <b>{Math.round((funnelValues[i] / funnelMax) * 100)}%</b>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Products */}
+      <div class="card card--products">
+        <div class="card__head">
+          <span class="card__title">{c.charts.productsTitle}</span>
+          <span class="card__note">{c.charts.productsCol}</span>
+        </div>
+        <ul class="hbars">
+          {products.map((p) => (
+            <li class="hbar">
+              <span class="hbar__label">{p.label}</span>
+              <span class="hbar__track"><span class="hbar__fill" style={`width:${p.v}%`}></span></span>
+              <span class="hbar__val">{p.val}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Interactive table */}
+      <div class="card card--table">
+        <div class="dtoolbar">
+          <span class="card__title">{c.table.title}</span>
+          <div class="dtoolbar__controls">
+            <div class="dsearch">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="search" data-case-search placeholder={c.table.search} aria-label={c.table.searchAria} />
+            </div>
+            <div class="dfilters" role="group" aria-label={c.table.filterLabel}>
+              <button type="button" class="dchip" data-case-filter="all" data-active="true">{c.table.all}</button>
+              {statusKeys.map((s) => (
+                <button type="button" class="dchip" data-case-filter={s} data-active="false">{c.statusLabels[s]}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="dtable-wrap">
+          <table class="dtable dtable--interactive">
+            <thead>
+              <tr>
+                <th><button type="button" class="dsort" data-case-sort="name" aria-sort="none">{c.table.cols.name}<span class="dsort__ic" aria-hidden="true"></span></button></th>
+                <th>{c.table.cols.source}</th>
+                <th>{c.table.cols.plan}</th>
+                <th class="ta-r"><button type="button" class="dsort dsort--r" data-case-sort="amount" aria-sort="descending" data-active="true" data-dir="desc">{c.table.cols.amount}<span class="dsort__ic" aria-hidden="true"></span></button></th>
+                <th class="ta-r">{c.table.cols.status}</th>
+              </tr>
+            </thead>
+            <tbody data-case-body>
+              {clients.map((r) => (
+                <tr data-name={r.name.toLowerCase()} data-amount={r.amount} data-status={r.status}>
+                  <td data-label={c.table.cols.name} class="strong">{r.name}</td>
+                  <td data-label={c.table.cols.source} class="dim">{c.sourceLabels[r.source]}</td>
+                  <td data-label={c.table.cols.plan}><span class="tag">{planLabels[r.plan]}</span></td>
+                  <td data-label={c.table.cols.amount} class="ta-r mono">{fmt(r.amount)}</td>
+                  <td data-label={c.table.cols.status} class="ta-r"><span class={`badge badge--${badgeClass[r.status]}`}>{c.statusLabels[r.status]}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p class="dempty" data-case-empty hidden>{c.table.empty}</p>
+        </div>
+
+        <div class="dpager">
+          <span class="dpager__info" data-case-info></span>
+          <div class="dpager__nav">
+            <label class="dpager__per">
+              <select data-case-perpage aria-label={c.table.perPage}>
+                <option value="6">6</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              <span>{c.table.perPage}</span>
+            </label>
+            <div class="dpager__btns">
+              <button type="button" class="dpbtn" data-case-prev>{c.table.prev}</button>
+              <span class="dpager__pages" data-case-pages></span>
+              <button type="button" class="dpbtn" data-case-next>{c.table.next}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Progressive enhancement for the customers table: filter, sort, paginate.
+  const root = document.querySelector('[data-case]');
+  if (root) {
+    const tbody = root.querySelector('[data-case-body]');
+    const allRows = Array.from(tbody.querySelectorAll('tr'));
+    const searchEl = root.querySelector('[data-case-search]');
+    const filterBtns = Array.from(root.querySelectorAll('[data-case-filter]'));
+    const sortBtns = Array.from(root.querySelectorAll('[data-case-sort]'));
+    const perPageEl = root.querySelector('[data-case-perpage]');
+    const prevEl = root.querySelector('[data-case-prev]');
+    const nextEl = root.querySelector('[data-case-next]');
+    const infoEl = root.querySelector('[data-case-info]');
+    const pagesEl = root.querySelector('[data-case-pages]');
+    const emptyEl = root.querySelector('[data-case-empty]');
+    const S = { showing: root.dataset.showing || 'Showing', of: root.dataset.of || 'of' };
+
+    const state = { q: '', status: 'all', sortKey: 'amount', sortDir: 'desc', page: 1, perPage: parseInt(perPageEl?.value || '6', 10) };
+
+    const filtered = () =>
+      allRows
+        .filter((r) => (state.status === 'all' || r.dataset.status === state.status) && (!state.q || r.dataset.name.includes(state.q)))
+        .sort((a, b) => {
+          let av, bv;
+          if (state.sortKey === 'amount') { av = +a.dataset.amount; bv = +b.dataset.amount; }
+          else { av = a.dataset.name; bv = b.dataset.name; }
+          if (av < bv) return state.sortDir === 'asc' ? -1 : 1;
+          if (av > bv) return state.sortDir === 'asc' ? 1 : -1;
+          return 0;
+        });
+
+    const render = () => {
+      const rows = filtered();
+      const total = rows.length;
+      const per = state.perPage;
+      const pages = Math.max(1, Math.ceil(total / per));
+      if (state.page > pages) state.page = pages;
+      const start = (state.page - 1) * per;
+      const end = Math.min(start + per, total);
+
+      // Reorder the DOM so the visible page reflects the sort, then hide the rest.
+      allRows.forEach((r) => { r.style.display = 'none'; });
+      rows.slice(start, end).forEach((r) => { r.style.display = ''; tbody.appendChild(r); });
+
+      if (infoEl) infoEl.textContent = total ? `${S.showing} ${start + 1}–${end} ${S.of} ${total}` : '';
+      if (emptyEl) emptyEl.hidden = total > 0;
+      if (prevEl) prevEl.disabled = state.page <= 1;
+      if (nextEl) nextEl.disabled = state.page >= pages;
+      if (pagesEl) pagesEl.textContent = `${state.page} / ${pages}`;
+
+      sortBtns.forEach((b) => {
+        const active = b.dataset.caseSort === state.sortKey;
+        b.dataset.active = active ? 'true' : 'false';
+        b.dataset.dir = active ? state.sortDir : '';
+        b.setAttribute('aria-sort', active ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
+      });
+    };
+
+    searchEl?.addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); state.page = 1; render(); });
+    filterBtns.forEach((b) =>
+      b.addEventListener('click', () => {
+        state.status = b.dataset.caseFilter;
+        state.page = 1;
+        filterBtns.forEach((x) => { x.dataset.active = x === b ? 'true' : 'false'; });
+        render();
+      })
+    );
+    sortBtns.forEach((b) =>
+      b.addEventListener('click', () => {
+        const k = b.dataset.caseSort;
+        if (state.sortKey === k) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+        else { state.sortKey = k; state.sortDir = k === 'name' ? 'asc' : 'desc'; }
+        render();
+      })
+    );
+    perPageEl?.addEventListener('change', (e) => { state.perPage = parseInt(e.target.value, 10) || 6; state.page = 1; render(); });
+    prevEl?.addEventListener('click', () => { if (state.page > 1) { state.page--; render(); } });
+    nextEl?.addEventListener('click', () => { state.page++; render(); });
+
+    render();
+  }
+</script>
