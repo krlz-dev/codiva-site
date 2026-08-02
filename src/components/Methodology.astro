@@ -6,6 +6,7 @@ const { t } = Astro.props;
 const m = t.methodology;
 const a = m.atomic;
 const mf = m.micro;
+const tk = m.tokens;
 ---
 
 <section class="dashboards method" aria-labelledby="method-heading">
@@ -89,6 +90,7 @@ const mf = m.micro;
         </a>
       </div>
 
+      <div class="method__col">
       {/* ---------------- Micro Frontends ---------------- */}
       <div class="method__block" data-animate="fade">
         <h3 class="method__title">{mf.title}</h3>
@@ -120,6 +122,54 @@ const mf = m.micro;
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* ---------------- Design Tokens ---------------- */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{tk.title}</h3>
+        <p class="method__lead">{tk.lead}</p>
+
+        <div class="tokens">
+          <div class="tokens__group">
+            <span class="tokens__label">{tk.colorLabel}</span>
+            <div class="tokens__swatches">
+              {tk.swatches.map((s) => (
+                <div class="swatch">
+                  <span class="swatch__chip" style={`background: var(${s.ref})`} aria-hidden="true"></span>
+                  <span class="swatch__name">{s.name}</span>
+                  <span class="swatch__ref">{s.ref}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="tokens__group">
+            <span class="tokens__label">{tk.typeLabel}</span>
+            <div class="tokens__fonts">
+              {tk.fonts.map((f) => (
+                <div class="tfont">
+                  <span class={`tfont__sample tfont__sample--${f.cls}`} aria-hidden="true">{f.sample}</span>
+                  <span class="tfont__meta">
+                    <span class="tfont__name">{f.name}</span>
+                    <span class="tfont__role">{f.role}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="tokens__group">
+            <span class="tokens__label">{tk.radiusLabel}</span>
+            <div class="tokens__radii" aria-hidden="true">
+              <span class="tradius tradius--sm"></span>
+              <span class="tradius tradius--md"></span>
+              <span class="tradius tradius--pill"></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="tokens__hint">{tk.hint}</p>
+      </div>
       </div>
     </div>
   </div>

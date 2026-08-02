@@ -553,6 +553,26 @@ export default {
         { title: 'Aislamiento de fallos', desc: 'Si un panel falla, el resto sigue funcionando.' },
       ],
     },
+    tokens: {
+      title: 'Design Tokens',
+      lead: 'La fuente única de verdad del lenguaje visual: color, tipografía y bordes viven como variables, no como valores sueltos. Se definen una vez y se propagan a todo — por eso el mismo sistema soporta modo claro y oscuro sin duplicar el diseño.',
+      hint: 'Prueba el interruptor de tema arriba y observa estos tokens cambiar en vivo.',
+      colorLabel: 'Color',
+      typeLabel: 'Tipografía',
+      radiusLabel: 'Bordes y radios',
+      swatches: [
+        { name: 'Acento', ref: '--color-accent' },
+        { name: 'Texto', ref: '--color-heading' },
+        { name: 'Superficie', ref: '--color-surface' },
+        { name: 'Éxito', ref: '--good' },
+        { name: 'Alerta', ref: '--warn' },
+        { name: 'Error', ref: '--bad' },
+      ],
+      fonts: [
+        { name: 'IBM Plex Sans', role: 'Display · Texto', sample: 'Ag', cls: 'sans' },
+        { name: 'IBM Plex Mono', role: 'Datos · Código', sample: '012', cls: 'mono' },
+      ],
+    },
   },
 
   faq: {

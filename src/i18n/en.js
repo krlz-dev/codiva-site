@@ -540,6 +540,26 @@ export default {
         { title: 'Fault isolation', desc: 'If one panel fails, the rest keeps working.' },
       ],
     },
+    tokens: {
+      title: 'Design Tokens',
+      lead: 'The single source of truth for the visual language: color, typography and borders live as variables, not scattered values. They are defined once and propagate everywhere — which is why the same system supports light and dark mode without duplicating design.',
+      hint: 'Try the theme switch above and watch these tokens change live.',
+      colorLabel: 'Color',
+      typeLabel: 'Typography',
+      radiusLabel: 'Borders & radii',
+      swatches: [
+        { name: 'Accent', ref: '--color-accent' },
+        { name: 'Text', ref: '--color-heading' },
+        { name: 'Surface', ref: '--color-surface' },
+        { name: 'Success', ref: '--good' },
+        { name: 'Warning', ref: '--warn' },
+        { name: 'Error', ref: '--bad' },
+      ],
+      fonts: [
+        { name: 'IBM Plex Sans', role: 'Display · Text', sample: 'Ag', cls: 'sans' },
+        { name: 'IBM Plex Mono', role: 'Data · Code', sample: '012', cls: 'mono' },
+      ],
+    },
   },
 
   faq: {
