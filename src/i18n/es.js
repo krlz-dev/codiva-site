@@ -701,6 +701,12 @@ export default {
     stack: {
       title: 'Un stack en la nube, agnóstico',
       lead: 'Así se ve una arquitectura típica que operamos: contenedores sin estado que escalan solos en la nube, con base de datos y caché gestionadas. Es agnóstica al proveedor — la misma arquitectura corre en cualquier nube, sin atarte a un vendor.',
+      compute: {
+        replica: 'Réplica',
+        more: '+ N',
+        moreHint: 'autoescala',
+        caption: 'Cada contenedor es una copia idéntica y sin estado: cualquiera atiende cualquier petición. Cuando sube el tráfico, el orquestador agrega más réplicas solo; cuando baja, las quita.',
+      },
       tiers: [
         { name: 'Balanceador / CDN', sub: 'entrada + TLS' },
         { name: 'Cómputo · contenedores', sub: 'stateless · autoescala', scale: true },

@@ -6,6 +6,9 @@
 const { t } = Astro.props;
 const A = t.architecture;
 const check = 'M20 6 9 17l-5-5';
+// Simple container/box glyph for the compute replicas.
+const cube = 'M21 8 12 3 3 8v8l9 5 9-5z';
+const cubeTop = 'M3 8l9 5 9-5';
 ---
 
 <section class="dashboards arch" aria-labelledby="arch-heading">
@@ -113,7 +116,21 @@ const check = 'M20 6 9 17l-5-5';
                   <span class="tier__sub">{tr.sub}</span>
                 </div>
                 {tr.scale && (
-                  <div class="tier__reps"><i></i><i></i><i></i><i></i></div>
+                  <Fragment>
+                    <div class="pods">
+                      {[0, 1, 2].map(() => (
+                        <div class="pod">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={cube} /><path d={cubeTop} /><path d="M12 13v8" /></svg>
+                          <span class="pod__label">{A.stack.compute.replica}</span>
+                        </div>
+                      ))}
+                      <div class="pod pod--ghost">
+                        <span class="pod__plus">{A.stack.compute.more}</span>
+                        <span class="pod__hint">{A.stack.compute.moreHint}</span>
+                      </div>
+                    </div>
+                    <p class="tier__caption">{A.stack.compute.caption}</p>
+                  </Fragment>
                 )}
                 {tr.split && (
                   <div class="tier__split">

@@ -2976,12 +2976,35 @@ button {
 .tier__main { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .tier__name { font-weight: 600; font-size: 0.92rem; color: var(--color-heading); }
 .tier__sub { font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-text-dim); }
-.tier__reps { display: flex; gap: 0.4rem; margin-top: 0.65rem; }
-.tier__reps i {
+/* Compute replicas — labeled container pods + an autoscale ghost */
+.pods { display: flex; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap; }
+.pod {
   flex: 1;
-  height: 22px;
-  border-radius: 5px;
-  background: linear-gradient(var(--dash-line), color-mix(in srgb, var(--dash-line) 55%, transparent));
+  min-width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.65rem 0.4rem;
+  border-radius: 8px;
+  color: var(--color-on-accent);
+  background: linear-gradient(var(--dash-line), color-mix(in srgb, var(--dash-line) 60%, transparent));
+}
+.pod__label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.01em; }
+.pod--ghost {
+  background: transparent;
+  border: 1px dashed var(--dash-line);
+  color: var(--color-accent-text);
+  gap: 0.1rem;
+}
+.pod__plus { font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem; }
+.pod__hint { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.85; }
+.tier__caption {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
 }
 .tier__split { display: flex; gap: 0.5rem; margin-top: 0.65rem; flex-wrap: wrap; }
 .tier__chip {

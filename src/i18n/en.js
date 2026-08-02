@@ -688,6 +688,12 @@ export default {
     stack: {
       title: 'A cloud, vendor-agnostic stack',
       lead: 'This is what a typical architecture we operate looks like: stateless containers that scale themselves in the cloud, with a managed database and cache. It is vendor-agnostic — the same architecture runs on any cloud, with no lock-in.',
+      compute: {
+        replica: 'Replica',
+        more: '+ N',
+        moreHint: 'autoscales',
+        caption: 'Each container is an identical, stateless copy: any one can serve any request. When traffic rises, the orchestrator adds more replicas on its own; when it drops, it removes them.',
+      },
       tiers: [
         { name: 'Load balancer / CDN', sub: 'entry + TLS' },
         { name: 'Compute · containers', sub: 'stateless · autoscaling', scale: true },
