@@ -1,0 +1,120 @@
+---
+// Client-education section: requirements acquisition & how we communicate during
+// the process — the discovery flow, personas, user stories and acceptance
+// criteria. Static, theme-aware. Reuses the shared method/flow styles.
+const { t } = Astro.props;
+const D = t.discovery;
+const check = 'M20 6 9 17l-5-5';
+---
+
+<section class="dashboards disc" aria-labelledby="disc-heading">
+  <div class="container">
+    <div class="section-label">{D.label}</div>
+    <h2 class="dashboards__heading" id="disc-heading" data-animate="reveal">{D.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{D.intro}</p>
+
+    <div class="arch__stack">
+      {/* Process / communication flow */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{D.flow.title}</h3>
+        <p class="method__lead">{D.flow.lead}</p>
+        <div class="flow" role="img" aria-label={D.flow.title}>
+          {D.flow.nodes.map((n, i) => (
+            <Fragment>
+              <div class="flow__node">
+                <span class="flow__name">{n.name}</span>
+                <span class="flow__sub">{n.sub}</span>
+              </div>
+              {i < D.flow.nodes.length - 1 && <span class="flow__arrow" aria-hidden="true">→</span>}
+            </Fragment>
+          ))}
+        </div>
+        <p class="arch__note">{D.flow.note}</p>
+      </div>
+
+      {/* Personas */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{D.personas.title}</h3>
+        <p class="method__lead">{D.personas.lead}</p>
+        <div class="personas-grid">
+          {D.personas.items.map((p) => (
+            <div class="persona">
+              <div class="persona__head">
+                <span class="persona__avatar" aria-hidden="true">{p.initial}</span>
+                <span>
+                  <span class="persona__name">{p.name}</span>
+                  <span class="persona__role">{p.role}</span>
+                </span>
+              </div>
+              <p class="persona__line"><span class="persona__label">{D.personas.goalLabel}</span>{p.goal}</p>
+              <p class="persona__line"><span class="persona__label">{D.personas.painLabel}</span>{p.pain}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* User stories */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{D.story.title}</h3>
+        <p class="method__lead">{D.story.lead}</p>
+        <div class="story-grid">
+          <div class="story-card">
+            <span class="story-card__label">{D.story.templateLabel}</span>
+            <ul class="gwt">
+              {D.story.template.map((r) => (
+                <li class="gwt__row">
+                  <span class="gwt__key">{r.k}</span>
+                  <span class="gwt__val gwt__val--hint">{r.v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="story-card story-card--accent">
+            <span class="story-card__label">{D.story.exampleLabel}</span>
+            <ul class="gwt">
+              {D.story.example.map((r) => (
+                <li class="gwt__row">
+                  <span class="gwt__key">{r.k}</span>
+                  <span class="gwt__val">{r.v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Acceptance criteria + definition of done */}
+      <div class="method__block" data-animate="fade">
+        <h3 class="method__title">{D.acceptance.title}</h3>
+        <p class="method__lead">{D.acceptance.lead}</p>
+        <div class="story-grid">
+          <div class="story-card story-card--accent">
+            <span class="story-card__label">{D.acceptance.exampleLabel}</span>
+            <ul class="gwt">
+              {D.acceptance.example.map((r) => (
+                <li class="gwt__row">
+                  <span class="gwt__key">{r.k}</span>
+                  <span class="gwt__val">{r.v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="story-card">
+            <span class="story-card__label">{D.acceptance.dodTitle}</span>
+            <ul class="dod">
+              {D.acceptance.dod.map((item) => (
+                <li class="dod__item">
+                  <svg class="dod__ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <a class="method__credit" href={D.acceptance.creditHref} target="_blank" rel="noopener noreferrer">
+          {D.acceptance.creditPre} <strong>{D.acceptance.creditLabel}</strong> <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

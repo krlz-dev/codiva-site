@@ -527,6 +527,70 @@ export default {
     sourceLabels: { search: 'Búsqueda', ads: 'Anuncios', referral: 'Referido', social: 'Social', direct: 'Directo' },
   },
 
+  discovery: {
+    label: 'Descubrimiento',
+    heading: 'Primero entender, luego construir',
+    intro: 'Antes de escribir código alineamos qué problema resolvemos y para quién. Traducimos tus ideas a un lenguaje compartido —personas, historias de usuario y criterios de aceptación— para que sepas exactamente qué vas a recibir y cómo comunicamos el avance en cada paso.',
+    flow: {
+      title: 'Cómo comunicamos durante el proceso',
+      lead: 'Un flujo simple y transparente, de la idea a algo funcionando, con puntos claros de revisión contigo.',
+      nodes: [
+        { name: 'Descubrimiento', sub: 'objetivos · alcance' },
+        { name: 'Personas', sub: 'para quién' },
+        { name: 'Historias', sub: 'qué necesita' },
+        { name: 'Criterios', sub: 'cuándo está listo' },
+        { name: 'Demos e iteración', sub: 'validamos contigo' },
+      ],
+      note: 'En cada etapa compartimos entregables concretos y revisamos contigo — sin sorpresas al final.',
+    },
+    personas: {
+      title: 'Personas',
+      lead: 'Una persona es un usuario tipo con nombre, objetivos y frustraciones. Nos mantiene enfocados en gente real, no en “el usuario” abstracto.',
+      goalLabel: 'Quiere',
+      painLabel: 'Le frustra',
+      items: [
+        { initial: 'V', name: 'Valentina', role: 'Gerenta de operaciones', goal: 'ver las métricas clave de un vistazo para decidir rápido.', pain: 'exportar planillas y armar reportes a mano cada semana.' },
+        { initial: 'M', name: 'Matías', role: 'Analista', goal: 'filtrar y cruzar datos sin depender de TI.', pain: 'esperar días por un reporte que además cambia seguido.' },
+      ],
+    },
+    story: {
+      title: 'Historias de usuario',
+      lead: 'Cada necesidad se escribe como una historia corta, en el idioma del usuario y no en jerga técnica. El formato mantiene el foco en el valor:',
+      templateLabel: 'Formato',
+      exampleLabel: 'Ejemplo',
+      template: [
+        { k: 'Como', v: 'una persona' },
+        { k: 'quiero', v: 'una acción' },
+        { k: 'para', v: 'un beneficio' },
+      ],
+      example: [
+        { k: 'Como', v: 'gerenta de operaciones,' },
+        { k: 'quiero', v: 'filtrar las ventas por región y período,' },
+        { k: 'para', v: 'detectar caídas a tiempo y reaccionar.' },
+      ],
+    },
+    acceptance: {
+      title: 'Criterios de aceptación',
+      lead: 'Definen cuándo una historia está “lista”, sin ambigüedad. Usamos el formato Dado / Cuando / Entonces para describir el comportamiento esperado:',
+      exampleLabel: 'Ejemplo',
+      example: [
+        { k: 'Dado', v: 'que tengo ventas de varias regiones,' },
+        { k: 'Cuando', v: 'filtro por una región y un período,' },
+        { k: 'Entonces', v: 'la tabla y los gráficos muestran solo esos datos y el total se recalcula.' },
+      ],
+      dodTitle: 'Definición de “listo”',
+      dod: [
+        'Cumple todos los criterios de aceptación',
+        'Funciona en móvil y escritorio',
+        'Probado y revisado contigo',
+        'Accesible y con buen rendimiento',
+      ],
+      creditPre: 'Lectura recomendada',
+      creditLabel: 'User story & acceptance criteria',
+      creditHref: 'https://thestory.is/en/journal/user-story-acceptance-criteria/',
+    },
+  },
+
   methodology: {
     label: 'Cómo lo construimos',
     heading: 'Sistemas, no pantallas',

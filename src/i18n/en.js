@@ -514,6 +514,70 @@ export default {
     sourceLabels: { search: 'Search', ads: 'Ads', referral: 'Referral', social: 'Social', direct: 'Direct' },
   },
 
+  discovery: {
+    label: 'Discovery',
+    heading: 'Understand first, then build',
+    intro: 'Before writing any code we align on what problem we are solving and for whom. We translate your ideas into a shared language — personas, user stories and acceptance criteria — so you know exactly what you will get and how we communicate progress at every step.',
+    flow: {
+      title: 'How we communicate during the process',
+      lead: 'A simple, transparent flow from idea to something working, with clear review points with you.',
+      nodes: [
+        { name: 'Discovery', sub: 'goals · scope' },
+        { name: 'Personas', sub: 'who for' },
+        { name: 'Stories', sub: 'what they need' },
+        { name: 'Criteria', sub: 'when it is done' },
+        { name: 'Demos & iteration', sub: 'we validate with you' },
+      ],
+      note: 'At each stage we share concrete deliverables and review them with you — no surprises at the end.',
+    },
+    personas: {
+      title: 'Personas',
+      lead: 'A persona is a representative user with a name, goals and frustrations. It keeps us focused on real people, not an abstract “the user”.',
+      goalLabel: 'Wants',
+      painLabel: 'Frustrated by',
+      items: [
+        { initial: 'V', name: 'Valentina', role: 'Operations manager', goal: 'to see key metrics at a glance and decide fast.', pain: 'exporting spreadsheets and building reports by hand every week.' },
+        { initial: 'M', name: 'Matías', role: 'Analyst', goal: 'to filter and cross-reference data without depending on IT.', pain: 'waiting days for a report that keeps changing.' },
+      ],
+    },
+    story: {
+      title: 'User stories',
+      lead: 'Each need is written as a short story, in the user’s language rather than technical jargon. The format keeps the focus on value:',
+      templateLabel: 'Format',
+      exampleLabel: 'Example',
+      template: [
+        { k: 'As', v: 'a persona' },
+        { k: 'I want', v: 'an action' },
+        { k: 'so that', v: 'a benefit' },
+      ],
+      example: [
+        { k: 'As', v: 'an operations manager,' },
+        { k: 'I want', v: 'to filter sales by region and period,' },
+        { k: 'so that', v: 'I can spot drops in time and react.' },
+      ],
+    },
+    acceptance: {
+      title: 'Acceptance criteria',
+      lead: 'They define when a story is “done”, without ambiguity. We use the Given / When / Then format to describe the expected behavior:',
+      exampleLabel: 'Example',
+      example: [
+        { k: 'Given', v: 'I have sales from several regions,' },
+        { k: 'When', v: 'I filter by a region and a period,' },
+        { k: 'Then', v: 'the table and charts show only that data and the total recalculates.' },
+      ],
+      dodTitle: 'Definition of “done”',
+      dod: [
+        'Meets all acceptance criteria',
+        'Works on mobile and desktop',
+        'Tested and reviewed with you',
+        'Accessible and performant',
+      ],
+      creditPre: 'Recommended reading',
+      creditLabel: 'User story & acceptance criteria',
+      creditHref: 'https://thestory.is/en/journal/user-story-acceptance-criteria/',
+    },
+  },
+
   methodology: {
     label: 'How we build it',
     heading: 'Systems, not screens',
