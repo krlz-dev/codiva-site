@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Methodology from '../components/Methodology.astro';
+import Architecture from '../components/Architecture.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Footer from '../components/Footer.astro';
+import es from '../i18n/es.js';
+
+const meta = {
+  title: 'Cómo construimos — Ingeniería, Atomic Design y Arquitectura | codiva®',
+  description:
+    'Cómo codiva® construye software: Atomic Design, micro frontends y design tokens en el frontend; procesamiento de datos, escalado, atributos de calidad, un stack real (Docker, Kubernetes, AWS ECS, RDS, Redis) y seguridad basada en tokens.',
+  keywords:
+    'atomic design, micro frontends, design tokens, arquitectura de software, escalabilidad, requisitos no funcionales, kubernetes, docker, aws ecs, rds, redis, jwt, openid connect, ingeniería de software chile',
+  canonical: 'https://codiva.cl/como-construimos/',
+  ogUrl: 'https://codiva.cl/como-construimos/',
+  ogTitle: 'Cómo construimos — codiva®',
+  ogDescription:
+    'La ingeniería detrás del producto: Atomic Design, micro frontends, design tokens, escalado, calidad, stack y seguridad.',
+  ogLocale: 'es_CL',
+  twitterTitle: 'Cómo construimos — codiva®',
+  twitterDescription:
+    'Atomic Design, micro frontends, arquitectura escalable y seguridad — explicado simple.',
+};
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: meta.ogTitle,
+    description: meta.description,
+    url: meta.canonical,
+    inLanguage: 'es-CL',
+    isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://codiva.cl/' },
+      { '@type': 'ListItem', position: 2, name: 'Cómo construimos', item: meta.canonical },
+    ],
+  },
+];
+
+const t = { ...es, meta, schema };
+---
+
+<Layout t={t} altEs="https://codiva.cl/como-construimos/" altEn="https://codiva.cl/en/how-we-build/">
+  <header class="subpage-nav">
+    <div class="container subpage-nav__inner">
+      <a href="/" class="subpage-nav__logo" aria-label={es.nav.logoAria}>codiva<span class="reg">®</span></a>
+      <div class="subpage-nav__actions">
+        <ThemeToggle variant="icon" t={es} />
+        <a href="/" class="subpage-nav__back">{es.dashboards.back}</a>
+      </div>
+    </div>
+  </header>
+  <main class="dashboards-page">
+    <Methodology t={es} />
+    <Architecture t={es} />
+    <aside class="related" aria-label={es.dashboards.label}>
+      <div class="container related__inner">
+        <div>
+          <span class="related__eyebrow">{es.dashboards.label}</span>
+          <p class="related__text">{es.dashboards.teaserHeading}</p>
+        </div>
+        <a class="btn btn--ghost" href="/dashboards">{es.dashboards.viewAll} ↗</a>
+      </div>
+    </aside>
+  </main>
+  <Footer t={es} />
+</Layout>

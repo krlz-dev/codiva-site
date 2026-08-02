@@ -279,6 +279,57 @@ button {
   display: block;
 }
 
+/* --- Reusable theme toggle (shared with .js-theme-toggle) --- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease,
+    background var(--duration-fast) ease;
+}
+.theme-toggle--icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+.theme-toggle--icon:hover {
+  color: var(--color-accent-text);
+  border-color: var(--color-accent);
+}
+.theme-toggle--inline {
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+}
+.theme-toggle--inline:hover {
+  color: var(--color-accent-text);
+  border-color: var(--color-accent);
+}
+.theme-toggle__icon { display: none; }
+.theme-toggle__moon { display: block; }
+[data-theme='dark'] .theme-toggle__moon { display: none; }
+[data-theme='dark'] .theme-toggle__sun { display: block; }
+.theme-toggle__label { white-space: nowrap; }
+
+/* Subpage header: right-aligned actions (toggle + back) */
+.subpage-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Inline theme toggle sitting in a section intro row */
+.dashboards__toggle { flex-shrink: 0; margin-bottom: 0.4rem; }
+
 /* Hero logo: charcoal variant for light, lime variant for dark.
    Compound selectors keep specificity above the base .hero__logo { display: block }. */
 .hero__logo.hero__logo--dark {

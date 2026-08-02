@@ -2,6 +2,7 @@
 // Client-education section: how the dashboards above are built.
 // Explains Atomic Design (each level shown with a live specimen from the very
 // components on this page) and Micro Frontends. Static, theme-aware.
+import ThemeToggle from './ThemeToggle.astro';
 const { t } = Astro.props;
 const m = t.methodology;
 const a = m.atomic;
@@ -12,7 +13,12 @@ const tk = m.tokens;
 <section class="dashboards method" aria-labelledby="method-heading">
   <div class="container">
     <div class="section-label">{m.label}</div>
-    <h2 class="dashboards__heading" id="method-heading" data-animate="reveal">{m.heading}</h2>
+    <div class="dashboards__intro-row">
+      <h2 class="dashboards__heading" id="method-heading" data-animate="reveal">{m.heading}</h2>
+      <div class="dashboards__toggle" data-animate="fade">
+        <ThemeToggle variant="inline" t={t} />
+      </div>
+    </div>
     <p class="dashboards__intro" data-animate="fade">{m.intro}</p>
 
     <div class="method__grid">

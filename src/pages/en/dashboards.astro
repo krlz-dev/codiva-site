@@ -2,8 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Dashboards from '../../components/Dashboards.astro';
 import CaseStudy from '../../components/CaseStudy.astro';
-import Methodology from '../../components/Methodology.astro';
-import Architecture from '../../components/Architecture.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 import Footer from '../../components/Footer.astro';
 import en from '../../i18n/en.js';
 
@@ -49,14 +48,24 @@ const t = { ...en, meta: db.meta, schema };
   <header class="subpage-nav">
     <div class="container subpage-nav__inner">
       <a href="/en/" class="subpage-nav__logo" aria-label={en.nav.logoAria}>codiva<span class="reg">®</span></a>
-      <a href="/en/" class="subpage-nav__back">{db.back}</a>
+      <div class="subpage-nav__actions">
+        <ThemeToggle variant="icon" t={en} />
+        <a href="/en/" class="subpage-nav__back">{db.back}</a>
+      </div>
     </div>
   </header>
   <main class="dashboards-page">
     <CaseStudy t={en} />
     <Dashboards t={en} variant="full" />
-    <Methodology t={en} />
-    <Architecture t={en} />
+    <aside class="related" aria-label={en.methodology.label}>
+      <div class="container related__inner">
+        <div>
+          <span class="related__eyebrow">{en.methodology.label}</span>
+          <p class="related__text">{en.methodology.heading}</p>
+        </div>
+        <a class="btn btn--ghost" href="/en/how-we-build">{en.methodology.label} ↗</a>
+      </div>
+    </aside>
   </main>
   <Footer t={en} />
 </Layout>

@@ -2,8 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Dashboards from '../components/Dashboards.astro';
 import CaseStudy from '../components/CaseStudy.astro';
-import Methodology from '../components/Methodology.astro';
-import Architecture from '../components/Architecture.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import Footer from '../components/Footer.astro';
 import es from '../i18n/es.js';
 
@@ -50,14 +49,24 @@ const t = { ...es, meta: db.meta, schema };
   <header class="subpage-nav">
     <div class="container subpage-nav__inner">
       <a href="/" class="subpage-nav__logo" aria-label={es.nav.logoAria}>codiva<span class="reg">®</span></a>
-      <a href="/" class="subpage-nav__back">{db.back}</a>
+      <div class="subpage-nav__actions">
+        <ThemeToggle variant="icon" t={es} />
+        <a href="/" class="subpage-nav__back">{db.back}</a>
+      </div>
     </div>
   </header>
   <main class="dashboards-page">
     <CaseStudy t={es} />
     <Dashboards t={es} variant="full" />
-    <Methodology t={es} />
-    <Architecture t={es} />
+    <aside class="related" aria-label={es.methodology.label}>
+      <div class="container related__inner">
+        <div>
+          <span class="related__eyebrow">{es.methodology.label}</span>
+          <p class="related__text">{es.methodology.heading}</p>
+        </div>
+        <a class="btn btn--ghost" href="/como-construimos">{es.methodology.label} ↗</a>
+      </div>
+    </aside>
   </main>
   <Footer t={es} />
 </Layout>

@@ -2,6 +2,7 @@
 // Dashboards showcase — self-contained, dependency-free UI demos built in the
 // shadcn/ui visual language on top of codiva's own design tokens. Fully static,
 // responsive, and theme-aware (light/dark). Data comes from i18n (t.dashboards).
+import ThemeToggle from './ThemeToggle.astro';
 const { t, variant = 'full' } = Astro.props;
 const { dashboards: d, contact } = t;
 const isTeaser = variant === 'teaser';
@@ -65,6 +66,11 @@ const donutOf = (items) => {
           {d.viewAll}
           <span aria-hidden="true">↗</span>
         </a>
+      )}
+      {!isTeaser && (
+        <div class="dashboards__toggle" data-animate="fade">
+          <ThemeToggle variant="inline" t={t} />
+        </div>
       )}
     </div>
     {!isTeaser && d.intro && (
