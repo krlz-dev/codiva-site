@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactLanding from '../../components/ContactLanding.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import Footer from '../../components/Footer.astro';
+import en from '../../i18n/en.js';
+
+const cp = en.contactPage;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: cp.meta.ogTitle,
+    description: cp.meta.description,
+    url: cp.meta.canonical,
+    inLanguage: 'en',
+    isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
+    about: {
+      '@type': 'Organization',
+      name: 'codiva',
+      url: 'https://codiva.cl',
+      email: en.contact.email,
+      address: { '@type': 'PostalAddress', addressLocality: 'Ñuñoa', addressRegion: 'Santiago', addressCountry: 'CL' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://codiva.cl/en/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: cp.meta.canonical },
+    ],
+  },
+];
+
+const t = { ...en, meta: cp.meta, schema };
+---
+
+<Layout t={t} altEs="https://codiva.cl/contacto/" altEn="https://codiva.cl/en/contact/">
+  <header class="subpage-nav">
+    <div class="container subpage-nav__inner">
+      <a href="/en/" class="subpage-nav__logo" aria-label={en.nav.logoAria}>codiva<span class="reg">®</span></a>
+      <div class="subpage-nav__actions">
+        <ThemeToggle variant="icon" t={en} />
+        <a href="/en/" class="subpage-nav__back">{cp.back}</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <ContactLanding t={en} />
+  </main>
+  <Footer t={en} />
+</Layout>

@@ -787,6 +787,43 @@ export default {
     location: 'Ñuñoa, Santiago — Chile',
   },
 
+  contactPage: {
+    meta: {
+      title: 'Contact — Tell us about your project | codiva®',
+      description:
+        "Let's talk about your product. You hear back directly from the people building it — two senior engineers, no middlemen. Reach us on WhatsApp or email, no strings attached.",
+      keywords:
+        'contact codiva, software quote, custom development chile, talk to a developer, web development quote',
+      canonical: 'https://codiva.cl/en/contact/',
+      ogUrl: 'https://codiva.cl/en/contact/',
+      ogTitle: 'Tell us about your project — codiva®',
+      ogDescription:
+        'You hear back directly from the people building your product. WhatsApp or email, no strings attached.',
+      ogLocale: 'en',
+      twitterTitle: 'Tell us about your project — codiva®',
+      twitterDescription: "Let's talk about your product — no middlemen, no strings attached.",
+    },
+    eyebrow: 'Contact',
+    heading: 'Tell us about your project',
+    sub: 'You hear back directly from the people who will build your product — two senior engineers, no middlemen. We tell you whether we can help and how, no strings attached.',
+    emailLabel: 'Or by email',
+    points: [
+      { title: 'You talk to who builds it', desc: 'No middlemen, no context handoffs: we answer you ourselves.' },
+      { title: 'Fast reply', desc: 'Usually the same business day.' },
+      { title: 'No commitment', desc: 'A 30-minute conversation to see if we are a fit.' },
+    ],
+    stepsLabel: 'What happens next',
+    steps: [
+      'You write with an idea of what you need.',
+      'We talk for 30 minutes over video or a call.',
+      'We send you a clear plan and proposal.',
+    ],
+    trust: ['14 years of experience', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
+    seeWork: { label: 'See projects', href: '/en/projects' },
+    back: '← Back to home',
+    waMessage: 'Hi codiva 👋, I want to tell you about my project.',
+  },
+
   team: {
     label: 'Team',
     heading: 'The people behind',
