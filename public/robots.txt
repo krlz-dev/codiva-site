@@ -42,10 +42,10 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Default
+# Default — the whole site is fine to crawl (incl. /contacto and /en/contact)
 User-agent: *
 Allow: /
-Disallow: /docs/
+Disallow:
 
 # Sitemap
 Sitemap: https://codiva.cl/sitemap.xml
