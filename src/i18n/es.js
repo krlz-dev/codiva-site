@@ -159,9 +159,14 @@ export default {
     label: 'Nosotros',
     headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
-      'codiva es un estudio boutique de dos ingenieros de software senior con roles complementarios: Carlos en backend, arquitectura e IA; Marina en diseño de producto y frontend. Entre los dos cubrimos diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar a nadie.',
-      'Eso significa que hablas directo con quienes construyen tu producto, sin intermediarios. Con más de 14 años de experiencia, cuidamos lo que casi nunca se ve —escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad—: los atributos que deciden si un producto aguanta en el tiempo. Trabajamos con startups y empresas en Chile y el extranjero que buscan productos cuidados en cada detalle, desde Ñuñoa, Santiago de Chile.',
+      'Codiva es un estudio de dos ingenieros de software senior —14 años de experiencia— que construye producto de punta a punta: Carlos en arquitectura, backend e IA; Marina en diseño de producto y frontend. Diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar.',
+      'Tomamos pocos proyectos a la vez. Eso significa que hablas siempre con quienes escriben el código: sin intermediarios, sin traspasos de contexto, sin explicar dos veces lo mismo.',
+      'Y cuidamos lo que se nota tarde: que el sistema aguante cuando crezca, que otro equipo pueda mantenerlo, que no se caiga un viernes a las seis. Escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad no son extras: son lo que decide si tu producto sigue en pie en tres años.',
     ],
+    cta: {
+      label: '¿Conversamos 30 minutos?',
+      waMessage: 'Hola codiva 👋, ¿conversamos 30 minutos sobre mi proyecto?',
+    },
     capabilitiesLabel: 'Qué construimos',
     capabilities: [
       'Software a medida',

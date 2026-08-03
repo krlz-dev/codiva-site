@@ -146,9 +146,14 @@ export default {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'codiva is a boutique studio of two senior software engineers with complementary roles: Carlos on backend, architecture, and AI; Marina on product design and frontend. Between the two of us we cover design, frontend, backend, AI, mobile, and deployment — without outsourcing anything.',
-      'That means you talk directly with the people building your product, with no middlemen. With 14+ years of experience, we care for what you rarely see — scalability, performance, availability, security, and maintainability: the attributes that decide whether a product holds up over time. We work with startups and companies in Chile and abroad that want products cared for in every detail, based in Ñuñoa, Santiago, Chile.',
+      'Codiva is a studio of two senior software engineers — 14 years of experience — building product end to end: Carlos on architecture, backend, and AI; Marina on product design and frontend. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
+      'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
+      "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
+    cta: {
+      label: 'Shall we talk for 30 minutes?',
+      waMessage: 'Hi codiva 👋, can we talk for 30 minutes about my project?',
+    },
     capabilitiesLabel: 'What we build',
     capabilities: [
       'Custom software',

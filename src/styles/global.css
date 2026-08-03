@@ -825,6 +825,11 @@ button {
   margin-bottom: 1.5rem;
 }
 
+.about__cta {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}
+
 /* Compact capability strip — the "what we build" keywords, folded in from
    the former standalone Services grid. */
 .about__capabilities {
