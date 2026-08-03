@@ -82,16 +82,14 @@ const { meta, schema, htmlLang } = t;
     <!-- Schema.org structured data -->
     {schema.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
-    <!-- Google Analytics 4 (gtag.js) — only injected when GA_ID is configured -->
+    <!-- Google tag (gtag.js) — only injected when GA_ID is configured -->
     {GA_ID && (
       <Fragment>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} is:inline></script>
-        <script is:inline define:vars={{ gaId: GA_ID }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', gaId);
-        </script>
+        <script is:inline set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}></script>
       </Fragment>
     )}
   </head>
