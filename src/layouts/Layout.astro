@@ -188,6 +188,30 @@ gtag('config', '${GA_ID}');`}></script>
           }
         });
       });
+
+      // Lead tracking — fire a GA4 `generate_lead` event whenever someone clicks
+      // a WhatsApp or email CTA. Centralized (event delegation) so every current
+      // and future contact button is covered without per-component wiring.
+      document.addEventListener(
+        'click',
+        (e) => {
+          const link = e.target.closest?.('a[href]');
+          if (!link) return;
+          const href = link.getAttribute('href') || '';
+          const isWhatsApp = /(?:wa\.me|api\.whatsapp\.com|whatsapp:)/i.test(href);
+          const isEmail = href.startsWith('mailto:');
+          if (!isWhatsApp && !isEmail) return;
+          if (typeof window.gtag !== 'function') return;
+          const section = link.closest('[id]');
+          window.gtag('event', 'generate_lead', {
+            method: isWhatsApp ? 'whatsapp' : 'email',
+            link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+            link_url: href,
+            location: section ? section.id : 'unknown',
+          });
+        },
+        { capture: true }
+      );
     </script>
   </body>
 </html>
