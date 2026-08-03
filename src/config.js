@@ -7,7 +7,7 @@
 
 // Google Analytics 4 — the "Measurement ID" from your GA4 property.
 // Admin → Data streams → your web stream → Measurement ID. Looks like 'G-XXXXXXXXXX'.
-export const GA_ID = '';
+export const GA_ID = 'G-YYML8FT8E0';
 
 // Google Search Console — the token from the "HTML tag" verification method.
 // Search Console → Settings → Ownership verification → HTML tag: copy ONLY the
