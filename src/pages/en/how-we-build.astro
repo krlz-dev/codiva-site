@@ -84,7 +84,7 @@ const t = { ...en, meta, schema };
       <a href="/en/" class="subpage-nav__logo" aria-label={en.nav.logoAria}>codiva<span class="reg">®</span></a>
       <div class="subpage-nav__actions">
         <ThemeToggle variant="icon" t={en} />
-        <a href="/en/" class="subpage-nav__back">{en.dashboards.back}</a>
+        <a href="/en/" class="subpage-nav__back">{en.projects.back}</a>
       </div>
     </div>
   </header>
@@ -103,13 +103,13 @@ const t = { ...en, meta, schema };
     <SpecDriven t={en} />
     <Methodology t={en} />
     <Architecture t={en} />
-    <aside class="related" aria-label={en.dashboards.label}>
+    <aside class="related" aria-label={en.takeover.eyebrow}>
       <div class="container related__inner">
         <div>
-          <span class="related__eyebrow">{en.dashboards.label}</span>
-          <p class="related__text">{en.dashboards.teaserHeading}</p>
+          <span class="related__eyebrow">{en.takeover.eyebrow}</span>
+          <p class="related__text">{en.takeover.heading}</p>
         </div>
-        <a class="btn btn--ghost" href="/en/dashboards">{en.dashboards.viewAll} ↗</a>
+        <a class="btn btn--ghost" href={en.takeover.ctaHref}>{en.takeover.cta} ↗</a>
       </div>
     </aside>
   </main>

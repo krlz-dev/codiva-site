@@ -3419,3 +3419,151 @@ button {
   letter-spacing: -0.02em;
   color: var(--color-heading);
 }
+
+/* ============================================================
+   Takeover / rescue wedge — homepage section + dedicated page
+   (added for the site-audit v2 changes)
+   ============================================================ */
+
+/* Homepage "Proyectos heredados" band, after "Cómo trabajamos" */
+.takeover {
+  padding: var(--section-pad) 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.takeover__inner {
+  max-width: 760px;
+}
+.takeover__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+  margin: 1rem 0 1.5rem;
+  text-wrap: balance;
+}
+.takeover__text {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+.takeover__cta {
+  margin-top: 1.5rem;
+}
+
+/* Price anchor under the plan cards */
+.plans__price {
+  margin-top: 2.5rem;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg-card);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-heading);
+  max-width: 80ch;
+}
+
+/* Contact CTA row (booking + WhatsApp) */
+.contact__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Dedicated rescue page */
+.rescue {
+  padding: clamp(3rem, 8vh, 6rem) 0 var(--section-pad);
+}
+.rescue__hero {
+  max-width: 760px;
+  margin-bottom: 3rem;
+}
+.rescue__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+  margin: 1rem 0 1.5rem;
+  text-wrap: balance;
+}
+.rescue__intro-p {
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+.rescue__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.rescue__block-title,
+.rescue__card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+}
+.rescue__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.rescue__list-item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.rescue__list-item svg {
+  color: var(--color-accent-text);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.rescue__cards {
+  display: grid;
+  gap: 1rem;
+}
+.rescue__card {
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg-card);
+}
+.rescue__card-text {
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.rescue__card--price {
+  background: var(--color-surface);
+}
+.rescue__cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.rescue__cta-note {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+}
+@media (max-width: 800px) {
+  .rescue__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}

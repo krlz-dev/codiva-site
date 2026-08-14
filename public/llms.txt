@@ -51,7 +51,7 @@ Cuidamos los atributos de calidad que no siempre se ven: escalabilidad, rendimie
 - [Nosotros](https://codiva.cl/#about): El estudio, el equipo y qué construimos
 - [Cómo trabajamos](https://codiva.cl/#plans): Modelos de colaboración (Sprint, Desarrollo, Alianza)
 - [Proyectos](https://codiva.cl/proyectos/): Trabajos seleccionados — plataformas, apps y software a medida
-- [Dashboards](https://codiva.cl/dashboards/): Showcase de dashboards y paneles de datos (analítica, ventas, finanzas)
+- [Rescate de proyectos](https://codiva.cl/rescate-de-proyectos/): Tomamos software heredado, lo estabilizamos y seguimos construyendo — revisión de dos semanas con plan y costos reales
 - [Cómo construimos](https://codiva.cl/como-construimos/): Método e ingeniería — descubrimiento, spec-driven, Atomic Design, micro frontends, arquitectura y seguridad
 - [Marca Registrada](https://codiva.cl/marca/): Datos del registro INAPI
 - [FAQ](https://codiva.cl/#faq): Preguntas frecuentes

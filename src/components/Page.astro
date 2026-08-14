@@ -6,8 +6,8 @@ import Hero from './Hero.astro';
 import Marquee from './Marquee.astro';
 import About from './About.astro';
 import Plans from './Plans.astro';
+import Takeover from './Takeover.astro';
 import Portfolio from './Portfolio.astro';
-import Dashboards from './Dashboards.astro';
 import Faq from './Faq.astro';
 import Contact from './Contact.astro';
 import Team from './Team.astro';
@@ -23,9 +23,9 @@ const { t } = Astro.props;
   <main>
     <About t={t} />
     <Plans t={t} />
+    <Takeover t={t} />
     <Marquee items={t.marquee2} reverse />
     <Portfolio t={t} variant="teaser" />
-    <Dashboards t={t} variant="teaser" />
     <Faq t={t} />
     <Contact t={t} />
     <Team t={t} />

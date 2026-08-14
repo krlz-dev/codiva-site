@@ -4,21 +4,24 @@ export default {
   lang: 'es',
   htmlLang: 'es',
 
+  // Cal.com booking link — primary CTA for scheduling a 30-min intro call.
+  bookingUrl: 'https://cal.com/krlz.dev',
+
   meta: {
-    title: 'codiva® — Diseño y Desarrollo Web en Chile · Software, Apps y Servicios',
+    title: 'Desarrollo de software a medida en Santiago | codiva®',
     description:
-      'Estudio independiente de diseño y desarrollo web en Santiago de Chile. Creamos sitios, aplicaciones, apps móviles y software a medida con diseño de alto nivel. codiva® es marca registrada en INAPI.',
+      'Estudio de dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin — sin juniors ni subcontratar. También tomamos proyectos ya empezados.',
     keywords:
-      'codiva, diseño web chile, desarrollo web chile, diseño páginas web, desarrollo frontend, desarrollo fullstack, software a medida, identidad digital, Ñuñoa Santiago, marca registrada INAPI',
+      'desarrollo de software a medida Santiago, estudio de software Chile, ingenieros senior, backend, frontend, IA, rescate de proyectos de software, retomar desarrollo, Ñuñoa',
     canonical: 'https://codiva.cl/',
     ogUrl: 'https://codiva.cl/',
-    ogTitle: 'codiva® — Diseño y Desarrollo Web en Chile',
+    ogTitle: 'Desarrollo de software a medida en Santiago — codiva®',
     ogDescription:
-      'Estudio independiente de diseño y desarrollo web en Santiago de Chile. Sitios, aplicaciones y software a medida con diseño de alto nivel.',
+      'Estudio de dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin — sin juniors ni subcontratar. También tomamos proyectos ya empezados.',
     ogLocale: 'es_CL',
-    twitterTitle: 'codiva® — Diseño y Desarrollo Web en Chile',
+    twitterTitle: 'Desarrollo de software a medida — codiva®',
     twitterDescription:
-      'Estudio independiente de diseño y desarrollo web en Santiago de Chile. Sitios, aplicaciones y software a medida.',
+      'Dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin. También retomamos proyectos ya empezados.',
   },
 
   // Rendered verbatim as <script type="application/ld+json"> blocks.
@@ -105,11 +108,14 @@ export default {
       '@type': 'FAQPage',
       mainEntity: [
         { '@type': 'Question', name: '¿Qué es codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® es un estudio independiente de dos ingenieros de software senior con base en Ñuñoa, Santiago de Chile. Construimos producto completo —diseño, frontend, backend e IA— de principio a fin, sin juniors ni subcontratar.' } },
-        { '@type': 'Question', name: '¿Qué servicios ofrece codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® ofrece Diseño y Desarrollo Web, Aplicaciones Web y Móviles, Software a Medida, y APIs y Microservicios. También tomamos productos ya existentes para estabilizarlos y seguir construyendo sobre ellos.' } },
+        { '@type': 'Question', name: '¿Qué servicios ofrece codiva?', acceptedAnswer: { '@type': 'Answer', text: 'Cinco frentes, en orden de foco: software a medida (sistemas, plataformas internas y dashboards); desarrollo de producto de principio a fin (diseño, frontend, backend e IA); aplicaciones web y móviles; APIs y microservicios; y estabilización y continuación de productos que ya existen.' } },
         { '@type': 'Question', name: '¿Quién es dueño del código?', acceptedAnswer: { '@type': 'Answer', text: 'Tú, desde el primer commit. El repositorio queda a tu nombre y te entregamos todo: código, infraestructura y documentación, sin dependencias ocultas.' } },
         { '@type': 'Question', name: '¿Pueden tomar un proyecto que ya empezó otra persona?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Tomamos bases de código heredadas —de un freelancer, una agencia anterior o un equipo previo—, las estabilizamos y seguimos construyendo sobre ellas.' } },
         { '@type': 'Question', name: 'Son solo dos personas, ¿qué pasa si se enferman o se llenan de trabajo?', acceptedAnswer: { '@type': 'Answer', text: 'Tomamos pocos proyectos a la vez para no sobrecomprometernos. Ambos conocemos cada proyecto, así que nada depende de una sola persona, y tu código y documentación siempre viven en tu repositorio.' } },
         { '@type': 'Question', name: '¿Trabajan con equipos internos o reemplazan al equipo?', acceptedAnswer: { '@type': 'Answer', text: 'Ambos. Nos integramos a tu equipo interno cuando lo hay, o funcionamos como tu equipo de producto completo cuando no.' } },
+        { '@type': 'Question', name: '¿Cuánto cuesta un proyecto?', acceptedAnswer: { '@type': 'Answer', text: 'Un Sprint de Producto parte desde CLP $2.500.000 y un proyecto completo suele estar entre CLP $15.000.000 y $60.000.000, según alcance. En la primera llamada de 30 minutos te damos un rango real.' } },
+        { '@type': 'Question', name: '¿Cuánto se demora un proyecto?', acceptedAnswer: { '@type': 'Answer', text: 'Un Sprint de Producto son 1–2 semanas. Un producto completo, entre 6 y 16 semanas según alcance. Te damos una fecha en la propuesta y te avisamos apenas algo la ponga en riesgo.' } },
+        { '@type': 'Question', name: '¿Qué pasa si el proyecto no resulta?', acceptedAnswer: { '@type': 'Answer', text: 'Por eso existe el Sprint de Producto: 1–2 semanas pagadas con entregables concretos, al final de las cuales cualquiera puede decidir no seguir, y te quedas con el prototipo, las decisiones de arquitectura y el plan técnico.' } },
       ],
     },
     {
@@ -130,7 +136,7 @@ export default {
         href: '/proyectos',
         children: [
           { href: '/proyectos', label: 'Proyectos' },
-          { href: '/dashboards', label: 'Dashboards' },
+          { href: '/rescate-de-proyectos', label: 'Rescate de proyectos' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -147,8 +153,8 @@ export default {
     eyebrow: 'Dos ingenieros senior · end-to-end',
     h1: 'Los que te venden el proyecto son los que lo construyen.',
     subtitle: 'Diseño, frontend, backend e IA, de principio a fin. Sin juniors, sin subcontratar, sin intermediarios.',
-    ctaPrimary: 'Iniciar proyecto',
-    ctaGhost: 'Explorar',
+    ctaPrimary: 'Agenda 30 minutos',
+    ctaGhost: 'Ver cómo trabajamos',
   },
 
   marquee1: ['codiva', 'software', 'web · apps', 'chile'],
@@ -166,7 +172,7 @@ export default {
       'Y cuidamos lo que se nota tarde: que el sistema aguante cuando crezca, que otro equipo pueda mantenerlo, que no se caiga un viernes a las seis. Escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad no son extras: son lo que decide si tu producto sigue en pie en tres años.',
     ],
     cta: {
-      label: '¿Conversamos 30 minutos?',
+      label: 'Agenda 30 minutos',
       waMessage: 'Hola codiva 👋, ¿conversamos 30 minutos sobre mi proyecto?',
     },
     capabilitiesLabel: 'Qué construimos',
@@ -234,7 +240,7 @@ export default {
         phase: 'Construir',
         name: 'Desarrollo de Producto',
         meta: 'Proyecto completo · a medida',
-        badge: 'Lo más pedido',
+        badge: 'Recomendado para empezar',
         featured: true,
         tagline: 'Nos integramos a tu equipo y respondemos por el resultado: llevamos tu producto de cero a producción. Diseño, frontend, backend e IA —construido para durar.',
         features: [
@@ -262,7 +268,8 @@ export default {
         waMessage: 'Hola codiva 👋, me interesa una alianza continua o soporte.',
       },
     ],
-    note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin. La inversión se define según el alcance —conversemos sin compromiso.',
+    note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin.',
+    priceAnchor: 'Un Sprint de Producto parte desde CLP $2.500.000. Los proyectos completos suelen estar entre CLP $15.000.000 y $60.000.000, según alcance. Si tu presupuesto está por debajo de eso, te lo decimos en la primera llamada en vez de hacerte perder tiempo.',
     more: {
       text: 'Detrás de cada fase hay un método. El detalle de cómo diseñamos y construimos —descubrimiento, specs, componentes y arquitectura— vive en una página aparte.',
       label: 'Ver cómo construimos',
@@ -341,201 +348,6 @@ export default {
         linkLabel: 'Visitar sitio',
       },
     ],
-  },
-
-  dashboards: {
-    label: 'Dashboards',
-    heading: 'Dashboards para plataformas',
-    teaserHeading: 'Dashboards para plataformas',
-    intro: 'Interfaces de datos que diseñamos y construimos para SaaS, e-commerce y fintech: KPIs, gráficos y tablas listos para producción. Todo lo que ves aquí está hecho a mano, es 100% responsivo y funciona en modo claro y oscuro.',
-    viewAll: 'Ver dashboards',
-    viewAllHref: '/dashboards',
-    back: '← Volver al inicio',
-    note: 'Ejemplos de interfaz — datos ilustrativos.',
-    trendUp: 'al alza',
-    trendDown: 'a la baja',
-    cta: {
-      text: '¿Necesitas un dashboard para tu plataforma?',
-      label: 'Conversemos tu dashboard',
-      waMessage: 'Hola codiva 👋, vi sus dashboards y necesito uno para mi plataforma.',
-    },
-    meta: {
-      title: 'Dashboards a Medida — SaaS, E-commerce y Fintech | codiva®',
-      description:
-        'Showcase de dashboards diseñados y construidos por codiva®: paneles de analítica SaaS, ventas de e-commerce y finanzas, con KPIs, gráficos y tablas responsivas en modo claro y oscuro.',
-      keywords:
-        'dashboards a medida, panel de control, admin dashboard, analítica SaaS, dashboard e-commerce, dashboard fintech, KPIs, visualización de datos, desarrollo Chile',
-      canonical: 'https://codiva.cl/dashboards/',
-      ogUrl: 'https://codiva.cl/dashboards/',
-      ogTitle: 'Dashboards a medida — codiva®',
-      ogDescription:
-        'Paneles de analítica, ventas y finanzas con KPIs, gráficos y tablas, diseñados y construidos por codiva®.',
-      ogLocale: 'es_CL',
-      twitterTitle: 'Dashboards a medida — codiva®',
-      twitterDescription:
-        'Showcase de dashboards para SaaS, e-commerce y fintech por codiva®.',
-    },
-    demos: [
-      {
-        id: 'saas',
-        name: 'Analítica de producto SaaS',
-        type: 'SaaS · Métricas en vivo',
-        blurb: 'MRR, usuarios activos, churn y conversión con tendencia de ingresos, tráfico por canal y distribución de planes.',
-        url: 'app.nimbus.io/analytics',
-        brand: 'Nimbus',
-        view: 'Resumen',
-        range: 'Últimos 30 días',
-        kpis: [
-          { label: 'MRR', value: '$48.2k', delta: '+12.4%', dir: 'pos' },
-          { label: 'Usuarios activos', value: '8,942', delta: '+5.1%', dir: 'pos' },
-          { label: 'Churn', value: '1.8%', delta: '−0.3%', dir: 'pos' },
-          { label: 'Conversión', value: '3.6%', delta: '+0.8%', dir: 'pos' },
-        ],
-        area: {
-          title: 'Ingresos recurrentes',
-          value: '$48,240',
-          delta: '+12.4% vs. mes anterior',
-          data: [21, 23, 22, 26, 29, 33, 32, 37, 40, 43, 44, 48],
-          labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-        },
-        bars: {
-          title: 'Tráfico por canal',
-          items: [
-            { label: 'Directo', v: 42 },
-            { label: 'Orgánico', v: 31 },
-            { label: 'Referido', v: 18 },
-            { label: 'Social', v: 9 },
-          ],
-        },
-        donut: {
-          title: 'Distribución de planes',
-          center: { value: '8.9k', label: 'cuentas' },
-          items: [
-            { label: 'Starter', v: 48 },
-            { label: 'Pro', v: 37 },
-            { label: 'Enterprise', v: 15 },
-          ],
-        },
-      },
-      {
-        id: 'shop',
-        name: 'Ventas y pedidos e-commerce',
-        type: 'E-commerce · Operación',
-        blurb: 'Ingresos, pedidos, ticket promedio y devoluciones, con ventas por día, ranking de productos y pedidos recientes con estados.',
-        url: 'admin.vela.store/ventas',
-        brand: 'Vela',
-        view: 'Ventas',
-        range: 'Esta semana',
-        kpis: [
-          { label: 'Ingresos', value: '$124.6k', delta: '+8.2%', dir: 'pos' },
-          { label: 'Pedidos', value: '1,284', delta: '+3.4%', dir: 'pos' },
-          { label: 'Ticket promedio', value: '$97', delta: '+4.6%', dir: 'pos' },
-          { label: 'Devoluciones', value: '2.1%', delta: '−0.5%', dir: 'pos' },
-        ],
-        vbars: {
-          title: 'Ventas por día',
-          value: '$124,640',
-          delta: 'Esta semana',
-          data: [12, 18, 15, 22, 19, 27, 24],
-          labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
-        },
-        products: {
-          title: 'Productos más vendidos',
-          col: 'Unidades',
-          items: [
-            { label: 'Auriculares Aura', v: 100, units: '1,240' },
-            { label: 'Teclado Nova', v: 78, units: '968' },
-            { label: 'Mouse Pulse', v: 61, units: '742' },
-            { label: 'Webcam Clear', v: 44, units: '531' },
-          ],
-        },
-        orders: {
-          title: 'Pedidos recientes',
-          cols: { id: 'Pedido', customer: 'Cliente', total: 'Total', status: 'Estado' },
-          rows: [
-            { id: '#10482', customer: 'Lucía Fuentes', total: '$189', status: 'paid' },
-            { id: '#10481', customer: 'Diego Rojas', total: '$74', status: 'pending' },
-            { id: '#10480', customer: 'Camila Soto', total: '$312', status: 'paid' },
-            { id: '#10479', customer: 'Martín Vera', total: '$58', status: 'failed' },
-          ],
-        },
-        statusLabels: { paid: 'Pagado', pending: 'Pendiente', failed: 'Fallido' },
-      },
-      {
-        id: 'fin',
-        name: 'Finanzas y pagos',
-        type: 'Fintech · Tesorería',
-        blurb: 'Balance disponible, flujo de caja de ingresos vs. gastos y un registro de transacciones con estados y montos.',
-        url: 'dashboard.saldo.fin',
-        brand: 'Saldo',
-        view: 'Tesorería',
-        range: 'Últimos 6 meses',
-        balance: { label: 'Balance disponible', value: '$86,420.50', delta: '+6.9% este mes', dir: 'pos' },
-        mini: [
-          { label: 'Ingresos', value: '$142.8k', dir: 'pos' },
-          { label: 'Gastos', value: '$56.4k', dir: 'neg' },
-          { label: 'Beneficio neto', value: '$86.4k', dir: 'pos' },
-        ],
-        line: {
-          title: 'Flujo de caja',
-          legend: { income: 'Ingresos', expenses: 'Gastos' },
-          income: [18, 22, 20, 26, 24, 30],
-          expenses: [9, 11, 10, 13, 12, 14],
-          labels: ['Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago'],
-        },
-        tx: {
-          title: 'Transacciones',
-          cols: { name: 'Detalle', date: 'Fecha', amount: 'Monto', status: 'Estado' },
-          rows: [
-            { name: 'Stripe · liquidación', date: '01 Ago', amount: '+$12,400', status: 'paid', dir: 'pos' },
-            { name: 'Nube · infraestructura', date: '31 Jul', amount: '−$2,180', status: 'paid', dir: 'neg' },
-            { name: 'Suscripción Pro', date: '30 Jul', amount: '+$49', status: 'pending', dir: 'pos' },
-            { name: 'Nómina', date: '28 Jul', amount: '−$18,900', status: 'paid', dir: 'neg' },
-          ],
-        },
-        statusLabels: { paid: 'Completado', pending: 'Pendiente', failed: 'Fallido' },
-      },
-    ],
-  },
-
-  caseStudy: {
-    label: 'Caso simulado',
-    heading: 'Conversión, ventas y productos',
-    sub: 'Un panel interactivo de ejemplo para un cliente de e-commerce/SaaS: métricas de conversión, tendencia de ventas, productos más vendidos y una tabla de clientes con búsqueda, filtros, ordenamiento y paginación en vivo.',
-    kpis: {
-      conversion: 'Tasa de conversión',
-      sales: 'Ventas',
-      customers: 'Clientes nuevos',
-      aov: 'Ticket promedio',
-    },
-    charts: {
-      salesTitle: 'Tendencia de ventas',
-      salesSub: 'Ingresos por mes',
-      funnelTitle: 'Embudo de conversión',
-      funnelRate: 'conv.',
-      productsTitle: 'Productos más vendidos',
-      productsCol: 'Ingresos',
-    },
-    funnel: ['Visitantes', 'Leads', 'Pruebas', 'Clientes'],
-    table: {
-      title: 'Clientes recientes',
-      cols: { name: 'Cliente', source: 'Origen', plan: 'Plan', amount: 'Monto', status: 'Estado' },
-      search: 'Buscar cliente…',
-      searchAria: 'Buscar cliente por nombre',
-      filterLabel: 'Filtrar por estado',
-      all: 'Todos',
-      empty: 'Sin resultados para tu búsqueda.',
-      showing: 'Mostrando',
-      of: 'de',
-      results: 'resultados',
-      perPage: 'por página',
-      prev: 'Anterior',
-      next: 'Siguiente',
-      page: 'Página',
-      sortHint: 'Ordenar',
-    },
-    statusLabels: { won: 'Ganado', pending: 'Pendiente', lost: 'Perdido' },
-    sourceLabels: { search: 'Búsqueda', ads: 'Anuncios', referral: 'Referido', social: 'Social', direct: 'Directo' },
   },
 
   discovery: {
@@ -781,11 +593,14 @@ export default {
     heading: 'Preguntas frecuentes',
     items: [
       { q: '¿Qué es codiva?', aHtml: '<p>codiva® es un estudio independiente de dos ingenieros de software senior, con base en Ñuñoa, Santiago de Chile. Construimos producto completo —diseño, frontend, backend e IA— de principio a fin, sin juniors ni subcontratar. Los mismos que te venden el proyecto son los que lo construyen.</p>' },
-      { q: '¿Qué servicios ofrece codiva?', aHtml: '<p>Diseño y Desarrollo Web (sitios y plataformas), Aplicaciones Web y Móviles (apps nativas y PWAs), Software a Medida (sistemas y dashboards) y APIs y Microservicios (arquitectura escalable y servicios cloud). También tomamos productos que ya existen para estabilizarlos y seguir construyendo sobre ellos.</p>' },
+      { q: '¿Qué servicios ofrece codiva?', aHtml: '<p>Cinco frentes, en orden de foco: Software a medida (sistemas, plataformas internas y dashboards); desarrollo de producto de principio a fin (diseño, frontend, backend e IA); aplicaciones web y móviles; APIs y microservicios; y estabilización y continuación de productos que ya existen.</p>' },
       { q: '¿Quién es dueño del código?', aHtml: '<p>Tú, desde el primer commit. El repositorio queda a tu nombre y te entregamos todo —código, infraestructura y documentación—, sin dependencias ocultas ni candados. Si algún día quieres continuar con otro equipo, puedes.</p>' },
       { q: '¿Pueden tomar un proyecto que ya empezó otra persona?', aHtml: '<p>Sí. Tomamos bases de código heredadas —de un freelancer que se fue, una agencia que cambió de rumbo o un equipo anterior—, las estabilizamos y seguimos construyendo. Es justo donde 14 años de arquitectura backend y sistemas distribuidos hacen la diferencia.</p>' },
       { q: 'Son solo dos personas. ¿Qué pasa si se enferman o se llenan de trabajo?', aHtml: '<p>Tomamos pocos proyectos a la vez, justamente para no sobrecomprometernos y darle atención real a cada uno. Ambos conocemos cada proyecto, así que nada depende de una sola persona, y tu código, tu infraestructura y tu documentación siempre viven en tu repositorio. Si necesitamos coordinar tiempos, te lo decimos antes de empezar, no después.</p>' },
       { q: '¿Trabajan con equipos internos o reemplazan al equipo?', aHtml: '<p>Ambos. Nos integramos a tu equipo interno cuando lo hay, o funcionamos como tu equipo de producto completo cuando no. Nos adaptamos a cómo ya trabajas.</p>' },
+      { q: '¿Cuánto cuesta un proyecto?', aHtml: '<p>Depende del alcance, pero no te vamos a hacer adivinar. Un Sprint de Producto parte desde CLP $2.500.000 y un proyecto completo suele estar entre CLP $15.000.000 y $60.000.000. En la primera llamada de 30 minutos te damos un rango real, no una propuesta de 20 páginas tres semanas después.</p>' },
+      { q: '¿Cuánto se demora?', aHtml: '<p>Un Sprint de Producto son 1–2 semanas. Un producto completo, entre 6 y 16 semanas según alcance. Te damos una fecha en la propuesta y te avisamos apenas algo la ponga en riesgo — preferimos una conversación incómoda temprano que una sorpresa al final.</p>' },
+      { q: '¿Qué pasa si no funciona o no quedamos conformes?', aHtml: '<p>Por eso existe el Sprint de Producto: 1–2 semanas pagadas, con entregables concretos, al final de las cuales cualquiera de los dos puede decidir no seguir — y te quedas igual con el prototipo, las decisiones de arquitectura y el plan técnico. Es la forma más barata que conocemos de averiguar si trabajamos bien juntos.</p>' },
     ],
   },
 
@@ -793,6 +608,7 @@ export default {
     label: 'Contacto',
     headingHtml: 'Hagamos algo<br><em>extraordinario</em>',
     text: '¿Tienes un proyecto en mente? Conversemos sobre cómo podemos llevarlo al siguiente nivel.',
+    bookingLabel: 'Agenda 30 minutos',
     whatsapp: {
       number: '56957173936',
       label: 'Escríbenos por WhatsApp',
@@ -847,6 +663,68 @@ export default {
       { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack, enfocado en arquitectura, sistemas distribuidos e IA. Diseña pensando en escalabilidad, rendimiento y seguridad, y también trabaja en móvil. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
       { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Producto', desc: 'Ingeniera de software orientada a frontend y diseño de producto (UX/UI), con base fullstack. Construye interfaces accesibles, rápidas y mantenibles, y también trabaja en móvil.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
     ],
+  },
+
+  // Homepage section (rendered after "Cómo trabajamos") — the takeover/rescue wedge.
+  takeover: {
+    eyebrow: 'Proyectos heredados',
+    heading: '¿Tienes un producto que ya nadie quiere tocar?',
+    body: [
+      'Lo construyó un freelance que ya no está. O una agencia que rotó tres veces de equipo. Funciona, más o menos, pero cada cambio toma semanas y nadie sabe qué se va a romper.',
+      'Lo tomamos, lo estabilizamos y seguimos construyendo. Empezamos con una revisión de dos semanas: entendemos el código, te decimos con honestidad qué se salva y qué no, y te entregamos un plan con costos reales — aunque la conclusión sea que te conviene reescribirlo.',
+    ],
+    cta: 'Revisemos tu código',
+    ctaHref: '/rescate-de-proyectos',
+  },
+
+  // Dedicated page /rescate-de-proyectos — the takeover offer expanded.
+  rescate: {
+    meta: {
+      title: 'Rescate de proyectos de software — retomamos tu desarrollo | codiva®',
+      description:
+        'Heredaste un sistema que ya nadie quiere tocar. Lo tomamos, lo estabilizamos y seguimos construyendo. Empezamos con una revisión de dos semanas, con un plan y costos reales.',
+      keywords:
+        'rescate de proyectos de software, retomar desarrollo abandonado, auditoría de código Chile, estabilizar sistema heredado, mantener software existente, retomar proyecto de software',
+      canonical: 'https://codiva.cl/rescate-de-proyectos/',
+      ogUrl: 'https://codiva.cl/rescate-de-proyectos/',
+      ogTitle: 'Rescate de proyectos de software — codiva®',
+      ogDescription:
+        'Tomamos software heredado, lo estabilizamos y seguimos construyendo. Revisión de dos semanas con un plan y costos reales.',
+      ogLocale: 'es_CL',
+      twitterTitle: 'Rescate de proyectos de software — codiva®',
+      twitterDescription:
+        'Retomamos desarrollos heredados: los estabilizamos y seguimos construyendo, con un plan y costos reales.',
+    },
+    eyebrow: 'Proyectos heredados',
+    heading: '¿Tienes un producto que ya nadie quiere tocar?',
+    intro: [
+      'Lo construyó un freelance que ya no está. O una agencia que rotó tres veces de equipo. Funciona, más o menos, pero cada cambio toma semanas y nadie sabe qué se va a romper.',
+      'Lo tomamos, lo estabilizamos y seguimos construyendo. Empezamos con una revisión de dos semanas: entendemos el código, te decimos con honestidad qué se salva y qué no, y te entregamos un plan con costos reales — aunque la conclusión sea que te conviene reescribirlo.',
+    ],
+    includes: {
+      title: 'Qué incluye la revisión',
+      items: [
+        'Auditoría de arquitectura: cómo está armado y dónde están los cuellos de botella.',
+        'Deuda técnica priorizada por riesgo real, no por gusto estético.',
+        'Estado de seguridad y dependencias: qué está desactualizado y qué te expone.',
+        'Plan de estabilización con costos y plazos reales.',
+      ],
+    },
+    notDo: {
+      title: 'Qué no hacemos',
+      text: 'No te vamos a recomendar reescribir todo por defecto: es lo más caro y casi nunca lo correcto. Si algo se salva, se salva — y te lo decimos con honestidad.',
+    },
+    why: {
+      title: 'Por qué nosotros',
+      text: '14 años de arquitectura backend y sistemas distribuidos. Entrar en el código de otro y volverlo mantenible es un trabajo distinto a empezar de cero — y es el que mejor sabemos hacer.',
+    },
+    price: {
+      title: 'Precio de entrada',
+      text: 'La revisión es un producto de precio fijo: desde CLP $2.500.000, dos semanas, con entregables concretos. Si después seguimos con la estabilización, ese monto se descuenta del proyecto.',
+    },
+    ctaLabel: 'Agenda 30 minutos',
+    ctaNote: 'Una conversación de 30 minutos, sin compromiso.',
+    back: '← Volver al inicio',
   },
 
   footer: {
