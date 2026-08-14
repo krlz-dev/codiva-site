@@ -493,12 +493,16 @@ button {
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 10vw, 8rem);
+  /* statement headline: sized to read as one punchy phrase, not a wordmark */
+  font-size: clamp(2.25rem, 6vw, 4.75rem);
   font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   color: var(--color-heading);
-  /* wordmark → tagline: kept close as one unit */
+  max-width: 22ch;
+  margin-inline: auto;
+  text-wrap: balance;
+  /* headline → tagline: kept close as one unit */
   margin-bottom: 1.35rem;
   opacity: 0;
   transform: translateY(40px);
@@ -617,7 +621,7 @@ button {
   }
 
   .hero__title {
-    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    font-size: clamp(2rem, 5vw, 3.75rem);
     margin-bottom: 1.05rem;
   }
 
@@ -1669,7 +1673,7 @@ button {
   }
 
   .hero__title {
-    font-size: clamp(2.5rem, 12vw, 5rem);
+    font-size: clamp(1.9rem, 7vw, 3rem);
   }
 
   .portfolio__item {

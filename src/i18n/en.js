@@ -91,11 +91,12 @@ export default {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
-        { '@type': 'Question', name: 'What is codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is a Chilean registered trademark at the National Institute of Industrial Property (INAPI) under registration #1481622, Class 42, dedicated to web design and software development.' } },
-        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® offers Web Design & Development, Web & Mobile Apps, Custom Software, and APIs & Microservices. We create high-end digital solutions combining design with precise technical development.' } },
-        { '@type': 'Question', name: 'Is codiva a registered trademark in Chile?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, codiva® is officially registered at INAPI Chile with registration #1481622, application #1618736, registered on November 27, 2025, under Class 42 (Web design and development), valid until November 27, 2035.' } },
-        { '@type': 'Question', name: 'Where is codiva located?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is located in Ñuñoa, Santiago, Chile. We provide software development services locally and remotely for clients across Chile and Latin America.' } },
-        { '@type': 'Question', name: 'How can I contact codiva?', acceptedAnswer: { '@type': 'Answer', text: 'You can contact codiva® by sending an email to contactos@codiva.cl for inquiries about software development and web projects.' } },
+        { '@type': 'Question', name: 'What is codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is an independent studio of two senior software engineers based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting.' } },
+        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® offers Web Design & Development, Web & Mobile Apps, Custom Software, and APIs & Microservices. We also take on existing products to stabilize them and keep building.' } },
+        { '@type': 'Question', name: 'Who owns the code?', acceptedAnswer: { '@type': 'Answer', text: 'You do, from the first commit. The repository is in your name and we hand over everything: code, infrastructure, and documentation, with no hidden dependencies.' } },
+        { '@type': 'Question', name: 'Can you take over a project someone else started?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We take on inherited codebases — from a freelancer, a previous agency, or an earlier team — stabilize them, and keep building.' } },
+        { '@type': 'Question', name: "You're only two people — what happens if you get sick or fully booked?", acceptedAnswer: { '@type': 'Answer', text: "We take on a small number of projects at a time so we don't overcommit. We both know every project, so nothing depends on a single person, and your code and documentation always live in your repository." } },
+        { '@type': 'Question', name: 'Do you work with internal teams or replace them?', acceptedAnswer: { '@type': 'Answer', text: 'Both. We embed with your internal team when there is one, or act as your full product team when there is not.' } },
       ],
     },
     {
@@ -130,8 +131,9 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Brand symbol',
-    eyebrow: 'Boutique studio · end-to-end',
-    subtitle: 'We build your complete product: design, frontend, backend, and AI. No middlemen.',
+    eyebrow: 'Two senior engineers · end-to-end',
+    h1: 'The people who sell you the project are the people who build it.',
+    subtitle: 'Design, frontend, backend and AI, end to end. No juniors, no subcontracting, no middlemen.',
     ctaPrimary: 'Start a project',
     ctaGhost: 'Explore',
   },
@@ -140,13 +142,13 @@ export default {
   marquee2: ['design', 'development', 'digital identity', 'santiago · chile'],
 
   techLabel: 'Technologies we use',
-  tech: ['Hostinger', 'Containers', 'Java', 'Scala', 'JavaScript', 'Python', 'Google Analytics'],
+  tech: ['TypeScript', 'React', 'Java', 'Scala', 'Python', 'PostgreSQL', 'Containers'],
 
   about: {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'Codiva is a studio of two senior software engineers — 14 years of experience — building product end to end: Carlos on architecture, backend, and AI; Marina on product design and frontend. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
+      'Codiva is a studio of two senior software engineers building product end to end: Carlos — 14 years in backend architecture, distributed systems, and AI — and Marina on product design and frontend. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
       'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
       "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
@@ -366,8 +368,8 @@ export default {
         name: 'SaaS product analytics',
         type: 'SaaS · Live metrics',
         blurb: 'MRR, active users, churn and conversion with a revenue trend, traffic by channel and plan distribution.',
-        url: 'app.northwind.io/analytics',
-        brand: 'Northwind',
+        url: 'app.nimbus.io/analytics',
+        brand: 'Nimbus',
         view: 'Overview',
         range: 'Last 30 days',
         kpis: [
@@ -407,8 +409,8 @@ export default {
         name: 'E-commerce sales & orders',
         type: 'E-commerce · Operations',
         blurb: 'Revenue, orders, average order value and refunds, with daily sales, a product ranking and recent orders with statuses.',
-        url: 'admin.mercado.store/sales',
-        brand: 'Mercado',
+        url: 'admin.vela.store/sales',
+        brand: 'Vela',
         view: 'Sales',
         range: 'This week',
         kpis: [
@@ -451,8 +453,8 @@ export default {
         name: 'Finance & payments',
         type: 'Fintech · Treasury',
         blurb: 'Available balance, income-vs-expenses cash flow and a transactions ledger with statuses and amounts.',
-        url: 'dashboard.ledger.fin',
-        brand: 'Ledger',
+        url: 'dashboard.saldo.fin',
+        brand: 'Saldo',
         view: 'Treasury',
         range: 'Last 6 months',
         balance: { label: 'Available balance', value: '$86,420.50', delta: '+6.9% this month', dir: 'pos' },
@@ -765,11 +767,12 @@ export default {
     label: 'FAQ',
     heading: 'Frequently asked questions',
     items: [
-      { q: 'What is codiva?', aHtml: '<p>codiva® is an independent web design and development studio based in Ñuñoa, Santiago, Chile. We combine high-end design with precise technical development to build sites, applications, mobile apps, and custom software. The name is a registered trademark with INAPI (#1481622).</p>' },
-      { q: 'What services does codiva offer?', aHtml: '<p>codiva® offers four main services: Web Design & Development (sites and platforms), Web & Mobile Apps (native apps and PWAs), Custom Software (systems and dashboards), and APIs & Microservices (scalable architecture and cloud services).</p>' },
-      { q: 'Is codiva a registered trademark in Chile?', aHtml: '<p>Yes, codiva® is officially registered at INAPI Chile. Registration #1481622, application #1618736, registered on November 27, 2025, as a denominative trademark under Class 42 (Web design and development), valid until November 27, 2035.</p>' },
-      { q: 'Where is codiva located?', aHtml: '<p>codiva® is located in Ñuñoa, Santiago, Chile. We provide software development services both locally and remotely for clients across Chile and Latin America.</p>' },
-      { q: 'How can I contact codiva for a project?', aHtml: '<p>You can reach us by sending an email to <a href="mailto:contactos@codiva.cl">contactos@codiva.cl</a>. We\'d love to discuss your project and how we can help you build an exceptional digital experience.</p>' },
+      { q: 'What is codiva?', aHtml: '<p>codiva® is an independent studio of two senior software engineers, based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting. The people who sell you the project are the people who build it.</p>' },
+      { q: 'What services does codiva offer?', aHtml: '<p>Web Design & Development (sites and platforms), Web & Mobile Apps (native apps and PWAs), Custom Software (systems and dashboards), and APIs & Microservices (scalable architecture and cloud services). We also take on existing products to stabilize them and keep building.</p>' },
+      { q: 'Who owns the code?', aHtml: '<p>You do, from the first commit. The repository is in your name and we hand over everything — code, infrastructure, and documentation — with no hidden dependencies or lock-in. If one day you want to continue with another team, you can.</p>' },
+      { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where 14 years of backend architecture and distributed systems make the difference.</p>' },
+      { q: "You're only two people. What happens if you get sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. We both know every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },
+      { q: 'Do you work with internal teams or replace them?', aHtml: "<p>Both. We embed with your internal team when there is one, or act as your full product team when there isn't. We adapt to how you already work.</p>" },
     ],
   },
 
@@ -818,7 +821,7 @@ export default {
       'We talk for 30 minutes over video or a call.',
       'We send you a clear plan and proposal.',
     ],
-    trust: ['14 years of experience', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
+    trust: ['14 years in backend & architecture', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
     seeWork: { label: 'See projects', href: '/en/projects' },
     back: '← Back to home',
     waMessage: 'Hi codiva 👋, I want to tell you about my project.',
@@ -835,6 +838,6 @@ export default {
 
   footer: {
     copy: 'All rights reserved.',
-    legal: { href: '/en/trademark/', label: 'codiva® — registered trademark INAPI #1481622' },
+    legal: { href: '/en/trademark/', label: 'codiva® — registered trademark' },
   },
 };
