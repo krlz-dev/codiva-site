@@ -534,6 +534,56 @@ export default {
     creditHref: 'https://dev.to/krlz/spec-driven-development-in-2026-what-it-is-the-tooling-and-how-teams-actually-use-it-2fk2',
   },
 
+  agile: {
+    label: 'Entrega ágil',
+    heading: 'Un sprint es una conversación con software funcionando',
+    intro: 'Trabajamos en ciclos de una o dos semanas para reducir incertidumbre pronto. El cliente ve avances reales, decide prioridades y puede corregir el rumbo antes de que una suposición se vuelva cara.',
+    loop: {
+      title: 'El latido del sprint',
+      lead: 'Cada ciclo convierte una prioridad de negocio en evidencia revisable.',
+      steps: [
+        { name: 'Priorizar', outcome: 'valor, riesgo y urgencia visibles' },
+        { name: 'Acordar', outcome: 'objetivo y alcance del sprint' },
+        { name: 'Construir', outcome: 'cambios pequeños e integrados' },
+        { name: 'Demostrar', outcome: 'software funcionando, no diapositivas' },
+        { name: 'Aprender', outcome: 'feedback que vuelve al backlog' },
+      ],
+      note: 'El backlog no es una promesa infinita. Es una conversación ordenada sobre qué importa ahora y qué puede esperar.',
+    },
+    rituals: {
+      title: 'Rituales con un resultado concreto',
+      lead: 'Una cadencia típica para un sprint de una o dos semanas. La ajustamos al contexto y protegemos el tiempo de foco.',
+      items: [
+        { when: 'Inicio', name: 'Planificación del sprint', purpose: 'Objetivo, alcance, riesgos y criterio de éxito compartidos.', time: '45–60 min' },
+        { when: 'Cada día', name: 'Alineación diaria · Daily', purpose: 'Bloqueos y decisiones; asíncrona por defecto.', time: '≤ 10 min' },
+        { when: 'Mitad', name: 'Refinamiento', purpose: 'Aclarar el siguiente trabajo antes de comprometerlo.', time: '30–45 min' },
+        { when: 'Cierre', name: 'Revisión con el cliente', purpose: 'Demo de software funcionando y decisiones de producto.', time: '45 min' },
+        { when: 'Después', name: 'Retrospectiva', purpose: 'Cambiar una cosa concreta para trabajar mejor.', time: '30 min' },
+      ],
+      guardrail: 'Si una reunión no desbloquea, decide, demuestra o mejora algo, la eliminamos.',
+    },
+    modes: {
+      title: 'Scrum cuando ayuda. Kanban cuando el flujo manda.',
+      lead: 'Ágil no significa imponer el mismo marco a todos los problemas.',
+      items: [
+        { name: 'Scrum', when: 'Producto y modernización', reason: 'Un objetivo de sprint compartido ayuda a coordinar decisiones y demostrar incrementos.' },
+        { name: 'Kanban', when: 'Rescate, soporte e incidentes', reason: 'Límites de trabajo en curso y flujo visible funcionan mejor cuando la prioridad puede cambiar.' },
+      ],
+      note: 'En ambos casos: lotes pequeños, prioridades explícitas, trabajo visible y una definición de terminado que incluye calidad, documentación y despliegue.',
+    },
+    care: {
+      eyebrow: 'La relación también se diseña',
+      title: 'Amor por el cliente, traducido en conductas',
+      lead: 'Cuidar al cliente no es decir que sí a todo. Es escuchar, decir la verdad temprano y proteger su producto, presupuesto y capacidad de decidir.',
+      items: [
+        { icon: '◎', title: 'Escuchar antes de proponer', description: 'Entendemos la operación, las personas y las restricciones antes de elegir tecnología.' },
+        { icon: '↗', title: 'Sin sorpresas', description: 'Riesgos, bloqueos y cambios de alcance aparecen cuando todavía se puede actuar.' },
+        { icon: '◇', title: 'Decidir juntos', description: 'La revisión no es teatro: el cliente prueba, pregunta, prioriza y acepta.' },
+        { icon: '⌂', title: 'Dejar capacidad, no dependencia', description: 'Código, contexto, documentación e infraestructura quedan bajo control del cliente.' },
+      ],
+    },
+  },
+
   methodology: {
     label: 'Cómo lo construimos',
     heading: 'Sistemas, no pantallas',

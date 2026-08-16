@@ -521,6 +521,56 @@ export default {
     creditHref: 'https://dev.to/krlz/spec-driven-development-in-2026-what-it-is-the-tooling-and-how-teams-actually-use-it-2fk2',
   },
 
+  agile: {
+    label: 'Agile delivery',
+    heading: 'A sprint is a conversation with working software',
+    intro: 'We work in one- or two-week cycles to reduce uncertainty early. The client sees real progress, decides priorities, and can correct course before an assumption becomes expensive.',
+    loop: {
+      title: 'The sprint heartbeat',
+      lead: 'Each cycle turns one business priority into reviewable evidence.',
+      steps: [
+        { name: 'Prioritize', outcome: 'value, risk, and urgency made visible' },
+        { name: 'Commit', outcome: 'a shared sprint goal and scope' },
+        { name: 'Build', outcome: 'small, integrated changes' },
+        { name: 'Demonstrate', outcome: 'working software, not slides' },
+        { name: 'Learn', outcome: 'feedback returned to the backlog' },
+      ],
+      note: 'The backlog is not an infinite promise. It is an ordered conversation about what matters now and what can wait.',
+    },
+    rituals: {
+      title: 'Rituals with a concrete outcome',
+      lead: 'A typical cadence for a one- or two-week sprint. We adapt it to the context and protect focus time.',
+      items: [
+        { when: 'Start', name: 'Sprint planning', purpose: 'A shared goal, scope, risks, and success criteria.', time: '45–60 min' },
+        { when: 'Daily', name: 'Daily alignment', purpose: 'Blockers and decisions; asynchronous by default.', time: '≤ 10 min' },
+        { when: 'Midpoint', name: 'Refinement', purpose: 'Clarify upcoming work before committing to it.', time: '30–45 min' },
+        { when: 'Close', name: 'Client review', purpose: 'A working software demo and product decisions.', time: '45 min' },
+        { when: 'After', name: 'Retrospective', purpose: 'Change one concrete thing to work better.', time: '30 min' },
+      ],
+      guardrail: 'If a meeting does not unblock, decide, demonstrate, or improve something, we remove it.',
+    },
+    modes: {
+      title: 'Scrum when it helps. Kanban when flow leads.',
+      lead: 'Agile does not mean forcing the same framework onto every problem.',
+      items: [
+        { name: 'Scrum', when: 'Product and modernization', reason: 'A shared sprint goal helps coordinate decisions and demonstrate increments.' },
+        { name: 'Kanban', when: 'Rescue, support, and incidents', reason: 'Work-in-progress limits and visible flow work better when priorities may change.' },
+      ],
+      note: 'In both modes: small batches, explicit priorities, visible work, and a definition of done that includes quality, documentation, and deployment.',
+    },
+    care: {
+      eyebrow: 'The relationship is designed too',
+      title: 'Client love, made operational',
+      lead: 'Caring for a client does not mean saying yes to everything. It means listening, telling the truth early, and protecting their product, budget, and ability to decide.',
+      items: [
+        { icon: '◎', title: 'Listen before proposing', description: 'We understand the operation, people, and constraints before choosing technology.' },
+        { icon: '↗', title: 'No surprises', description: 'Risks, blockers, and scope changes surface while there is still time to act.' },
+        { icon: '◇', title: 'Decide together', description: 'The review is not theater: the client tests, asks, prioritizes, and accepts.' },
+        { icon: '⌂', title: 'Leave capability, not dependency', description: 'Code, context, documentation, and infrastructure remain under the client’s control.' },
+      ],
+    },
+  },
+
   methodology: {
     label: 'How we build it',
     heading: 'Systems, not screens',

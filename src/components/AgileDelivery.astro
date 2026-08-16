@@ -1,0 +1,90 @@
+---
+const { t } = Astro.props;
+const A = t.agile;
+---
+
+<section class="dashboards agile" id="agile-delivery" aria-labelledby="agile-heading">
+  <div class="container">
+    <div class="section-label">{A.label}</div>
+    <h2 class="dashboards__heading" id="agile-heading" data-animate="reveal">{A.heading}</h2>
+    <p class="dashboards__intro" data-animate="fade">{A.intro}</p>
+
+    <div class="agile__layout">
+      <article class="method__block agile-loop-card" data-animate="fade">
+        <header class="agile-card__header">
+          <span class="agile-card__status" aria-hidden="true"></span>
+          <div>
+            <h3 class="method__title">{A.loop.title}</h3>
+            <p class="method__lead">{A.loop.lead}</p>
+          </div>
+        </header>
+
+        <ol class="agile-loop" role="list" data-agile-diagram="sprint-loop">
+          {A.loop.steps.map((step, index) => (
+            <li class="agile-loop__step">
+              <span class="agile-loop__number">{String(index + 1).padStart(2, '0')}</span>
+              <span class="agile-loop__copy">
+                <strong>{step.name}</strong>
+                <span>{step.outcome}</span>
+              </span>
+              {index < A.loop.steps.length - 1 && <span class="agile-loop__arrow" aria-hidden="true">→</span>}
+            </li>
+          ))}
+        </ol>
+        <p class="arch__note agile-loop__note">{A.loop.note}</p>
+      </article>
+
+      <article class="method__block agile-rituals-card" data-animate="fade">
+        <h3 class="method__title">{A.rituals.title}</h3>
+        <p class="method__lead">{A.rituals.lead}</p>
+        <ol class="agile-rituals" role="list">
+          {A.rituals.items.map((ritual) => (
+            <li class="agile-ritual">
+              <span class="agile-ritual__when">{ritual.when}</span>
+              <span class="agile-ritual__body">
+                <strong>{ritual.name}</strong>
+                <span>{ritual.purpose}</span>
+              </span>
+              <span class="agile-ritual__time">{ritual.time}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="agile-guardrail">{A.rituals.guardrail}</p>
+      </article>
+
+      <article class="method__block agile-modes" data-animate="fade">
+        <h3 class="method__title">{A.modes.title}</h3>
+        <p class="method__lead">{A.modes.lead}</p>
+        <div class="agile-modes__grid">
+          {A.modes.items.map((mode) => (
+            <div class="agile-mode">
+              <span class="agile-mode__name">{mode.name}</span>
+              <strong>{mode.when}</strong>
+              <p>{mode.reason}</p>
+            </div>
+          ))}
+        </div>
+        <p class="arch__note">{A.modes.note}</p>
+      </article>
+
+      <article class="method__block agile-care" data-animate="fade">
+        <div class="agile-care__intro">
+          <span class="agile-care__eyebrow">{A.care.eyebrow}</span>
+          <h3 class="method__title">{A.care.title}</h3>
+          <p class="method__lead">{A.care.lead}</p>
+        </div>
+        <ul class="agile-care__grid" role="list">
+          {A.care.items.map((item) => (
+            <li class="agile-care__item">
+              <span class="agile-care__icon" aria-hidden="true">{item.icon}</span>
+              <span>
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

@@ -157,6 +157,41 @@ check('technical diagram labels are localized', () => {
   }
 });
 
+check('methodology pages make Agile delivery and Scrum rituals concrete', () => {
+  for (const [name, source] of [['Spanish', html.esMethod], ['English', html.enMethod]]) {
+    assert.ok(source.includes('id="agile-delivery"'), `${name} methodology has no Agile delivery section`);
+    assert.ok(source.includes('data-agile-diagram="sprint-loop"'), `${name} methodology has no sprint loop`);
+    assert.ok(source.includes('class="agile-rituals"'), `${name} methodology has no ritual cadence`);
+    assertBefore(source, 'id="discovery"', 'id="agile-delivery"', `${name} Agile delivery must follow discovery`);
+    assertBefore(source, 'id="agile-delivery"', 'id="spec"', `${name} Agile delivery must precede specification`);
+  }
+
+  for (const copy of ['Planificación del sprint', 'Refinamiento', 'Revisión con el cliente', 'Retrospectiva', 'Scrum cuando ayuda', 'Amor por el cliente', 'Sin sorpresas']) {
+    assert.ok(html.esMethod.includes(copy), `Spanish Agile proof is missing: ${copy}`);
+  }
+  for (const copy of ['Sprint planning', 'Refinement', 'Client review', 'Retrospective', 'Scrum when it helps', 'Client love', 'No surprises']) {
+    assert.ok(html.enMethod.includes(copy), `English Agile proof is missing: ${copy}`);
+  }
+});
+
+check('Agile methodology keeps the client inside the delivery loop', () => {
+  assert.ok(html.esMethod.includes('software funcionando'), 'Spanish methodology does not promise working-software reviews');
+  assert.ok(html.enMethod.includes('working software'), 'English methodology does not promise working-software reviews');
+  for (const source of [html.esMethod, html.enMethod]) {
+    assert.ok(source.includes('aria-labelledby="agile-heading"'), 'Agile section has no accessible heading relationship');
+    assert.equal(count(source, /class="agile-loop__step"/g), 5, 'Sprint loop must expose five understandable steps');
+    assert.ok(source.includes('class="agile-loop" role="list"'), 'Sprint loop loses explicit list semantics');
+    assert.ok(source.includes('class="agile-rituals" role="list"'), 'Ritual cadence loses explicit list semantics');
+    assert.ok(source.includes('class="agile-care__grid" role="list"'), 'Client-care commitments lose explicit list semantics');
+  }
+  assert.ok(rawCss.includes('@keyframes agile-pulse'), 'Sprint loop has no visual heartbeat');
+  assert.match(rawCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.agile-loop__arrow/, 'Agile heartbeat ignores reduced motion');
+  assert.ok(
+    rawCss.lastIndexOf('@media (prefers-reduced-motion: reduce)') > rawCss.lastIndexOf('@keyframes agile-pulse'),
+    'Agile reduced-motion override loses the CSS cascade'
+  );
+});
+
 check('reduced motion disables reveal, marquee, and smooth-anchor movement', () => {
   assert.match(rawCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\[data-animate/, 'reveal transitions remain under reduced motion');
   assert.match(rawCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.marquee__track/, 'marquee motion remains under reduced motion');

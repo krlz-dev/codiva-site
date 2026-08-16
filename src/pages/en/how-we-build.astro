@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Discovery from '../../components/Discovery.astro';
+import AgileDelivery from '../../components/AgileDelivery.astro';
 import SpecDriven from '../../components/SpecDriven.astro';
 import Methodology from '../../components/Methodology.astro';
 import Architecture from '../../components/Architecture.astro';
@@ -9,29 +10,31 @@ import Footer from '../../components/Footer.astro';
 import en from '../../i18n/en.js';
 
 const meta = {
-  title: 'How We Build — Engineering, Atomic Design & Architecture | codiva®',
+  title: 'How We Build — Agile Delivery, Engineering & Architecture | codiva®',
   description:
-    'From problem to deployed software: scope, specification, design, and architecture with reviewable deliverables and risks visible from day one.',
+    'One- or two-week sprints, working software, useful rituals, specifications, and architecture with decisions and risks visible from day one.',
   keywords:
-    'atomic design, micro frontends, design tokens, spec-driven development, user stories, acceptance criteria, software architecture, scalability, non-functional requirements, jwt security, openid connect, software engineering chile',
+    'agile, scrum, sprint planning, sprint review, retrospective, kanban, atomic design, spec-driven development, software architecture, software engineering chile',
   canonical: 'https://codiva.cl/en/how-we-build/',
   ogUrl: 'https://codiva.cl/en/how-we-build/',
   ogTitle: 'How we build — codiva®',
   ogDescription:
-    'The engineering behind the product: discovery, spec-driven, Atomic Design, micro frontends, design tokens, scaling, quality and security.',
+    'The delivery behind the product: discovery, sprints, pragmatic Scrum, specifications, architecture, quality, and security.',
   ogLocale: 'en',
   twitterTitle: 'How we build — codiva®',
   twitterDescription:
-    'Discovery, specs, Atomic Design, micro frontends, scalable architecture and security — explained simply.',
+    'Discovery, Agile delivery, pragmatic Scrum, specifications, scalable architecture, and security — explained simply.',
 };
 
 const sections = [
   { id: 'discovery', nav: 'Discovery', name: en.discovery.heading, desc: en.discovery.intro },
+  { id: 'agile-delivery', nav: 'Agile', name: en.agile.heading, desc: en.agile.intro },
   { id: 'spec', nav: 'Spec-Driven', name: en.spec.heading, desc: en.spec.intro },
   { id: 'methodology', nav: 'Frontend', name: en.methodology.heading, desc: en.methodology.intro },
   { id: 'architecture', nav: 'Architecture', name: en.architecture.heading, desc: en.architecture.intro },
 ];
 const topics = [
+  'Agile', 'Scrum', 'Kanban', 'Sprint Planning', 'Sprint Review', 'Retrospective',
   'Atomic Design', 'Micro Frontends', 'Design Tokens', 'Spec-Driven Development',
   'User stories', 'Acceptance criteria', 'Scalability',
   'Non-functional requirements', 'Cloud architecture', 'Token-based security',
@@ -102,9 +105,10 @@ const t = { ...en, meta, schema };
     <header class="method-hero container">
       <span class="section-label">How we build</span>
       <h1>You know what you will receive before we start coding.</h1>
-      <p>Every stage ends with a reviewable artifact: scope, prototype, specification, architecture, deployed software, and documentation. This reduces rework, exposes risk early, and prevents surprises at the end.</p>
+      <p>Every sprint and every stage ends with something reviewable: a decision, prototype, specification, working software, architecture, or documentation. That helps us learn early, reduce rework, and prevent surprises at the end.</p>
     </header>
     <Discovery t={en} />
+    <AgileDelivery t={en} />
     <SpecDriven t={en} />
     <Methodology t={en} />
     <Architecture t={en} />
