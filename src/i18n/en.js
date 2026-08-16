@@ -47,7 +47,6 @@ export default {
         availableLanguage: ['Spanish', 'English'],
       },
       founder: { '@type': 'Person', name: 'Carlos Andrés Monserrat Rojas Rojas' },
-      areaServed: { '@type': 'Country', name: 'Chile' },
       knowsAbout: [
         'Business-critical B2B software',
         'Software modernization',
@@ -83,7 +82,6 @@ export default {
       email: 'contactos@codiva.cl',
       priceRange: '$$',
       serviceType: ['Build and evolve B2B software', 'Modernization and rescue', 'Data platforms and integrations'],
-      areaServed: { '@type': 'Country', name: 'Chile' },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'B2B software engineering services',
@@ -148,9 +146,9 @@ export default {
     heading: 'We enter through the problem, not a technology list',
     intro: 'The starting point changes. The responsibility does not: understand the system, reduce risk, and leave a foundation your team can operate and evolve.',
     items: [
-      { number: '01', title: 'Build and evolve', text: 'B2B products, internal platforms, and new modules from architecture through production, delivered in increments people can review and use.', link: 'Discuss the product with us', href: '/en/contact/' },
-      { number: '02', title: 'Modernize and rescue', text: 'Inherited or difficult-to-change systems: stability and observability first, then incremental evolution without impulsive rewrites.', link: 'See the rescue diagnostic', href: '/en/project-rescue/' },
-      { number: '03', title: 'Data and integrations', text: 'Pipelines, events, enrichment, interoperability, APIs, and data performance tied to the real operation.', link: 'See engineering cases', href: '/en/projects/data-pipeline/' },
+      { number: '01', title: 'Build and evolve', text: 'B2B products, internal platforms, and new modules from architecture through production, delivered in increments people can review and use.', link: 'B2B software development', href: '/en/services/b2b-software-development/' },
+      { number: '02', title: 'Modernize and rescue', text: 'Inherited or difficult-to-change systems: stability and observability first, then incremental evolution without impulsive rewrites.', link: 'Legacy application modernization', href: '/en/services/legacy-application-modernization/' },
+      { number: '03', title: 'Data and integrations', text: 'Pipelines, events, enrichment, interoperability, APIs, and data performance tied to the real operation.', link: 'Data engineering and integrations', href: '/en/services/data-engineering-integrations/' },
     ],
   },
 

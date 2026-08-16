@@ -59,42 +59,56 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
     <meta name="twitter:description" content={meta.twitterDescription} />
     <meta name="twitter:image" content="https://codiva.cl/og-image.png" />
 
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="CL-RM" />
-    <meta name="geo.placename" content="Ñuñoa, Santiago" />
-    <meta name="geo.position" content="-33.4569;-70.5990" />
-    <meta name="ICBM" content="-33.4569, -70.5990" />
-
     <!-- Language / Alternate -->
     <link rel="alternate" hreflang="es" href={altEs} />
     <link rel="alternate" hreflang="en" href={altEn} />
-    <link rel="alternate" hreflang="x-default" href={altEs} />
+    <link rel="alternate" hreflang="x-default" href={altEn} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#f4f3ee" />
     <noscript><style>[data-animate]{opacity:1!important;transform:none!important}</style></noscript>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Critical local font. Mono faces load on demand from the same origin. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/ibm-plex-sans-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <!-- Schema.org structured data -->
     {schema.map((block) => <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
-    <!-- Google tag (gtag.js) — only injected when GA_ID is configured -->
+    <!--
+      Performance-first analytics tradeoff: GA4 queues immediately, but its network
+      script waits for interaction or 8 seconds. A short visit that ends before either
+      trigger is intentionally not transmitted. This protects the critical rendering
+      path at the cost of undercounting non-interacting bounces.
+    -->
     {GA_ID && (
-      <Fragment>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} is:inline></script>
-        <script is:inline set:html={`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}></script>
-      </Fragment>
+      <script is:inline data-analytics-loader set:html={`(function () {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', '${GA_ID}');
+
+  var loaded = false;
+  function loadAnalytics() {
+    if (loaded) return;
+    loaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+    document.head.appendChild(script);
+  }
+
+  ['pointerdown', 'keydown', 'scroll'].forEach(function (eventName) {
+    window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
+  });
+  window.setTimeout(loadAnalytics, 8000);
+})();`}></script>
     )}
   </head>
   <body class={isHome ? 'site-home' : 'site-subpage'}>

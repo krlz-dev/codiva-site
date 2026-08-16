@@ -8,11 +8,11 @@ export default {
   bookingUrl: 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true',
 
   meta: {
-    title: 'Software B2B, datos e integraciones en Chile | codiva®',
+    title: 'Software B2B y modernización de aplicaciones | codiva®',
     description:
       'Construimos y modernizamos software B2B crítico, plataformas de datos e integraciones complejas. Trabajo directo con Carlos y Marina.',
     keywords:
-      'software B2B Chile, plataformas de datos, integraciones de software, modernización de software, rescate de proyectos, ingenieros senior Santiago',
+      'desarrollo de software B2B, modernización de aplicaciones legacy, ingeniería de datos, integraciones de software, sistemas heredados',
     canonical: 'https://codiva.cl/',
     ogUrl: 'https://codiva.cl/',
     ogTitle: 'Software B2B crítico, datos e integraciones — codiva®',
@@ -49,7 +49,6 @@ export default {
         availableLanguage: ['Spanish', 'English'],
       },
       founder: { '@type': 'Person', name: 'Carlos Andrés Monserrat Rojas Rojas' },
-      areaServed: { '@type': 'Country', name: 'Chile' },
       knowsAbout: [
         'Software B2B crítico',
         'Modernización de software',
@@ -86,7 +85,6 @@ export default {
       email: 'contactos@codiva.cl',
       priceRange: '$$',
       serviceType: ['Construcción de software B2B', 'Modernización y rescate', 'Plataformas de datos e integraciones'],
-      areaServed: { '@type': 'Country', name: 'Chile' },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Servicios de ingeniería de software B2B',
@@ -151,9 +149,9 @@ export default {
     heading: 'Entramos por el problema, no por una lista de tecnologías',
     intro: 'El punto de partida cambia. La responsabilidad no: entender el sistema, reducir el riesgo y dejar una base que tu equipo pueda operar y evolucionar.',
     items: [
-      { number: '01', title: 'Construir y evolucionar', text: 'Productos B2B, plataformas internas y nuevos módulos desde arquitectura hasta producción, con entregas que se pueden revisar y usar.', link: 'Conversemos sobre el producto', href: '/contacto/' },
-      { number: '02', title: 'Modernizar y rescatar', text: 'Sistemas heredados o difíciles de cambiar: primero estabilidad y observabilidad; después una evolución incremental sin reemplazos impulsivos.', link: 'Ver el diagnóstico de rescate', href: '/rescate-de-proyectos/' },
-      { number: '03', title: 'Datos e integraciones', text: 'Pipelines, eventos, enriquecimiento, interoperabilidad, APIs y rendimiento de datos conectados con la operación real.', link: 'Ver casos de ingeniería', href: '/proyectos/pipeline-datos/' },
+      { number: '01', title: 'Construir y evolucionar', text: 'Productos B2B, plataformas internas y nuevos módulos desde arquitectura hasta producción, con entregas que se pueden revisar y usar.', link: 'Desarrollo de software B2B', href: '/servicios/desarrollo-software-b2b/' },
+      { number: '02', title: 'Modernizar y rescatar', text: 'Sistemas heredados o difíciles de cambiar: primero estabilidad y observabilidad; después una evolución incremental sin reemplazos impulsivos.', link: 'Modernización de aplicaciones legacy', href: '/servicios/modernizacion-aplicaciones-legacy/' },
+      { number: '03', title: 'Datos e integraciones', text: 'Pipelines, eventos, enriquecimiento, interoperabilidad, APIs y rendimiento de datos conectados con la operación real.', link: 'Ingeniería de datos e integraciones', href: '/servicios/ingenieria-datos-integraciones/' },
     ],
   },
 

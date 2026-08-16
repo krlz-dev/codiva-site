@@ -30,6 +30,14 @@ const pages = {
   enNominatim: 'dist/en/knowledge/nominatim-geocoding/index.html',
   esIntegrations: 'dist/conocimiento/integraciones-postgresql/index.html',
   enIntegrations: 'dist/en/knowledge/integrations-postgresql/index.html',
+  esAgentic: 'dist/conocimiento/ingenieria-software-agentica/index.html',
+  enAgentic: 'dist/en/knowledge/agentic-software-engineering/index.html',
+  esB2bService: 'dist/servicios/desarrollo-software-b2b/index.html',
+  enB2bService: 'dist/en/services/b2b-software-development/index.html',
+  esModernizationService: 'dist/servicios/modernizacion-aplicaciones-legacy/index.html',
+  enModernizationService: 'dist/en/services/legacy-application-modernization/index.html',
+  esDataService: 'dist/servicios/ingenieria-datos-integraciones/index.html',
+  enDataService: 'dist/en/services/data-engineering-integrations/index.html',
 };
 
 const html = Object.fromEntries(
@@ -189,6 +197,103 @@ check('homepage metadata and structured data match the critical-software positio
   assert.ok(!html.esHome.includes('Estudio de diseño y desarrollo de páginas web'), 'Spanish professional-service schema still positions Codiva as a website studio');
 });
 
+check('global acquisition pages do not emit Chile-only targeting signals', () => {
+  for (const [name, source] of Object.entries({
+    esHome: html.esHome,
+    enHome: html.enHome,
+    esRescue: html.esRescue,
+    enRescue: html.enRescue,
+  })) {
+    assert.ok(!source.includes('name="geo.region"'), `${name} still emits a Chile geo meta tag`);
+    assert.ok(!source.includes('"areaServed":{"@type":"Country","name":"Chile"}'), `${name} still limits areaServed to Chile`);
+  }
+  assert.ok(!/<title>[^<]*\ben Chile\b/i.test(html.esHome), 'Spanish home title remains Chile-first');
+  assert.ok(html.esHome.includes('<link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/">'), 'Spanish home x-default is not English');
+  assert.ok(html.enHome.includes('<link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/">'), 'English home x-default is not English');
+  assert.ok(html.esHome.includes('Ñuñoa'), 'Spanish home lost the truthful Santiago business address');
+  assert.ok(html.enHome.includes('Ñuñoa'), 'English home lost the truthful Santiago business address');
+});
+
+check('bilingual service pillars own distinct commercial search intents', () => {
+  const pillars = [
+    [html.esB2bService, 'Desarrollo de software B2B | codiva®', 'Software B2B construido para operaciones complejas'],
+    [html.enB2bService, 'B2B software development services | codiva®', 'Build B2B software that can carry real operations'],
+    [html.esModernizationService, 'Modernización de aplicaciones legacy | codiva®', 'Moderniza software heredado sin detener la operación'],
+    [html.enModernizationService, 'Legacy application modernization services | codiva®', 'Modernize inherited software without stopping the business'],
+    [html.esDataService, 'Ingeniería de datos e integraciones | codiva®', 'Haz que tus datos operativos sean confiables, conectados y recuperables'],
+    [html.enDataService, 'Data engineering and integration consulting | codiva®', 'Make operational data reliable, connected, and recoverable'],
+  ];
+  for (const [source, title, h1] of pillars) {
+    assert.ok(source.includes(`<title>${title}</title>`), `service page is missing title: ${title}`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `service page is missing h1: ${h1}`);
+    assert.ok(source.includes('data-service-fit'), `${title} does not define fit`);
+    assert.ok(source.includes('data-service-not-fit'), `${title} does not define non-fit`);
+    assert.ok(source.includes('data-service-deliverables'), `${title} does not define deliverables`);
+    const blocks = [...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const service = blocks.find((block) => block['@type'] === 'Service');
+    assert.ok(service, `${title} has no Service schema`);
+    assert.ok(!('areaServed' in service), `${title} invents geographic service coverage`);
+  }
+});
+
+check('commercial and technical proof route authority to the service pillars', () => {
+  const links = [
+    [html.esHome, '/servicios/desarrollo-software-b2b/'],
+    [html.esHome, '/servicios/modernizacion-aplicaciones-legacy/'],
+    [html.esHome, '/servicios/ingenieria-datos-integraciones/'],
+    [html.enHome, '/en/services/b2b-software-development/'],
+    [html.enHome, '/en/services/legacy-application-modernization/'],
+    [html.enHome, '/en/services/data-engineering-integrations/'],
+    [html.esRescue, '/servicios/modernizacion-aplicaciones-legacy/'],
+    [html.enRescue, '/en/services/legacy-application-modernization/'],
+    [html.esDataCase, '/servicios/ingenieria-datos-integraciones/'],
+    [html.enDataCase, '/en/services/data-engineering-integrations/'],
+    [html.esIot, '/servicios/ingenieria-datos-integraciones/'],
+    [html.enIot, '/en/services/data-engineering-integrations/'],
+    [html.esIntegrations, '/servicios/ingenieria-datos-integraciones/'],
+    [html.enIntegrations, '/en/services/data-engineering-integrations/'],
+  ];
+  for (const [source, href] of links) assert.ok(hasHref(source, href), `missing contextual service link: ${href}`);
+
+  const routes = [
+    '/servicios/desarrollo-software-b2b/', '/en/services/b2b-software-development/',
+    '/servicios/modernizacion-aplicaciones-legacy/', '/en/services/legacy-application-modernization/',
+    '/servicios/ingenieria-datos-integraciones/', '/en/services/data-engineering-integrations/',
+  ];
+  for (const route of routes) {
+    assert.ok(sitemapText.includes(`<loc>https://codiva.cl${route}</loc>`), `sitemap.xml omits ${route}`);
+    assert.ok(llmsText.includes(`https://codiva.cl${route}`), `llms.txt omits ${route}`);
+  }
+});
+
+check('agentic engineering content pairs faster execution with stronger controls', () => {
+  const pages = [
+    [html.esAgentic, 'Ingeniería de software agéntica: velocidad con control | codiva®', 'La programación agéntica cambia la velocidad, no la responsabilidad', '/conocimiento/ingenieria-software-agentica/'],
+    [html.enAgentic, 'Agentic software engineering: speed with control | codiva®', 'Agentic programming changes the speed, not the responsibility', '/en/knowledge/agentic-software-engineering/'],
+  ];
+  for (const [source, title, h1, route] of pages) {
+    assert.ok(source.includes(`<title>${title}</title>`), `${route} is missing its search title`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `${route} is missing its thesis`);
+    for (const control of ['data-agentic-control="specification"', 'data-agentic-control="tdd"', 'data-agentic-control="sandbox"', 'data-agentic-control="independent-review"', 'data-agentic-control="fail-closed"']) {
+      assert.ok(source.includes(control), `${route} omits ${control}`);
+    }
+    assert.ok(source.includes('data-human-decision'), `${route} does not preserve human decisions`);
+    assert.ok(source.includes('data-executed-evidence'), `${route} does not require executed evidence`);
+    assert.ok(source.includes('knowledge-article__sections--agentic'), `${route} does not identify its five-control grid`);
+  }
+  assert.match(rawCss, /\.knowledge-article__sections--agentic\s*\{[^}]*grid-template-columns:\s*repeat\(6,/s);
+  assert.match(rawCss, /\.knowledge-article__sections--agentic\s*>\s*:nth-child\(-n\+3\)\s*\{[^}]*grid-column:\s*span 2/s);
+  assert.match(rawCss, /\.knowledge-article__sections--agentic\s*>\s*:nth-child\(n\+4\)\s*\{[^}]*grid-column:\s*span 3/s);
+  assert.ok(hasHref(html.esKnowledge, '/conocimiento/ingenieria-software-agentica/'), 'Spanish Knowledge hub omits agentic engineering');
+  assert.ok(hasHref(html.enKnowledge, '/en/knowledge/agentic-software-engineering/'), 'English Knowledge hub omits agentic engineering');
+  assert.ok(hasHref(html.esB2bService, '/conocimiento/ingenieria-software-agentica/'), 'Spanish B2B service omits agentic engineering proof');
+  assert.ok(hasHref(html.enB2bService, '/en/knowledge/agentic-software-engineering/'), 'English B2B service omits agentic engineering proof');
+  assert.ok(sitemapText.includes('<loc>https://codiva.cl/conocimiento/ingenieria-software-agentica/</loc>'));
+  assert.ok(sitemapText.includes('<loc>https://codiva.cl/en/knowledge/agentic-software-engineering/</loc>'));
+  assert.ok(llmsText.includes('https://codiva.cl/conocimiento/ingenieria-software-agentica/'));
+  assert.ok(llmsText.includes('https://codiva.cl/en/knowledge/agentic-software-engineering/'));
+});
+
 check('every commercial subpage exposes full navigation and a locale switch', () => {
   for (const [name, source] of Object.entries({
     esProjects: html.esProjects,
@@ -214,6 +319,10 @@ check('locale switches preserve the equivalent page instead of returning home', 
     esKnowledge: '/en/knowledge/', enKnowledge: '/conocimiento/', esIot: '/en/knowledge/iot-ingestion/', enIot: '/conocimiento/ingesta-iot/',
     esNominatim: '/en/knowledge/nominatim-geocoding/', enNominatim: '/conocimiento/nominatim-geocodificacion/',
     esIntegrations: '/en/knowledge/integrations-postgresql/', enIntegrations: '/conocimiento/integraciones-postgresql/',
+    esAgentic: '/en/knowledge/agentic-software-engineering/', enAgentic: '/conocimiento/ingenieria-software-agentica/',
+    esB2bService: '/en/services/b2b-software-development/', enB2bService: '/servicios/desarrollo-software-b2b/',
+    esModernizationService: '/en/services/legacy-application-modernization/', enModernizationService: '/servicios/modernizacion-aplicaciones-legacy/',
+    esDataService: '/en/services/data-engineering-integrations/', enDataService: '/servicios/ingenieria-datos-integraciones/',
   };
   for (const [name, href] of Object.entries(destinations)) {
     assert.ok(html[name].includes(`<a href="${href}" class="nav__lang"`), `${name} locale switch does not target ${href}`);
@@ -283,6 +392,22 @@ check('GA4 tracks calendar, WhatsApp, and email CTA channels', () => {
   for (const token of ['cal.com', 'calendar', 'whatsapp_click', 'email_click', 'book_call_click']) {
     assert.ok(all.includes(token), `missing analytics token: ${token}`);
   }
+});
+
+check('fonts and analytics stay out of the critical rendering path', () => {
+  for (const [name, source] of Object.entries(html)) {
+    assert.ok(!source.includes('fonts.googleapis.com'), `${name} still connects to Google Fonts CSS`);
+    assert.ok(!source.includes('fonts.gstatic.com'), `${name} still connects to Google Fonts assets`);
+    assert.ok(!source.includes('<script async src="https://www.googletagmanager.com'), `${name} eagerly loads GA4`);
+    assert.ok(source.includes('data-analytics-loader'), `${name} has no deferred analytics loader`);
+  }
+  assert.ok(html.esHome.includes('/fonts/ibm-plex-sans-latin-wght-normal.woff2'), 'critical sans font is not preloaded locally');
+  assert.match(rawCss, /@font-face\s*\{[^}]*font-family:\s*'IBM Plex Sans'[^}]*font-weight:\s*300 700[^}]*font-display:\s*swap/s);
+  for (const weight of [400, 500, 600]) {
+    assert.match(rawCss, new RegExp(`@font-face\\s*\\{[^}]*font-family:\\s*'IBM Plex Mono'[^}]*font-weight:\\s*${weight}[^}]*font-display:\\s*swap`, 's'));
+  }
+  assert.match(html.esHome, /window\.gtag\s*=.*dataLayer\.push/s, 'gtag queue is unavailable before the network script');
+  assert.ok(html.esHome.includes('8000'), 'analytics fallback delay is not explicit');
 });
 
 check('contact pages are linked internally from each homepage', () => {
@@ -429,6 +554,13 @@ check('skip links and method introductions have production styling', () => {
   assert.ok(css.includes('.skip-link:focus'), 'skip link has no visible focus state');
   assert.ok(css.includes('.method-hero'), 'generated CSS has no method-hero styles');
   assert.match(rawCss, /\.hero__cta-note\s*\{[^}]*color:\s*var\(--color-text-muted\)/s, 'hero fit-call explanation is too faint');
+});
+
+check('service pages have responsive production styling', () => {
+  for (const selector of ['.service-page__hero-grid', '.service-page__cards', '.service-page__fit-grid', '.service-page__related-grid', '.service-page__cta-grid', '.case-study__service-link']) {
+    assert.ok(rawCss.includes(`${selector} {`), `missing service style: ${selector}`);
+  }
+  assert.match(rawCss, /@media\s*\(max-width:\s*800px\)[\s\S]*?\.service-page__hero-grid[\s\S]*?grid-template-columns:\s*1fr/);
 });
 
 check('English project title reflects the work and architecture hierarchy', () => {
@@ -588,8 +720,8 @@ check('homepage structured data has equivalent ES and EN coverage', () => {
   const enBlocks = blocks(html.enHome);
   assert.deepEqual(enBlocks.map((block) => block['@type']).sort(), esBlocks.map((block) => block['@type']).sort(), 'homepage schema types differ by locale');
   for (const type of ['Organization', 'ProfessionalService']) {
-    assert.ok(esBlocks.find((block) => block['@type'] === type)?.areaServed, `Spanish ${type} lacks areaServed`);
-    assert.ok(enBlocks.find((block) => block['@type'] === type)?.areaServed, `English ${type} lacks areaServed`);
+    assert.ok(!('areaServed' in esBlocks.find((block) => block['@type'] === type)), `Spanish ${type} invents global service coverage`);
+    assert.ok(!('areaServed' in enBlocks.find((block) => block['@type'] === type)), `English ${type} invents global service coverage`);
   }
 });
 
@@ -599,6 +731,25 @@ check('internal route links use canonical trailing slashes', () => {
       if (href === '/' || href.startsWith('/#') || /\.[a-z0-9]+(?:\?|$)/i.test(href)) continue;
       const pathname = href.split('#', 1)[0];
       assert.ok(pathname.endsWith('/'), `${name} has slashless route: ${href}`);
+    }
+  }
+});
+
+check('internal deep links resolve to an element on the target page', () => {
+  const routeFor = (file) => {
+    const relative = file.replace(/^dist\//, '').replace(/index\.html$/, '');
+    return `/${relative}`.replace(/\/+/g, '/');
+  };
+  const byRoute = new Map(Object.entries(pages).map(([name, file]) => [routeFor(file), [name, html[name]]]));
+  for (const [sourceName, source] of Object.entries(html)) {
+    for (const [, href] of source.matchAll(/href="(\/[^"]*#[^"]+)"/g)) {
+      const [pathname, encodedFragment] = href.split('#', 2);
+      const target = byRoute.get(pathname || '/');
+      assert.ok(target, `${sourceName} links to an ungenerated route: ${href}`);
+      const [targetName, targetHtml] = target;
+      const fragment = decodeURIComponent(encodedFragment);
+      const ids = new Set([...targetHtml.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
+      assert.ok(ids.has(fragment), `${sourceName} links to missing #${fragment} on ${targetName}`);
     }
   }
 });

@@ -1,0 +1,127 @@
+---
+const { t, content } = Astro.props;
+---
+
+<main class="service-page" id="main-content" tabindex="-1">
+  <header class="service-page__hero">
+    <div class="container service-page__hero-grid">
+      <div>
+        <span class="section-label">{content.label}</span>
+        <h1>{content.title}</h1>
+        <p class="service-page__intro">{content.intro}</p>
+      </div>
+      <aside class="service-page__promise" aria-label={content.label}>
+        <p>{content.promise}</p>
+        <a
+          class="btn btn--primary"
+          href={t.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cta="calendar"
+          data-cta-location={`service-${content.key}-hero`}
+          data-cta-intent={content.ctaIntent}
+        >{content.ctaLabel} <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </header>
+
+  <section class="service-page__problems" aria-labelledby="service-problem-title">
+    <div class="container service-page__split">
+      <h2 id="service-problem-title">{content.problemTitle}</h2>
+      <ul role="list">
+        {content.problems.map((problem) => <li>{problem}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="service-page__deliverables" aria-labelledby="service-deliverables-title" data-service-deliverables>
+    <div class="container">
+      <span class="section-label">{content.deliverablesTitle}</span>
+      <h2 id="service-deliverables-title">{content.deliverablesTitle}</h2>
+      <div class="service-page__cards">
+        {content.deliverables.map((item, index) => (
+          <article>
+            <span aria-hidden="true">0{index + 1}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-page__approach" aria-labelledby="service-approach-title">
+    <div class="container">
+      <span class="section-label">{content.approachTitle}</span>
+      <h2 id="service-approach-title">{content.approachTitle}</h2>
+      <ol role="list">
+        {content.approach.map((item, index) => (
+          <li>
+            <span aria-hidden="true">0{index + 1}</span>
+            <div><h3>{item.title}</h3><p>{item.text}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="service-page__fit" aria-label={content.fitTitle}>
+    <div class="container service-page__fit-grid">
+      <article data-service-fit>
+        <span class="section-label">{content.fitTitle}</span>
+        <h2>{content.fitTitle}</h2>
+        <ul>{content.fit.map((item) => <li>{item}</li>)}</ul>
+      </article>
+      <article data-service-not-fit>
+        <span class="section-label">{content.notFitTitle}</span>
+        <h2>{content.notFitTitle}</h2>
+        <ul>{content.notFit.map((item) => <li>{item}</li>)}</ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="service-page__proof" aria-labelledby="service-proof-title">
+    <div class="container service-page__proof-grid">
+      <div>
+        <span class="section-label">{content.proof.label}</span>
+        <h2 id="service-proof-title">{content.proof.title}</h2>
+        <p>{content.proof.text}</p>
+      </div>
+      <a class="btn btn--ghost" href={content.proof.href}>{content.proof.link} <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="service-page__related" aria-labelledby="service-related-title">
+    <div class="container">
+      <span class="section-label">{content.relatedTitle}</span>
+      <h2 id="service-related-title">{content.relatedTitle}</h2>
+      <div class="service-page__related-grid">
+        {content.related.map((item) => (
+          <a href={item.href}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <span aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-page__cta" aria-labelledby="service-cta-title">
+    <div class="container service-page__cta-grid">
+      <div>
+        <h2 id="service-cta-title">{content.ctaTitle}</h2>
+        <p>{content.ctaText}</p>
+      </div>
+      <a
+        class="btn btn--primary"
+        href={t.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cta="calendar"
+        data-cta-location={`service-${content.key}-footer`}
+        data-cta-intent={content.ctaIntent}
+      >{content.ctaLabel} <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>

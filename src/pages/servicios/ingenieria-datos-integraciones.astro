@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServicePage from '../../components/ServicePage.astro';
+import Footer from '../../components/Footer.astro';
+import es from '../../i18n/es.js';
+import { services, serviceSchema } from '../../content/services.js';
+
+const content = services.es.data;
+const t = { ...es, meta: content.meta, schema: serviceSchema(content, 'https://codiva.cl/', 'Inicio') };
+---
+
+<Layout t={t} altEs={content.meta.canonical} altEn="https://codiva.cl/en/services/data-engineering-integrations/">
+  <ServicePage t={es} content={content} />
+  <Footer t={es} />
+</Layout>
