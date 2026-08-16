@@ -1,0 +1,26 @@
+---
+const { t } = Astro.props;
+const { buyerControl } = t;
+---
+
+<section class="buyer-control" aria-labelledby="buyer-control-heading">
+  <div class="container">
+    <div class="section-label">{buyerControl.label}</div>
+    <div class="buyer-control__intro">
+      <h2 id="buyer-control-heading" data-animate="reveal">{buyerControl.heading}</h2>
+      <p data-animate="fade">{buyerControl.intro}</p>
+    </div>
+    <ul class="buyer-control__grid">
+      {buyerControl.items.map((item) => (
+        <li class="buyer-control__item" data-animate="fade">
+          <span class="buyer-control__mark" aria-hidden="true">✓</span>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <a class="buyer-control__link" href="#faq">{buyerControl.cta} <span aria-hidden="true">→</span></a>
+  </div>
+</section>

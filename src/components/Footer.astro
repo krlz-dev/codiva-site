@@ -13,6 +13,7 @@ const year = new Date().getFullYear();
         <span class="footer__copy">© {year} codiva. {footer.copy}</span>
       </div>
       <div class="footer__meta">
+        <a href={footer.contact.href} class="footer__legal">{footer.contact.label}</a>
         <a href={footer.legal.href} class="footer__legal">{footer.legal.label}</a>
       </div>
     </div>

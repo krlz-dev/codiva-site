@@ -7,22 +7,22 @@ const { nav } = t;
   <div class="nav__logo">
     <a href="#hero" aria-label={nav.logoAria}>codiva<span class="reg">®</span></a>
   </div>
-  <div class="nav__links" id="navLinks" role="menubar">
+  <div class="nav__links" id="navLinks">
     {nav.links.map((l) => (
       l.children ? (
         <div class="nav__group">
-          <a href={l.href} class="nav__link nav__grouptrigger" role="menuitem" aria-haspopup="true">
+          <a href={l.href} class="nav__link nav__grouptrigger">
             {l.label}
             <svg class="nav__chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
           </a>
-          <div class="nav__dropdown" role="menu">
+          <div class="nav__dropdown">
             {l.children.map((c) => (
-              <a href={c.href} class="nav__link nav__droplink" role="menuitem">{c.label}</a>
+              <a href={c.href} class="nav__link nav__droplink">{c.label}</a>
             ))}
           </div>
         </div>
       ) : (
-        <a href={l.href} class="nav__link" role="menuitem">{l.label}</a>
+        <a href={l.href} class="nav__link">{l.label}</a>
       )
     ))}
     <a href={nav.langSwitch.href} class="nav__lang" aria-label={nav.langSwitch.aria}>

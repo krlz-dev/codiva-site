@@ -5,23 +5,23 @@ export default {
   htmlLang: 'es',
 
   // Cal.com booking link — primary CTA for scheduling a 30-min intro call.
-  bookingUrl: 'https://cal.com/krlz.dev',
+  bookingUrl: 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true',
 
   meta: {
     title: 'Desarrollo de software a medida en Santiago | codiva®',
     description:
-      'Estudio de dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin — sin juniors ni subcontratar. También tomamos proyectos ya empezados.',
+      'Rescatamos software heredado y construimos productos B2B de punta a punta. Trabajo directo con quienes diseñan, programan y despliegan.',
     keywords:
       'desarrollo de software a medida Santiago, estudio de software Chile, ingenieros senior, backend, frontend, IA, rescate de proyectos de software, retomar desarrollo, Ñuñoa',
     canonical: 'https://codiva.cl/',
     ogUrl: 'https://codiva.cl/',
     ogTitle: 'Desarrollo de software a medida en Santiago — codiva®',
     ogDescription:
-      'Estudio de dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin — sin juniors ni subcontratar. También tomamos proyectos ya empezados.',
+      'Rescatamos software heredado y construimos productos B2B de punta a punta, sin equipos rotativos ni intermediarios.',
     ogLocale: 'es_CL',
     twitterTitle: 'Desarrollo de software a medida — codiva®',
     twitterDescription:
-      'Dos ingenieros senior. Diseño, frontend, backend e IA de principio a fin. También retomamos proyectos ya empezados.',
+      'Rescate de software heredado y construcción de productos B2B de punta a punta.',
   },
 
   // Rendered verbatim as <script type="application/ld+json"> blocks.
@@ -133,10 +133,10 @@ export default {
       { href: '#plans', label: 'Cómo trabajamos' },
       {
         label: 'Trabajo',
-        href: '/proyectos',
+        href: '/proyectos/',
         children: [
-          { href: '/proyectos', label: 'Proyectos' },
-          { href: '/rescate-de-proyectos', label: 'Rescate de proyectos' },
+          { href: '/proyectos/', label: 'Proyectos' },
+          { href: '/rescate-de-proyectos/', label: 'Rescate de proyectos' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -150,11 +150,13 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Símbolo de marca',
-    eyebrow: 'Dos ingenieros senior · end-to-end',
-    h1: 'Los que te venden el proyecto son los que lo construyen.',
-    subtitle: 'Diseño, frontend, backend e IA, de principio a fin. Sin juniors, sin subcontratar, sin intermediarios.',
-    ctaPrimary: 'Agenda 30 minutos',
-    ctaGhost: 'Ver cómo trabajamos',
+    eyebrow: 'Software B2B crítico · rescate y modernización',
+    h1: 'Rescatamos y modernizamos el software del que depende tu negocio.',
+    subtitle: 'Estabilizamos sistemas heredados y construimos productos B2B de punta a punta. Trabajas directamente con Carlos y Marina, sin equipos rotativos.',
+    ctaPrimary: 'Agenda una conversación inicial de 30 min',
+    ctaGhost: 'Ver el diagnóstico de rescate',
+    ctaGhostHref: '/rescate-de-proyectos/',
+    ctaNote: 'Conversación sin costo con los fundadores. Si hace falta una revisión técnica, te explicaremos el diagnóstico de rescate de 2 semanas.',
   },
 
   marquee1: ['codiva', 'software', 'web · apps', 'chile'],
@@ -165,9 +167,9 @@ export default {
 
   about: {
     label: 'Nosotros',
-    headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
+    headingHtml: 'Ingeniería directa para productos que <em>no pueden quedar a medias</em>',
     paragraphs: [
-      'Codiva es un estudio de dos ingenieros de software senior, con más de 14 años de experiencia, que construye producto de punta a punta: arquitectura, backend e IA por un lado; diseño de producto y frontend por el otro. Diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar.',
+      'Codiva combina los 14+ años de Carlos en backend, arquitectura y sistemas distribuidos con la especialización de Marina en producto, UX/UI y frontend. Entre ambos cubrimos diseño, frontend, backend, IA, móvil y despliegue.',
       'Tomamos pocos proyectos a la vez. Eso significa que hablas siempre con quienes escriben el código: sin intermediarios, sin traspasos de contexto, sin explicar dos veces lo mismo.',
       'Y cuidamos lo que se nota tarde: que el sistema aguante cuando crezca, que otro equipo pueda mantenerlo, que no se caiga un viernes a las seis. Escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad no son extras: son lo que decide si tu producto sigue en pie en tres años.',
     ],
@@ -183,6 +185,78 @@ export default {
       'APIs y microservicios',
       'Inteligencia artificial',
     ],
+  },
+
+  proof: {
+    label: 'Evidencia, no promesas',
+    headingHtml: 'Un estudio pequeño con experiencia en <em>sistemas grandes</em>',
+    intro: 'La experiencia importa cuando hay datos reales, integraciones difíciles y un despliegue fallido tiene un costo concreto. Esto es lo que traemos a cada proyecto.',
+    statsLabel: 'Experiencia profesional de los fundadores',
+    stats: [
+      { value: '14+', label: 'años en software', detail: 'Backend, arquitectura y sistemas distribuidos.' },
+      { value: '4+', label: 'años en frontend', detail: 'Producto, interfaces, SEO y testing.' },
+      { value: 'Datos', label: 'sistemas de producción', detail: 'Experiencia profesional en salud digital y reportes B2B.' },
+      { value: 'Web + móvil', label: 'lanzamientos multiplataforma', detail: 'Experiencia con entregas web, Google Play y App Store.' },
+    ],
+    products: {
+      label: 'Productos propios de codiva',
+      note: 'Construidos por Carlos y Marina bajo codiva. No son trabajos para clientes: puedes abrirlos y probar el trabajo.',
+      items: [
+        { name: 'kit-a', type: 'Arquitectura visual', url: 'https://kit-a.com/' },
+        { name: 'ZooMinder', type: 'Salud de mascotas', url: 'https://zoo-minder.com/' },
+        { name: 'eConstitucional', type: 'LegalTech + RAG', url: 'https://www.econstitucional.com.bo/' },
+      ],
+    },
+    experience: {
+      label: 'Experiencia profesional previa',
+      items: ['Tracktec', 'Portavita Health', 'Acronis', 'Previsible'],
+      disclosure: 'Trabajo realizado por Carlos y Marina como parte de empleos anteriores. Estas empresas no son clientes de codiva ni implican una recomendación.',
+    },
+    diagramsLabel: 'Diagramas de capacidad técnica',
+    scrollHint: 'Desliza para recorrer el diagrama →',
+    cloud: {
+      eyebrow: 'Cloud + eventos',
+      heading: 'Un patrón para procesar sin bloquear el sistema',
+      description: 'APIs pequeñas, trabajo asíncrono, memoria acotada y trazabilidad. La arquitectura cambia según el problema; estos límites no.',
+      svgTitle: 'Arquitectura cloud orientada a eventos',
+      svgDescription: 'Clientes web y móviles pasan por una API hacia servicios y workers, que publican eventos en Kafka y persisten en SQL y S3.',
+      nodes: {
+        clients: 'Clientes', clientsSub: 'web · móvil', apiSub: 'auth · límites',
+        services: 'Servicios', servicesSub: 'Spring · Node', workers: 'Procesos', workersSub: 'trabajos acotados',
+        busSub: 'eventos · replay', sqlSub: 'origen', s3Sub: 'archivo',
+      },
+      annotation: 'backpressure · idempotencia · observabilidad',
+    },
+    clean: {
+      eyebrow: 'Clean Architecture',
+      heading: 'El negocio no depende del framework',
+      description: 'Las dependencias apuntan hacia adentro. El dominio queda estable mientras cambian la web, la base de datos o el proveedor cloud.',
+      svgTitle: 'Capas de Clean Architecture con dependencias hacia el dominio',
+      svgDescription: 'Cuatro anillos representan frameworks, adaptadores, casos de uso y dominio. Las flechas apuntan hacia el centro.',
+      layers: { frameworks: 'Frameworks', adapters: 'Adaptadores', useCases: 'Casos de uso', domain: 'Dominio' },
+      annotation: 'política estable · detalles reemplazables',
+    },
+    delivery: {
+      eyebrow: 'Código a producción',
+      heading: 'Antes de producción hay puertas reales',
+      description: 'Diseñamos la entrega junto con el software. Tests, revisión, seguridad y observabilidad forman parte del camino normal.',
+      svgTitle: 'Flujo de entrega de software desde la especificación hasta observabilidad',
+      svgDescription: 'La especificación pasa por código, tests, revisión, despliegue y observabilidad, que devuelve información al siguiente ciclo.',
+      steps: [
+        { label: 'Spec', detail: 'criterios' },
+        { label: 'Código', detail: 'cambios chicos' },
+        { label: 'Tests', detail: 'fallos primero' },
+        { label: 'Review', detail: 'riesgo + seguridad' },
+        { label: 'Deploy', detail: 'rollback listo' },
+        { label: 'Observe', detail: 'logs + métricas' },
+      ],
+      loop: 'la producción informa el siguiente cambio',
+    },
+    cta: {
+      heading: '¿Quieres revisar tu arquitectura con nosotros?',
+      text: 'Conversa 30 minutos con Carlos y Marina sobre el sistema, el riesgo actual y el siguiente paso razonable.',
+      label: 'Hablar con los fundadores',
+    },
   },
 
   trademark: {
@@ -216,74 +290,88 @@ export default {
   },
 
   plans: {
-    label: 'Cómo trabajamos',
-    heading: 'Una forma de trabajar, no una lista de precios',
-    intro: 'No vendemos sitios por página. Nos asociamos con un número acotado de empresas al año para diseñar y construir el software en el que apoyan su negocio. Cada proyecto lo llevan las mismas dos personas de principio a fin, sin intermediarios ni traspasos.',
+    label: 'Por dónde empezar',
+    heading: 'Tres formas claras de empezar',
+    intro: 'El punto de entrada depende del riesgo que necesitas reducir antes de comprometer una implementación mayor.',
     models: [
       {
         step: '01',
-        phase: 'Validar',
-        name: 'Sprint de Producto',
-        meta: '1–2 semanas',
-        tagline: 'Antes de comprometerte con un desarrollo completo, convertimos tu idea en un prototipo real y probado, con un plan claro. Sales con algo tangible en las manos.',
+        phase: 'Rescatar',
+        name: 'Diagnóstico de Rescate',
+        meta: '2 semanas · desde CLP $2.500.000',
+        badge: 'Punto de entrada',
+        featured: true,
+        tagline: 'Para software existente que se volvió riesgoso o difícil de cambiar. Auditamos antes de prometer una solución y entregamos un plan de estabilización con costos y plazos.',
         features: [
-          'Sesiones de definición y alcance',
-          'Prototipo funcional y navegable',
-          'Decisiones de arquitectura y stack',
-          'Plan técnico y hoja de ruta',
+          'Arquitectura y dependencias',
+          'Riesgos técnicos y de seguridad priorizados',
+          'Recomendación sobre qué conservar o reemplazar',
+          'Si seguimos, el precio del diagnóstico se descuenta',
         ],
-        cta: 'Partamos por aquí',
-        waMessage: 'Hola codiva 👋, me interesa un Sprint de Producto.',
+        cta: 'Ver el diagnóstico de rescate',
+        href: '/rescate-de-proyectos/',
       },
       {
         step: '02',
-        phase: 'Construir',
-        name: 'Desarrollo de Producto',
-        meta: 'Proyecto completo · a medida',
-        badge: 'Recomendado para empezar',
-        featured: true,
-        tagline: 'Nos integramos a tu equipo y respondemos por el resultado: llevamos tu producto de cero a producción. Diseño, frontend, backend e IA —construido para durar.',
+        phase: 'Validar',
+        name: 'Sprint de Producto',
+        meta: '1–2 semanas · desde CLP $2.500.000',
+        tagline: 'Para reducir incertidumbre antes de una construcción completa. Definimos el producto, probamos un prototipo y dejamos un plan técnico que puedes ejecutar con nosotros o con otro equipo.',
         features: [
-          'Diseño de producto y frontend',
-          'Backend, APIs e integraciones',
-          'IA cuando aporta valor',
-          'Código production-grade y despliegue',
+          'Definición de alcance y criterios',
+          'Prototipo funcional y navegable',
+          'Decisiones de arquitectura',
+          'Puedes detenerte y conservar los entregables',
         ],
-        cta: 'Cuéntanos tu proyecto',
-        waMessage: 'Hola codiva 👋, quiero construir un producto con ustedes.',
+        cta: 'Conversar sobre un Sprint',
+        waMessage: 'Hola codiva 👋, me interesa un Sprint de Producto.',
       },
       {
         step: '03',
-        phase: 'Escalar',
-        name: 'Alianza Continua',
-        meta: 'Colaboración mensual',
-        tagline: 'Para productos ya en marcha: seguimos entregando mes a mes y cuidamos tu código como propio. Incluye SEO técnico y analítica para que crezcas con datos.',
+        phase: 'Construir',
+        name: 'Construcción y Evolución',
+        meta: '6–16 semanas · a medida',
+        tagline: 'Para construir un producto B2B de punta a punta o continuar después del diagnóstico o Sprint. Las mismas dos personas cubren producto, frontend, backend, integraciones y despliegue.',
         features: [
-          'Evolución y nuevas funcionalidades',
-          'SEO técnico + Google Analytics 4',
-          'Mejoras basadas en datos',
-          'Mantenimiento y soporte',
+          'Diseño de producto y frontend',
+          'Backend, APIs e integraciones',
+          'Tests, despliegue y observabilidad',
+          'Opción de colaboración mensual',
         ],
-        cta: 'Conversemos',
-        waMessage: 'Hola codiva 👋, me interesa una alianza continua o soporte.',
+        cta: 'Conversar sobre una construcción',
+        waMessage: 'Hola codiva 👋, quiero construir o continuar un producto con ustedes.',
       },
     ],
     note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin.',
-    priceAnchor: 'Un Sprint de Producto parte desde CLP $2.500.000. Los proyectos completos suelen estar entre CLP $15.000.000 y $60.000.000, según alcance. Si tu presupuesto está por debajo de eso, te lo decimos en la primera llamada en vez de hacerte perder tiempo.',
+    priceAnchor: 'El Diagnóstico de Rescate y el Sprint de Producto parten desde CLP $2.500.000. Los proyectos completos suelen estar entre CLP $15.000.000 y $60.000.000, según alcance. Confirmamos el rango antes de pedir acceso o comprometer una implementación.',
     more: {
       text: 'Detrás de cada fase hay un método. El detalle de cómo diseñamos y construimos —descubrimiento, specs, componentes y arquitectura— vive en una página aparte.',
       label: 'Ver cómo construimos',
-      href: '/como-construimos',
+      href: '/como-construimos/',
     },
+  },
+
+  buyerControl: {
+    label: 'Riesgo bajo control',
+    heading: 'Tu empresa mantiene el control desde el primer día',
+    intro: 'La relación debe ser fácil de empezar, revisar y terminar. Estas condiciones ya forman parte de nuestra forma de trabajar.',
+    items: [
+      { title: 'Tu empresa es dueña desde el primer commit', detail: 'El repositorio, el código, la infraestructura y la documentación quedan a tu nombre.' },
+      { title: 'Puedes detenerte después del Sprint', detail: 'Cualquiera puede decidir no continuar. Conservas los entregables producidos.' },
+      { title: 'Ambos fundadores conocen el proyecto', detail: 'Carlos y Marina participan directamente y mantienen el contexto, sin equipos rotativos.' },
+      { title: 'El diagnóstico no se paga dos veces', detail: 'Si continuamos con la estabilización, descontamos su valor del proyecto.' },
+    ],
+    cta: 'Revisar preguntas frecuentes',
   },
 
   projects: {
     label: 'Proyectos',
     heading: 'Trabajos seleccionados',
     teaserHeading: 'Algunos de nuestros trabajos',
-    intro: 'Una muestra del software que diseñamos y construimos: plataformas, aplicaciones y productos a medida para startups y empresas en Chile y el extranjero.',
+    intro: 'Productos web, móviles y de IA diseñados y construidos por codiva® de punta a punta en Santiago de Chile.',
     viewAll: 'Ver todos los proyectos',
-    viewAllHref: '/proyectos',
+    viewAllHref: '/proyectos/',
+    screenshotAlt: 'captura de pantalla',
     back: '← Volver al inicio',
     cta: {
       text: '¿Tienes un proyecto parecido en mente?',
@@ -293,7 +381,7 @@ export default {
     meta: {
       title: 'Proyectos — Software, Apps y Plataformas a Medida | codiva®',
       description:
-        'Trabajos seleccionados de codiva®: plataformas web, aplicaciones móviles, SaaS y sistemas con IA/RAG diseñados y construidos de principio a fin en Santiago de Chile.',
+        'Productos web, móviles y de IA diseñados y construidos por codiva® de punta a punta en Santiago de Chile.',
       keywords:
         'proyectos codiva, portafolio desarrollo software chile, plataformas web, aplicaciones móviles, SaaS, RAG IA, casos de éxito, Santiago Chile',
       canonical: 'https://codiva.cl/proyectos/',
@@ -623,7 +711,7 @@ export default {
     meta: {
       title: 'Contacto — Cuéntanos tu proyecto | codiva®',
       description:
-        'Hablemos de tu producto. Te responde directamente quien lo construye —dos ingenieros senior, sin intermediarios—. Escríbenos por WhatsApp o correo, sin compromiso.',
+        'Cuéntanos qué bloquea tu producto. Te responden directamente quienes lo construirían, normalmente el mismo día hábil y sin compromiso.',
       keywords:
         'contacto codiva, cotizar software, desarrollo a medida chile, hablar con desarrollador, cotización desarrollo web',
       canonical: 'https://codiva.cl/contacto/',
@@ -650,8 +738,8 @@ export default {
       'Conversamos 30 minutos por video o llamada.',
       'Te enviamos un plan y una propuesta claros.',
     ],
-    trust: ['Más de 14 años de experiencia', 'Dos ingenieros senior', 'Ñuñoa, Santiago de Chile'],
-    seeWork: { label: 'Ver proyectos', href: '/proyectos' },
+    trust: ['Carlos: 14+ años en software', 'Trabajo directo con ambos fundadores', 'Ñuñoa, Santiago de Chile'],
+    seeWork: { label: 'Ver proyectos', href: '/proyectos/' },
     back: '← Volver al inicio',
     waMessage: 'Hola codiva 👋, quiero contarte mi proyecto.',
   },
@@ -660,9 +748,11 @@ export default {
     label: 'Equipo',
     heading: 'Las personas detrás',
     members: [
-      { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack, enfocado en arquitectura, sistemas distribuidos e IA. Diseña pensando en escalabilidad, rendimiento y seguridad, y también trabaja en móvil. 14 años de experiencia.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
-      { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Producto', desc: 'Ingeniera de software orientada a frontend y diseño de producto (UX/UI), con base fullstack. Construye interfaces accesibles, rápidas y mantenibles, y también trabaja en móvil.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
+      { name: 'Carlos Rojas', role: 'Backend · Arquitectura · IA', desc: 'Ingeniero de software backend y fullstack, enfocado en arquitectura, sistemas distribuidos e IA. Diseña pensando en escalabilidad, rendimiento y seguridad, y también trabaja en móvil. 14+ años de experiencia.', url: 'https://krlz.dev/', linkedin: 'https://www.linkedin.com/in/devcarlos/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Ingeniero de software: backend, arquitectura e IA' },
+      { name: 'Marina Alekseeva', role: 'Diseño · Frontend · Producto', desc: 'Ingeniera de software orientada a frontend y diseño de producto (UX/UI), con base fullstack. Construye interfaces accesibles, rápidas y mantenibles, y también trabaja en móvil. 4+ años de experiencia.', url: 'https://maryaleks.dev/', linkedin: 'https://www.linkedin.com/in/marina-alekseeva-a190591b5/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Ingeniera de software: diseño y frontend' },
     ],
+    portfolioLabel: 'Portafolio',
+    linkedinLabel: 'LinkedIn',
   },
 
   // Homepage section (rendered after "Cómo trabajamos") — the takeover/rescue wedge.
@@ -674,7 +764,7 @@ export default {
       'Lo tomamos, lo estabilizamos y seguimos construyendo. Empezamos con una revisión de dos semanas: entendemos el código, te decimos con honestidad qué se salva y qué no, y te entregamos un plan con costos reales — aunque la conclusión sea que te conviene reescribirlo.',
     ],
     cta: 'Revisemos tu código',
-    ctaHref: '/rescate-de-proyectos',
+    ctaHref: '/rescate-de-proyectos/',
   },
 
   // Dedicated page /rescate-de-proyectos — the takeover offer expanded.
@@ -682,7 +772,7 @@ export default {
     meta: {
       title: 'Rescate de proyectos de software — retomamos tu desarrollo | codiva®',
       description:
-        'Heredaste un sistema que ya nadie quiere tocar. Lo tomamos, lo estabilizamos y seguimos construyendo. Empezamos con una revisión de dos semanas, con un plan y costos reales.',
+        'Rescatamos software heredado: auditamos el código, priorizamos riesgos y entregamos un plan de estabilización con costos reales.',
       keywords:
         'rescate de proyectos de software, retomar desarrollo abandonado, auditoría de código Chile, estabilizar sistema heredado, mantener software existente, retomar proyecto de software',
       canonical: 'https://codiva.cl/rescate-de-proyectos/',
@@ -720,7 +810,7 @@ export default {
     },
     price: {
       title: 'Precio de entrada',
-      text: 'La revisión es un producto de precio fijo: desde CLP $2.500.000, dos semanas, con entregables concretos. Si después seguimos con la estabilización, ese monto se descuenta del proyecto.',
+      text: 'La revisión es un servicio de alcance acotado: desde CLP $2.500.000, dos semanas, con entregables concretos. Confirmamos el precio antes de acceder al código. Si seguimos con la estabilización, ese monto se descuenta del proyecto.',
     },
     ctaLabel: 'Agenda 30 minutos',
     ctaNote: 'Una conversación de 30 minutos, sin compromiso.',
@@ -729,6 +819,7 @@ export default {
 
   footer: {
     copy: 'Todos los derechos reservados.',
+    contact: { href: '/contacto/', label: 'Contacto' },
     legal: { href: '/marca/', label: 'codiva® — marca registrada' },
   },
 };

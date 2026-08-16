@@ -5,8 +5,9 @@ import Nav from './Nav.astro';
 import Hero from './Hero.astro';
 import Marquee from './Marquee.astro';
 import About from './About.astro';
+import Proof from './Proof.astro';
 import Plans from './Plans.astro';
-import Takeover from './Takeover.astro';
+import BuyerControl from './BuyerControl.astro';
 import Portfolio from './Portfolio.astro';
 import Faq from './Faq.astro';
 import Contact from './Contact.astro';
@@ -20,10 +21,11 @@ const { t } = Astro.props;
   <Nav t={t} />
   <Hero t={t} />
   <Marquee items={t.marquee1} />
-  <main>
-    <About t={t} />
+  <main id="main-content" tabindex="-1">
     <Plans t={t} />
-    <Takeover t={t} />
+    <BuyerControl t={t} />
+    <About t={t} />
+    <Proof t={t} />
     <Marquee items={t.marquee2} reverse />
     <Portfolio t={t} variant="teaser" />
     <Faq t={t} />

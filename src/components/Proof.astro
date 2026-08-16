@@ -1,0 +1,163 @@
+---
+const { t } = Astro.props;
+const { proof } = t;
+const deliveryPositions = [[20,51],[174,51],[348,51],[348,174],[174,174],[20,174]];
+if (proof.delivery.steps.length !== deliveryPositions.length) {
+  throw new Error(`Proof delivery diagram requires exactly ${deliveryPositions.length} steps`);
+}
+---
+
+<section class="proof" id="proof" aria-labelledby="proof-heading">
+  <div class="container">
+    <div class="section-label">{proof.label}</div>
+    <div class="proof__intro">
+      <h2 class="proof__heading" id="proof-heading" data-animate="reveal" set:html={proof.headingHtml}></h2>
+      <p class="proof__lead" data-animate="fade">{proof.intro}</p>
+    </div>
+
+    <dl class="proof__stats" aria-label={proof.statsLabel}>
+      {proof.stats.map((stat) => (
+        <div class="proof-stat" data-animate="fade">
+          <dt class="proof-stat__value">{stat.value}</dt>
+          <dd>
+            <span class="proof-stat__label">{stat.label}</span>
+            <span class="proof-stat__detail">{stat.detail}</span>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="proof__artifacts">
+      <div class="proof__products" data-animate="fade">
+        <div>
+          <span class="proof__kicker">{proof.products.label}</span>
+          <p class="proof__note">{proof.products.note}</p>
+        </div>
+        <ul class="proof__wordmarks">
+          {proof.products.items.map((item) => (
+            <li>
+              <a class="proof-wordmark" href={item.url} target="_blank" rel="noopener noreferrer">
+                <span class="proof-wordmark__name">{item.name}</span>
+                <span class="proof-wordmark__type">{item.type}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof__experience" data-animate="fade">
+        <span class="proof__kicker">{proof.experience.label}</span>
+        <ul class="proof__experience-list" aria-label={proof.experience.label}>
+          {proof.experience.items.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="proof__disclosure">{proof.experience.disclosure}</p>
+      </div>
+    </div>
+
+    <div class="proof__diagrams" role="group" aria-label={proof.diagramsLabel}>
+      <article class="proof-diagram proof-diagram--wide" data-diagram="cloud-event-system" tabindex="0" aria-labelledby="cloud-card-heading" data-animate="fade">
+        <header class="proof-diagram__header">
+          <div>
+            <span class="proof-diagram__eyebrow">{proof.cloud.eyebrow}</span>
+            <h3 id="cloud-card-heading">{proof.cloud.heading}</h3>
+          </div>
+          <p>{proof.cloud.description}</p>
+        </header>
+        <p class="proof-diagram__scrollhint" aria-hidden="true">{proof.scrollHint}</p>
+        <svg class="proof-diagram__svg" viewBox="0 0 720 300" role="img" aria-labelledby="cloud-title cloud-desc">
+          <title class="proof-diagram__title" id="cloud-title">{proof.cloud.svgTitle}</title>
+          <desc id="cloud-desc">{proof.cloud.svgDescription}</desc>
+          <defs>
+            <marker id="arrow-cloud" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" /></marker>
+          </defs>
+          <g class="proof-diagram__connections" marker-end="url(#arrow-cloud)">
+            <path class="proof-diagram__flow" d="M116 150H174" />
+            <path d="M282 150C305 150 304 89 330 89" />
+            <path d="M282 150C305 150 304 211 330 211" />
+            <path class="proof-diagram__flow" d="M438 89C460 89 459 150 482 150" />
+            <path class="proof-diagram__flow proof-diagram__flow--delay" d="M438 211C460 211 459 150 482 150" />
+            <path d="M590 150C615 150 610 89 626 89" />
+            <path d="M590 150C615 150 610 211 626 211" />
+          </g>
+          <g class="proof-node proof-node--external"><rect x="22" y="119" width="94" height="62" rx="8"/><text x="69" y="146">{proof.cloud.nodes.clients}</text><text class="proof-node__sub" x="69" y="164">{proof.cloud.nodes.clientsSub}</text></g>
+          <g class="proof-node proof-node--cloud"><rect x="174" y="119" width="108" height="62" rx="8"/><text x="228" y="146">API</text><text class="proof-node__sub" x="228" y="164">{proof.cloud.nodes.apiSub}</text></g>
+          <g class="proof-node proof-node--backend"><rect x="330" y="58" width="108" height="62" rx="8"/><text x="384" y="85">{proof.cloud.nodes.services}</text><text class="proof-node__sub" x="384" y="103">{proof.cloud.nodes.servicesSub}</text></g>
+          <g class="proof-node proof-node--backend"><rect x="330" y="180" width="108" height="62" rx="8"/><text x="384" y="207">{proof.cloud.nodes.workers}</text><text class="proof-node__sub" x="384" y="225">{proof.cloud.nodes.workersSub}</text></g>
+          <g class="proof-node proof-node--bus"><rect x="482" y="119" width="108" height="62" rx="8"/><text x="536" y="146">Kafka</text><text class="proof-node__sub" x="536" y="164">{proof.cloud.nodes.busSub}</text></g>
+          <g class="proof-node proof-node--data"><rect x="626" y="58" width="72" height="62" rx="8"/><text x="662" y="85">SQL</text><text class="proof-node__sub" x="662" y="103">{proof.cloud.nodes.sqlSub}</text></g>
+          <g class="proof-node proof-node--cloud"><rect x="626" y="180" width="72" height="62" rx="8"/><text x="662" y="207">S3</text><text class="proof-node__sub" x="662" y="225">{proof.cloud.nodes.s3Sub}</text></g>
+          <text class="proof-diagram__annotation" x="360" y="278">{proof.cloud.annotation}</text>
+        </svg>
+      </article>
+
+      <article class="proof-diagram" data-diagram="clean-architecture" tabindex="0" aria-labelledby="clean-card-heading" data-animate="fade">
+        <header class="proof-diagram__header">
+          <div>
+            <span class="proof-diagram__eyebrow">{proof.clean.eyebrow}</span>
+            <h3 id="clean-card-heading">{proof.clean.heading}</h3>
+          </div>
+          <p>{proof.clean.description}</p>
+        </header>
+        <p class="proof-diagram__scrollhint" aria-hidden="true">{proof.scrollHint}</p>
+        <svg class="proof-diagram__svg" viewBox="0 0 560 320" role="img" aria-labelledby="clean-title clean-desc">
+          <title class="proof-diagram__title" id="clean-title">{proof.clean.svgTitle}</title>
+          <desc id="clean-desc">{proof.clean.svgDescription}</desc>
+          <defs><marker id="arrow-clean" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>
+          <g class="clean-rings" transform="translate(180 160)">
+            <circle class="clean-ring clean-ring--framework" r="126" />
+            <circle class="clean-ring clean-ring--adapter" r="94" />
+            <circle class="clean-ring clean-ring--usecase" r="62" />
+            <circle class="clean-ring clean-ring--domain" r="31" />
+            <text class="clean-ring__core" y="4">{proof.clean.layers.domain}</text>
+          </g>
+          <g class="proof-diagram__connections" marker-end="url(#arrow-clean)">
+            <path class="proof-diagram__flow" d="M500 72H310" />
+            <path class="proof-diagram__flow proof-diagram__flow--delay" d="M500 128H279" />
+            <path class="proof-diagram__flow" d="M500 184H247" />
+            <path class="proof-diagram__flow proof-diagram__flow--delay" d="M500 240H216" />
+          </g>
+          <g class="clean-legend">
+            <text x="520" y="68">{proof.clean.layers.frameworks}</text>
+            <text x="520" y="124">{proof.clean.layers.adapters}</text>
+            <text x="520" y="180">{proof.clean.layers.useCases}</text>
+            <text x="520" y="236">{proof.clean.layers.domain}</text>
+          </g>
+          <text class="proof-diagram__annotation" x="355" y="293">{proof.clean.annotation}</text>
+        </svg>
+      </article>
+
+      <article class="proof-diagram" data-diagram="production-path" tabindex="0" aria-labelledby="delivery-card-heading" data-animate="fade">
+        <header class="proof-diagram__header">
+          <div>
+            <span class="proof-diagram__eyebrow">{proof.delivery.eyebrow}</span>
+            <h3 id="delivery-card-heading">{proof.delivery.heading}</h3>
+          </div>
+          <p>{proof.delivery.description}</p>
+        </header>
+        <p class="proof-diagram__scrollhint" aria-hidden="true">{proof.scrollHint}</p>
+        <svg class="proof-diagram__svg" viewBox="0 0 560 320" role="img" aria-labelledby="delivery-title delivery-desc">
+          <title class="proof-diagram__title" id="delivery-title">{proof.delivery.svgTitle}</title>
+          <desc id="delivery-desc">{proof.delivery.svgDescription}</desc>
+          <defs><marker id="arrow-delivery" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>
+          <g class="proof-diagram__connections" marker-end="url(#arrow-delivery)">
+            <path class="proof-diagram__flow" d="M132 88H174"/><path class="proof-diagram__flow proof-diagram__flow--delay" d="M306 88H348"/><path class="proof-diagram__flow" d="M414 121V174"/><path d="M348 211H306"/><path d="M174 211H132"/>
+          </g>
+          {proof.delivery.steps.map((step, i) => {
+            const [x,y] = deliveryPositions[i];
+            const kind = i === 2 ? 'security' : i === 4 ? 'cloud' : i === 5 ? 'data' : 'backend';
+            return <g class={`proof-node proof-node--${kind}`}><rect x={x} y={y} width="112" height="74" rx="8"/><text x={x+56} y={y+31}>{step.label}</text><text class="proof-node__sub" x={x+56} y={y+51}>{step.detail}</text></g>;
+          })}
+          <g class="production-loop"><path d="M76 260C76 293 484 293 484 260"/><circle cx="76" cy="260" r="4"/><circle cx="484" cy="260" r="4"/><text x="280" y="284">{proof.delivery.loop}</text></g>
+        </svg>
+      </article>
+    </div>
+
+    <div class="proof__cta" data-animate="fade">
+      <div>
+        <h3>{proof.cta.heading}</h3>
+        <p>{proof.cta.text}</p>
+      </div>
+      <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer">{proof.cta.label}</a>
+    </div>
+  </div>
+</section>

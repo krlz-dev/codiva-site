@@ -10,14 +10,18 @@ const { team } = t;
     <ul class="team__list">
       {team.members.map((m) => (
         <li class="team__member" data-animate="fade">
-          <a class="team__link" href={m.url} target="_blank" rel="noopener noreferrer">
+          <div class="team__link">
             <img class="team__avatar" src={m.image} alt={m.alt} width="72" height="72" loading="lazy" decoding="async" />
             <span class="team__info">
               <span class="team__name">{m.name}</span>
               <span class="team__role">{m.role}</span>
               {m.desc && <span class="team__desc">{m.desc}</span>}
+              <span class="team__profiles">
+                <a href={m.url} target="_blank" rel="noopener noreferrer">{team.portfolioLabel} ↗</a>
+                <a href={m.linkedin} target="_blank" rel="noopener noreferrer">{team.linkedinLabel} ↗</a>
+              </span>
             </span>
-          </a>
+          </div>
         </li>
       ))}
     </ul>

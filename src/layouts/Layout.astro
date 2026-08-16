@@ -70,6 +70,7 @@ const { meta, schema, htmlLang } = t;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#f4f3ee" />
+    <noscript><style>[data-animate]{opacity:1!important;transform:none!important}</style></noscript>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,7 +81,7 @@ const { meta, schema, htmlLang } = t;
     />
 
     <!-- Schema.org structured data -->
-    {schema.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
+    {schema.map((block) => <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
     <!-- Google tag (gtag.js) — only injected when GA_ID is configured -->
     {GA_ID && (
@@ -94,10 +95,17 @@ gtag('config', '${GA_ID}');`}></script>
     )}
   </head>
   <body>
+    <a class="skip-link" href="#main-content">{htmlLang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
     <slot />
 
     <script>
       // codiva® — interactions & animations (nav scroll, mobile menu, scroll reveal, smooth anchors)
+      declare global {
+        interface Window {
+          gtag?: (...args: unknown[]) => void;
+        }
+      }
+
       const nav = document.getElementById('nav');
       window.addEventListener(
         'scroll',
@@ -107,11 +115,11 @@ gtag('config', '${GA_ID}');`}></script>
 
       // Theme toggle — light (default) ⇄ dark, persisted in localStorage.
       // Supports any number of toggles on the page (nav, subpage header, inline).
-      const themeToggles = Array.from(document.querySelectorAll('.js-theme-toggle'));
+      const themeToggles = Array.from(document.querySelectorAll<HTMLButtonElement>('.js-theme-toggle'));
       const root = document.documentElement;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      const themeMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
 
-      const syncThemeChrome = (theme) => {
+      const syncThemeChrome = (theme: string | null) => {
         if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#f4f3ee');
         themeToggles.forEach((btn) => {
           const label = theme === 'dark' ? btn.dataset.toLight : btn.dataset.toDark;
@@ -139,7 +147,7 @@ gtag('config', '${GA_ID}');`}></script>
         })
       );
 
-      const burger = document.getElementById('burger');
+      const burger = document.getElementById('burger') as HTMLButtonElement | null;
       const navLinks = document.getElementById('navLinks');
 
       burger?.addEventListener('click', () => {
@@ -154,7 +162,16 @@ gtag('config', '${GA_ID}');`}></script>
         document.body.style.overflow = isOpen ? 'hidden' : '';
       });
 
-      navLinks?.querySelectorAll('.nav__link').forEach((link) => {
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !navLinks?.classList.contains('open')) return;
+        burger?.classList.remove('active');
+        navLinks.classList.remove('open');
+        burger?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        burger?.focus();
+      });
+
+      navLinks?.querySelectorAll<HTMLAnchorElement>('.nav__link').forEach((link) => {
         link.addEventListener('click', () => {
           burger?.classList.remove('active');
           navLinks.classList.remove('open');
@@ -162,53 +179,83 @@ gtag('config', '${GA_ID}');`}></script>
         });
       });
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const siblings = Array.from(entry.target.parentElement?.children || []).filter((el) =>
-                el.hasAttribute('data-animate')
-              );
-              const delay = siblings.indexOf(entry.target) * 100;
-              setTimeout(() => entry.target.classList.add('is-visible'), delay);
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-      );
-      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const animatedElements = document.querySelectorAll<HTMLElement>('[data-animate]');
+      if (reduceMotion) {
+        animatedElements.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const siblings = Array.from(entry.target.parentElement?.children || []).filter((el) =>
+                  el.hasAttribute('data-animate')
+                );
+                const delay = siblings.indexOf(entry.target) * 100;
+                setTimeout(() => entry.target.classList.add('is-visible'), delay);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+      }
 
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', (e) => {
-          const target = document.querySelector(anchor.getAttribute('href'));
+          const href = anchor.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector<HTMLElement>(href);
           if (target) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+            history.replaceState(null, '', href);
           }
         });
       });
 
-      // Lead tracking — fire a GA4 `generate_lead` event whenever someone clicks
-      // a WhatsApp or email CTA. Centralized (event delegation) so every current
+      // Lead tracking — fire GA4 events whenever someone clicks a calendar,
+      // WhatsApp, or email CTA. Centralized (event delegation) so every current
       // and future contact button is covered without per-component wiring.
       document.addEventListener(
         'click',
         (e) => {
-          const link = e.target.closest?.('a[href]');
+          if (!(e.target instanceof Element)) return;
+          const link = e.target.closest<HTMLAnchorElement>('a[href]');
           if (!link) return;
           const href = link.getAttribute('href') || '';
           const isWhatsApp = /(?:wa\.me|api\.whatsapp\.com|whatsapp:)/i.test(href);
           const isEmail = href.startsWith('mailto:');
-          if (!isWhatsApp && !isEmail) return;
+          let isCalendar = false;
+          if (!isWhatsApp && !isEmail) {
+            try {
+              isCalendar = /(?:^|\.)cal\.com$/i.test(new URL(href, window.location.href).hostname);
+            } catch {
+              return;
+            }
+          }
+          if (!isWhatsApp && !isEmail && !isCalendar) return;
           if (typeof window.gtag !== 'function') return;
-          const section = link.closest('[id]');
-          window.gtag('event', 'generate_lead', {
-            method: isWhatsApp ? 'whatsapp' : 'email',
+          const method = isCalendar ? 'calendar' : isWhatsApp ? 'whatsapp' : 'email';
+          const channelEvent = isCalendar
+            ? 'book_call_click'
+            : isWhatsApp
+              ? 'whatsapp_click'
+              : 'email_click';
+          const ctaLocation = link.dataset.ctaLocation || link.closest('[id]')?.id || window.location.pathname;
+          const params = {
+            method,
+            intent: link.dataset.ctaIntent || 'general',
             link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
             link_url: href,
-            location: section ? section.id : 'unknown',
-          });
+            location: ctaLocation,
+            language: document.documentElement.lang,
+          };
+          window.gtag('event', 'generate_lead', params);
+          window.gtag('event', channelEvent, params);
         },
         { capture: true }
       );

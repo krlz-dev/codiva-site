@@ -15,8 +15,9 @@ const { hero, bookingUrl } = t;
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__cta">
       <a href={bookingUrl} target="_blank" rel="noopener noreferrer" class="btn btn--primary">{hero.ctaPrimary}</a>
-      <a href="#plans" class="btn btn--ghost">{hero.ctaGhost}</a>
+      <a href={hero.ctaGhostHref} class="btn btn--ghost">{hero.ctaGhost}</a>
     </div>
+    <p class="hero__cta-note">{hero.ctaNote}</p>
   </div>
   <div class="hero__scroll" aria-hidden="true">
     <span class="hero__scroll-label">Scroll</span>

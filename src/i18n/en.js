@@ -4,23 +4,23 @@ export default {
   htmlLang: 'en',
 
   // Cal.com booking link — primary CTA for scheduling a 30-min intro call.
-  bookingUrl: 'https://cal.com/krlz.dev',
+  bookingUrl: 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true',
 
   meta: {
     title: 'Custom software development studio, Santiago Chile | codiva®',
     description:
-      'A two-person senior engineering studio. Design, frontend, backend and AI, end to end — no juniors, no subcontracting. We also take over existing codebases.',
+      'We rescue inherited software and build B2B products end to end. Work directly with the people who design, code, and deploy your product.',
     keywords:
       'custom software development Santiago, software studio Chile, senior engineers, backend, frontend, AI, legacy software rescue, take over codebase, Santiago Chile',
     canonical: 'https://codiva.cl/en/',
     ogUrl: 'https://codiva.cl/en/',
     ogTitle: 'Custom software development studio, Santiago Chile — codiva®',
     ogDescription:
-      'A two-person senior engineering studio. Design, frontend, backend and AI, end to end — no juniors, no subcontracting. We also take over existing codebases.',
+      'We rescue inherited software and build B2B products end to end, without rotating teams or middlemen.',
     ogLocale: 'en_US',
     twitterTitle: 'Custom software development — codiva®',
     twitterDescription:
-      'Two senior engineers. Design, frontend, backend and AI, end to end. We also take over existing codebases.',
+      'Inherited-software rescue and end-to-end B2B product engineering.',
   },
 
   schema: [
@@ -120,10 +120,10 @@ export default {
       { href: '#plans', label: 'How we work' },
       {
         label: 'Work',
-        href: '/en/projects',
+        href: '/en/projects/',
         children: [
-          { href: '/en/projects', label: 'Projects' },
-          { href: '/en/project-rescue', label: 'Project rescue' },
+          { href: '/en/projects/', label: 'Projects' },
+          { href: '/en/project-rescue/', label: 'Project rescue' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -137,11 +137,13 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Brand symbol',
-    eyebrow: 'Two senior engineers · end-to-end',
-    h1: 'The people who sell you the project are the people who build it.',
-    subtitle: 'Design, frontend, backend and AI, end to end. No juniors, no subcontracting, no middlemen.',
-    ctaPrimary: 'Book 30 minutes',
-    ctaGhost: 'How we work',
+    eyebrow: 'Business-critical B2B software · rescue and modernization',
+    h1: 'We rescue and modernize the software your business depends on.',
+    subtitle: 'We stabilize inherited systems and build B2B products end to end. You work directly with Carlos and Marina, without rotating teams.',
+    ctaPrimary: 'Book a 30-minute introductory call',
+    ctaGhost: 'See the rescue diagnostic',
+    ctaGhostHref: '/en/project-rescue/',
+    ctaNote: 'A free conversation with the founders. If a technical review is needed, we will explain our two-week rescue diagnostic.',
   },
 
   marquee1: ['codiva', 'software', 'web · apps', 'chile'],
@@ -152,9 +154,9 @@ export default {
 
   about: {
     label: 'About',
-    headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
+    headingHtml: 'Direct engineering for products that <em>cannot be left half-built</em>',
     paragraphs: [
-      'Codiva is a studio of two senior software engineers, with more than 14 years of experience, building product end to end: architecture, backend and AI on one side; product design and frontend on the other. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
+      'Codiva combines Carlos’s 14+ years in backend, architecture, and distributed systems with Marina’s specialization in product, UX/UI, and frontend. Together we cover design, frontend, backend, AI, mobile, and deployment.',
       'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
       "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
@@ -170,6 +172,78 @@ export default {
       'APIs & microservices',
       'Artificial intelligence',
     ],
+  },
+
+  proof: {
+    label: 'Evidence, not promises',
+    headingHtml: 'A small studio with experience in <em>large systems</em>',
+    intro: 'Experience matters when the data is real, the integrations are difficult, and a failed deployment has a concrete cost. This is what we bring to each project.',
+    statsLabel: 'The founders’ professional experience',
+    stats: [
+      { value: '14+', label: 'years in software', detail: 'Backend, architecture, and distributed systems.' },
+      { value: '4+', label: 'years in frontend', detail: 'Product, interfaces, SEO, and testing.' },
+      { value: 'Data', label: 'production data systems', detail: 'Professional experience in digital health and B2B reporting.' },
+      { value: 'Web + mobile', label: 'multiplatform releases', detail: 'Experience delivering for the web, Google Play, and the App Store.' },
+    ],
+    products: {
+      label: 'Codiva-owned products',
+      note: 'Built by Carlos and Marina under codiva. They are not client engagements: open them and inspect the work.',
+      items: [
+        { name: 'kit-a', type: 'Visual architecture', url: 'https://kit-a.com/' },
+        { name: 'ZooMinder', type: 'Pet health', url: 'https://zoo-minder.com/' },
+        { name: 'eConstitucional', type: 'LegalTech + RAG', url: 'https://www.econstitucional.com.bo/' },
+      ],
+    },
+    experience: {
+      label: 'Previous professional experience',
+      items: ['Tracktec', 'Portavita Health', 'Acronis', 'Previsible'],
+      disclosure: 'Work Carlos and Marina performed as part of previous employment. These companies are not codiva clients and their names do not imply endorsement.',
+    },
+    diagramsLabel: 'Technical capability diagrams',
+    scrollHint: 'Swipe to explore the diagram →',
+    cloud: {
+      eyebrow: 'Cloud + events',
+      heading: 'A pattern for processing without blocking the system',
+      description: 'Small APIs, asynchronous work, bounded memory, and traceability. The architecture changes with the problem; these boundaries do not.',
+      svgTitle: 'Event-driven cloud architecture',
+      svgDescription: 'Web and mobile clients pass through an API to services and workers, which publish events to Kafka and persist data in SQL and S3.',
+      nodes: {
+        clients: 'Clients', clientsSub: 'web · mobile', apiSub: 'auth · limits',
+        services: 'Services', servicesSub: 'Spring · Node', workers: 'Workers', workersSub: 'bounded jobs',
+        busSub: 'events · replay', sqlSub: 'source', s3Sub: 'archive',
+      },
+      annotation: 'backpressure · idempotency · observability',
+    },
+    clean: {
+      eyebrow: 'Clean Architecture',
+      heading: 'The business does not depend on the framework',
+      description: 'Dependencies point inward. The domain stays stable while the web layer, database, or cloud provider changes.',
+      svgTitle: 'Clean Architecture layers with dependencies pointing toward the domain',
+      svgDescription: 'Four rings represent frameworks, adapters, use cases, and domain. Arrows point toward the center.',
+      layers: { frameworks: 'Frameworks', adapters: 'Adapters', useCases: 'Use cases', domain: 'Domain' },
+      annotation: 'stable policy · replaceable details',
+    },
+    delivery: {
+      eyebrow: 'Code to production',
+      heading: 'Real gates before production',
+      description: 'We design delivery with the software. Tests, review, security, and observability are part of the normal path.',
+      svgTitle: 'Software delivery flow from specification to observability',
+      svgDescription: 'A specification passes through code, tests, review, deployment, and observability, which feeds the next cycle.',
+      steps: [
+        { label: 'Spec', detail: 'criteria' },
+        { label: 'Code', detail: 'small changes' },
+        { label: 'Tests', detail: 'fail first' },
+        { label: 'Review', detail: 'risk + security' },
+        { label: 'Deploy', detail: 'rollback ready' },
+        { label: 'Observe', detail: 'logs + metrics' },
+      ],
+      loop: 'production informs the next change',
+    },
+    cta: {
+      heading: 'Want to review your architecture with us?',
+      text: 'Talk with Carlos and Marina for 30 minutes about the system, the current risk, and the next reasonable step.',
+      label: 'Talk to the founders',
+    },
   },
 
   trademark: {
@@ -203,65 +277,78 @@ export default {
   },
 
   plans: {
-    label: 'How we work',
-    heading: 'A way of working, not a price list',
-    intro: "We don't sell websites by the page. We partner with a small number of companies each year to design and build the software they run their business on. Every project is led by the same two people from start to finish — no middlemen, no handoffs, no rotating team.",
+    label: 'Where to start',
+    heading: 'Three clear ways to get started',
+    intro: 'The right entry point depends on which risk you need to reduce before committing to a larger implementation.',
     models: [
       {
         step: '01',
-        phase: 'Validate',
-        name: 'Product Sprint',
-        meta: '1–2 weeks',
-        tagline: 'Before you commit to a full build, we turn your idea into a real, tested prototype with a clear plan. You leave with something tangible in your hands.',
+        phase: 'Rescue',
+        name: 'Rescue Diagnostic',
+        meta: '2 weeks · from USD $3,000',
+        badge: 'Starting point',
+        featured: true,
+        tagline: 'For existing software that has become risky or difficult to change. We audit before promising a solution and deliver a stabilization plan with costs and timelines.',
         features: [
-          'Scoping and definition sessions',
-          'A working, navigable prototype',
-          'Architecture and stack decisions',
-          'Technical plan and roadmap',
+          'Architecture and dependencies',
+          'Prioritized technical and security risks',
+          'Keep-versus-replace recommendation',
+          'If we continue, the diagnostic fee is credited',
         ],
-        cta: "Let's start here",
-        waMessage: 'Hi codiva 👋, I am interested in a Product Sprint.',
+        cta: 'See the rescue diagnostic',
+        href: '/en/project-rescue/',
       },
       {
         step: '02',
-        phase: 'Build',
-        name: 'Product Build',
-        meta: 'Full project · custom',
-        badge: 'Recommended to start',
-        featured: true,
-        tagline: 'We embed with your team and own the outcome, taking your product from zero to production. Design, frontend, backend and AI — built to last.',
+        phase: 'Validate',
+        name: 'Product Sprint',
+        meta: '1–2 weeks · from USD $3,000',
+        tagline: 'For reducing uncertainty before a complete build. We define the product, test a prototype, and leave a technical plan you can execute with us or another team.',
         features: [
-          'Product design and frontend',
-          'Backend, APIs and integrations',
-          'AI where it adds value',
-          'Production-grade code and deployment',
+          'Scope and acceptance criteria',
+          'A working, navigable prototype',
+          'Architecture decisions',
+          'You can stop and keep the deliverables',
         ],
-        cta: 'Tell us about your project',
-        waMessage: 'Hi codiva 👋, I want to build a product with you.',
+        cta: 'Discuss a Sprint',
+        waMessage: 'Hi codiva 👋, I am interested in a Product Sprint.',
       },
       {
         step: '03',
-        phase: 'Scale',
-        name: 'Ongoing Partnership',
-        meta: 'Monthly collaboration',
-        tagline: 'For products already live: we keep shipping, month after month, treating your codebase like our own. Includes technical SEO and analytics so you grow with data.',
+        phase: 'Build',
+        name: 'Build and Evolve',
+        meta: '6–16 weeks · custom',
+        tagline: 'For building an end-to-end B2B product or continuing after a diagnostic or Sprint. The same two people cover product, frontend, backend, integrations, and deployment.',
         features: [
-          'Evolution and new features',
-          'Technical SEO + Google Analytics 4',
-          'Data-driven improvements',
-          'Maintenance and support',
+          'Product design and frontend',
+          'Backend, APIs and integrations',
+          'Testing, deployment, and observability',
+          'Ongoing monthly collaboration available',
         ],
-        cta: "Let's talk",
-        waMessage: 'Hi codiva 👋, I am interested in an ongoing partnership or support.',
+        cta: 'Discuss a build',
+        waMessage: 'Hi codiva 👋, I want to build or continue a product with you.',
       },
     ],
     note: 'We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team.',
-    priceAnchor: "A Product Sprint starts at USD $3,000. Full builds typically run between USD $16,000 and $65,000, depending on scope. If your budget is below that, we'll tell you on the first call rather than waste your time.",
+    priceAnchor: 'The Rescue Diagnostic and Product Sprint start at USD $3,000. Full builds typically run between USD $16,000 and $65,000, depending on scope. We confirm the range before requesting access or committing to implementation.',
     more: {
       text: 'Behind each phase there is a method. The detail of how we design and build — discovery, specs, components and architecture — lives on its own page.',
       label: 'See how we build',
-      href: '/en/how-we-build',
+      href: '/en/how-we-build/',
     },
+  },
+
+  buyerControl: {
+    label: 'Risk under control',
+    heading: 'Your company stays in control from day one',
+    intro: 'The engagement should be easy to start, review, and end. These terms are already part of how we work.',
+    items: [
+      { title: 'Your company owns the work from the first commit', detail: 'The repository, code, infrastructure, and documentation remain in your name.' },
+      { title: 'You can stop after the Sprint', detail: 'Either side can decide not to continue. You keep the deliverables produced.' },
+      { title: 'Both founders know the project', detail: 'Carlos and Marina work directly on it and retain context, without rotating teams.' },
+      { title: 'The diagnostic is not paid twice', detail: 'If we continue with stabilization, we credit its value toward the project.' },
+    ],
+    cta: 'Review frequently asked questions',
   },
 
   projects: {
@@ -270,7 +357,8 @@ export default {
     teaserHeading: 'Some of our work',
     intro: 'A sample of the software we design and build: web platforms, mobile apps, SaaS, and AI/RAG systems for startups and companies in Chile and abroad.',
     viewAll: 'View all projects',
-    viewAllHref: '/en/projects',
+    viewAllHref: '/en/projects/',
+    screenshotAlt: 'screenshot',
     back: '← Back to home',
     cta: {
       text: 'Have something like this in mind?',
@@ -278,7 +366,7 @@ export default {
       waMessage: 'Hi codiva 👋, I saw your projects and would like to talk about a similar one.',
     },
     meta: {
-      title: 'Projects — Custom Software, Apps &amp; Platforms | codiva®',
+      title: 'Projects — Custom Software, Apps & Platforms | codiva®',
       description:
         'Selected work by codiva®: web platforms, mobile apps, SaaS, and AI/RAG systems designed and built end to end in Santiago, Chile.',
       keywords:
@@ -610,7 +698,7 @@ export default {
     meta: {
       title: 'Contact — Tell us about your project | codiva®',
       description:
-        "Let's talk about your product. You hear back directly from the people building it — two senior engineers, no middlemen. Reach us on WhatsApp or email, no strings attached.",
+        'Tell us what is blocking your product. Hear directly from the people who would build it, usually the same business day and with no obligation.',
       keywords:
         'contact codiva, software quote, custom development chile, talk to a developer, web development quote',
       canonical: 'https://codiva.cl/en/contact/',
@@ -618,7 +706,7 @@ export default {
       ogTitle: 'Tell us about your project — codiva®',
       ogDescription:
         'You hear back directly from the people building your product. WhatsApp or email, no strings attached.',
-      ogLocale: 'en',
+      ogLocale: 'en_US',
       twitterTitle: 'Tell us about your project — codiva®',
       twitterDescription: "Let's talk about your product — no middlemen, no strings attached.",
     },
@@ -637,8 +725,8 @@ export default {
       'We talk for 30 minutes over video or a call.',
       'We send you a clear plan and proposal.',
     ],
-    trust: ['More than 14 years of experience', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
-    seeWork: { label: 'See projects', href: '/en/projects' },
+    trust: ['Carlos: 14+ years in software', 'Direct work with both founders', 'Ñuñoa, Santiago, Chile'],
+    seeWork: { label: 'See projects', href: '/en/projects/' },
     back: '← Back to home',
     waMessage: 'Hi codiva 👋, I want to tell you about my project.',
   },
@@ -647,9 +735,11 @@ export default {
     label: 'Team',
     heading: 'The people behind',
     members: [
-      { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer focused on architecture, distributed systems, and AI. Designs for scalability, performance, and security, and works on mobile too. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
-      { name: 'Marina Alekseeva', role: 'Design · Frontend · Product', desc: 'Frontend-focused software engineer and product designer (UX/UI), with a fullstack base. Builds accessible, fast, and maintainable interfaces, and works on mobile too.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
+      { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer focused on architecture, distributed systems, and AI. Designs for scalability, performance, and security, and works on mobile too. 14+ years of experience.', url: 'https://krlz.dev/', linkedin: 'https://www.linkedin.com/in/devcarlos/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
+      { name: 'Marina Alekseeva', role: 'Design · Frontend · Product', desc: 'Frontend-focused software engineer and product designer (UX/UI), with a fullstack base. Builds accessible, fast, and maintainable interfaces, and works on mobile too. 4+ years of experience.', url: 'https://maryaleks.dev/', linkedin: 'https://www.linkedin.com/in/marina-alekseeva-a190591b5/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
     ],
+    portfolioLabel: 'Portfolio',
+    linkedinLabel: 'LinkedIn',
   },
 
   // Homepage section (rendered after "How we work") — the takeover/rescue wedge.
@@ -661,7 +751,7 @@ export default {
       "We take it over, stabilize it, and keep building. We start with a two-week review: we understand the code, tell you honestly what's worth keeping and what isn't, and hand you a plan with real costs — even if the conclusion is that a rewrite is your best move.",
     ],
     cta: "Let's review your code",
-    ctaHref: '/en/project-rescue',
+    ctaHref: '/en/project-rescue/',
   },
 
   // Dedicated page /en/project-rescue — the takeover offer expanded.
@@ -669,7 +759,7 @@ export default {
     meta: {
       title: 'Software project rescue — we take over your codebase | codiva®',
       description:
-        'Inherited a system nobody wants to touch? We take it over, stabilize it, and keep building. We start with a two-week review, with a real plan and real costs.',
+        'We audit and stabilize inherited software, prioritize real risks, and deliver a recovery plan with clear costs and timelines.',
       keywords:
         'software project rescue, take over existing codebase, legacy system stabilization, code audit Chile, resume abandoned development, maintain existing software',
       canonical: 'https://codiva.cl/en/project-rescue/',
@@ -677,7 +767,7 @@ export default {
       ogTitle: 'Software project rescue — codiva®',
       ogDescription:
         'We take over inherited software, stabilize it, and keep building. A two-week review with a real plan and real costs.',
-      ogLocale: 'en',
+      ogLocale: 'en_US',
       twitterTitle: 'Software project rescue — codiva®',
       twitterDescription:
         'We take over inherited codebases: stabilize them and keep building, with a real plan and real costs.',
@@ -707,7 +797,7 @@ export default {
     },
     price: {
       title: 'Entry price',
-      text: 'The review is a fixed-price product: from USD $3,000, two weeks, with concrete deliverables. If we then continue with the stabilization, that amount comes off the project.',
+      text: 'The review is a tightly scoped service: from USD $3,000, two weeks, with concrete deliverables. We confirm the price before accessing the code. If we continue with stabilization, that amount comes off the project.',
     },
     ctaLabel: 'Book 30 minutes',
     ctaNote: 'A 30-minute conversation, no commitment.',
@@ -716,6 +806,7 @@ export default {
 
   footer: {
     copy: 'All rights reserved.',
+    contact: { href: '/en/contact/', label: 'Contact' },
     legal: { href: '/en/trademark/', label: 'codiva® — registered trademark' },
   },
 };

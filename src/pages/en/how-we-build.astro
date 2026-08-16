@@ -11,7 +11,7 @@ import en from '../../i18n/en.js';
 const meta = {
   title: 'How We Build — Engineering, Atomic Design & Architecture | codiva®',
   description:
-    'How codiva® builds software: discovery and requirements, spec-driven development, Atomic Design, micro frontends and design tokens on the frontend; data processing, scaling, quality attributes, a real cloud stack and token-based security.',
+    'From problem to deployed software: scope, specification, design, and architecture with reviewable deliverables and risks visible from day one.',
   keywords:
     'atomic design, micro frontends, design tokens, spec-driven development, user stories, acceptance criteria, software architecture, scalability, non-functional requirements, jwt security, openid connect, software engineering chile',
   canonical: 'https://codiva.cl/en/how-we-build/',
@@ -98,7 +98,12 @@ const t = { ...en, meta, schema };
     </div>
   </nav>
 
-  <main class="dashboards-page">
+  <main class="dashboards-page" id="main-content" tabindex="-1">
+    <header class="method-hero container">
+      <span class="section-label">How we build</span>
+      <h1>You know what you will receive before we start coding.</h1>
+      <p>Every stage ends with a reviewable artifact: scope, prototype, specification, architecture, deployed software, and documentation. This reduces rework, exposes risk early, and prevents surprises at the end.</p>
+    </header>
     <Discovery t={en} />
     <SpecDriven t={en} />
     <Methodology t={en} />
