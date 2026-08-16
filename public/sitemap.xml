@@ -34,20 +34,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codiva.cl/dashboards/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/dashboards/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/dashboards/"/>
-    <lastmod>2026-08-02</lastmod>
+    <loc>https://codiva.cl/rescate-de-proyectos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/rescate-de-proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/project-rescue/"/>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://codiva.cl/en/dashboards/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/dashboards/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/dashboards/"/>
-    <lastmod>2026-08-02</lastmod>
+    <loc>https://codiva.cl/en/project-rescue/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/rescate-de-proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/project-rescue/"/>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://codiva.cl/como-construimos/</loc>

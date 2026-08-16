@@ -1,11 +1,14 @@
 ---
 const { t, variant = 'full' } = Astro.props;
-const { projects, contact } = t;
+const { projects, contact, bookingUrl } = t;
 const isTeaser = variant === 'teaser';
+const isEs = t.lang === 'es';
 const items = isTeaser ? projects.items.slice(0, 3) : projects.items;
 const heading = isTeaser ? (projects.teaserHeading || projects.heading) : projects.heading;
 const Heading = isTeaser ? 'h2' : 'h1';
 const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
+// ES keeps WhatsApp for this secondary CTA; EN drops WhatsApp for the booking link.
+const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
 ---
 
 <section class={`portfolio${isTeaser ? ' portfolio--teaser' : ''}`} id="projects" aria-labelledby="portfolio-heading">
@@ -78,7 +81,7 @@ const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURICo
     {!isTeaser && projects.cta && (
       <div class="portfolio__cta" data-animate="fade">
         <p class="portfolio__cta-text">{projects.cta.text}</p>
-        <a class="btn btn--primary" href={wa(projects.cta.waMessage)} target="_blank" rel="noopener noreferrer">
+        <a class="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
           {projects.cta.label}
         </a>
       </div>

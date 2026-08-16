@@ -59,13 +59,13 @@ const t = { ...es, meta: pr.meta, schema };
   </header>
   <main class="projects-page">
     <Portfolio t={es} variant="full" />
-    <aside class="related" aria-label={es.dashboards.label}>
+    <aside class="related" aria-label={es.takeover.eyebrow}>
       <div class="container related__inner">
         <div>
-          <span class="related__eyebrow">{es.dashboards.label}</span>
-          <p class="related__text">{es.dashboards.teaserHeading}</p>
+          <span class="related__eyebrow">{es.takeover.eyebrow}</span>
+          <p class="related__text">{es.takeover.heading}</p>
         </div>
-        <a class="btn btn--ghost" href={es.dashboards.viewAllHref}>{es.dashboards.viewAll} ↗</a>
+        <a class="btn btn--ghost" href={es.takeover.ctaHref}>{es.takeover.cta} ↗</a>
       </div>
     </aside>
   </main>

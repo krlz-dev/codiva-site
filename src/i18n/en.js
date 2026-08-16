@@ -3,21 +3,24 @@ export default {
   lang: 'en',
   htmlLang: 'en',
 
+  // Cal.com booking link — primary CTA for scheduling a 30-min intro call.
+  bookingUrl: 'https://cal.com/krlz.dev',
+
   meta: {
-    title: 'codiva® — Web & Software Development in Chile · Sites, Apps & Services',
+    title: 'Custom software development studio, Santiago Chile | codiva®',
     description:
-      'Independent web design and software development studio in Santiago, Chile. We build websites, web & mobile apps, and custom software with high-end design. codiva® is a registered trademark with INAPI.',
+      'A two-person senior engineering studio. Design, frontend, backend and AI, end to end — no juniors, no subcontracting. We also take over existing codebases.',
     keywords:
-      'codiva, web development chile, software development, mobile apps, custom software, microservices, APIs, digital identity, Santiago Chile, registered trademark INAPI',
+      'custom software development Santiago, software studio Chile, senior engineers, backend, frontend, AI, legacy software rescue, take over codebase, Santiago Chile',
     canonical: 'https://codiva.cl/en/',
     ogUrl: 'https://codiva.cl/en/',
-    ogTitle: 'codiva® — Web & Software Development in Chile',
+    ogTitle: 'Custom software development studio, Santiago Chile — codiva®',
     ogDescription:
-      'Independent web design and software development studio in Santiago, Chile. Websites, web & mobile apps, and custom software with high-end design.',
+      'A two-person senior engineering studio. Design, frontend, backend and AI, end to end — no juniors, no subcontracting. We also take over existing codebases.',
     ogLocale: 'en_US',
-    twitterTitle: 'codiva® — Web & Software Development in Chile',
+    twitterTitle: 'Custom software development — codiva®',
     twitterDescription:
-      'Independent web design and software development studio in Santiago, Chile. Websites, apps, and custom software.',
+      'Two senior engineers. Design, frontend, backend and AI, end to end. We also take over existing codebases.',
   },
 
   schema: [
@@ -92,11 +95,14 @@ export default {
       '@type': 'FAQPage',
       mainEntity: [
         { '@type': 'Question', name: 'What is codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is an independent studio of two senior software engineers based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting.' } },
-        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® offers Web Design & Development, Web & Mobile Apps, Custom Software, and APIs & Microservices. We also take on existing products to stabilize them and keep building.' } },
+        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Five areas, in order of focus: custom software (systems, internal platforms and dashboards); end-to-end product development (design, frontend, backend and AI); web & mobile apps; APIs & microservices; and stabilizing and continuing products that already exist.' } },
         { '@type': 'Question', name: 'Who owns the code?', acceptedAnswer: { '@type': 'Answer', text: 'You do, from the first commit. The repository is in your name and we hand over everything: code, infrastructure, and documentation, with no hidden dependencies.' } },
         { '@type': 'Question', name: 'Can you take over a project someone else started?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We take on inherited codebases — from a freelancer, a previous agency, or an earlier team — stabilize them, and keep building.' } },
         { '@type': 'Question', name: "You're only two people — what happens if you get sick or fully booked?", acceptedAnswer: { '@type': 'Answer', text: "We take on a small number of projects at a time so we don't overcommit. We both know every project, so nothing depends on a single person, and your code and documentation always live in your repository." } },
         { '@type': 'Question', name: 'Do you work with internal teams or replace them?', acceptedAnswer: { '@type': 'Answer', text: 'Both. We embed with your internal team when there is one, or act as your full product team when there is not.' } },
+        { '@type': 'Question', name: 'How much does a project cost?', acceptedAnswer: { '@type': 'Answer', text: 'A Product Sprint starts at USD $3,000 and a full product usually runs between USD $16,000 and $65,000, depending on scope. On the first 30-minute call we give you a real range.' } },
+        { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'A Product Sprint is 1–2 weeks. A full product runs between 6 and 16 weeks depending on scope. We put a date in the proposal and flag it the moment anything puts it at risk.' } },
+        { '@type': 'Question', name: 'What if the project does not work out?', acceptedAnswer: { '@type': 'Answer', text: 'That is what the Product Sprint is for: 1–2 paid weeks with concrete deliverables, after which either side can decide not to continue, and you keep the prototype, the architecture decisions and the technical plan.' } },
       ],
     },
     {
@@ -117,7 +123,7 @@ export default {
         href: '/en/projects',
         children: [
           { href: '/en/projects', label: 'Projects' },
-          { href: '/en/dashboards', label: 'Dashboards' },
+          { href: '/en/project-rescue', label: 'Project rescue' },
         ],
       },
       { href: '#faq', label: 'FAQ' },
@@ -134,8 +140,8 @@ export default {
     eyebrow: 'Two senior engineers · end-to-end',
     h1: 'The people who sell you the project are the people who build it.',
     subtitle: 'Design, frontend, backend and AI, end to end. No juniors, no subcontracting, no middlemen.',
-    ctaPrimary: 'Start a project',
-    ctaGhost: 'Explore',
+    ctaPrimary: 'Book 30 minutes',
+    ctaGhost: 'How we work',
   },
 
   marquee1: ['codiva', 'software', 'web · apps', 'chile'],
@@ -148,12 +154,12 @@ export default {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'Codiva is a studio of two senior software engineers building product end to end: Carlos — 14 years in backend architecture, distributed systems, and AI — and Marina on product design and frontend. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
+      'Codiva is a studio of two senior software engineers, with more than 14 years of experience, building product end to end: architecture, backend and AI on one side; product design and frontend on the other. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
       'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
       "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
     cta: {
-      label: 'Shall we talk for 30 minutes?',
+      label: 'Book 30 minutes',
       waMessage: 'Hi codiva 👋, can we talk for 30 minutes about my project?',
     },
     capabilitiesLabel: 'What we build',
@@ -221,7 +227,7 @@ export default {
         phase: 'Build',
         name: 'Product Build',
         meta: 'Full project · custom',
-        badge: 'Most requested',
+        badge: 'Recommended to start',
         featured: true,
         tagline: 'We embed with your team and own the outcome, taking your product from zero to production. Design, frontend, backend and AI — built to last.',
         features: [
@@ -249,7 +255,8 @@ export default {
         waMessage: 'Hi codiva 👋, I am interested in an ongoing partnership or support.',
       },
     ],
-    note: "We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team. Investment is defined by scope — let's talk, no commitment.",
+    note: 'We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team.',
+    priceAnchor: "A Product Sprint starts at USD $3,000. Full builds typically run between USD $16,000 and $65,000, depending on scope. If your budget is below that, we'll tell you on the first call rather than waste your time.",
     more: {
       text: 'Behind each phase there is a method. The detail of how we design and build — discovery, specs, components and architecture — lives on its own page.',
       label: 'See how we build',
@@ -328,201 +335,6 @@ export default {
         linkLabel: 'Visit site',
       },
     ],
-  },
-
-  dashboards: {
-    label: 'Dashboards',
-    heading: 'Dashboards for platforms',
-    teaserHeading: 'Dashboards for platforms',
-    intro: 'Data interfaces we design and build for SaaS, e-commerce and fintech: KPIs, charts and tables that are production-ready. Everything here is hand-built, fully responsive, and works in both light and dark mode.',
-    viewAll: 'View dashboards',
-    viewAllHref: '/en/dashboards',
-    back: '← Back to home',
-    note: 'Interface examples — illustrative data.',
-    trendUp: 'trending up',
-    trendDown: 'trending down',
-    cta: {
-      text: 'Need a dashboard for your platform?',
-      label: "Let's talk about your dashboard",
-      waMessage: 'Hi codiva 👋, I saw your dashboards and need one for my platform.',
-    },
-    meta: {
-      title: 'Custom Dashboards — SaaS, E-commerce & Fintech | codiva®',
-      description:
-        'A showcase of dashboards designed and built by codiva®: SaaS analytics, e-commerce sales and finance panels with KPIs, charts and responsive tables in light and dark mode.',
-      keywords:
-        'custom dashboards, admin dashboard, control panel, SaaS analytics, e-commerce dashboard, fintech dashboard, KPIs, data visualization, software development Chile',
-      canonical: 'https://codiva.cl/en/dashboards/',
-      ogUrl: 'https://codiva.cl/en/dashboards/',
-      ogTitle: 'Custom dashboards — codiva®',
-      ogDescription:
-        'Analytics, sales and finance panels with KPIs, charts and tables, designed and built by codiva®.',
-      ogLocale: 'en',
-      twitterTitle: 'Custom dashboards — codiva®',
-      twitterDescription:
-        'A showcase of dashboards for SaaS, e-commerce and fintech by codiva®.',
-    },
-    demos: [
-      {
-        id: 'saas',
-        name: 'SaaS product analytics',
-        type: 'SaaS · Live metrics',
-        blurb: 'MRR, active users, churn and conversion with a revenue trend, traffic by channel and plan distribution.',
-        url: 'app.nimbus.io/analytics',
-        brand: 'Nimbus',
-        view: 'Overview',
-        range: 'Last 30 days',
-        kpis: [
-          { label: 'MRR', value: '$48.2k', delta: '+12.4%', dir: 'pos' },
-          { label: 'Active users', value: '8,942', delta: '+5.1%', dir: 'pos' },
-          { label: 'Churn', value: '1.8%', delta: '−0.3%', dir: 'pos' },
-          { label: 'Conversion', value: '3.6%', delta: '+0.8%', dir: 'pos' },
-        ],
-        area: {
-          title: 'Recurring revenue',
-          value: '$48,240',
-          delta: '+12.4% vs. last month',
-          data: [21, 23, 22, 26, 29, 33, 32, 37, 40, 43, 44, 48],
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        },
-        bars: {
-          title: 'Traffic by channel',
-          items: [
-            { label: 'Direct', v: 42 },
-            { label: 'Organic', v: 31 },
-            { label: 'Referral', v: 18 },
-            { label: 'Social', v: 9 },
-          ],
-        },
-        donut: {
-          title: 'Plan distribution',
-          center: { value: '8.9k', label: 'accounts' },
-          items: [
-            { label: 'Starter', v: 48 },
-            { label: 'Pro', v: 37 },
-            { label: 'Enterprise', v: 15 },
-          ],
-        },
-      },
-      {
-        id: 'shop',
-        name: 'E-commerce sales & orders',
-        type: 'E-commerce · Operations',
-        blurb: 'Revenue, orders, average order value and refunds, with daily sales, a product ranking and recent orders with statuses.',
-        url: 'admin.vela.store/sales',
-        brand: 'Vela',
-        view: 'Sales',
-        range: 'This week',
-        kpis: [
-          { label: 'Revenue', value: '$124.6k', delta: '+8.2%', dir: 'pos' },
-          { label: 'Orders', value: '1,284', delta: '+3.4%', dir: 'pos' },
-          { label: 'Avg. order value', value: '$97', delta: '+4.6%', dir: 'pos' },
-          { label: 'Refunds', value: '2.1%', delta: '−0.5%', dir: 'pos' },
-        ],
-        vbars: {
-          title: 'Sales by day',
-          value: '$124,640',
-          delta: 'This week',
-          data: [12, 18, 15, 22, 19, 27, 24],
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-        products: {
-          title: 'Best-selling products',
-          col: 'Units',
-          items: [
-            { label: 'Aura Headphones', v: 100, units: '1,240' },
-            { label: 'Nova Keyboard', v: 78, units: '968' },
-            { label: 'Pulse Mouse', v: 61, units: '742' },
-            { label: 'Clear Webcam', v: 44, units: '531' },
-          ],
-        },
-        orders: {
-          title: 'Recent orders',
-          cols: { id: 'Order', customer: 'Customer', total: 'Total', status: 'Status' },
-          rows: [
-            { id: '#10482', customer: 'Lucía Fuentes', total: '$189', status: 'paid' },
-            { id: '#10481', customer: 'Diego Rojas', total: '$74', status: 'pending' },
-            { id: '#10480', customer: 'Camila Soto', total: '$312', status: 'paid' },
-            { id: '#10479', customer: 'Martín Vera', total: '$58', status: 'failed' },
-          ],
-        },
-        statusLabels: { paid: 'Paid', pending: 'Pending', failed: 'Failed' },
-      },
-      {
-        id: 'fin',
-        name: 'Finance & payments',
-        type: 'Fintech · Treasury',
-        blurb: 'Available balance, income-vs-expenses cash flow and a transactions ledger with statuses and amounts.',
-        url: 'dashboard.saldo.fin',
-        brand: 'Saldo',
-        view: 'Treasury',
-        range: 'Last 6 months',
-        balance: { label: 'Available balance', value: '$86,420.50', delta: '+6.9% this month', dir: 'pos' },
-        mini: [
-          { label: 'Income', value: '$142.8k', dir: 'pos' },
-          { label: 'Expenses', value: '$56.4k', dir: 'neg' },
-          { label: 'Net profit', value: '$86.4k', dir: 'pos' },
-        ],
-        line: {
-          title: 'Cash flow',
-          legend: { income: 'Income', expenses: 'Expenses' },
-          income: [18, 22, 20, 26, 24, 30],
-          expenses: [9, 11, 10, 13, 12, 14],
-          labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-        },
-        tx: {
-          title: 'Transactions',
-          cols: { name: 'Detail', date: 'Date', amount: 'Amount', status: 'Status' },
-          rows: [
-            { name: 'Stripe · payout', date: 'Aug 01', amount: '+$12,400', status: 'paid', dir: 'pos' },
-            { name: 'Cloud · infrastructure', date: 'Jul 31', amount: '−$2,180', status: 'paid', dir: 'neg' },
-            { name: 'Pro subscription', date: 'Jul 30', amount: '+$49', status: 'pending', dir: 'pos' },
-            { name: 'Payroll', date: 'Jul 28', amount: '−$18,900', status: 'paid', dir: 'neg' },
-          ],
-        },
-        statusLabels: { paid: 'Completed', pending: 'Pending', failed: 'Failed' },
-      },
-    ],
-  },
-
-  caseStudy: {
-    label: 'Simulated case',
-    heading: 'Conversion, sales & products',
-    sub: 'An interactive sample panel for an e-commerce/SaaS client: conversion metrics, a sales trend, best-selling products and a customers table with live search, filters, sorting and pagination.',
-    kpis: {
-      conversion: 'Conversion rate',
-      sales: 'Sales',
-      customers: 'New customers',
-      aov: 'Avg. order value',
-    },
-    charts: {
-      salesTitle: 'Sales trend',
-      salesSub: 'Revenue per month',
-      funnelTitle: 'Conversion funnel',
-      funnelRate: 'conv.',
-      productsTitle: 'Best-selling products',
-      productsCol: 'Revenue',
-    },
-    funnel: ['Visitors', 'Leads', 'Trials', 'Customers'],
-    table: {
-      title: 'Recent customers',
-      cols: { name: 'Customer', source: 'Source', plan: 'Plan', amount: 'Amount', status: 'Status' },
-      search: 'Search customer…',
-      searchAria: 'Search customer by name',
-      filterLabel: 'Filter by status',
-      all: 'All',
-      empty: 'No results for your search.',
-      showing: 'Showing',
-      of: 'of',
-      results: 'results',
-      perPage: 'per page',
-      prev: 'Previous',
-      next: 'Next',
-      page: 'Page',
-      sortHint: 'Sort',
-    },
-    statusLabels: { won: 'Won', pending: 'Pending', lost: 'Lost' },
-    sourceLabels: { search: 'Search', ads: 'Ads', referral: 'Referral', social: 'Social', direct: 'Direct' },
   },
 
   discovery: {
@@ -768,11 +580,14 @@ export default {
     heading: 'Frequently asked questions',
     items: [
       { q: 'What is codiva?', aHtml: '<p>codiva® is an independent studio of two senior software engineers, based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting. The people who sell you the project are the people who build it.</p>' },
-      { q: 'What services does codiva offer?', aHtml: '<p>Web Design & Development (sites and platforms), Web & Mobile Apps (native apps and PWAs), Custom Software (systems and dashboards), and APIs & Microservices (scalable architecture and cloud services). We also take on existing products to stabilize them and keep building.</p>' },
+      { q: 'What services does codiva offer?', aHtml: '<p>Five areas, in order of focus: Custom software (systems, internal platforms and dashboards); end-to-end product development (design, frontend, backend and AI); web & mobile apps; APIs & microservices; and stabilizing and continuing products that already exist.</p>' },
       { q: 'Who owns the code?', aHtml: '<p>You do, from the first commit. The repository is in your name and we hand over everything — code, infrastructure, and documentation — with no hidden dependencies or lock-in. If one day you want to continue with another team, you can.</p>' },
-      { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where 14 years of backend architecture and distributed systems make the difference.</p>' },
+      { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where more than 14 years of backend architecture and distributed systems make the difference.</p>' },
       { q: "You're only two people. What happens if you get sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. We both know every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },
       { q: 'Do you work with internal teams or replace them?', aHtml: "<p>Both. We embed with your internal team when there is one, or act as your full product team when there isn't. We adapt to how you already work.</p>" },
+      { q: 'How much does a project cost?', aHtml: "<p>It depends on scope, but we won't make you guess. A Product Sprint starts at USD $3,000 and a full product usually runs between USD $16,000 and $65,000. On the first 30-minute call we give you a real range — not a 20-page proposal three weeks later.</p>" },
+      { q: 'How long does it take?', aHtml: '<p>A Product Sprint is 1–2 weeks. A full product runs between 6 and 16 weeks depending on scope. We put a date in the proposal and flag it the moment anything puts it at risk — we would rather have an awkward conversation early than a surprise at the end.</p>' },
+      { q: "What if it doesn't work out or we're not happy?", aHtml: "<p>That's exactly what the Product Sprint is for: 1–2 paid weeks with concrete deliverables, at the end of which either side can decide not to continue — and you keep the prototype, the architecture decisions and the technical plan regardless. It's the cheapest way we know to find out whether we work well together.</p>" },
     ],
   },
 
@@ -780,6 +595,7 @@ export default {
     label: 'Contact',
     headingHtml: "Let's build something<br><em>extraordinary</em>",
     text: "Have a project in mind? Let's talk about how we can take it to the next level.",
+    bookingLabel: 'Book 30 minutes',
     whatsapp: {
       number: '56957173936',
       label: 'Message us on WhatsApp',
@@ -821,7 +637,7 @@ export default {
       'We talk for 30 minutes over video or a call.',
       'We send you a clear plan and proposal.',
     ],
-    trust: ['14 years in backend & architecture', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
+    trust: ['More than 14 years of experience', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
     seeWork: { label: 'See projects', href: '/en/projects' },
     back: '← Back to home',
     waMessage: 'Hi codiva 👋, I want to tell you about my project.',
@@ -834,6 +650,68 @@ export default {
       { name: 'Carlos Rojas', role: 'Backend · Architecture · AI', desc: 'Backend and fullstack engineer focused on architecture, distributed systems, and AI. Designs for scalability, performance, and security, and works on mobile too. 14 years of experience.', url: 'https://krlz.dev/', image: '/team/carlos.webp', alt: 'Carlos Rojas — Software engineer: backend, architecture, and AI' },
       { name: 'Marina Alekseeva', role: 'Design · Frontend · Product', desc: 'Frontend-focused software engineer and product designer (UX/UI), with a fullstack base. Builds accessible, fast, and maintainable interfaces, and works on mobile too.', url: 'https://maryaleks.dev/', image: '/team/marina.webp', alt: 'Marina Alekseeva — Software engineer: design and frontend' },
     ],
+  },
+
+  // Homepage section (rendered after "How we work") — the takeover/rescue wedge.
+  takeover: {
+    eyebrow: 'Inherited projects',
+    heading: 'Got a product nobody wants to touch anymore?',
+    body: [
+      'A freelancer built it and moved on. Or an agency churned through three teams. It works, more or less, but every change takes weeks and nobody knows what will break.',
+      "We take it over, stabilize it, and keep building. We start with a two-week review: we understand the code, tell you honestly what's worth keeping and what isn't, and hand you a plan with real costs — even if the conclusion is that a rewrite is your best move.",
+    ],
+    cta: "Let's review your code",
+    ctaHref: '/en/project-rescue',
+  },
+
+  // Dedicated page /en/project-rescue — the takeover offer expanded.
+  rescate: {
+    meta: {
+      title: 'Software project rescue — we take over your codebase | codiva®',
+      description:
+        'Inherited a system nobody wants to touch? We take it over, stabilize it, and keep building. We start with a two-week review, with a real plan and real costs.',
+      keywords:
+        'software project rescue, take over existing codebase, legacy system stabilization, code audit Chile, resume abandoned development, maintain existing software',
+      canonical: 'https://codiva.cl/en/project-rescue/',
+      ogUrl: 'https://codiva.cl/en/project-rescue/',
+      ogTitle: 'Software project rescue — codiva®',
+      ogDescription:
+        'We take over inherited software, stabilize it, and keep building. A two-week review with a real plan and real costs.',
+      ogLocale: 'en',
+      twitterTitle: 'Software project rescue — codiva®',
+      twitterDescription:
+        'We take over inherited codebases: stabilize them and keep building, with a real plan and real costs.',
+    },
+    eyebrow: 'Inherited projects',
+    heading: 'Got a product nobody wants to touch anymore?',
+    intro: [
+      'A freelancer built it and moved on. Or an agency churned through three teams. It works, more or less, but every change takes weeks and nobody knows what will break.',
+      "We take it over, stabilize it, and keep building. We start with a two-week review: we understand the code, tell you honestly what's worth keeping and what isn't, and hand you a plan with real costs — even if the conclusion is that a rewrite is your best move.",
+    ],
+    includes: {
+      title: "What the review covers",
+      items: [
+        'Architecture audit: how it is put together and where the bottlenecks are.',
+        'Technical debt prioritized by real risk, not by aesthetic taste.',
+        "Security and dependency status: what's outdated and what exposes you.",
+        'A stabilization plan with real costs and timelines.',
+      ],
+    },
+    notDo: {
+      title: "What we won't do",
+      text: "We won't default to recommending a full rewrite: it's the most expensive option and almost never the right one. If something is worth keeping, we keep it — and we tell you honestly.",
+    },
+    why: {
+      title: 'Why us',
+      text: 'More than 14 years of backend architecture and distributed systems. Getting into someone else’s code and making it maintainable is a different job from starting from scratch — and it is the one we do best.',
+    },
+    price: {
+      title: 'Entry price',
+      text: 'The review is a fixed-price product: from USD $3,000, two weeks, with concrete deliverables. If we then continue with the stabilization, that amount comes off the project.',
+    },
+    ctaLabel: 'Book 30 minutes',
+    ctaNote: 'A 30-minute conversation, no commitment.',
+    back: '← Back to home',
   },
 
   footer: {

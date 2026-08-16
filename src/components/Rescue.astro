@@ -1,0 +1,53 @@
+---
+// Dedicated takeover/rescue page body, shared by /rescate-de-proyectos (ES)
+// and /en/project-rescue (EN). Renders from t.rescate.
+const { t } = Astro.props;
+const r = t.rescate;
+const bookingUrl = t.bookingUrl;
+---
+
+<section class="rescue" aria-labelledby="rescue-heading">
+  <div class="container">
+    <div class="rescue__hero">
+      <span class="section-label">{r.eyebrow}</span>
+      <h1 class="rescue__heading" id="rescue-heading">{r.heading}</h1>
+      <div class="rescue__intro">
+        {r.intro.map((p) => <p class="rescue__intro-p">{p}</p>)}
+      </div>
+    </div>
+
+    <div class="rescue__grid">
+      <div class="rescue__includes">
+        <h2 class="rescue__block-title">{r.includes.title}</h2>
+        <ul class="rescue__list">
+          {r.includes.items.map((it) => (
+            <li class="rescue__list-item">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rescue__cards">
+        <div class="rescue__card">
+          <h3 class="rescue__card-title">{r.notDo.title}</h3>
+          <p class="rescue__card-text">{r.notDo.text}</p>
+        </div>
+        <div class="rescue__card">
+          <h3 class="rescue__card-title">{r.why.title}</h3>
+          <p class="rescue__card-text">{r.why.text}</p>
+        </div>
+        <div class="rescue__card rescue__card--price">
+          <h3 class="rescue__card-title">{r.price.title}</h3>
+          <p class="rescue__card-text">{r.price.text}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rescue__cta">
+      <a class="btn btn--primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">{r.ctaLabel} <span aria-hidden="true">→</span></a>
+      <span class="rescue__cta-note">{r.ctaNote}</span>
+    </div>
+  </div>
+</section>

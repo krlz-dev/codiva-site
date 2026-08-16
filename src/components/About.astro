@@ -1,7 +1,6 @@
 ---
 const { t } = Astro.props;
-const { about, contact } = t;
-const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
+const { about, bookingUrl } = t;
 ---
 
 <section class="about" id="about" aria-labelledby="about-heading">
@@ -18,7 +17,7 @@ const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURICo
         {about.cta && (
           <a
             class="btn btn--primary about__cta"
-            href={wa(about.cta.waMessage)}
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             data-animate="fade"

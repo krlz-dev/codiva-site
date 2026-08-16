@@ -1,0 +1,21 @@
+---
+// Homepage section for the takeover / rescue wedge — placed after "Cómo
+// trabajamos". Links to the dedicated /rescate-de-proyectos page.
+const { t } = Astro.props;
+const { takeover } = t;
+---
+
+<section class="takeover" id="rescate" aria-labelledby="takeover-heading">
+  <div class="container">
+    <div class="takeover__inner">
+      <span class="section-label">{takeover.eyebrow}</span>
+      <h2 class="takeover__heading" id="takeover-heading" data-animate="reveal">{takeover.heading}</h2>
+      <div class="takeover__body">
+        {takeover.body.map((p) => <p class="takeover__text" data-animate="fade">{p}</p>)}
+      </div>
+      <a class="btn btn--primary takeover__cta" href={takeover.ctaHref} data-animate="fade">
+        {takeover.cta} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

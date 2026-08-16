@@ -1,6 +1,6 @@
 ---
 const { t } = Astro.props;
-const { hero } = t;
+const { hero, bookingUrl } = t;
 ---
 
 <header class="hero" id="hero">
@@ -14,8 +14,8 @@ const { hero } = t;
     </h1>
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__cta">
-      <a href="#contact" class="btn btn--primary">{hero.ctaPrimary}</a>
-      <a href="#about" class="btn btn--ghost">{hero.ctaGhost}</a>
+      <a href={bookingUrl} target="_blank" rel="noopener noreferrer" class="btn btn--primary">{hero.ctaPrimary}</a>
+      <a href="#plans" class="btn btn--ghost">{hero.ctaGhost}</a>
     </div>
   </div>
   <div class="hero__scroll" aria-hidden="true">
