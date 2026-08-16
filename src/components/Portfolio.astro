@@ -30,7 +30,7 @@ const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
       <p class="portfolio__intro" data-animate="fade">{projects.intro}</p>
     )}
 
-    <ul class="portfolio__list">
+    <ul class="portfolio__list" id={isTeaser ? undefined : 'codiva-product'}>
       {items.map((p, i) => (
         <li class="portfolio__item" data-provenance={p.provenance} data-animate="fade">
           <span class="portfolio__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>

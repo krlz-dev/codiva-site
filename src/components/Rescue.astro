@@ -4,6 +4,12 @@
 const { t } = Astro.props;
 const r = t.rescate;
 const bookingUrl = t.bookingUrl;
+const modernizationHref = t.lang === 'es'
+  ? '/servicios/modernizacion-aplicaciones-legacy/'
+  : '/en/services/legacy-application-modernization/';
+const modernizationLabel = t.lang === 'es'
+  ? 'Ver modernización de aplicaciones legacy'
+  : 'See legacy application modernization';
 ---
 
 <section class="rescue" aria-labelledby="rescue-heading">
@@ -47,6 +53,7 @@ const bookingUrl = t.bookingUrl;
 
     <div class="rescue__cta">
       <a class="btn btn--primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">{r.ctaLabel} <span aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href={modernizationHref}>{modernizationLabel} <span aria-hidden="true">→</span></a>
       <span class="rescue__cta-note">{r.ctaNote}</span>
     </div>
   </div>

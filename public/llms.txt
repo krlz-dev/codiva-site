@@ -8,9 +8,9 @@ codiva construye y moderniza el software que mueve operaciones de negocio. Carlo
 
 ## Servicios
 
-- Construir y evolucionar: productos B2B, plataformas internas y nuevos módulos.
-- Modernizar y rescatar: estabilización y evolución incremental de sistemas heredados o difíciles de cambiar.
-- Datos e integraciones: pipelines batch o por eventos, enriquecimiento, APIs, interoperabilidad y rendimiento de datos.
+- [Desarrollo de software B2B](https://codiva.cl/servicios/desarrollo-software-b2b/): productos B2B, plataformas internas y módulos operativos.
+- [Modernización de aplicaciones legacy](https://codiva.cl/servicios/modernizacion-aplicaciones-legacy/): diagnóstico, estabilidad y evolución incremental de sistemas heredados.
+- [Ingeniería de datos e integraciones](https://codiva.cl/servicios/ingenieria-datos-integraciones/): pipelines, APIs, eventos, interoperabilidad y recuperación.
 
 ## Formas de empezar
 
@@ -32,12 +32,16 @@ No se publican clientes, resultados, métricas, certificaciones, alianzas ni tes
 ## Páginas en español
 
 - [Inicio](https://codiva.cl/): posicionamiento, servicios y prueba principal.
+- [Desarrollo de software B2B](https://codiva.cl/servicios/desarrollo-software-b2b/): construcción de productos y plataformas operativas.
+- [Modernización de aplicaciones legacy](https://codiva.cl/servicios/modernizacion-aplicaciones-legacy/): modernización incremental con riesgo controlado.
+- [Ingeniería de datos e integraciones](https://codiva.cl/servicios/ingenieria-datos-integraciones/): datos confiables, APIs e integraciones recuperables.
 - [Trabajo](https://codiva.cl/proyectos/): productos propios, experiencia previa y arquitecturas de referencia.
   - [Pipeline de datos y enriquecimiento](https://codiva.cl/proyectos/pipeline-datos/): experiencia previa + arquitectura recuperable.
   - [Interoperabilidad clínica con FHIR](https://codiva.cl/proyectos/interoperabilidad-fhir/): experiencia previa + arquitectura de referencia.
 - [Diagnóstico de Rescate](https://codiva.cl/rescate-de-proyectos/): entrada acotada para software existente.
 - [Cómo trabajamos](https://codiva.cl/como-construimos/): entregables, colaboración, control de riesgos y propiedad.
 - [Conocimiento](https://codiva.cl/conocimiento/): decisiones técnicas, datos, integraciones e interoperabilidad.
+  - [Ingeniería de software agéntica](https://codiva.cl/conocimiento/ingenieria-software-agentica/): LLMs y agentes bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.
   - [Ingesta IoT](https://codiva.cl/conocimiento/ingesta-iot/): duplicados, orden, idempotencia, dead-letter, replay y observabilidad.
   - [Nominatim y geocodificación](https://codiva.cl/conocimiento/nominatim-geocodificacion/): capa de aplicación sin estado con PostgreSQL/PostGIS persistente.
   - [Integraciones y PostgreSQL](https://codiva.cl/conocimiento/integraciones-postgresql/): REST, SOAP, particionamiento, índices, planes, bloat y autovacuum.
@@ -74,9 +78,9 @@ codiva builds and modernizes the software that runs business operations. Carlos 
 
 ## Services
 
-- Build and evolve: B2B products, internal platforms, and new modules.
-- Modernize and rescue: stabilize and incrementally evolve inherited or difficult-to-change systems.
-- Data and integrations: batch or event pipelines, enrichment, APIs, interoperability, and data performance.
+- [B2B software development](https://codiva.cl/en/services/b2b-software-development/): B2B products, internal platforms, and operational modules.
+- [Legacy application modernization](https://codiva.cl/en/services/legacy-application-modernization/): assessment, stabilization, and incremental evolution of inherited systems.
+- [Data engineering and integrations](https://codiva.cl/en/services/data-engineering-integrations/): pipelines, APIs, events, interoperability, and recovery.
 
 ## Ways to start
 
@@ -98,12 +102,16 @@ No clients, outcomes, metrics, certifications, partnerships, or testimonials are
 ## English pages
 
 - [Home](https://codiva.cl/en/): positioning, services, and primary evidence.
+- [B2B software development](https://codiva.cl/en/services/b2b-software-development/): operational products and internal platforms.
+- [Legacy application modernization](https://codiva.cl/en/services/legacy-application-modernization/): incremental modernization with controlled risk.
+- [Data engineering and integrations](https://codiva.cl/en/services/data-engineering-integrations/): trusted data, APIs, and recoverable integrations.
 - [Work](https://codiva.cl/en/projects/): owned products, prior experience, and reference architectures.
   - [Data processing and enrichment pipeline](https://codiva.cl/en/projects/data-pipeline/): prior experience + recoverable architecture.
   - [Clinical interoperability with FHIR](https://codiva.cl/en/projects/fhir-interoperability/): prior experience + reference architecture.
 - [Rescue Diagnostic](https://codiva.cl/en/project-rescue/): bounded entry point for existing software.
 - [How we work](https://codiva.cl/en/how-we-build/): deliverables, collaboration, risk control, and ownership.
 - [Knowledge](https://codiva.cl/en/knowledge/): technical decisions, data, integrations, and interoperability.
+  - [Agentic software engineering](https://codiva.cl/en/knowledge/agentic-software-engineering/): LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.
   - [Reliable IoT ingestion](https://codiva.cl/en/knowledge/iot-ingestion/): duplicates, ordering, idempotency, dead-letter, replay, and observability.
   - [Nominatim and geocoding](https://codiva.cl/en/knowledge/nominatim-geocoding/): stateless application layer with persistent PostgreSQL/PostGIS.
   - [Integrations and PostgreSQL](https://codiva.cl/en/knowledge/integrations-postgresql/): REST, SOAP, partitioning, indexes, query plans, bloat, and autovacuum.

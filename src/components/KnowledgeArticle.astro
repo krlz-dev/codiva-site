@@ -4,6 +4,13 @@ import Footer from './Footer.astro';
 
 const { t, data, altEs, altEn } = Astro.props;
 const isEs = t.lang === 'es';
+const isAgentic = data.key === 'agentic';
+const serviceHref = isAgentic
+  ? (isEs ? '/servicios/desarrollo-software-b2b/' : '/en/services/b2b-software-development/')
+  : (isEs ? '/servicios/ingenieria-datos-integraciones/' : '/en/services/data-engineering-integrations/');
+const serviceLabel = isAgentic
+  ? (isEs ? 'Aplicar este método al desarrollo de software B2B' : 'Apply this method to B2B software development')
+  : (isEs ? 'Aplicar este criterio en datos e integraciones' : 'Apply this judgment to data and integrations');
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -45,7 +52,7 @@ const pageT = { ...t, meta: data.meta, schema };
 
       <section class="knowledge-article__section" aria-labelledby="knowledge-flow-title">
         <h2 id="knowledge-flow-title">{data.flowTitle}</h2>
-        <figure class="knowledge-architecture" aria-labelledby="knowledge-flow-title">
+        <figure class="knowledge-architecture" aria-labelledby="knowledge-flow-title" data-executed-evidence={isAgentic ? true : undefined}>
           <ol class="knowledge-flow" role="list" aria-label={data.flowLabel}>
             {data.flow.map((step, index) => (
               <li>
@@ -58,9 +65,9 @@ const pageT = { ...t, meta: data.meta, schema };
         </figure>
       </section>
 
-      <div class="knowledge-article__sections">
+      <div class:list={['knowledge-article__sections', { 'knowledge-article__sections--agentic': isAgentic }]}>
         {data.sections.map((section) => (
-          <section class="knowledge-article__section">
+          <section class="knowledge-article__section" data-agentic-control={section.control}>
             <h2>{section.title}</h2>
             <p>{section.text}</p>
             <ul>
@@ -70,9 +77,10 @@ const pageT = { ...t, meta: data.meta, schema };
         ))}
       </div>
 
-      <aside class="knowledge-article__buyer">
+      <aside class="knowledge-article__buyer" data-human-decision={isAgentic ? true : undefined}>
         <h2>{data.buyerTitle}</h2>
         <p>{data.buyerText}</p>
+        <a href={serviceHref}>{serviceLabel} <span aria-hidden="true">→</span></a>
       </aside>
 
       {data.sources.length > 0 && (

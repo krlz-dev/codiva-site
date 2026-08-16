@@ -4,6 +4,12 @@ import Footer from './Footer.astro';
 
 const { t, data, altEs, altEn } = Astro.props;
 const isEs = t.lang === 'es';
+const serviceHref = isEs
+  ? '/servicios/ingenieria-datos-integraciones/'
+  : '/en/services/data-engineering-integrations/';
+const serviceLabel = isEs
+  ? 'Ver ingeniería de datos e integraciones'
+  : 'See data engineering and integrations';
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -120,6 +126,10 @@ const pageT = { ...t, meta: data.meta, schema };
           </ul>
         </section>
       )}
+
+      <aside class="case-study__service-link">
+        <a href={serviceHref}>{serviceLabel} <span aria-hidden="true">→</span></a>
+      </aside>
 
       <section class="case-study__cta" aria-labelledby="case-cta-title">
         <div>

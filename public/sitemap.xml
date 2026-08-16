@@ -5,22 +5,79 @@
     <loc>https://codiva.cl/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/servicios/desarrollo-software-b2b/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/desarrollo-software-b2b/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/b2b-software-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/b2b-software-development/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/services/b2b-software-development/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/desarrollo-software-b2b/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/b2b-software-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/b2b-software-development/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/servicios/modernizacion-aplicaciones-legacy/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/modernizacion-aplicaciones-legacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/legacy-application-modernization/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/legacy-application-modernization/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/services/legacy-application-modernization/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/modernizacion-aplicaciones-legacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/legacy-application-modernization/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/legacy-application-modernization/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/servicios/ingenieria-datos-integraciones/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/ingenieria-datos-integraciones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/data-engineering-integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/data-engineering-integrations/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/services/data-engineering-integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/servicios/ingenieria-datos-integraciones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/services/data-engineering-integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/services/data-engineering-integrations/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://codiva.cl/proyectos/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -29,6 +86,7 @@
     <loc>https://codiva.cl/en/projects/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -37,22 +95,25 @@
     <loc>https://codiva.cl/rescate-de-proyectos/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/rescate-de-proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/project-rescue/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/project-rescue/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/project-rescue/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/rescate-de-proyectos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/project-rescue/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/project-rescue/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://codiva.cl/como-construimos/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/como-construimos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/how-we-build/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/how-we-build/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -61,6 +122,7 @@
     <loc>https://codiva.cl/en/how-we-build/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/como-construimos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/how-we-build/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/how-we-build/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -69,70 +131,79 @@
     <loc>https://codiva.cl/contacto/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/contacto/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/contact/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/contact/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/contacto/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/contact/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://codiva.cl/marca/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/marca/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/trademark/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/trademark/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/trademark/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/marca/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/trademark/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/trademark/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://codiva.cl/proyectos/pipeline-datos/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/pipeline-datos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/data-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/data-pipeline/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/projects/data-pipeline/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/pipeline-datos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/data-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/data-pipeline/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://codiva.cl/proyectos/interoperabilidad-fhir/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/interoperabilidad-fhir/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/fhir-interoperability/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/fhir-interoperability/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://codiva.cl/en/projects/fhir-interoperability/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/proyectos/interoperabilidad-fhir/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/projects/fhir-interoperability/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/projects/fhir-interoperability/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://codiva.cl/conocimiento/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -141,6 +212,7 @@
     <loc>https://codiva.cl/en/knowledge/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -149,6 +221,7 @@
     <loc>https://codiva.cl/conocimiento/ingesta-iot/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/ingesta-iot/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/iot-ingestion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/iot-ingestion/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -157,6 +230,7 @@
     <loc>https://codiva.cl/en/knowledge/iot-ingestion/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/ingesta-iot/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/iot-ingestion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/iot-ingestion/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -165,6 +239,7 @@
     <loc>https://codiva.cl/conocimiento/nominatim-geocodificacion/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/nominatim-geocodificacion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/nominatim-geocoding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/nominatim-geocoding/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -173,6 +248,7 @@
     <loc>https://codiva.cl/en/knowledge/nominatim-geocoding/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/nominatim-geocodificacion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/nominatim-geocoding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/nominatim-geocoding/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -181,6 +257,7 @@
     <loc>https://codiva.cl/conocimiento/integraciones-postgresql/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/integraciones-postgresql/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/integrations-postgresql/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/integrations-postgresql/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -189,8 +266,27 @@
     <loc>https://codiva.cl/en/knowledge/integrations-postgresql/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/integraciones-postgresql/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/integrations-postgresql/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/integrations-postgresql/"/>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/conocimiento/ingenieria-software-agentica/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/ingenieria-software-agentica/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/agentic-software-engineering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/agentic-software-engineering/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/knowledge/agentic-software-engineering/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/ingenieria-software-agentica/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/agentic-software-engineering/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/agentic-software-engineering/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 </urlset>

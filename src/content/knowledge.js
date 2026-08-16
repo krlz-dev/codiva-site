@@ -2,9 +2,9 @@ export const knowledgeContent = {
   es: {
     hub: {
       meta: {
-        title: 'Conocimiento sobre datos, integraciones y arquitectura | codiva®',
-        description: 'Guías técnicas bilingües de codiva® sobre ingesta IoT, Nominatim, REST, SOAP, PostgreSQL, datos e interoperabilidad.',
-        keywords: 'arquitectura de software, IoT, Nominatim, PostgreSQL, REST, SOAP, FHIR, datos',
+        title: 'Conocimiento sobre software, datos e IA agéntica | codiva®',
+        description: 'Guías bilingües de codiva® sobre arquitectura, programación agéntica, IoT, PostgreSQL, datos, integraciones e interoperabilidad.',
+        keywords: 'arquitectura de software, programación agéntica, LLM, agentes IA, IoT, PostgreSQL, integraciones, datos',
         canonical: 'https://codiva.cl/conocimiento/',
         ogUrl: 'https://codiva.cl/conocimiento/',
         ogTitle: 'Conocimiento técnico — codiva®',
@@ -39,6 +39,13 @@ export const knowledgeContent = {
           title: 'Adaptadores REST/SOAP y PostgreSQL bajo carga',
           summary: 'Contratos, retries, idempotencia y aislamiento del dominio junto a particionamiento, índices, planes de consulta, bloat y autovacuum.',
           topics: ['REST', 'SOAP', 'PostgreSQL'],
+        },
+        {
+          href: '/conocimiento/ingenieria-software-agentica/',
+          area: 'IA aplicada e ingeniería',
+          title: 'Programación agéntica: más velocidad exige más control',
+          summary: 'LLMs y agentes de programación bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.',
+          topics: ['LLM', 'agentes', 'TDD'],
         },
       ],
       caseLabel: 'Casos relacionados',
@@ -222,9 +229,9 @@ export const knowledgeContent = {
   en: {
     hub: {
       meta: {
-        title: 'Knowledge on data, integrations, and architecture | codiva®',
-        description: 'Bilingual technical guides from codiva® on IoT ingestion, Nominatim, REST, SOAP, PostgreSQL, data, and interoperability.',
-        keywords: 'software architecture, IoT, Nominatim, PostgreSQL, REST, SOAP, FHIR, data',
+        title: 'Knowledge on software, data, and agentic AI | codiva®',
+        description: 'Bilingual codiva® guides on architecture, agentic programming, IoT, PostgreSQL, data, integrations, and interoperability.',
+        keywords: 'software architecture, agentic programming, LLM, AI agents, IoT, PostgreSQL, integrations, data',
         canonical: 'https://codiva.cl/en/knowledge/',
         ogUrl: 'https://codiva.cl/en/knowledge/',
         ogTitle: 'Technical knowledge — codiva®',
@@ -242,6 +249,7 @@ export const knowledgeContent = {
         { href: '/en/knowledge/iot-ingestion/', area: 'Events and IoT', title: 'IoT ingestion that tolerates duplicates, disorder, and disconnections', summary: 'Listeners, idempotency, per-device ordering, dead-letter, replay, and observability without inventing a system protocol.', topics: ['IoT', 'events', 'replay'] },
         { href: '/en/knowledge/nominatim-geocoding/', area: 'Geospatial data', title: 'Nominatim: scalable service, persistent data', summary: 'A stateless application layer around Nominatim with persistent PostgreSQL/PostGIS, caching, and explicit operational limits.', topics: ['Nominatim', 'PostGIS', 'Redis'] },
         { href: '/en/knowledge/integrations-postgresql/', area: 'Integrations and data', title: 'REST/SOAP adapters and PostgreSQL under load', summary: 'Contracts, retries, idempotency, and domain isolation alongside partitioning, indexes, query plans, bloat, and autovacuum.', topics: ['REST', 'SOAP', 'PostgreSQL'] },
+        { href: '/en/knowledge/agentic-software-engineering/', area: 'Applied AI and engineering', title: 'Agentic programming: more speed requires stronger controls', summary: 'LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.', topics: ['LLM', 'agents', 'TDD'] },
       ],
       caseLabel: 'Related cases',
       caseTitle: 'Architecture connected to real experience',
