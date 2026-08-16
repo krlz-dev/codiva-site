@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from './Footer.astro';
+
+const { t, data, altEs, altEn } = Astro.props;
+const isEs = t.lang === 'es';
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: data.title,
+    description: data.meta.description,
+    url: data.meta.canonical,
+    inLanguage: isEs ? 'es-CL' : 'en-US',
+    publisher: {
+      '@type': 'Organization',
+      name: 'codiva®',
+      url: 'https://codiva.cl/',
+    },
+    about: data.flow.map((step) => step.name),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: isEs ? 'Inicio' : 'Home',
+        item: isEs ? 'https://codiva.cl/' : 'https://codiva.cl/en/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: isEs ? 'Trabajo' : 'Work',
+        item: `https://codiva.cl${data.backHref}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: data.breadcrumb,
+        item: data.meta.canonical,
+      },
+    ],
+  },
+];
+const pageT = { ...t, meta: data.meta, schema };
+---
+
+<Layout t={pageT} altEs={altEs} altEn={altEn}>
+  <main class="case-study" id="main-content" tabindex="-1">
+    <div class="container case-study__container">
+      <a class="case-study__back" href={data.backHref}>← {data.backLabel}</a>
+
+      <header class="case-study__header">
+        <span class="section-label">{data.label}</span>
+        <h1>{data.title}</h1>
+        <p>{data.lede}</p>
+      </header>
+
+      <aside class="case-study__provenance" aria-labelledby="provenance-title">
+        <h2 id="provenance-title">{data.provenanceTitle}</h2>
+        <p>{data.provenance}</p>
+      </aside>
+
+      <section class="case-study__section" aria-labelledby="problem-title">
+        <h2 id="problem-title">{data.problemTitle}</h2>
+        <p class="case-study__lead">{data.problem}</p>
+      </section>
+
+      <section class="case-study__section" aria-labelledby="flow-title">
+        <h2 id="flow-title">{data.flowTitle}</h2>
+        <figure class="case-architecture" aria-labelledby="flow-title" aria-describedby="flow-caption">
+          <ol class="case-flow" role="list" aria-label={data.flowLabel}>
+            {data.flow.map((step, index) => (
+              <li class="case-flow__step">
+                <span class="case-flow__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <strong>{step.name}</strong>
+                <span>{step.detail}</span>
+                {index < data.flow.length - 1 && <span class="case-flow__arrow" aria-hidden="true">→</span>}
+              </li>
+            ))}
+          </ol>
+          <figcaption id="flow-caption">{data.crossCutting}</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-study__section" aria-labelledby="decisions-title">
+        <h2 id="decisions-title">{data.decisionsTitle}</h2>
+        <div class="case-decisions">
+          {data.decisions.map((decision) => (
+            <article>
+              <h3>{decision.title}</h3>
+              <p>{decision.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <aside class="case-study__buyer" aria-labelledby="buyer-title">
+        <h2 id="buyer-title">{data.buyerTitle}</h2>
+        <p>{data.buyerIntro}</p>
+        <ul>
+          {data.buyerItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </aside>
+
+      <section class="case-study__section case-study__limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">{data.limitsTitle}</h2>
+        <p>{data.limits}</p>
+      </section>
+
+      {data.sources.length > 0 && (
+        <section class="case-study__sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">{data.sourcesTitle}</h2>
+          <ul>
+            {data.sources.map((source) => (
+              <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section class="case-study__cta" aria-labelledby="case-cta-title">
+        <div>
+          <h2 id="case-cta-title">{data.ctaTitle}</h2>
+          <p>{data.ctaText}</p>
+        </div>
+        <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer" data-cta="calendar" data-cta-location={`case-${data.key}`}>
+          {data.ctaLabel} <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </div>
+  </main>
+  <Footer t={t} />
+</Layout>

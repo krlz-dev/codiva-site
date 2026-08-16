@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from './Footer.astro';
+
+const { t, data, altEs, altEn } = Astro.props;
+const isEs = t.lang === 'es';
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: data.title,
+    description: data.meta.description,
+    url: data.meta.canonical,
+    inLanguage: isEs ? 'es-CL' : 'en-US',
+    publisher: { '@type': 'Organization', name: 'codiva®', url: 'https://codiva.cl/' },
+    about: data.flow.map((step) => step.name),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: isEs ? 'Inicio' : 'Home', item: isEs ? 'https://codiva.cl/' : 'https://codiva.cl/en/' },
+      { '@type': 'ListItem', position: 2, name: isEs ? 'Conocimiento' : 'Knowledge', item: `https://codiva.cl${data.backHref}` },
+      { '@type': 'ListItem', position: 3, name: data.breadcrumb, item: data.meta.canonical },
+    ],
+  },
+];
+const pageT = { ...t, meta: data.meta, schema };
+---
+
+<Layout t={pageT} altEs={altEs} altEn={altEn}>
+  <main class="knowledge-article" id="main-content" tabindex="-1">
+    <div class="container knowledge-article__container">
+      <a class="knowledge-article__back" href={data.backHref}>← {data.backLabel}</a>
+      <header class="knowledge-article__header">
+        <span class="section-label">{data.label}</span>
+        <h1>{data.title}</h1>
+        <p>{data.lede}</p>
+      </header>
+
+      <aside class="knowledge-article__provenance" data-provenance="reference-architecture">
+        <span class="provenance-badge" data-provenance="reference-architecture">{isEs ? 'Arquitectura de referencia' : 'Reference architecture'}</span>
+        <p>{data.provenance}</p>
+      </aside>
+
+      <section class="knowledge-article__section" aria-labelledby="knowledge-flow-title">
+        <h2 id="knowledge-flow-title">{data.flowTitle}</h2>
+        <figure class="knowledge-architecture" aria-labelledby="knowledge-flow-title">
+          <ol class="knowledge-flow" role="list" aria-label={data.flowLabel}>
+            {data.flow.map((step, index) => (
+              <li>
+                <span class="knowledge-flow__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <strong>{step.name}</strong>
+                <span>{step.detail}</span>
+              </li>
+            ))}
+          </ol>
+        </figure>
+      </section>
+
+      <div class="knowledge-article__sections">
+        {data.sections.map((section) => (
+          <section class="knowledge-article__section">
+            <h2>{section.title}</h2>
+            <p>{section.text}</p>
+            <ul>
+              {section.bullets.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <aside class="knowledge-article__buyer">
+        <h2>{data.buyerTitle}</h2>
+        <p>{data.buyerText}</p>
+      </aside>
+
+      {data.sources.length > 0 && (
+        <section class="knowledge-article__sources" aria-labelledby="knowledge-sources-title">
+          <h2 id="knowledge-sources-title">{isEs ? 'Fuentes oficiales' : 'Official sources'}</h2>
+          <ul>
+            {data.sources.map((source) => (
+              <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  </main>
+  <Footer t={t} />
+</Layout>

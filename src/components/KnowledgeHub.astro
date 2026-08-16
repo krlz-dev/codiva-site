@@ -1,0 +1,51 @@
+---
+const { content } = Astro.props;
+---
+
+<main class="knowledge-hub" id="main-content" tabindex="-1">
+  <section class="knowledge-hero">
+    <div class="container">
+      <span class="section-label">{content.label}</span>
+      <h1>{content.title}</h1>
+      <p>{content.intro}</p>
+    </div>
+  </section>
+
+  <section class="knowledge-list" aria-labelledby="knowledge-guides-title">
+    <div class="container">
+      <h2 id="knowledge-guides-title" class="sr-only">{content.label}</h2>
+      <div class="knowledge-grid">
+        {content.articles.map((article) => (
+          <article class="knowledge-card" data-provenance="reference-architecture">
+            <div class="knowledge-card__topline">
+              <span class="provenance-badge" data-provenance="reference-architecture">{content.provenance}</span>
+              <span>{article.area}</span>
+            </div>
+            <h3><a href={article.href}>{article.title}</a></h3>
+            <p>{article.summary}</p>
+            <ul role="list">
+              {article.topics.map((topic) => <li>{topic}</li>)}
+            </ul>
+            <a class="knowledge-card__link" href={article.href}>{content.read} <span aria-hidden="true">→</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="knowledge-cases" aria-labelledby="knowledge-cases-title">
+    <div class="container">
+      <span class="section-label">{content.caseLabel}</span>
+      <h2 id="knowledge-cases-title">{content.caseTitle}</h2>
+      <div class="knowledge-cases__grid">
+        {content.cases.map((item) => (
+          <a href={item.href}>
+            <span>{item.provenance}</span>
+            <strong>{item.title}</strong>
+            <span aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</main>

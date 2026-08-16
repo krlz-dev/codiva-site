@@ -1,128 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Discovery from '../components/Discovery.astro';
-import AgileDelivery from '../components/AgileDelivery.astro';
-import SpecDriven from '../components/SpecDriven.astro';
-import Methodology from '../components/Methodology.astro';
-import Architecture from '../components/Architecture.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
+import CommercialMethod from '../components/CommercialMethod.astro';
 import Footer from '../components/Footer.astro';
 import es from '../i18n/es.js';
+import { knowledgeContent } from '../content/knowledge.js';
 
-const meta = {
-  title: 'Cómo construimos — Agile, Ingeniería y Arquitectura | codiva®',
-  description:
-    'Sprints de 1–2 semanas, software funcionando, rituales útiles, especificación y arquitectura con decisiones y riesgos visibles desde el inicio.',
-  keywords:
-    'agile, scrum, sprint planning, sprint review, retrospectiva, kanban, atomic design, spec-driven development, arquitectura de software, ingeniería de software chile',
-  canonical: 'https://codiva.cl/como-construimos/',
-  ogUrl: 'https://codiva.cl/como-construimos/',
-  ogTitle: 'Cómo construimos — codiva®',
-  ogDescription:
-    'La entrega detrás del producto: descubrimiento, sprints, Scrum pragmático, specs, arquitectura, calidad y seguridad.',
-  ogLocale: 'es_CL',
-  twitterTitle: 'Cómo construimos — codiva®',
-  twitterDescription:
-    'Descubrimiento, Agile, Scrum pragmático, specs, arquitectura escalable y seguridad — explicado simple.',
-};
-
-// Sections on the page — kept in one place so the in-page index and the
-// structured data stay in sync as the page grows.
-const sections = [
-  { id: 'discovery', nav: 'Descubrimiento', name: es.discovery.heading, desc: es.discovery.intro },
-  { id: 'agile-delivery', nav: 'Agile', name: es.agile.heading, desc: es.agile.intro },
-  { id: 'spec', nav: 'Spec-Driven', name: es.spec.heading, desc: es.spec.intro },
-  { id: 'methodology', nav: 'Frontend', name: es.methodology.heading, desc: es.methodology.intro },
-  { id: 'architecture', nav: 'Arquitectura', name: es.architecture.heading, desc: es.architecture.intro },
-];
-const topics = [
-  'Agile', 'Scrum', 'Kanban', 'Sprint Planning', 'Sprint Review', 'Retrospectiva',
-  'Atomic Design', 'Micro Frontends', 'Design Tokens', 'Spec-Driven Development',
-  'Historias de usuario', 'Criterios de aceptación', 'Escalabilidad',
-  'Requisitos no funcionales', 'Arquitectura en la nube', 'Seguridad basada en tokens',
-];
-const citations = [
-  { name: es.discovery.acceptance.creditLabel, url: es.discovery.acceptance.creditHref },
-  { name: es.spec.creditLabel, url: es.spec.creditHref },
-  { name: `${es.methodology.atomic.creditLabel} — Brad Frost`, url: es.methodology.atomic.creditHref },
-  { name: es.architecture.scaling.creditLabel, url: es.architecture.scaling.creditHref },
-  { name: es.architecture.quality.creditLabel, url: es.architecture.quality.creditHref },
-];
-
+const content = knowledgeContent.es.method;
 const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: meta.ogTitle,
-    headline: meta.ogTitle,
-    description: meta.description,
-    url: meta.canonical,
-    inLanguage: 'es-CL',
-    isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
-    publisher: { '@type': 'Organization', name: 'codiva', url: 'https://codiva.cl' },
-    keywords: meta.keywords,
-    about: topics.map((name) => ({ '@type': 'DefinedTerm', name })),
-    hasPart: sections.map((s) => ({
-      '@type': 'WebPageElement',
-      name: s.name,
-      description: s.desc,
-      url: `${meta.canonical}#${s.id}`,
-    })),
-    citation: citations.map((c) => ({ '@type': 'CreativeWork', name: c.name, url: c.url })),
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://codiva.cl/' },
-      { '@type': 'ListItem', position: 2, name: 'Cómo construimos', item: meta.canonical },
-    ],
-  },
+  { '@context': 'https://schema.org', '@type': 'WebPage', name: content.meta.ogTitle, description: content.meta.description, url: content.meta.canonical, inLanguage: 'es-CL', isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl/' } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://codiva.cl/' },
+    { '@type': 'ListItem', position: 2, name: 'Cómo trabajamos', item: content.meta.canonical },
+  ] },
 ];
-
-const t = { ...es, meta, schema };
+const t = { ...es, meta: content.meta, schema };
 ---
 
 <Layout t={t} altEs="https://codiva.cl/como-construimos/" altEn="https://codiva.cl/en/how-we-build/">
-  <header class="subpage-nav">
-    <div class="container subpage-nav__inner">
-      <a href="/" class="subpage-nav__logo" aria-label={es.nav.logoAria}>codiva<span class="reg">®</span></a>
-      <div class="subpage-nav__actions">
-        <ThemeToggle variant="icon" t={es} />
-        <a href="/" class="subpage-nav__back">{es.projects.back}</a>
-      </div>
-    </div>
-  </header>
-
-  <nav class="pagenav" aria-label="Índice de la página">
-    <div class="container pagenav__inner">
-      <span class="pagenav__label">En esta página</span>
-      <div class="pagenav__links">
-        {sections.map((s) => <a href={`#${s.id}`} class="pagenav__link">{s.nav}</a>)}
-      </div>
-    </div>
-  </nav>
-
-  <main class="dashboards-page" id="main-content" tabindex="-1">
-    <header class="method-hero container">
-      <span class="section-label">Cómo construimos</span>
-      <h1>Sabes qué recibirás antes de que empecemos a programar.</h1>
-      <p>Cada sprint y cada etapa terminan en algo revisable: una decisión, un prototipo, una especificación, software funcionando, arquitectura o documentación. Así aprendemos temprano, reducimos retrabajo y evitamos sorpresas al final.</p>
-    </header>
-    <Discovery t={es} />
-    <AgileDelivery t={es} />
-    <SpecDriven t={es} />
-    <Methodology t={es} />
-    <Architecture t={es} />
-    <aside class="related" aria-label={es.takeover.eyebrow}>
-      <div class="container related__inner">
-        <div>
-          <span class="related__eyebrow">{es.takeover.eyebrow}</span>
-          <p class="related__text">{es.takeover.heading}</p>
-        </div>
-        <a class="btn btn--ghost" href={es.takeover.ctaHref}>{es.takeover.cta} ↗</a>
-      </div>
-    </aside>
-  </main>
+  <CommercialMethod t={es} content={content} />
   <Footer t={es} />
 </Layout>

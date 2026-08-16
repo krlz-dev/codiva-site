@@ -1,63 +1,129 @@
 # codiva
 
-> codiva® es una marca registrada chilena (INAPI N° 1481622, Clase 42) especializada en diseño y desarrollo de páginas web, ubicada en Ñuñoa, Santiago de Chile.
+> codiva® es un estudio senior de software B2B crítico, plataformas de datos e integraciones complejas, con base en Ñuñoa, Santiago de Chile.
 
-## Información General
+## Posicionamiento
 
-codiva® es una marca denominativa registrada ante el Instituto Nacional de Propiedad Industrial (INAPI) de Chile. Fue registrada el 27 de noviembre de 2025 con vigencia hasta el 27 de noviembre de 2035, bajo la Clase 42 del Clasificador Internacional de Niza, que corresponde a "Diseño y desarrollo de páginas web".
+codiva construye y moderniza el software que mueve operaciones de negocio. Carlos y Marina trabajan directamente con cada cliente, desde la primera conversación hasta producción, sin equipos rotativos ni traspasos de contexto.
 
-### Datos del Registro
+## Servicios
 
-- Denominación: codiva
-- N° de Registro: 1481622
-- N° de Solicitud: 1618736
-- Fecha de Registro: 27-11-2025
-- Fecha de Vigencia: 27-11-2025
-- Fecha de Vencimiento: 27-11-2035
-- Tipo de Signo: Denominativa
-- Tipo de Solicitud: Marca de Productos y Servicios
-- Clase: 42 — Diseño y desarrollo de páginas web
-- Organismo: INAPI (Instituto Nacional de Propiedad Industrial), Chile
+- Construir y evolucionar: productos B2B, plataformas internas y nuevos módulos.
+- Modernizar y rescatar: estabilización y evolución incremental de sistemas heredados o difíciles de cambiar.
+- Datos e integraciones: pipelines batch o por eventos, enriquecimiento, APIs, interoperabilidad y rendimiento de datos.
 
-### Titular
+## Formas de empezar
 
-- Nombre: Carlos Andrés Monserrat Rojas Rojas
-- Domicilio: Jose Manuel Infante 1805, 907, Ñuñoa
-- País: Chile
+- Conversación inicial con los fundadores: 30 minutos, sin costo.
+- Diagnóstico de Rescate: dos semanas con riesgos, prioridades, arquitectura y plan de acción.
+- Sprint de Producto: una o dos semanas para reducir incertidumbre y producir entregables revisables.
+- Construcción y evolución: implementación por incrementos con prioridades visibles, demos y documentación.
 
-## Cómo trabajamos
+## Procedencia de la evidencia
 
-codiva es un estudio boutique de dos ingenieros de software senior. No vendemos sitios por página: nos asociamos con un número acotado de empresas al año para diseñar y construir el software en el que apoyan su negocio. La inversión se define según el alcance de cada proyecto.
+El sitio distingue tres categorías:
 
-- Sprint de Producto (1–2 semanas): convertimos una idea en un prototipo real y probado, con un plan técnico claro.
-- Desarrollo de Producto (proyecto completo a medida): dos ingenieros senior llevan el producto de cero a producción —diseño, frontend, backend e IA.
-- Alianza Continua (colaboración mensual): evolución continua, SEO técnico, analítica y soporte para productos ya en marcha.
+- Productos propios de codiva.
+- Experiencia profesional previa de los fundadores. Los empleadores anteriores no son clientes de codiva ni implican respaldo.
+- Arquitecturas de referencia. Explican patrones que codiva puede diseñar e implementar, sin presentarlos como trabajos de cliente.
 
-## Qué construimos
+No se publican clientes, resultados, métricas, certificaciones, alianzas ni testimonios sin evidencia y autorización.
 
-Capacidades técnicas de codiva ([ver](https://codiva.cl/#capabilities)):
+## Páginas en español
 
-- Software a medida: sistemas, ERPs, dashboards y soluciones personalizadas
-- Aplicaciones web y móviles: apps nativas, PWAs y aplicaciones web complejas
-- Plataformas y SaaS: productos web con diseño de alto nivel y código preciso, construidos para durar
-- APIs y microservicios: arquitectura escalable, APIs e integraciones
-- Inteligencia artificial: asistentes y automatización con IA
+- [Inicio](https://codiva.cl/): posicionamiento, servicios y prueba principal.
+- [Trabajo](https://codiva.cl/proyectos/): productos propios, experiencia previa y arquitecturas de referencia.
+  - [Pipeline de datos y enriquecimiento](https://codiva.cl/proyectos/pipeline-datos/): experiencia previa + arquitectura recuperable.
+  - [Interoperabilidad clínica con FHIR](https://codiva.cl/proyectos/interoperabilidad-fhir/): experiencia previa + arquitectura de referencia.
+- [Diagnóstico de Rescate](https://codiva.cl/rescate-de-proyectos/): entrada acotada para software existente.
+- [Cómo trabajamos](https://codiva.cl/como-construimos/): entregables, colaboración, control de riesgos y propiedad.
+- [Conocimiento](https://codiva.cl/conocimiento/): decisiones técnicas, datos, integraciones e interoperabilidad.
+  - [Ingesta IoT](https://codiva.cl/conocimiento/ingesta-iot/): duplicados, orden, idempotencia, dead-letter, replay y observabilidad.
+  - [Nominatim y geocodificación](https://codiva.cl/conocimiento/nominatim-geocodificacion/): capa de aplicación sin estado con PostgreSQL/PostGIS persistente.
+  - [Integraciones y PostgreSQL](https://codiva.cl/conocimiento/integraciones-postgresql/): REST, SOAP, particionamiento, índices, planes, bloat y autovacuum.
+- [Contacto](https://codiva.cl/contacto/): calendario, WhatsApp y correo.
+- [Marca registrada](https://codiva.cl/marca/): información legal del registro INAPI.
 
-Cuidamos los atributos de calidad que no siempre se ven: escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad.
+## Marca registrada
 
-## Páginas
+codiva® es una marca denominativa registrada ante el Instituto Nacional de Propiedad Industrial (INAPI) de Chile.
 
-- [Inicio](https://codiva.cl/): Página principal del sitio
-- [Nosotros](https://codiva.cl/#about): El estudio, el equipo y qué construimos
-- [Cómo trabajamos](https://codiva.cl/#plans): Modelos de colaboración (Sprint, Desarrollo, Alianza)
-- [Proyectos](https://codiva.cl/proyectos/): Trabajos seleccionados — plataformas, apps y software a medida
-- [Rescate de proyectos](https://codiva.cl/rescate-de-proyectos/): Tomamos software heredado, lo estabilizamos y seguimos construyendo — revisión de dos semanas con plan y costos reales
-- [Cómo construimos](https://codiva.cl/como-construimos/): Método e ingeniería — descubrimiento, spec-driven, Atomic Design, micro frontends, arquitectura y seguridad
-- [Marca Registrada](https://codiva.cl/marca/): Datos del registro INAPI
-- [FAQ](https://codiva.cl/#faq): Preguntas frecuentes
-- [Contacto](https://codiva.cl/#contact): Información de contacto
+- Registro: 1481622
+- Solicitud: 1618736
+- Vigencia: 27-11-2025 a 27-11-2035
+- Clase registral: 42 — Diseño y desarrollo de páginas web
+- Titular: Carlos Andrés Monserrat Rojas Rojas
+
+La descripción de la clase registral se conserva como dato legal. No define por sí sola el posicionamiento comercial actual del estudio.
 
 ## Contacto
 
 - Email: contactos@codiva.cl
 - Ubicación: Ñuñoa, Santiago, Chile
+- Sitio: https://codiva.cl/
+
+---
+
+# codiva — English
+
+> codiva® is a senior engineering studio for business-critical B2B software, data platforms, and complex integrations, based in Ñuñoa, Santiago, Chile.
+
+## Positioning
+
+codiva builds and modernizes the software that runs business operations. Carlos and Marina work directly with each client from the first conversation through production, without rotating teams or context handoffs.
+
+## Services
+
+- Build and evolve: B2B products, internal platforms, and new modules.
+- Modernize and rescue: stabilize and incrementally evolve inherited or difficult-to-change systems.
+- Data and integrations: batch or event pipelines, enrichment, APIs, interoperability, and data performance.
+
+## Ways to start
+
+- Initial founder conversation: 30 minutes, free of charge.
+- Rescue Diagnostic: two weeks covering risks, priorities, architecture, and an action plan.
+- Product Sprint: one or two weeks to reduce uncertainty and produce reviewable deliverables.
+- Build and evolution: incremental delivery with visible priorities, demos, and documentation.
+
+## Evidence provenance
+
+The site distinguishes three categories:
+
+- Products owned by codiva.
+- Prior professional experience of the founders. Former employers are not codiva clients and do not imply endorsement.
+- Reference architectures. They explain patterns codiva can design and implement without presenting them as client work.
+
+No clients, outcomes, metrics, certifications, partnerships, or testimonials are published without evidence and authorization.
+
+## English pages
+
+- [Home](https://codiva.cl/en/): positioning, services, and primary evidence.
+- [Work](https://codiva.cl/en/projects/): owned products, prior experience, and reference architectures.
+  - [Data processing and enrichment pipeline](https://codiva.cl/en/projects/data-pipeline/): prior experience + recoverable architecture.
+  - [Clinical interoperability with FHIR](https://codiva.cl/en/projects/fhir-interoperability/): prior experience + reference architecture.
+- [Rescue Diagnostic](https://codiva.cl/en/project-rescue/): bounded entry point for existing software.
+- [How we work](https://codiva.cl/en/how-we-build/): deliverables, collaboration, risk control, and ownership.
+- [Knowledge](https://codiva.cl/en/knowledge/): technical decisions, data, integrations, and interoperability.
+  - [Reliable IoT ingestion](https://codiva.cl/en/knowledge/iot-ingestion/): duplicates, ordering, idempotency, dead-letter, replay, and observability.
+  - [Nominatim and geocoding](https://codiva.cl/en/knowledge/nominatim-geocoding/): stateless application layer with persistent PostgreSQL/PostGIS.
+  - [Integrations and PostgreSQL](https://codiva.cl/en/knowledge/integrations-postgresql/): REST, SOAP, partitioning, indexes, query plans, bloat, and autovacuum.
+- [Contact](https://codiva.cl/en/contact/): calendar, WhatsApp, and email.
+- [Registered trademark](https://codiva.cl/en/trademark/): legal INAPI registration information.
+
+## Registered trademark
+
+codiva® is a word mark registered with Chile's National Institute of Industrial Property (INAPI).
+
+- Registration: 1481622
+- Application: 1618736
+- Term: 2025-11-27 to 2035-11-27
+- Registered class: 42 — Website design and development
+- Owner: Carlos Andrés Monserrat Rojas Rojas
+
+The registered-class description is retained as legal information. It does not define the studio's current commercial positioning by itself.
+
+## Contact
+
+- Email: contactos@codiva.cl
+- Location: Ñuñoa, Santiago, Chile
+- Website: https://codiva.cl/en/

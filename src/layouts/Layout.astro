@@ -1,9 +1,12 @@
 ---
 import '../styles/global.css';
 import { GA_ID, GOOGLE_SITE_VERIFICATION } from '../config.js';
+import Nav from '../components/Nav.astro';
 
-const { t, altEs = 'https://codiva.cl/', altEn = 'https://codiva.cl/en/' } = Astro.props;
+const { t, altEs = 'https://codiva.cl/', altEn = 'https://codiva.cl/en/', isHome = false } = Astro.props;
 const { meta, schema, htmlLang } = t;
+const alternateUrl = new URL(htmlLang === 'es' ? altEn : altEs);
+const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternateUrl.hash}`;
 ---
 
 <!DOCTYPE html>
@@ -26,7 +29,7 @@ const { meta, schema, htmlLang } = t;
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
     <meta name="keywords" content={meta.keywords} />
-    <meta name="author" content="Carlos Andrés Monserrat Rojas Rojas" />
+
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -94,8 +97,9 @@ gtag('config', '${GA_ID}');`}></script>
       </Fragment>
     )}
   </head>
-  <body>
+  <body class={isHome ? 'site-home' : 'site-subpage'}>
     <a class="skip-link" href="#main-content">{htmlLang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
+    <Nav t={t} langSwitchHref={langSwitchHref} />
     <slot />
 
     <script>

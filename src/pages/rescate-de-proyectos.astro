@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Rescue from '../components/Rescue.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
 import Footer from '../components/Footer.astro';
 import es from '../i18n/es.js';
 
@@ -32,15 +31,6 @@ const t = { ...es, meta: r.meta, schema };
 ---
 
 <Layout t={t} altEs="https://codiva.cl/rescate-de-proyectos/" altEn="https://codiva.cl/en/project-rescue/">
-  <header class="subpage-nav">
-    <div class="container subpage-nav__inner">
-      <a href="/" class="subpage-nav__logo" aria-label={es.nav.logoAria}>codiva<span class="reg">®</span></a>
-      <div class="subpage-nav__actions">
-        <ThemeToggle variant="icon" t={es} />
-        <a href="/" class="subpage-nav__back">{r.back}</a>
-      </div>
-    </div>
-  </header>
   <main class="rescue-page" id="main-content" tabindex="-1">
     <Rescue t={es} />
   </main>

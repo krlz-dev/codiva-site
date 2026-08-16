@@ -7,20 +7,20 @@ export default {
   bookingUrl: 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true',
 
   meta: {
-    title: 'Custom software development studio, Santiago Chile | codiva®',
+    title: 'Business-critical B2B software and integrations | codiva®',
     description:
-      'We rescue inherited software and build B2B products end to end. Work directly with the people who design, code, and deploy your product.',
+      'We build and modernize business-critical B2B software, data platforms, and complex integrations. Work directly with Carlos and Marina.',
     keywords:
-      'custom software development Santiago, software studio Chile, senior engineers, backend, frontend, AI, legacy software rescue, take over codebase, Santiago Chile',
+      'business-critical B2B software, data platforms, systems integration, software modernization, project rescue, senior engineers Chile',
     canonical: 'https://codiva.cl/en/',
     ogUrl: 'https://codiva.cl/en/',
-    ogTitle: 'Custom software development studio, Santiago Chile — codiva®',
+    ogTitle: 'Business-critical B2B software, data, and integrations — codiva®',
     ogDescription:
-      'We rescue inherited software and build B2B products end to end, without rotating teams or middlemen.',
+      'We build products, modernize existing systems, and connect difficult data and integrations with direct founder delivery.',
     ogLocale: 'en_US',
-    twitterTitle: 'Custom software development — codiva®',
+    twitterTitle: 'Business-critical B2B software — codiva®',
     twitterDescription:
-      'Inherited-software rescue and end-to-end B2B product engineering.',
+      'Products, data platforms, complex integrations, and incremental modernization.',
   },
 
   schema: [
@@ -31,7 +31,7 @@ export default {
       alternateName: 'codiva®',
       url: 'https://codiva.cl',
       description:
-        'codiva® is a Chilean registered trademark specialized in software development, web & mobile apps, and microservices. INAPI Registration #1481622, Class 42.',
+        'A Chilean senior engineering studio that builds and modernizes business-critical B2B software, data platforms, and complex integrations.',
       foundingDate: '2025',
       address: {
         '@type': 'PostalAddress',
@@ -47,14 +47,23 @@ export default {
         availableLanguage: ['Spanish', 'English'],
       },
       founder: { '@type': 'Person', name: 'Carlos Andrés Monserrat Rojas Rojas' },
+      areaServed: { '@type': 'Country', name: 'Chile' },
       knowsAbout: [
-        'Web Development',
-        'Software Development',
-        'Mobile Apps',
-        'APIs',
-        'Microservices',
-        'UX/UI Design',
+        'Business-critical B2B software',
+        'Software modernization',
+        'Data platforms',
+        'Systems integration',
+        'Interoperability',
+        'Software architecture',
       ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'codiva®',
+      url: 'https://codiva.cl/en/',
+      description: 'Business-critical B2B software, data platforms, and integrations — registered trademark in Chile',
+      inLanguage: 'en-US',
     },
     {
       '@context': 'https://schema.org',
@@ -62,7 +71,7 @@ export default {
       name: 'codiva®',
       url: 'https://codiva.cl/en/',
       description:
-        'Software development studio in Santiago, Chile. Web apps, mobile apps, custom software, and microservices. INAPI Trademark #1481622.',
+        'Senior studio for business-critical B2B software, modernization, data platforms, and complex integrations in Santiago, Chile.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Jose Manuel Infante 1805, 907',
@@ -73,20 +82,15 @@ export default {
       geo: { '@type': 'GeoCoordinates', latitude: -33.4569, longitude: -70.599 },
       email: 'contactos@codiva.cl',
       priceRange: '$$',
-      serviceType: [
-        'Web Design & Development',
-        'Web & Mobile Apps',
-        'Custom Software',
-        'APIs & Microservices',
-      ],
+      serviceType: ['Build and evolve B2B software', 'Modernization and rescue', 'Data platforms and integrations'],
+      areaServed: { '@type': 'Country', name: 'Chile' },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Software Development Services',
+        name: 'B2B software engineering services',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Design & Development', description: 'Websites and web platforms with high-end design and precise code, built to last.' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web & Mobile Apps', description: 'Native apps, PWAs, and complex web applications with seamless cross-platform experiences.' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Software', description: 'Systems, ERPs, dashboards, and tailored software solutions for your business.' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'APIs & Microservices', description: 'Scalable architecture, REST/GraphQL APIs, integrations, and cloud services.' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Build and evolve', description: 'B2B products, internal platforms, and new modules from architecture through production.' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Modernize and rescue', description: 'Stabilize and incrementally evolve inherited or difficult-to-change systems.' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Data and integrations', description: 'Pipelines, event processing, APIs, interoperability, and data performance.' } },
         ],
       },
     },
@@ -94,8 +98,8 @@ export default {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
-        { '@type': 'Question', name: 'What is codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is an independent studio of two senior software engineers based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting.' } },
-        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Five areas, in order of focus: custom software (systems, internal platforms and dashboards); end-to-end product development (design, frontend, backend and AI); web & mobile apps; APIs & microservices; and stabilizing and continuing products that already exist.' } },
+        { '@type': 'Question', name: 'What is codiva?', acceptedAnswer: { '@type': 'Answer', text: 'codiva® is an independent studio of two senior engineers who build and modernize business-critical B2B software, data platforms, and complex integrations.' } },
+        { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Three lines: build and evolve B2B products; modernize and rescue existing systems; and design data platforms and integrations.' } },
         { '@type': 'Question', name: 'Who owns the code?', acceptedAnswer: { '@type': 'Answer', text: 'You do, from the first commit. The repository is in your name and we hand over everything: code, infrastructure, and documentation, with no hidden dependencies.' } },
         { '@type': 'Question', name: 'Can you take over a project someone else started?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We take on inherited codebases — from a freelancer, a previous agency, or an earlier team — stabilize them, and keep building.' } },
         { '@type': 'Question', name: "You're only two people — what happens if you get sick or fully booked?", acceptedAnswer: { '@type': 'Answer', text: "We take on a small number of projects at a time so we don't overcommit. We both know every project, so nothing depends on a single person, and your code and documentation always live in your repository." } },
@@ -116,18 +120,11 @@ export default {
     ariaLabel: 'Main navigation',
     logoAria: 'codiva - Home',
     links: [
-      { href: '#about', label: 'About' },
-      { href: '#plans', label: 'How we work' },
-      {
-        label: 'Work',
-        href: '/en/projects/',
-        children: [
-          { href: '/en/projects/', label: 'Projects' },
-          { href: '/en/project-rescue/', label: 'Project rescue' },
-        ],
-      },
-      { href: '#faq', label: 'FAQ' },
-      { href: '#contact', label: 'Contact' },
+      { href: '/en/#plans', label: 'Services' },
+      { href: '/en/projects/', label: 'Work' },
+      { href: '/en/how-we-build/', label: 'How we work' },
+      { href: '/en/knowledge/', label: 'Knowledge' },
+      { href: '/en/contact/', label: 'Contact' },
     ],
     langSwitch: { href: '/', label: 'ES', aria: 'Cambiar a Español' },
     themeToggle: { toDark: 'Switch to dark mode', toLight: 'Switch to light mode', viewDark: 'View in dark', viewLight: 'View in light' },
@@ -137,13 +134,24 @@ export default {
 
   hero: {
     logoAlt: 'codiva — Brand symbol',
-    eyebrow: 'Business-critical B2B software · rescue and modernization',
-    h1: 'We rescue and modernize the software your business depends on.',
-    subtitle: 'We stabilize inherited systems and build B2B products end to end. You work directly with Carlos and Marina, without rotating teams.',
-    ctaPrimary: 'Book a 30-minute introductory call',
-    ctaGhost: 'See the rescue diagnostic',
-    ctaGhostHref: '/en/project-rescue/',
+    eyebrow: 'Business-critical B2B software · data · integrations',
+    h1: 'We build and modernize the software that runs your operations.',
+    subtitle: 'Products, data platforms, and complex integrations. When the system already exists, we understand it, stabilize it, and evolve it incrementally.',
+    ctaPrimary: 'Discuss your system with us',
+    ctaGhost: 'See work and architectures',
+    ctaGhostHref: '/en/projects/',
     ctaNote: 'A free conversation with the founders. If a technical review is needed, we will explain our two-week rescue diagnostic.',
+  },
+
+  commercialLines: {
+    label: 'Three lines of work',
+    heading: 'We enter through the problem, not a technology list',
+    intro: 'The starting point changes. The responsibility does not: understand the system, reduce risk, and leave a foundation your team can operate and evolve.',
+    items: [
+      { number: '01', title: 'Build and evolve', text: 'B2B products, internal platforms, and new modules from architecture through production, delivered in increments people can review and use.', link: 'Discuss the product with us', href: '/en/contact/' },
+      { number: '02', title: 'Modernize and rescue', text: 'Inherited or difficult-to-change systems: stability and observability first, then incremental evolution without impulsive rewrites.', link: 'See the rescue diagnostic', href: '/en/project-rescue/' },
+      { number: '03', title: 'Data and integrations', text: 'Pipelines, events, enrichment, interoperability, APIs, and data performance tied to the real operation.', link: 'See engineering cases', href: '/en/projects/data-pipeline/' },
+    ],
   },
 
   marquee1: ['codiva', 'software', 'web · apps', 'chile'],
@@ -352,11 +360,11 @@ export default {
   },
 
   projects: {
-    label: 'Projects',
-    heading: 'Selected work',
-    teaserHeading: 'Some of our work',
-    intro: 'A sample of the software we design and build: web platforms, mobile apps, SaaS, and AI/RAG systems for startups and companies in Chile and abroad.',
-    viewAll: 'View all projects',
+    label: 'Work',
+    heading: 'Codiva-owned products',
+    teaserHeading: 'Products built by Codiva',
+    intro: 'Products we own and you can inspect. Below, prior professional experience and reference architectures are separated so provenance remains unambiguous.',
+    viewAll: 'See work and architectures',
     viewAllHref: '/en/projects/',
     screenshotAlt: 'screenshot',
     back: '← Back to home',
@@ -366,24 +374,26 @@ export default {
       waMessage: 'Hi codiva 👋, I saw your projects and would like to talk about a similar one.',
     },
     meta: {
-      title: 'Projects — Custom Software, Apps & Platforms | codiva®',
+      title: 'Work, products, and software architectures | codiva®',
       description:
-        'Selected work by codiva®: web platforms, mobile apps, SaaS, and AI/RAG systems designed and built end to end in Santiago, Chile.',
+        'Codiva-owned products, prior professional experience, and reference architectures with explicit provenance.',
       keywords:
-        'codiva projects, software development portfolio chile, web platforms, mobile apps, SaaS, RAG AI, case studies, Santiago Chile',
+        'codiva work, codiva-owned products, prior software experience, reference architectures, web platforms, mobile apps, Santiago Chile',
       canonical: 'https://codiva.cl/en/projects/',
       ogUrl: 'https://codiva.cl/en/projects/',
-      ogTitle: 'Projects — codiva®',
+      ogTitle: 'Work, products, and software architectures — codiva®',
       ogDescription:
-        'Web platforms, mobile apps, SaaS, and AI systems built end to end in Santiago, Chile.',
+        'Codiva-owned products, prior professional experience, and reference architectures with explicit provenance.',
       ogLocale: 'en_US',
-      twitterTitle: 'Projects — codiva®',
+      twitterTitle: 'Work and software architectures — codiva®',
       twitterDescription:
-        'Selected work: platforms, apps, and custom software by codiva®.',
+        'Codiva-owned products, prior professional experience, and reference architectures with explicit provenance.',
     },
     items: [
       {
         name: 'eConstitucional',
+        provenance: 'codiva-product',
+        provenanceLabel: 'Codiva-owned product',
         year: '2025',
         type: 'Web platform',
         tags: ['LegalTech', 'RAG', 'AI'],
@@ -394,6 +404,8 @@ export default {
       },
       {
         name: 'kit-a',
+        provenance: 'codiva-product',
+        provenanceLabel: 'Codiva-owned product',
         year: '2025',
         type: 'Web app',
         tags: ['DevTools', 'Visual Editor', 'SaaS'],
@@ -404,6 +416,8 @@ export default {
       },
       {
         name: 'ZooMinder',
+        provenance: 'codiva-product',
+        provenanceLabel: 'Codiva-owned product',
         year: '2025',
         type: 'Mobile app',
         tags: ['PetTech', 'Mobile App', 'SaaS'],
@@ -412,16 +426,7 @@ export default {
         url: 'https://zoo-minder.com/',
         linkLabel: 'Visit site',
       },
-      {
-        name: 'Reporte Bolivia',
-        year: '2025',
-        type: 'Web platform',
-        tags: ['Media Intelligence', 'Dashboard', 'SaaS'],
-        image: '/portfolio/reporte-bolivia.webp',
-        desc: "Media intelligence platform that monitors Bolivia's news agenda. It delivers analytical editions twice a day with summaries from multiple sources, thematic categorization, a metrics dashboard, and a searchable archive.",
-        url: 'https://reporte-bolivia.com/',
-        linkLabel: 'Visit site',
-      },
+
     ],
   },
 
@@ -718,7 +723,7 @@ export default {
     heading: 'Frequently asked questions',
     items: [
       { q: 'What is codiva?', aHtml: '<p>codiva® is an independent studio of two senior software engineers, based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting. The people who sell you the project are the people who build it.</p>' },
-      { q: 'What services does codiva offer?', aHtml: '<p>Five areas, in order of focus: Custom software (systems, internal platforms and dashboards); end-to-end product development (design, frontend, backend and AI); web & mobile apps; APIs & microservices; and stabilizing and continuing products that already exist.</p>' },
+      { q: 'What services does codiva offer?', aHtml: '<p>Three lines: Build and evolve B2B products, internal platforms, and new modules; Modernize and rescue inherited or difficult-to-change systems; and Data and integrations for pipelines, APIs, interoperability, and data performance.</p>' },
       { q: 'Who owns the code?', aHtml: '<p>You do, from the first commit. The repository is in your name and we hand over everything — code, infrastructure, and documentation — with no hidden dependencies or lock-in. If one day you want to continue with another team, you can.</p>' },
       { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where more than 14 years of backend architecture and distributed systems make the difference.</p>' },
       { q: "You're only two people. What happens if you get sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. We both know every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },

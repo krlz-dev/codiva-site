@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Portfolio from '../../components/Portfolio.astro';
-import ThemeToggle from '../../components/ThemeToggle.astro';
+import WorkCases from '../../components/WorkCases.astro';
 import Footer from '../../components/Footer.astro';
 import en from '../../i18n/en.js';
+import { workContent } from '../../content/work.js';
 
 const pr = en.projects;
 
@@ -14,7 +15,7 @@ const schema = [
     name: pr.meta.ogTitle,
     description: pr.meta.description,
     url: pr.meta.canonical,
-    inLanguage: 'en',
+    inLanguage: 'en-US',
     isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
     mainEntity: {
       '@type': 'ItemList',
@@ -46,17 +47,9 @@ const t = { ...en, meta: pr.meta, schema };
 ---
 
 <Layout t={t} altEs="https://codiva.cl/proyectos/" altEn="https://codiva.cl/en/projects/">
-  <header class="subpage-nav">
-    <div class="container subpage-nav__inner">
-      <a href="/en/" class="subpage-nav__logo" aria-label={en.nav.logoAria}>codiva<span class="reg">®</span></a>
-      <div class="subpage-nav__actions">
-        <ThemeToggle variant="icon" t={en} />
-        <a href="/en/" class="subpage-nav__back">{pr.back}</a>
-      </div>
-    </div>
-  </header>
   <main class="projects-page" id="main-content" tabindex="-1">
     <Portfolio t={en} variant="full" />
+    <WorkCases content={workContent.en.index} />
     <aside class="related" aria-label={en.takeover.eyebrow}>
       <div class="container related__inner">
         <div>

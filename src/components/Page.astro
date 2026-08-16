@@ -1,8 +1,8 @@
 ---
 // Full page composition shared by both locales (es + en).
 import Layout from '../layouts/Layout.astro';
-import Nav from './Nav.astro';
 import Hero from './Hero.astro';
+import CommercialLines from './CommercialLines.astro';
 import Marquee from './Marquee.astro';
 import About from './About.astro';
 import Proof from './Proof.astro';
@@ -17,11 +17,11 @@ import Footer from './Footer.astro';
 const { t } = Astro.props;
 ---
 
-<Layout t={t}>
-  <Nav t={t} />
+<Layout t={t} isHome>
   <Hero t={t} />
-  <Marquee items={t.marquee1} />
   <main id="main-content" tabindex="-1">
+    <CommercialLines content={t.commercialLines} />
+    <Marquee items={t.marquee1} />
     <Plans t={t} />
     <BuyerControl t={t} />
     <About t={t} />

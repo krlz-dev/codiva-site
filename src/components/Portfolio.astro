@@ -4,9 +4,11 @@ const { projects, contact, bookingUrl } = t;
 const isTeaser = variant === 'teaser';
 const isEs = t.lang === 'es';
 const screenshotAlt = projects.screenshotAlt;
-const items = isTeaser ? projects.items.slice(0, 3) : projects.items;
+const publishedItems = projects.items.filter((item) => item.provenance === 'codiva-product');
+const items = isTeaser ? publishedItems.slice(0, 3) : publishedItems;
 const heading = isTeaser ? (projects.teaserHeading || projects.heading) : projects.heading;
 const Heading = isTeaser ? 'h2' : 'h1';
+const ItemHeading = isTeaser ? 'h3' : 'h2';
 const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
 // ES keeps WhatsApp for this secondary CTA; EN drops WhatsApp for the booking link.
 const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
@@ -30,9 +32,21 @@ const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
 
     <ul class="portfolio__list">
       {items.map((p, i) => (
-        <li class="portfolio__item" data-animate="fade">
+        <li class="portfolio__item" data-provenance={p.provenance} data-animate="fade">
           <span class="portfolio__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <div class="portfolio__main">
+            <div class="portfolio__head">
+              <div>
+                <span class="provenance-badge" data-provenance={p.provenance}>{p.provenanceLabel}</span>
+                <ItemHeading class="portfolio__name">{p.name}</ItemHeading>
+              </div>
+              <span class="portfolio__meta">
+                <span class="portfolio__year">{p.year}</span>
+                <span class="portfolio__sep" aria-hidden="true">·</span>
+                <span class="portfolio__type">{p.type}</span>
+              </span>
+            </div>
+            <p class="portfolio__desc">{p.desc}</p>
             {p.image && (p.url ? (
               <a class="portfolio__media" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`${p.linkLabel} — ${p.name}`}>
                 <img src={p.image} alt={`${p.name} — ${screenshotAlt}`} width="1200" height="750" loading="lazy" decoding="async" />
@@ -42,17 +56,8 @@ const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
                 <img src={p.image} alt={`${p.name} — ${screenshotAlt}`} width="1200" height="750" loading="lazy" decoding="async" />
               </div>
             ))}
-            <div class="portfolio__head">
-              <h3 class="portfolio__name">{p.name}</h3>
-              <span class="portfolio__meta">
-                <span class="portfolio__year">{p.year}</span>
-                <span class="portfolio__sep" aria-hidden="true">·</span>
-                <span class="portfolio__type">{p.type}</span>
-              </span>
-            </div>
-            <p class="portfolio__desc">{p.desc}</p>
             <div class="portfolio__footer">
-              <ul class="portfolio__tags">
+              <ul class="portfolio__tags" role="list">
                 {p.tags.map((tag) => <li class="portfolio__tag">{tag}</li>)}
               </ul>
               {p.url && (

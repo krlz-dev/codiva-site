@@ -1,11 +1,12 @@
 ---
-const { t } = Astro.props;
+const { t, langSwitchHref = t.nav.langSwitch.href } = Astro.props;
 const { nav } = t;
+const homeHref = t.lang === 'en' ? '/en/' : '/';
 ---
 
 <nav class="nav" id="nav" aria-label={nav.ariaLabel}>
   <div class="nav__logo">
-    <a href="#hero" aria-label={nav.logoAria}>codiva<span class="reg">®</span></a>
+    <a href={homeHref} aria-label={nav.logoAria}>codiva<span class="reg">®</span></a>
   </div>
   <div class="nav__links" id="navLinks">
     {nav.links.map((l) => (
@@ -25,7 +26,7 @@ const { nav } = t;
         <a href={l.href} class="nav__link">{l.label}</a>
       )
     ))}
-    <a href={nav.langSwitch.href} class="nav__lang" aria-label={nav.langSwitch.aria}>
+    <a href={langSwitchHref} class="nav__lang" aria-label={nav.langSwitch.aria}>
       {nav.langSwitch.label}
     </a>
     <button

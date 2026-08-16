@@ -1,0 +1,23 @@
+---
+const { content } = Astro.props;
+---
+
+<section class="commercial-lines" aria-labelledby="commercial-lines-title">
+  <div class="container">
+    <div class="commercial-lines__intro">
+      <span class="section-label">{content.label}</span>
+      <h2 id="commercial-lines-title">{content.heading}</h2>
+      <p>{content.intro}</p>
+    </div>
+    <div class="commercial-lines__grid">
+      {content.items.map((item) => (
+        <article class="commercial-line">
+          <span class="commercial-line__number" aria-hidden="true">{item.number}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <a href={item.href}>{item.link} <span aria-hidden="true">→</span></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

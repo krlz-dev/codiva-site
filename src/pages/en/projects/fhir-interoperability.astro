@@ -1,0 +1,12 @@
+---
+import CasePage from '../../../components/CasePage.astro';
+import en from '../../../i18n/en.js';
+import { workContent } from '../../../content/work.js';
+---
+
+<CasePage
+  t={en}
+  data={workContent.en.fhir}
+  altEs="https://codiva.cl/proyectos/interoperabilidad-fhir/"
+  altEn="https://codiva.cl/en/projects/fhir-interoperability/"
+/>

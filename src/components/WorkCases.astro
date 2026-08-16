@@ -1,0 +1,36 @@
+---
+const { content } = Astro.props;
+const provenanceId = {
+  product: 'codiva-product',
+  prior: 'prior-experience',
+  reference: 'reference-architecture',
+};
+---
+
+<section class="work-cases" aria-labelledby="work-cases-title">
+  <div class="container">
+    <span class="section-label">{content.label}</span>
+    <h2 id="work-cases-title" class="work-cases__heading">{content.heading}</h2>
+    <p class="work-cases__intro">{content.intro}</p>
+
+    <div class="work-cases__grid">
+      {content.cases.map((item) => (
+        <article class="work-card">
+          <div class="work-card__provenance" aria-label={content.label}>
+            {item.provenances.map((kind) => (
+              <span class="provenance-badge" data-provenance={provenanceId[kind]}>
+                {content.provenance[kind]}
+              </span>
+            ))}
+          </div>
+          <h3><a href={item.href}>{item.title}</a></h3>
+          <p>{item.summary}</p>
+          <ul class="work-card__topics" role="list" aria-label={content.topicsLabel}>
+            {item.topics.map((topic) => <li>{topic}</li>)}
+          </ul>
+          <a class="work-card__link" href={item.href}>{content.readCase} <span aria-hidden="true">→</span></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

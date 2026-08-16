@@ -1,0 +1,70 @@
+---
+const { t, content } = Astro.props;
+---
+
+<main class="commercial-method" id="main-content" tabindex="-1">
+  <section class="commercial-method__hero">
+    <div class="container">
+      <span class="section-label">{content.label}</span>
+      <h1>{content.title}</h1>
+      <p>{content.intro}</p>
+    </div>
+  </section>
+
+  <section class="commercial-method__steps" aria-label={content.label}>
+    <div class="container">
+      <ol role="list">
+        {content.steps.map((step) => (
+          <li>
+            <span aria-hidden="true">{step.number}</span>
+            <div>
+              <h2>{step.title}</h2>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="commercial-method__controls" aria-labelledby="method-controls-title">
+    <div class="container commercial-method__split">
+      <div>
+        <span class="section-label">{content.controlsTitle}</span>
+        <h2 id="method-controls-title">{content.controlsTitle}</h2>
+      </div>
+      <ul>
+        {content.controls.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="commercial-method__cadence" aria-labelledby="method-cadence-title">
+    <div class="container commercial-method__split">
+      <h2 id="method-cadence-title">{content.cadenceTitle}</h2>
+      <p>{content.cadence}</p>
+    </div>
+  </section>
+
+  <section class="commercial-method__knowledge" aria-labelledby="method-knowledge-title">
+    <div class="container commercial-method__split">
+      <div>
+        <h2 id="method-knowledge-title">{content.knowledgeTitle}</h2>
+        <p>{content.knowledgeText}</p>
+      </div>
+      <a class="btn btn--ghost" href={content.knowledgeHref}>{content.knowledgeLabel} <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="commercial-method__cta" aria-labelledby="method-cta-title">
+    <div class="container commercial-method__split">
+      <div>
+        <h2 id="method-cta-title">{content.ctaTitle}</h2>
+        <p>{content.ctaText}</p>
+      </div>
+      <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer" data-cta="calendar" data-cta-location="methodology">
+        {content.ctaLabel} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+</main>
