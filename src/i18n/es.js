@@ -167,7 +167,7 @@ export default {
     label: 'Nosotros',
     headingHtml: 'Un estudio boutique que construye tu producto <em>de principio a fin</em>',
     paragraphs: [
-      'Codiva es un estudio de dos ingenieros de software senior que construye producto de punta a punta: Carlos —14 años en arquitectura backend, sistemas distribuidos e IA— y Marina en diseño de producto y frontend. Diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar.',
+      'Codiva es un estudio de dos ingenieros de software senior, con más de 14 años de experiencia, que construye producto de punta a punta: arquitectura, backend e IA por un lado; diseño de producto y frontend por el otro. Diseño, frontend, backend, IA, móvil y despliegue, sin subcontratar.',
       'Tomamos pocos proyectos a la vez. Eso significa que hablas siempre con quienes escriben el código: sin intermediarios, sin traspasos de contexto, sin explicar dos veces lo mismo.',
       'Y cuidamos lo que se nota tarde: que el sistema aguante cuando crezca, que otro equipo pueda mantenerlo, que no se caiga un viernes a las seis. Escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad no son extras: son lo que decide si tu producto sigue en pie en tres años.',
     ],
@@ -595,7 +595,7 @@ export default {
       { q: '¿Qué es codiva?', aHtml: '<p>codiva® es un estudio independiente de dos ingenieros de software senior, con base en Ñuñoa, Santiago de Chile. Construimos producto completo —diseño, frontend, backend e IA— de principio a fin, sin juniors ni subcontratar. Los mismos que te venden el proyecto son los que lo construyen.</p>' },
       { q: '¿Qué servicios ofrece codiva?', aHtml: '<p>Cinco frentes, en orden de foco: Software a medida (sistemas, plataformas internas y dashboards); desarrollo de producto de principio a fin (diseño, frontend, backend e IA); aplicaciones web y móviles; APIs y microservicios; y estabilización y continuación de productos que ya existen.</p>' },
       { q: '¿Quién es dueño del código?', aHtml: '<p>Tú, desde el primer commit. El repositorio queda a tu nombre y te entregamos todo —código, infraestructura y documentación—, sin dependencias ocultas ni candados. Si algún día quieres continuar con otro equipo, puedes.</p>' },
-      { q: '¿Pueden tomar un proyecto que ya empezó otra persona?', aHtml: '<p>Sí. Tomamos bases de código heredadas —de un freelancer que se fue, una agencia que cambió de rumbo o un equipo anterior—, las estabilizamos y seguimos construyendo. Es justo donde 14 años de arquitectura backend y sistemas distribuidos hacen la diferencia.</p>' },
+      { q: '¿Pueden tomar un proyecto que ya empezó otra persona?', aHtml: '<p>Sí. Tomamos bases de código heredadas —de un freelancer que se fue, una agencia que cambió de rumbo o un equipo anterior—, las estabilizamos y seguimos construyendo. Es justo donde más de 14 años de arquitectura backend y sistemas distribuidos hacen la diferencia.</p>' },
       { q: 'Son solo dos personas. ¿Qué pasa si se enferman o se llenan de trabajo?', aHtml: '<p>Tomamos pocos proyectos a la vez, justamente para no sobrecomprometernos y darle atención real a cada uno. Ambos conocemos cada proyecto, así que nada depende de una sola persona, y tu código, tu infraestructura y tu documentación siempre viven en tu repositorio. Si necesitamos coordinar tiempos, te lo decimos antes de empezar, no después.</p>' },
       { q: '¿Trabajan con equipos internos o reemplazan al equipo?', aHtml: '<p>Ambos. Nos integramos a tu equipo interno cuando lo hay, o funcionamos como tu equipo de producto completo cuando no. Nos adaptamos a cómo ya trabajas.</p>' },
       { q: '¿Cuánto cuesta un proyecto?', aHtml: '<p>Depende del alcance, pero no te vamos a hacer adivinar. Un Sprint de Producto parte desde CLP $2.500.000 y un proyecto completo suele estar entre CLP $15.000.000 y $60.000.000. En la primera llamada de 30 minutos te damos un rango real, no una propuesta de 20 páginas tres semanas después.</p>' },
@@ -650,7 +650,7 @@ export default {
       'Conversamos 30 minutos por video o llamada.',
       'Te enviamos un plan y una propuesta claros.',
     ],
-    trust: ['14 años en backend y arquitectura', 'Dos ingenieros senior', 'Ñuñoa, Santiago de Chile'],
+    trust: ['Más de 14 años de experiencia', 'Dos ingenieros senior', 'Ñuñoa, Santiago de Chile'],
     seeWork: { label: 'Ver proyectos', href: '/proyectos' },
     back: '← Volver al inicio',
     waMessage: 'Hola codiva 👋, quiero contarte mi proyecto.',
@@ -716,7 +716,7 @@ export default {
     },
     why: {
       title: 'Por qué nosotros',
-      text: '14 años de arquitectura backend y sistemas distribuidos. Entrar en el código de otro y volverlo mantenible es un trabajo distinto a empezar de cero — y es el que mejor sabemos hacer.',
+      text: 'Más de 14 años de arquitectura backend y sistemas distribuidos. Entrar en el código de otro y volverlo mantenible es un trabajo distinto a empezar de cero — y es el que mejor sabemos hacer.',
     },
     price: {
       title: 'Precio de entrada',

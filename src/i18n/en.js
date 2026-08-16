@@ -154,7 +154,7 @@ export default {
     label: 'About',
     headingHtml: 'A boutique studio that builds your product <em>end to end</em>',
     paragraphs: [
-      'Codiva is a studio of two senior software engineers building product end to end: Carlos — 14 years in backend architecture, distributed systems, and AI — and Marina on product design and frontend. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
+      'Codiva is a studio of two senior software engineers, with more than 14 years of experience, building product end to end: architecture, backend and AI on one side; product design and frontend on the other. Design, frontend, backend, AI, mobile, and deployment, without outsourcing.',
       'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
       "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
@@ -582,7 +582,7 @@ export default {
       { q: 'What is codiva?', aHtml: '<p>codiva® is an independent studio of two senior software engineers, based in Ñuñoa, Santiago, Chile. We build complete product — design, frontend, backend, and AI — from start to finish, with no juniors and no subcontracting. The people who sell you the project are the people who build it.</p>' },
       { q: 'What services does codiva offer?', aHtml: '<p>Five areas, in order of focus: Custom software (systems, internal platforms and dashboards); end-to-end product development (design, frontend, backend and AI); web & mobile apps; APIs & microservices; and stabilizing and continuing products that already exist.</p>' },
       { q: 'Who owns the code?', aHtml: '<p>You do, from the first commit. The repository is in your name and we hand over everything — code, infrastructure, and documentation — with no hidden dependencies or lock-in. If one day you want to continue with another team, you can.</p>' },
-      { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where 14 years of backend architecture and distributed systems make the difference.</p>' },
+      { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where more than 14 years of backend architecture and distributed systems make the difference.</p>' },
       { q: "You're only two people. What happens if you get sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. We both know every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },
       { q: 'Do you work with internal teams or replace them?', aHtml: "<p>Both. We embed with your internal team when there is one, or act as your full product team when there isn't. We adapt to how you already work.</p>" },
       { q: 'How much does a project cost?', aHtml: "<p>It depends on scope, but we won't make you guess. A Product Sprint starts at USD $3,000 and a full product usually runs between USD $16,000 and $65,000. On the first 30-minute call we give you a real range — not a 20-page proposal three weeks later.</p>" },
@@ -637,7 +637,7 @@ export default {
       'We talk for 30 minutes over video or a call.',
       'We send you a clear plan and proposal.',
     ],
-    trust: ['14 years in backend & architecture', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
+    trust: ['More than 14 years of experience', 'Two senior engineers', 'Ñuñoa, Santiago, Chile'],
     seeWork: { label: 'See projects', href: '/en/projects' },
     back: '← Back to home',
     waMessage: 'Hi codiva 👋, I want to tell you about my project.',
@@ -703,7 +703,7 @@ export default {
     },
     why: {
       title: 'Why us',
-      text: '14 years of backend architecture and distributed systems. Getting into someone else’s code and making it maintainable is a different job from starting from scratch — and it is the one we do best.',
+      text: 'More than 14 years of backend architecture and distributed systems. Getting into someone else’s code and making it maintainable is a different job from starting from scratch — and it is the one we do best.',
     },
     price: {
       title: 'Entry price',
