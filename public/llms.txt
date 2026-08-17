@@ -43,6 +43,7 @@ No se publican clientes, resultados, métricas, certificaciones, alianzas ni tes
 - [Conocimiento](https://codiva.cl/conocimiento/): decisiones técnicas, datos, integraciones e interoperabilidad.
   - [Ingeniería de software agéntica](https://codiva.cl/conocimiento/ingenieria-software-agentica/): LLMs y agentes bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.
   - [El mítico hombre-mes](https://codiva.cl/conocimiento/el-mitico-hombre-mes/): lectura recomendada sobre plazos, incorporación, comunicación, arquitectura y decisiones ante proyectos atrasados.
+  - [Design Patterns](https://codiva.cl/conocimiento/patrones-de-diseno/): lectura recomendada sobre Strategy, Adapter, Decorator, Observer y cómo aplicar patrones sin sobrediseñar.
   - [Ingesta IoT](https://codiva.cl/conocimiento/ingesta-iot/): duplicados, orden, idempotencia, dead-letter, replay y observabilidad.
   - [Nominatim y geocodificación](https://codiva.cl/conocimiento/nominatim-geocodificacion/): capa de aplicación sin estado con PostgreSQL/PostGIS persistente.
   - [Integraciones y PostgreSQL](https://codiva.cl/conocimiento/integraciones-postgresql/): REST, SOAP, particionamiento, índices, planes, bloat y autovacuum.
@@ -114,6 +115,7 @@ No clients, outcomes, metrics, certifications, partnerships, or testimonials are
 - [Knowledge](https://codiva.cl/en/knowledge/): technical decisions, data, integrations, and interoperability.
   - [Agentic software engineering](https://codiva.cl/en/knowledge/agentic-software-engineering/): LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.
   - [The Mythical Man-Month](https://codiva.cl/en/knowledge/the-mythical-man-month/): recommended reading on schedules, onboarding, communication, architecture, and decisions around late projects.
+  - [Design Patterns](https://codiva.cl/en/knowledge/design-patterns/): recommended reading on Strategy, Adapter, Decorator, Observer, and applying patterns without over-designing.
   - [Reliable IoT ingestion](https://codiva.cl/en/knowledge/iot-ingestion/): duplicates, ordering, idempotency, dead-letter, replay, and observability.
   - [Nominatim and geocoding](https://codiva.cl/en/knowledge/nominatim-geocoding/): stateless application layer with persistent PostgreSQL/PostGIS.
   - [Integrations and PostgreSQL](https://codiva.cl/en/knowledge/integrations-postgresql/): REST, SOAP, partitioning, indexes, query plans, bloat, and autovacuum.

@@ -34,6 +34,8 @@ const pages = {
   enAgentic: 'dist/en/knowledge/agentic-software-engineering/index.html',
   esMythicalManMonth: 'dist/conocimiento/el-mitico-hombre-mes/index.html',
   enMythicalManMonth: 'dist/en/knowledge/the-mythical-man-month/index.html',
+  esDesignPatterns: 'dist/conocimiento/patrones-de-diseno/index.html',
+  enDesignPatterns: 'dist/en/knowledge/design-patterns/index.html',
   esB2bService: 'dist/servicios/desarrollo-software-b2b/index.html',
   enB2bService: 'dist/en/services/b2b-software-development/index.html',
   esModernizationService: 'dist/servicios/modernizacion-aplicaciones-legacy/index.html',
@@ -342,6 +344,62 @@ check('Mythical Man-Month reading note connects the book to company decisions', 
   }
 });
 
+check('Design Patterns reading note explains modern application without pattern cargo cult', () => {
+  const routes = [
+    [
+      html.esDesignPatterns,
+      'Design Patterns: aplicación actual para empresas | codiva®',
+      'Por qué seguimos recomendando Design Patterns',
+      '/conocimiento/patrones-de-diseno/',
+      '/en/knowledge/design-patterns/',
+      'Los patrones siguen siendo útiles',
+      'Cómo se aplica hoy',
+      'Strategy',
+      'Adapter',
+      'Decorator',
+    ],
+    [
+      html.enDesignPatterns,
+      'Design Patterns: how it still applies today | codiva®',
+      'Why we still recommend Design Patterns',
+      '/en/knowledge/design-patterns/',
+      '/conocimiento/patrones-de-diseno/',
+      'Patterns are still useful',
+      'How it applies today',
+      'Strategy',
+      'Adapter',
+      'Decorator',
+    ],
+  ];
+
+  for (const [source, title, h1, route, alternate, current, today, strategy, adapter, decorator] of routes) {
+    assert.ok(source.includes(`<title>${title}</title>`), `${route} is missing its search title`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `${route} is missing its recommendation`);
+    assert.ok(source.includes(current), `${route} does not explain current usefulness`);
+    assert.ok(source.includes(today), `${route} does not explain modern application`);
+    for (const pattern of [strategy, adapter, decorator]) assert.ok(source.includes(pattern), `${route} omits ${pattern}`);
+    assert.ok(source.includes('data-provenance="recommended-reading"'), `${route} misclassifies the reading note`);
+    assert.ok(source.includes('Erich Gamma'), `${route} omits the authors`);
+    assert.ok(source.includes('Richard Helm'), `${route} omits the authors`);
+    assert.ok(source.includes('Ralph Johnson'), `${route} omits the authors`);
+    assert.ok(source.includes('John Vlissides'), `${route} omits the authors`);
+    assert.ok(source.includes('1994'), `${route} omits the publication year`);
+    assert.ok(source.includes(`<link rel="canonical" href="https://codiva.cl${route}">`), `${route} has the wrong canonical`);
+    assert.ok(source.includes(`href="https://codiva.cl${alternate}"`), `${route} has no reciprocal locale alternate`);
+    const blocks = [...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    assert.ok(blocks.some((block) => block['@type'] === 'Article'), `${route} has no Article schema`);
+  }
+
+  assert.ok(hasHref(html.esKnowledge, '/conocimiento/patrones-de-diseno/'), 'Spanish Knowledge hub omits Design Patterns');
+  assert.ok(hasHref(html.enKnowledge, '/en/knowledge/design-patterns/'), 'English Knowledge hub omits Design Patterns');
+  assert.ok(html.esKnowledge.includes('data-provenance="recommended-reading"'), 'Spanish Knowledge hub misclassifies Design Patterns');
+  assert.ok(html.enKnowledge.includes('data-provenance="recommended-reading"'), 'English Knowledge hub misclassifies Design Patterns');
+  for (const route of ['/conocimiento/patrones-de-diseno/', '/en/knowledge/design-patterns/']) {
+    assert.ok(sitemapText.includes(`<loc>https://codiva.cl${route}</loc>`), `sitemap.xml omits ${route}`);
+    assert.ok(llmsText.includes(`https://codiva.cl${route}`), `llms.txt omits ${route}`);
+  }
+});
+
 check('every commercial subpage exposes full navigation and a locale switch', () => {
   for (const [name, source] of Object.entries({
     esProjects: html.esProjects,
@@ -369,6 +427,7 @@ check('locale switches preserve the equivalent page instead of returning home', 
     esIntegrations: '/en/knowledge/integrations-postgresql/', enIntegrations: '/conocimiento/integraciones-postgresql/',
     esAgentic: '/en/knowledge/agentic-software-engineering/', enAgentic: '/conocimiento/ingenieria-software-agentica/',
     esMythicalManMonth: '/en/knowledge/the-mythical-man-month/', enMythicalManMonth: '/conocimiento/el-mitico-hombre-mes/',
+    esDesignPatterns: '/en/knowledge/design-patterns/', enDesignPatterns: '/conocimiento/patrones-de-diseno/',
     esB2bService: '/en/services/b2b-software-development/', enB2bService: '/servicios/desarrollo-software-b2b/',
     esModernizationService: '/en/services/legacy-application-modernization/', enModernizationService: '/servicios/modernizacion-aplicaciones-legacy/',
     esDataService: '/en/services/data-engineering-integrations/', enDataService: '/servicios/ingenieria-datos-integraciones/',
