@@ -4651,6 +4651,7 @@ button {
 .knowledge-article__sections--agentic { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .knowledge-article__sections--agentic > :nth-child(-n+3) { grid-column: span 2; }
 .knowledge-article__sections--agentic > :nth-child(n+4) { grid-column: span 3; }
+.knowledge-article__sections--reading { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .knowledge-article__sections .knowledge-article__section { margin: 0; padding: 1.7rem; background: var(--color-bg-card); }
 .knowledge-article__sections .knowledge-article__section h2 { font-size: 1.35rem; }
 .knowledge-architecture {

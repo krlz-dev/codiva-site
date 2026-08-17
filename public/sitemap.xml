@@ -289,4 +289,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://codiva.cl/conocimiento/el-mitico-hombre-mes/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/el-mitico-hombre-mes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/the-mythical-man-month/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/the-mythical-man-month/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/knowledge/the-mythical-man-month/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/el-mitico-hombre-mes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/the-mythical-man-month/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/the-mythical-man-month/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
 </urlset>

@@ -16,9 +16,9 @@ const { content } = Astro.props;
       <h2 id="knowledge-guides-title" class="sr-only">{content.label}</h2>
       <div class="knowledge-grid">
         {content.articles.map((article) => (
-          <article class="knowledge-card" data-provenance="reference-architecture">
+          <article class="knowledge-card" data-provenance={article.provenanceKind ?? 'reference-architecture'}>
             <div class="knowledge-card__topline">
-              <span class="provenance-badge" data-provenance="reference-architecture">{content.provenance}</span>
+              <span class="provenance-badge" data-provenance={article.provenanceKind ?? 'reference-architecture'}>{article.provenance ?? content.provenance}</span>
               <span>{article.area}</span>
             </div>
             <h3><a href={article.href}>{article.title}</a></h3>

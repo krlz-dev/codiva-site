@@ -2,9 +2,9 @@ export const knowledgeContent = {
   es: {
     hub: {
       meta: {
-        title: 'Conocimiento sobre software, datos e IA agéntica | codiva®',
-        description: 'Guías bilingües de codiva® sobre arquitectura, programación agéntica, IoT, PostgreSQL, datos, integraciones e interoperabilidad.',
-        keywords: 'arquitectura de software, programación agéntica, LLM, agentes IA, IoT, PostgreSQL, integraciones, datos',
+        title: 'Conocimiento sobre software, gestión, datos e IA | codiva®',
+        description: 'Guías bilingües de codiva® sobre arquitectura, gestión de software, programación agéntica, IoT, PostgreSQL, datos e integraciones.',
+        keywords: 'arquitectura de software, gestión de proyectos software, Mythical Man-Month, programación agéntica, LLM, IoT, PostgreSQL, datos',
         canonical: 'https://codiva.cl/conocimiento/',
         ogUrl: 'https://codiva.cl/conocimiento/',
         ogTitle: 'Conocimiento técnico — codiva®',
@@ -46,6 +46,15 @@ export const knowledgeContent = {
           title: 'Programación agéntica: más velocidad exige más control',
           summary: 'LLMs y agentes de programación bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.',
           topics: ['LLM', 'agentes', 'TDD'],
+        },
+        {
+          href: '/conocimiento/el-mitico-hombre-mes/',
+          area: 'Gestión de software',
+          title: 'El mítico hombre-mes: por qué más personas pueden producir más demora',
+          summary: 'Una lectura breve sobre plazos, incorporación, comunicación, integridad conceptual y las decisiones que una empresa debe tomar cuando un proyecto se atrasa.',
+          topics: ['ley de Brooks', 'equipos', 'plazos'],
+          provenanceKind: 'recommended-reading',
+          provenance: 'Lectura recomendada',
         },
       ],
       caseLabel: 'Casos relacionados',
@@ -229,9 +238,9 @@ export const knowledgeContent = {
   en: {
     hub: {
       meta: {
-        title: 'Knowledge on software, data, and agentic AI | codiva®',
-        description: 'Bilingual codiva® guides on architecture, agentic programming, IoT, PostgreSQL, data, integrations, and interoperability.',
-        keywords: 'software architecture, agentic programming, LLM, AI agents, IoT, PostgreSQL, integrations, data',
+        title: 'Knowledge on software, management, data, and AI | codiva®',
+        description: 'Bilingual codiva® guides on software architecture and management, agentic programming, IoT, PostgreSQL, data, and integrations.',
+        keywords: 'software architecture, software project management, Mythical Man-Month, agentic programming, LLM, IoT, PostgreSQL, data',
         canonical: 'https://codiva.cl/en/knowledge/',
         ogUrl: 'https://codiva.cl/en/knowledge/',
         ogTitle: 'Technical knowledge — codiva®',
@@ -250,6 +259,7 @@ export const knowledgeContent = {
         { href: '/en/knowledge/nominatim-geocoding/', area: 'Geospatial data', title: 'Nominatim: scalable service, persistent data', summary: 'A stateless application layer around Nominatim with persistent PostgreSQL/PostGIS, caching, and explicit operational limits.', topics: ['Nominatim', 'PostGIS', 'Redis'] },
         { href: '/en/knowledge/integrations-postgresql/', area: 'Integrations and data', title: 'REST/SOAP adapters and PostgreSQL under load', summary: 'Contracts, retries, idempotency, and domain isolation alongside partitioning, indexes, query plans, bloat, and autovacuum.', topics: ['REST', 'SOAP', 'PostgreSQL'] },
         { href: '/en/knowledge/agentic-software-engineering/', area: 'Applied AI and engineering', title: 'Agentic programming: more speed requires stronger controls', summary: 'LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.', topics: ['LLM', 'agents', 'TDD'] },
+        { href: '/en/knowledge/the-mythical-man-month/', area: 'Software management', title: 'The Mythical Man-Month: why more people can create more delay', summary: 'A short reading note on schedules, onboarding, communication, conceptual integrity, and the decisions a company faces when a project runs late.', topics: ["Brooks's Law", 'teams', 'schedules'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },
       ],
       caseLabel: 'Related cases',
       caseTitle: 'Architecture connected to real experience',

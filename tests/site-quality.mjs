@@ -32,6 +32,8 @@ const pages = {
   enIntegrations: 'dist/en/knowledge/integrations-postgresql/index.html',
   esAgentic: 'dist/conocimiento/ingenieria-software-agentica/index.html',
   enAgentic: 'dist/en/knowledge/agentic-software-engineering/index.html',
+  esMythicalManMonth: 'dist/conocimiento/el-mitico-hombre-mes/index.html',
+  enMythicalManMonth: 'dist/en/knowledge/the-mythical-man-month/index.html',
   esB2bService: 'dist/servicios/desarrollo-software-b2b/index.html',
   enB2bService: 'dist/en/services/b2b-software-development/index.html',
   esModernizationService: 'dist/servicios/modernizacion-aplicaciones-legacy/index.html',
@@ -294,6 +296,52 @@ check('agentic engineering content pairs faster execution with stronger controls
   assert.ok(llmsText.includes('https://codiva.cl/en/knowledge/agentic-software-engineering/'));
 });
 
+check('Mythical Man-Month reading note connects the book to company decisions', () => {
+  const routes = [
+    [
+      html.esMythicalManMonth,
+      'El mítico hombre-mes: resumen para empresas | codiva®',
+      'Por qué recomendamos El mítico hombre-mes',
+      '/conocimiento/el-mitico-hombre-mes/',
+      '/en/knowledge/the-mythical-man-month/',
+      'Agregar personas a un proyecto atrasado lo atrasa aún más',
+      'Qué significa para una empresa',
+    ],
+    [
+      html.enMythicalManMonth,
+      'The Mythical Man-Month: a company reading note | codiva®',
+      'Why we recommend The Mythical Man-Month',
+      '/en/knowledge/the-mythical-man-month/',
+      '/conocimiento/el-mitico-hombre-mes/',
+      'Adding people to a late software project makes it later',
+      'What it means for a company',
+    ],
+  ];
+
+  for (const [source, title, h1, route, alternate, brooksLaw, companyMeaning] of routes) {
+    assert.ok(source.includes(`<title>${title}</title>`), `${route} is missing its search title`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `${route} is missing its reading recommendation`);
+    assert.ok(source.includes(brooksLaw), `${route} omits Brooks's Law`);
+    assert.ok(source.includes(companyMeaning), `${route} omits the company-level interpretation`);
+    assert.ok(source.includes('data-provenance="recommended-reading"'), `${route} misclassifies the reading note`);
+    assert.ok(source.includes('Frederick P. Brooks Jr.'), `${route} omits the author`);
+    assert.ok(source.includes('Anniversary Edition'), `${route} omits the recommended edition`);
+    assert.ok(source.includes(`<link rel="canonical" href="https://codiva.cl${route}">`), `${route} has the wrong canonical`);
+    assert.ok(source.includes(`href="https://codiva.cl${alternate}"`), `${route} has no reciprocal locale alternate`);
+    const blocks = [...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    assert.ok(blocks.some((block) => block['@type'] === 'Article'), `${route} has no Article schema`);
+  }
+
+  assert.ok(hasHref(html.esKnowledge, '/conocimiento/el-mitico-hombre-mes/'), 'Spanish Knowledge hub omits the reading note');
+  assert.ok(hasHref(html.enKnowledge, '/en/knowledge/the-mythical-man-month/'), 'English Knowledge hub omits the reading note');
+  assert.ok(html.esKnowledge.includes('data-provenance="recommended-reading"'), 'Spanish Knowledge hub misclassifies the reading note');
+  assert.ok(html.enKnowledge.includes('data-provenance="recommended-reading"'), 'English Knowledge hub misclassifies the reading note');
+  for (const route of ['/conocimiento/el-mitico-hombre-mes/', '/en/knowledge/the-mythical-man-month/']) {
+    assert.ok(sitemapText.includes(`<loc>https://codiva.cl${route}</loc>`), `sitemap.xml omits ${route}`);
+    assert.ok(llmsText.includes(`https://codiva.cl${route}`), `llms.txt omits ${route}`);
+  }
+});
+
 check('every commercial subpage exposes full navigation and a locale switch', () => {
   for (const [name, source] of Object.entries({
     esProjects: html.esProjects,
@@ -320,6 +368,7 @@ check('locale switches preserve the equivalent page instead of returning home', 
     esNominatim: '/en/knowledge/nominatim-geocoding/', enNominatim: '/conocimiento/nominatim-geocodificacion/',
     esIntegrations: '/en/knowledge/integrations-postgresql/', enIntegrations: '/conocimiento/integraciones-postgresql/',
     esAgentic: '/en/knowledge/agentic-software-engineering/', enAgentic: '/conocimiento/ingenieria-software-agentica/',
+    esMythicalManMonth: '/en/knowledge/the-mythical-man-month/', enMythicalManMonth: '/conocimiento/el-mitico-hombre-mes/',
     esB2bService: '/en/services/b2b-software-development/', enB2bService: '/servicios/desarrollo-software-b2b/',
     esModernizationService: '/en/services/legacy-application-modernization/', enModernizationService: '/servicios/modernizacion-aplicaciones-legacy/',
     esDataService: '/en/services/data-engineering-integrations/', enDataService: '/servicios/ingenieria-datos-integraciones/',

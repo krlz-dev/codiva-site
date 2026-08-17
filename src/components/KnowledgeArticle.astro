@@ -5,16 +5,19 @@ import Footer from './Footer.astro';
 const { t, data, altEs, altEn } = Astro.props;
 const isEs = t.lang === 'es';
 const isAgentic = data.key === 'agentic';
-const serviceHref = isAgentic
+const isReading = data.provenanceKind === 'recommended-reading';
+const serviceHref = data.serviceHref ?? (isAgentic
   ? (isEs ? '/servicios/desarrollo-software-b2b/' : '/en/services/b2b-software-development/')
-  : (isEs ? '/servicios/ingenieria-datos-integraciones/' : '/en/services/data-engineering-integrations/');
-const serviceLabel = isAgentic
+  : (isEs ? '/servicios/ingenieria-datos-integraciones/' : '/en/services/data-engineering-integrations/'));
+const serviceLabel = data.serviceLabel ?? (isAgentic
   ? (isEs ? 'Aplicar este método al desarrollo de software B2B' : 'Apply this method to B2B software development')
-  : (isEs ? 'Aplicar este criterio en datos e integraciones' : 'Apply this judgment to data and integrations');
+  : (isEs ? 'Aplicar este criterio en datos e integraciones' : 'Apply this judgment to data and integrations'));
+const provenanceKind = data.provenanceKind ?? 'reference-architecture';
+const provenanceLabel = data.provenanceLabel ?? (isEs ? 'Arquitectura de referencia' : 'Reference architecture');
 const schema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
+    '@type': data.schemaType ?? 'TechArticle',
     headline: data.title,
     description: data.meta.description,
     url: data.meta.canonical,
@@ -45,8 +48,8 @@ const pageT = { ...t, meta: data.meta, schema };
         <p>{data.lede}</p>
       </header>
 
-      <aside class="knowledge-article__provenance" data-provenance="reference-architecture">
-        <span class="provenance-badge" data-provenance="reference-architecture">{isEs ? 'Arquitectura de referencia' : 'Reference architecture'}</span>
+      <aside class="knowledge-article__provenance" data-provenance={provenanceKind}>
+        <span class="provenance-badge" data-provenance={provenanceKind}>{provenanceLabel}</span>
         <p>{data.provenance}</p>
       </aside>
 
@@ -65,7 +68,7 @@ const pageT = { ...t, meta: data.meta, schema };
         </figure>
       </section>
 
-      <div class:list={['knowledge-article__sections', { 'knowledge-article__sections--agentic': isAgentic }]}>
+      <div class:list={['knowledge-article__sections', { 'knowledge-article__sections--agentic': isAgentic, 'knowledge-article__sections--reading': isReading }]}>
         {data.sections.map((section) => (
           <section class="knowledge-article__section" data-agentic-control={section.control}>
             <h2>{section.title}</h2>
@@ -85,7 +88,7 @@ const pageT = { ...t, meta: data.meta, schema };
 
       {data.sources.length > 0 && (
         <section class="knowledge-article__sources" aria-labelledby="knowledge-sources-title">
-          <h2 id="knowledge-sources-title">{isEs ? 'Fuentes oficiales' : 'Official sources'}</h2>
+          <h2 id="knowledge-sources-title">{data.sourcesTitle ?? (isEs ? 'Fuentes oficiales' : 'Official sources')}</h2>
           <ul>
             {data.sources.map((source) => (
               <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>
