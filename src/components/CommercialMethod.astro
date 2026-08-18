@@ -62,9 +62,9 @@ const { t, content } = Astro.props;
         <h2 id="method-cta-title">{content.ctaTitle}</h2>
         <p>{content.ctaText}</p>
       </div>
-      <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer" data-cta="calendar" data-cta-location="methodology">
+      <button type="button" class="btn btn--primary" data-lena-open data-cta="lena" data-cta-location="methodology">
         {content.ctaLabel} <span aria-hidden="true">↗</span>
-      </a>
+      </button>
     </div>
   </section>
 </main>

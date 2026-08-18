@@ -157,7 +157,7 @@ if (proof.delivery.steps.length !== deliveryPositions.length) {
         <h3>{proof.cta.heading}</h3>
         <p>{proof.cta.text}</p>
       </div>
-      <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer">{proof.cta.label}</a>
+      <button type="button" class="btn btn--primary" data-lena-open>{proof.cta.label}</button>
     </div>
   </div>
 </section>

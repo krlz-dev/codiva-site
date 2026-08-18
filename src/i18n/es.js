@@ -4,9 +4,6 @@ export default {
   lang: 'es',
   htmlLang: 'es',
 
-  // Cal.com booking link — primary CTA for scheduling a 30-min intro call.
-  bookingUrl: 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true',
-
   meta: {
     title: 'Software B2B y modernización de aplicaciones | codiva®',
     description:
@@ -735,16 +732,87 @@ export default {
     ],
   },
 
+  lena: {
+    launcherLabel: 'Habla con Lena',
+    openLabel: 'Habla con Lena',
+    title: 'Lena — asistente de codiva',
+    closeLabel: 'Cerrar',
+    greeting: 'Hola, soy Lena 👋, la asistente de codiva. Cuéntame en qué puedo ayudarte y te respondo sin compromiso.',
+    introNote: 'Soy un asistente automatizado. Solo guardo tus datos si confirmas el envío.',
+    next: 'Siguiente',
+    back: 'Atrás',
+    steps: {
+      requestType: {
+        label: '¿En qué podemos ayudarte?',
+        options: {
+          support: 'Soporte técnico',
+          modernize: 'Modernizar software',
+          data: 'Datos e integraciones',
+          project: 'Proyecto nuevo',
+        },
+      },
+      contact: {
+        label: '¿Cómo te contactamos?',
+        name: 'Nombre',
+        namePh: 'Tu nombre',
+        email: 'Correo',
+        emailPh: 'tu@empresa.com',
+        emailOpt: 'opcional',
+        phone: 'Teléfono (WhatsApp)',
+        phonePh: '+56 9 …',
+        company: 'Empresa',
+        companyPh: 'opcional',
+      },
+      details: {
+        label: 'Cuéntanos más',
+        problem: '¿Qué necesitas resolver?',
+        problemPh: 'Describe el problema o lo que quieres lograr…',
+        scope: 'Alcance',
+        scopePh: 'opcional',
+        timeline: 'Plazos',
+        timelinePh: 'opcional',
+        budget: 'Presupuesto',
+        budgetPh: 'opcional',
+      },
+      file: {
+        label: '¿Tienes un documento?',
+        hint: 'Opcional. Solo PDF, máximo 5 MB.',
+        attach: 'Adjuntar PDF',
+        attached: 'Adjunto',
+        remove: 'Quitar',
+      },
+      confirm: {
+        label: 'Confirma tu solicitud',
+        consent: 'Acepto que codiva guarde esta información para responder mi consulta.',
+        submit: 'Enviar solicitud',
+        submitting: 'Enviando…',
+      },
+    },
+    errors: {
+      required: 'Completa este campo',
+      email: 'Correo no válido',
+      phone: 'Teléfono no válido',
+      fileType: 'Solo se aceptan archivos PDF',
+      fileSize: 'El archivo supera 5 MB',
+      consent: 'Debes aceptar para continuar',
+    },
+    success: {
+      title: '¡Recibido!',
+      body: 'Gracias. Tu solicitud quedó registrada y no es un pedido confirmado. Te responderemos a la brevedad.',
+      book: 'Puedes agendar una llamada aquí:',
+      again: 'Nueva consulta',
+    },
+    error: {
+      title: 'No se pudo enviar',
+      body: 'Inténtalo de nuevo o escríbenos a contactos@codiva.cl.',
+      retry: 'Reintentar',
+    },
+  },
+
   contact: {
     label: 'Contacto',
     headingHtml: 'Hagamos algo<br><em>extraordinario</em>',
     text: '¿Tienes un proyecto en mente? Conversemos sobre cómo podemos llevarlo al siguiente nivel.',
-    bookingLabel: 'Agenda 30 minutos',
-    whatsapp: {
-      number: '56957173936',
-      label: 'Escríbenos por WhatsApp',
-      message: 'Hola codiva 👋, me interesa cotizar un proyecto.',
-    },
     emailLabel: 'O escríbenos a',
     email: 'contactos@codiva.cl',
     location: 'Ñuñoa, Santiago — Chile',

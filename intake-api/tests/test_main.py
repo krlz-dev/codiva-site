@@ -1,3 +1,5 @@
+import json
+
 from fastapi.testclient import TestClient
 
 from app.main import app
@@ -28,42 +30,108 @@ def valid_payload(**overrides):
     return value
 
 
+def submit(payload, *, token=None, file=None, turnstile=None, website=None):
+    data = {"payload": json.dumps(payload)}
+    if token is not None:
+        data["x-intake-token"] = token
+    if turnstile is not None:
+        data["turnstile_token"] = turnstile
+    if website is not None:
+        data["website"] = website
+    files = {}
+    if file is not None:
+        name, content, mime = file
+        files = {"file": (name, content, mime)}
+    return client.post("/v1/intake", data=data, files=files, headers={"x-intake-token": token} if token else {})
+
+
 def test_health_is_public_and_minimal():
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok", "service": "codiva-lena-intake"}
 
 
-def test_unconfirmed_intake_is_rejected_before_storage():
-    response = client.post("/v1/intake", json=valid_payload(client_confirmed=False))
+def test_unconfirmed_intake_is_rejected_before_storage(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    response = submit(valid_payload(client_confirmed=False))
     assert response.status_code == 422
 
 
-def test_unknown_fields_are_rejected():
-    response = client.post("/v1/intake", json=valid_payload(secret="do-not-accept"))
+def test_unknown_fields_are_rejected(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    response = submit(valid_payload(secret="do-not-accept"))
     assert response.status_code == 422
 
 
-def test_invalid_phone_is_rejected():
-    response = client.post("/v1/intake", json=valid_payload(phone="not-a-phone"))
+def test_invalid_phone_is_rejected(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    response = submit(valid_payload(phone="not-a-phone"))
     assert response.status_code == 422
 
 
 def test_write_token_is_required_when_configured(monkeypatch):
     monkeypatch.setenv("INTAKE_WRITE_TOKEN", "test-token")
-    response = client.post("/v1/intake", json=valid_payload())
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    response = submit(valid_payload())
     assert response.status_code == 401
 
 
-def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
-    class FakeWriter:
-        async def append(self, item):
-            assert item.client_confirmed is True
-            return {"duplicate": False, "submission_id": item.submission_id, "updated_range": "Sheet1!A2:Q2"}
-
+def test_turnstile_is_verified_when_configured(monkeypatch):
     monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
-    monkeypatch.setattr("app.main.writer", FakeWriter())
-    response = client.post("/v1/intake", json=valid_payload())
+    monkeypatch.setenv("TURNSTILE_SECRET_KEY", "turnstile-secret")
+    response = submit(valid_payload(), turnstile="bad-token")
+    assert response.status_code == 401
+
+
+def test_honeypot_is_discarded_silently(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+
+    calls = []
+
+    class FakeWriter:
+        async def append(self, item, attachment):
+            calls.append(item)
+
+    monkeypatch.setattr("app.main._writer", FakeWriter())
+    response = submit(valid_payload(), website="https://spam.example")
     assert response.status_code == 200
     assert response.json()["status"] == "accepted"
-    assert response.json()["updated_range"] == "Sheet1!A2:Q2"
+    assert calls == []
+
+
+def test_non_pdf_file_is_rejected(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    response = submit(valid_payload(), file=("evil.exe", b"MZ not a pdf", "application/octet-stream"))
+    assert response.status_code == 422
+
+
+def test_oversized_file_is_rejected(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    monkeypatch.setattr("app.main.MAX_FILE_BYTES", 8)
+    response = submit(valid_payload(), file=("big.pdf", b"%PDF-1.4 too big", "application/pdf"))
+    assert response.status_code == 413
+
+
+def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
+    monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
+    monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    monkeypatch.setenv("CAL_BOOKING_URL", "https://cal.com/example/30min")
+
+    class FakeWriter:
+        async def append(self, item, attachment):
+            assert item.client_confirmed is True
+            assert attachment is None
+            return {"duplicate": False, "submission_id": item.submission_id, "updated_range": "Sheet1!A2:R2"}
+
+    monkeypatch.setattr("app.main._writer", FakeWriter())
+    response = submit(valid_payload())
+    assert response.status_code == 200
+    assert response.json()["status"] == "accepted"
+    assert response.json()["booking_url"] == "https://cal.com/example/30min"
+    assert response.json()["updated_range"] == "Sheet1!A2:R2"

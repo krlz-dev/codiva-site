@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir --upgrade pip \
       "fastapi>=0.115,<1" \
       "google-api-python-client>=2.160,<3" \
       "google-auth>=2.37,<3" \
+      "python-multipart>=0.0.9" \
       "uvicorn[standard]>=0.34,<1"
 
 COPY app ./app

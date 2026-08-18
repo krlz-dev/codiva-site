@@ -59,6 +59,10 @@ const css = readdirSync(join(root, 'dist/_astro'))
   .filter((file) => file.endsWith('.css'))
   .map((file) => readFileSync(join(root, 'dist/_astro', file), 'utf8'))
   .join('\n');
+const js = readdirSync(join(root, 'dist/_astro'))
+  .filter((file) => file.endsWith('.js'))
+  .map((file) => readFileSync(join(root, 'dist/_astro', file), 'utf8'))
+  .join('\n');
 const rawCss = readFileSync(join(root, 'src/styles/global.css'), 'utf8');
 const layoutSource = readFileSync(join(root, 'src/layouts/Layout.astro'), 'utf8');
 const llmsText = readFileSync(join(root, 'public/llms.txt'), 'utf8');
@@ -98,10 +102,13 @@ check('every public page has exactly one h1', () => {
   }
 });
 
-check('booking CTAs use the direct Cal.com event URL', () => {
-  const expected = 'https://cal.com/krlz.dev/30min?user=krlz.dev&layout=mobile&overlayCalendar=true';
-  assert.ok(hasHref(html.esHome, expected), 'Spanish home does not link a CTA to the direct booking URL');
-  assert.ok(hasHref(html.enHome, expected), 'English home does not link a CTA to the direct booking URL');
+check('CTAs open Lena instead of exposing a direct booking or WhatsApp link', () => {
+  for (const [name, source] of Object.entries({ esHome: html.esHome, enHome: html.enHome })) {
+    assert.ok(!source.includes('cal.com'), `${name} still exposes a direct Cal.com link`);
+    assert.ok(!source.includes('wa.me'), `${name} still exposes a direct WhatsApp link`);
+    assert.ok(source.includes('data-lena-open'), `${name} has no Lena-open CTA`);
+    assert.ok(source.includes('class="lena"'), `${name} has no Lena widget`);
+  }
 });
 
 check('homepage separates the free fit call from the paid rescue review', () => {
@@ -549,10 +556,11 @@ check('offer ladder starts with rescue and exposes bounded risk', () => {
   }
 });
 
-check('GA4 tracks calendar, WhatsApp, and email CTA channels', () => {
-  for (const token of ['cal.com', 'calendar', 'whatsapp_click', 'email_click', 'book_call_click']) {
+check('GA4 tracks Lena opens/submits and email CTA channels', () => {
+  for (const token of ['generate_lead', 'email_click']) {
     assert.ok(all.includes(token), `missing analytics token: ${token}`);
   }
+  assert.ok(js.includes('lena_open'), 'Lena widget does not track opens');
 });
 
 check('fonts and analytics stay out of the critical rendering path', () => {
@@ -693,9 +701,12 @@ check('text tokens meet WCAG AA contrast on base and card backgrounds', () => {
   }
 });
 
-check('English contact routes offer WhatsApp as promised', () => {
-  assert.ok(html.enHome.includes('wa.me/56957173936'), 'English home has no WhatsApp CTA');
-  assert.ok(html.enContact.includes('wa.me/56957173936'), 'English contact page has no WhatsApp CTA');
+check('contact routes no longer expose direct WhatsApp or booking links', () => {
+  for (const [name, source] of Object.entries({ esContact: html.esContact, enContact: html.enContact })) {
+    assert.ok(!source.includes('wa.me'), `${name} still exposes a WhatsApp link`);
+    assert.ok(!source.includes('cal.com'), `${name} still exposes a booking link`);
+    assert.ok(source.includes('data-lena-open'), `${name} has no Lena-open CTA`);
+  }
 });
 
 check('navigation uses native semantics instead of incomplete ARIA menus', () => {

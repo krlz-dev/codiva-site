@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { GA_ID, GOOGLE_SITE_VERIFICATION } from '../config.js';
 import Nav from '../components/Nav.astro';
+import LenaWidget from '../components/LenaWidget.astro';
 
 const { t, altEs = 'https://codiva.cl/', altEn = 'https://codiva.cl/en/', isHome = false } = Astro.props;
 const { meta, schema, htmlLang } = t;
@@ -115,6 +116,7 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
     <a class="skip-link" href="#main-content">{htmlLang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
     <Nav t={t} langSwitchHref={langSwitchHref} />
     <slot />
+    <LenaWidget t={t} />
 
     <script>
       // codiva® — interactions & animations (nav scroll, mobile menu, scroll reveal, smooth anchors)
@@ -235,9 +237,9 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
         });
       });
 
-      // Lead tracking — fire GA4 events whenever someone clicks a calendar,
-      // WhatsApp, or email CTA. Centralized (event delegation) so every current
-      // and future contact button is covered without per-component wiring.
+      // Lead tracking — fire GA4 events when someone clicks an email CTA.
+      // Lena opens/submits are tracked by the widget itself (lena_open /
+      // generate_lead events).
       document.addEventListener(
         'click',
         (e) => {
@@ -245,27 +247,11 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
           const link = e.target.closest<HTMLAnchorElement>('a[href]');
           if (!link) return;
           const href = link.getAttribute('href') || '';
-          const isWhatsApp = /(?:wa\.me|api\.whatsapp\.com|whatsapp:)/i.test(href);
-          const isEmail = href.startsWith('mailto:');
-          let isCalendar = false;
-          if (!isWhatsApp && !isEmail) {
-            try {
-              isCalendar = /(?:^|\.)cal\.com$/i.test(new URL(href, window.location.href).hostname);
-            } catch {
-              return;
-            }
-          }
-          if (!isWhatsApp && !isEmail && !isCalendar) return;
+          if (!href.startsWith('mailto:')) return;
           if (typeof window.gtag !== 'function') return;
-          const method = isCalendar ? 'calendar' : isWhatsApp ? 'whatsapp' : 'email';
-          const channelEvent = isCalendar
-            ? 'book_call_click'
-            : isWhatsApp
-              ? 'whatsapp_click'
-              : 'email_click';
           const ctaLocation = link.dataset.ctaLocation || link.closest('[id]')?.id || window.location.pathname;
           const params = {
-            method,
+            method: 'email',
             intent: link.dataset.ctaIntent || 'general',
             link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
             link_url: href,
@@ -273,7 +259,7 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
             language: document.documentElement.lang,
           };
           window.gtag('event', 'generate_lead', params);
-          window.gtag('event', channelEvent, params);
+          window.gtag('event', 'email_click', params);
         },
         { capture: true }
       );

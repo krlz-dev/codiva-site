@@ -1,6 +1,6 @@
 ---
 const { t } = Astro.props;
-const { about, bookingUrl } = t;
+const { about } = t;
 ---
 
 <section class="about" id="about" aria-labelledby="about-heading">
@@ -15,13 +15,12 @@ const { about, bookingUrl } = t;
           <p class="about__text" data-animate="fade">{p}</p>
         ))}
         {about.cta && (
-          <a
+          <button
+            type="button"
             class="btn btn--primary about__cta"
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            data-lena-open
             data-animate="fade"
-          >{about.cta.label}</a>
+          >{about.cta.label}</button>
         )}
       </div>
     </div>

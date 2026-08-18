@@ -1,6 +1,6 @@
 ---
 const { t } = Astro.props;
-const { hero, bookingUrl } = t;
+const { hero } = t;
 ---
 
 <header class="hero" id="hero">
@@ -14,7 +14,7 @@ const { hero, bookingUrl } = t;
     </h1>
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__cta">
-      <a href={bookingUrl} target="_blank" rel="noopener noreferrer" class="btn btn--primary">{hero.ctaPrimary}</a>
+      <button type="button" data-lena-open class="btn btn--primary">{hero.ctaPrimary}</button>
       <a href={hero.ctaGhostHref} class="btn btn--ghost">{hero.ctaGhost}</a>
     </div>
     <p class="hero__cta-note">{hero.ctaNote}</p>

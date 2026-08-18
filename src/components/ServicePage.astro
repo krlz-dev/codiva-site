@@ -12,15 +12,14 @@ const { t, content } = Astro.props;
       </div>
       <aside class="service-page__promise" aria-label={content.label}>
         <p>{content.promise}</p>
-        <a
+        <button
+          type="button"
           class="btn btn--primary"
-          href={t.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="calendar"
+          data-lena-open
+          data-cta="lena"
           data-cta-location={`service-${content.key}-hero`}
           data-cta-intent={content.ctaIntent}
-        >{content.ctaLabel} <span aria-hidden="true">↗</span></a>
+        >{content.ctaLabel} <span aria-hidden="true">↗</span></button>
       </aside>
     </div>
   </header>
@@ -113,15 +112,14 @@ const { t, content } = Astro.props;
         <h2 id="service-cta-title">{content.ctaTitle}</h2>
         <p>{content.ctaText}</p>
       </div>
-      <a
+      <button
+        type="button"
         class="btn btn--primary"
-        href={t.bookingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-cta="calendar"
+        data-lena-open
+        data-cta="lena"
         data-cta-location={`service-${content.key}-footer`}
         data-cta-intent={content.ctaIntent}
-      >{content.ctaLabel} <span aria-hidden="true">↗</span></a>
+      >{content.ctaLabel} <span aria-hidden="true">↗</span></button>
     </div>
   </section>
 </main>

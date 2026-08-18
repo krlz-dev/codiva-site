@@ -1,10 +1,6 @@
 ---
 const { t } = Astro.props;
-const { plans, contact, bookingUrl } = t;
-const isEs = t.lang === 'es';
-const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
-// ES keeps WhatsApp at the phase-CTA depth; EN drops WhatsApp entirely for booking.
-const phaseHref = (m) => m.href ?? (isEs ? wa(m.waMessage) : bookingUrl);
+const { plans } = t;
 ---
 
 <section class="plans" id="plans" aria-labelledby="plans-heading">
@@ -27,12 +23,11 @@ const phaseHref = (m) => m.href ?? (isEs ? wa(m.waMessage) : bookingUrl);
           <ul class="model__features">
             {m.features.map((f) => <li>{f}</li>)}
           </ul>
-          <a
-            class={`btn ${m.featured ? 'btn--primary' : 'btn--ghost'} model__cta`}
-            href={phaseHref(m)}
-            target={m.href ? undefined : '_blank'}
-            rel={m.href ? undefined : 'noopener noreferrer'}
-          >{m.cta}</a>
+          {m.href ? (
+            <a class={`btn ${m.featured ? 'btn--primary' : 'btn--ghost'} model__cta`} href={m.href}>{m.cta}</a>
+          ) : (
+            <button type="button" class={`btn ${m.featured ? 'btn--primary' : 'btn--ghost'} model__cta`} data-lena-open>{m.cta}</button>
+          )}
         </article>
       ))}
     </div>

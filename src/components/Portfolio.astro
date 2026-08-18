@@ -1,17 +1,13 @@
 ---
 const { t, variant = 'full' } = Astro.props;
-const { projects, contact, bookingUrl } = t;
+const { projects } = t;
 const isTeaser = variant === 'teaser';
-const isEs = t.lang === 'es';
 const screenshotAlt = projects.screenshotAlt;
 const publishedItems = projects.items.filter((item) => item.provenance === 'codiva-product');
 const items = isTeaser ? publishedItems.slice(0, 3) : publishedItems;
 const heading = isTeaser ? (projects.teaserHeading || projects.heading) : projects.heading;
 const Heading = isTeaser ? 'h2' : 'h1';
 const ItemHeading = isTeaser ? 'h3' : 'h2';
-const wa = (msg) => `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(msg)}`;
-// ES keeps WhatsApp for this secondary CTA; EN drops WhatsApp for the booking link.
-const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
 ---
 
 <section class={`portfolio${isTeaser ? ' portfolio--teaser' : ''}`} id="projects" aria-labelledby="portfolio-heading">
@@ -87,9 +83,9 @@ const ctaHref = isEs ? wa(projects.cta.waMessage) : bookingUrl;
     {!isTeaser && projects.cta && (
       <div class="portfolio__cta" data-animate="fade">
         <p class="portfolio__cta-text">{projects.cta.text}</p>
-        <a class="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
+        <button type="button" class="btn btn--primary" data-lena-open>
           {projects.cta.label}
-        </a>
+        </button>
       </div>
     )}
   </div>

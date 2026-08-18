@@ -1,0 +1,399 @@
+---
+// Lena — codiva's website intake assistant. A floating, bilingual, guided
+// intake that submits to the secure intake API and only then surfaces the
+// booking URL (returned server-side, never baked into the page).
+const { t } = Astro.props;
+const lena = t.lena;
+const apiUrl = 'https://api.codiva.cl';
+const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) || '';
+---
+
+<div class="lena" data-api={apiUrl} data-turnstile-site-key={turnstileSiteKey}>
+  <button
+    type="button"
+    class="lena__launcher"
+    data-lena-toggle
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="lena-panel"
+  >
+    <span class="lena__launcher-icon" aria-hidden="true">💬</span>
+    <span class="lena__launcher-label">{lena.launcherLabel}</span>
+  </button>
+
+  <div class="lena__panel" id="lena-panel" role="dialog" aria-modal="true" aria-label={lena.title} hidden>
+    <header class="lena__header">
+      <span class="lena__avatar" aria-hidden="true">💬</span>
+      <div class="lena__header-text">
+        <strong class="lena__name">Lena</strong>
+        <span class="lena__subtitle">{lena.title}</span>
+      </div>
+      <button type="button" class="lena__close" data-lena-toggle aria-label={lena.closeLabel}>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+    </header>
+
+    <div class="lena__body">
+      <p class="lena__greeting">{lena.greeting}</p>
+      <p class="lena__note">{lena.introNote}</p>
+
+      <form class="lena__form" novalidate></form>
+
+      <div class="lena__nav">
+        <button type="button" class="lena__back" data-lena-back hidden>{lena.back}</button>
+        <button type="button" class="lena__next" data-lena-next>{lena.next}</button>
+      </div>
+
+      <div class="lena__result" hidden></div>
+    </div>
+  </div>
+
+  <script type="application/json" data-lena-i18n set:html={JSON.stringify(lena)}></script>
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector<HTMLElement>('.lena');
+    if (!root) return;
+    const panel = document.getElementById('lena-panel') as HTMLElement;
+    const launcher = root.querySelector<HTMLButtonElement>('[data-lena-toggle]') as HTMLButtonElement;
+    const i18n = JSON.parse((document.querySelector('[data-lena-i18n]') as HTMLScriptElement).textContent || '{}');
+    const apiUrl = root.dataset.api || 'https://api.codiva.cl';
+    const turnstileSiteKey = root.dataset.turnstileSiteKey || '';
+
+    const state = {
+      requestType: '',
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      problem: '',
+      scope: '',
+      timeline: '',
+      budget: '',
+      file: null as File | null,
+      confirmed: false,
+      turnstileToken: '',
+      step: 0,
+    };
+
+    let turnstileLoaded = false;
+
+    const open = () => {
+      panel.hidden = false;
+      launcher.setAttribute('aria-expanded', 'true');
+      render();
+      window.gtag?.('event', 'lena_open', { language: document.documentElement.lang });
+    };
+    const close = () => {
+      panel.hidden = true;
+      launcher.setAttribute('aria-expanded', 'false');
+    };
+    const toggle = () => (panel.hidden ? open() : close());
+
+    launcher.addEventListener('click', toggle);
+    root.querySelectorAll<HTMLElement>('[data-lena-toggle]').forEach((el) => el.addEventListener('click', toggle));
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[data-lena-open]')) {
+        e.preventDefault();
+        open();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) {
+        close();
+        launcher.focus();
+      }
+    });
+
+    const form = root.querySelector<HTMLFormElement>('.lena__form')!;
+    const nav = root.querySelector<HTMLElement>('.lena__nav')!;
+    const resultEl = root.querySelector<HTMLElement>('.lena__result')!;
+    const backBtn = root.querySelector<HTMLButtonElement>('[data-lena-back]')!;
+    const nextBtn = root.querySelector<HTMLButtonElement>('[data-lena-next]')!;
+
+    const el = <K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<string, string> = {}, children: (Node | string)[] = []): HTMLElementTagNameMap[K] => {
+      const node = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+      for (const child of children) node.append(child);
+      return node;
+    };
+    const text = (v: string) => document.createTextNode(v);
+
+    const field = (label: string, input: HTMLInputElement | HTMLTextAreaElement) => {
+      const id = `lena-${label.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
+      input.id = id;
+      const wrapper = el('label', { class: 'lena__field' }, [el('span', { class: 'lena__field-label' }, [text(label)]), input]);
+      return wrapper;
+    };
+
+    const makeInput = (attrs: Record<string, string> = {}) =>
+      el('input', { class: 'lena__input', type: 'text', ...attrs }) as HTMLInputElement;
+    const makeTextarea = (attrs: Record<string, string> = {}) =>
+      el('textarea', { class: 'lena__textarea', rows: '4', ...attrs }) as HTMLTextAreaElement;
+
+    function buildSteps() {
+      const steps = i18n.steps;
+
+      // Step 0 — request type
+      const step0 = el('fieldset', { class: 'lena__step', 'data-step': '0' }, [
+        el('legend', { class: 'lena__step-label' }, [text(steps.requestType.label)]),
+        el('div', { class: 'lena__options' }, Object.entries(steps.requestType.options).map(([key, label]) =>
+          el('button', { type: 'button', class: 'lena__option', 'data-option': key }, [text(label as string)])
+        )),
+      ]);
+
+      // Step 1 — contact
+      const nameInput = makeInput({ placeholder: steps.contact.namePh, autocomplete: 'name' });
+      const emailInput = makeInput({ type: 'email', placeholder: steps.contact.emailPh, autocomplete: 'email' });
+      const phoneInput = makeInput({ type: 'tel', placeholder: steps.contact.phonePh, autocomplete: 'tel' });
+      const companyInput = makeInput({ placeholder: steps.contact.companyPh, autocomplete: 'organization' });
+      const step1 = el('fieldset', { class: 'lena__step', 'data-step': '1', hidden: '' }, [
+        el('legend', { class: 'lena__step-label' }, [text(steps.contact.label)]),
+        field(steps.contact.name, nameInput),
+        el('div', { class: 'lena__row' }, [
+          field(steps.contact.email, emailInput),
+          field(steps.contact.phone, phoneInput),
+        ]),
+        field(steps.contact.company, companyInput),
+      ]);
+
+      // Step 2 — details
+      const problemInput = makeTextarea({ placeholder: steps.details.problemPh });
+      const scopeInput = makeInput({ placeholder: steps.details.scopePh });
+      const timelineInput = makeInput({ placeholder: steps.details.timelinePh });
+      const budgetInput = makeInput({ placeholder: steps.details.budgetPh });
+      const step2 = el('fieldset', { class: 'lena__step', 'data-step': '2', hidden: '' }, [
+        el('legend', { class: 'lena__step-label' }, [text(steps.details.label)]),
+        field(steps.details.problem, problemInput),
+        el('div', { class: 'lena__row' }, [
+          field(steps.details.scope, scopeInput),
+          field(steps.details.timeline, timelineInput),
+          field(steps.details.budget, budgetInput),
+        ]),
+      ]);
+
+      // Step 3 — file
+      const fileInput = el('input', { type: 'file', accept: '.pdf,application/pdf', hidden: '' }) as HTMLInputElement;
+      const fileHint = el('p', { class: 'lena__file-hint' }, [text(steps.file.hint)]);
+      const fileButton = el('button', { type: 'button', class: 'lena__attach' }, [text(steps.file.attach)]);
+      const fileStatus = el('span', { class: 'lena__file-status' }, []);
+      fileButton.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files?.[0] || null;
+        if (!file) return;
+        if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+          fileStatus.textContent = i18n.errors.fileType;
+          fileInput.value = '';
+          state.file = null;
+          return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          fileStatus.textContent = i18n.errors.fileSize;
+          fileInput.value = '';
+          state.file = null;
+          return;
+        }
+        state.file = file;
+        fileStatus.textContent = `${steps.file.attached}: ${file.name}`;
+      });
+      const step3 = el('fieldset', { class: 'lena__step', 'data-step': '3', hidden: '' }, [
+        el('legend', { class: 'lena__step-label' }, [text(steps.file.label)]),
+        fileHint,
+        el('div', { class: 'lena__file-row' }, [fileButton, fileStatus]),
+        fileInput,
+      ]);
+
+      // Step 4 — confirm
+      const consentInput = el('input', { type: 'checkbox', class: 'lena__consent' }) as HTMLInputElement;
+      const consentLabel = el('label', { class: 'lena__consent-label' }, [consentInput, el('span', {}, [text(steps.confirm.consent)])]);
+      const submitBtn = el('button', { type: 'submit', class: 'lena__submit' }, [text(steps.confirm.submit)]);
+      const turnstileHost = el('div', { class: 'lena__turnstile' }, []);
+      const step4 = el('fieldset', { class: 'lena__step', 'data-step': '4', hidden: '' }, [
+        el('legend', { class: 'lena__step-label' }, [text(steps.confirm.label)]),
+        consentLabel,
+        turnstileHost,
+        submitBtn,
+      ]);
+
+      form.append(step0, step1, step2, step3, step4);
+
+      // Bindings
+      step0.querySelectorAll<HTMLButtonElement>('[data-option]').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          step0.querySelectorAll('[data-option]').forEach((b) => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          state.requestType = btn.dataset.option || '';
+        })
+      );
+      nameInput.addEventListener('input', () => (state.name = nameInput.value.trim()));
+      emailInput.addEventListener('input', () => (state.email = emailInput.value.trim()));
+      phoneInput.addEventListener('input', () => (state.phone = phoneInput.value.trim()));
+      companyInput.addEventListener('input', () => (state.company = companyInput.value.trim()));
+      problemInput.addEventListener('input', () => (state.problem = problemInput.value.trim()));
+      scopeInput.addEventListener('input', () => (state.scope = scopeInput.value.trim()));
+      timelineInput.addEventListener('input', () => (state.timeline = timelineInput.value.trim()));
+      budgetInput.addEventListener('input', () => (state.budget = budgetInput.value.trim()));
+      consentInput.addEventListener('change', () => (state.confirmed = consentInput.checked));
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        void doSubmit(submitBtn);
+      });
+
+      if (turnstileSiteKey) void loadTurnstile(turnstileHost);
+    }
+
+    function loadTurnstile(host: HTMLElement) {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.onload = () => {
+        const w = window as unknown as { turnstile?: { render: (...args: unknown[]) => string } };
+        if (!w.turnstile || turnstileLoaded) return;
+        turnstileLoaded = true;
+        w.turnstile.render(host, {
+          sitekey: turnstileSiteKey,
+          callback: (token: string) => (state.turnstileToken = token),
+        });
+      };
+      document.head.appendChild(script);
+    }
+
+    function validateStep(step: number): boolean {
+      if (step === 0) return !!state.requestType;
+      if (step === 1) {
+        if (!state.name) return false;
+        const emailOk = !state.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email);
+        const phoneOk = /^[+0-9 ()-]{7,32}$/.test(state.phone) || !state.phone;
+        return emailOk && phoneOk;
+      }
+      if (step === 2) return state.problem.length >= 10;
+      if (step === 4) return state.confirmed;
+      return true;
+    }
+
+    function render() {
+      form.querySelectorAll<HTMLElement>('.lena__step').forEach((s) => {
+        const num = Number(s.dataset.step);
+        s.hidden = num !== state.step;
+      });
+      backBtn.hidden = state.step === 0;
+      nextBtn.hidden = state.step === 4;
+      if (state.step === 4) {
+        nextBtn.hidden = true;
+      } else {
+        nextBtn.hidden = false;
+        nextBtn.textContent = i18n.next;
+      }
+    }
+
+    backBtn.addEventListener('click', () => {
+      if (state.step > 0) state.step -= 1;
+      render();
+    });
+    nextBtn.addEventListener('click', () => {
+      if (!validateStep(state.step)) return;
+      if (state.step < 4) state.step += 1;
+      render();
+    });
+
+    async function doSubmit(submitBtn: HTMLButtonElement) {
+      if (!validateStep(4)) return;
+      const payload = {
+        submission_id: `web_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`,
+        client_name: state.name,
+        phone: state.phone || '-',
+        email: state.email || '',
+        company: state.company || '',
+        request_type: state.requestType,
+        service_area: i18n.steps.requestType.options[state.requestType] || state.requestType,
+        problem_goal: state.problem,
+        scope: state.scope || '',
+        timeline: state.timeline || '',
+        budget: state.budget || '',
+        preferred_next_step: 'Lena intake',
+        conversation_summary: state.problem.slice(0, 3000),
+        client_confirmed: true,
+        locale: document.documentElement.lang === 'es' ? 'es' : 'en',
+      };
+
+      const fd = new FormData();
+      fd.append('payload', JSON.stringify(payload));
+      fd.append('website', ''); // honeypot — humans leave this empty
+      if (state.turnstileToken) fd.append('turnstile_token', state.turnstileToken);
+      if (state.file) fd.append('file', state.file, state.file.name);
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = i18n.steps.confirm.submitting;
+      try {
+        const response = await fetch(`${apiUrl}/v1/intake`, { method: 'POST', body: fd });
+        if (!response.ok) throw new Error(`status ${response.status}`);
+        const data = await response.json();
+        showResult(true, data.booking_url);
+      } catch {
+        showResult(false);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = i18n.steps.confirm.submit;
+      }
+    }
+
+    function showResult(success: boolean, bookingUrl?: string) {
+      form.hidden = true;
+      nav.hidden = true;
+      resultEl.hidden = false;
+      resultEl.replaceChildren();
+      if (success) {
+        resultEl.append(
+          el('p', { class: 'lena__result-title' }, [text(i18n.success.title)]),
+          el('p', {}, [text(i18n.success.body)]),
+        );
+        if (bookingUrl) {
+          resultEl.append(
+            el('p', {}, [text(i18n.success.book)]),
+            el('a', { class: 'lena__book', href: bookingUrl, target: '_blank', rel: 'noopener noreferrer' }, [text(bookingUrl)]),
+          );
+        }
+        resultEl.append(el('button', { type: 'button', class: 'lena__again', 'data-lena-again': '' }, [text(i18n.success.again)]));
+        window.gtag?.('event', 'generate_lead', { method: 'lena', location: window.location.pathname, language: document.documentElement.lang });
+      } else {
+        resultEl.append(
+          el('p', { class: 'lena__result-title' }, [text(i18n.error.title)]),
+          el('p', {}, [text(i18n.error.body)]),
+          el('button', { type: 'button', class: 'lena__again', 'data-lena-again': '' }, [text(i18n.error.retry)]),
+        );
+      }
+      resultEl.querySelector('[data-lena-again]')?.addEventListener('click', reset);
+    }
+
+    function reset() {
+      form.hidden = false;
+      nav.hidden = false;
+      resultEl.hidden = true;
+      state.step = 0;
+      state.requestType = '';
+      state.name = '';
+      state.email = '';
+      state.phone = '';
+      state.company = '';
+      state.problem = '';
+      state.scope = '';
+      state.timeline = '';
+      state.budget = '';
+      state.file = null;
+      state.confirmed = false;
+      state.turnstileToken = '';
+      form.reset();
+      form.querySelectorAll('[data-option]').forEach((b) => b.classList.remove('is-selected'));
+      render();
+    }
+
+    buildSteps();
+    render();
+
+    // Expose for programmatic opening.
+    (window as unknown as { Lena: { open: () => void } }).Lena = { open };
+  })();
+</script>

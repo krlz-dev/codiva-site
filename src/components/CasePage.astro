@@ -136,9 +136,9 @@ const pageT = { ...t, meta: data.meta, schema };
           <h2 id="case-cta-title">{data.ctaTitle}</h2>
           <p>{data.ctaText}</p>
         </div>
-        <a class="btn btn--primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer" data-cta="calendar" data-cta-location={`case-${data.key}`}>
+        <button type="button" class="btn btn--primary" data-lena-open data-cta="lena" data-cta-location={`case-${data.key}`}>
           {data.ctaLabel} <span aria-hidden="true">↗</span>
-        </a>
+        </button>
       </section>
     </div>
   </main>
