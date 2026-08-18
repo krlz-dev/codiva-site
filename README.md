@@ -41,6 +41,22 @@ Para cambiar textos, traducciones, FAQ, servicios o datos SEO/Schema, edita
 Las dos páginas comparten la misma estructura (`components/Page.astro`), así que un
 cambio de diseño se aplica a ambos idiomas a la vez.
 
+## Intake API
+
+The website assistant's storage API lives in `intake-api/` and runs separately from the static Astro build. It is intentionally bound to localhost on the VPS until a controlled HTTPS route is configured.
+
+```bash
+cd intake-api
+uv sync --group test
+uv run pytest -q
+docker compose up -d --build
+curl http://127.0.0.1:8787/health
+```
+
+Runtime credentials belong in `intake-api/.env` and `intake-api/secrets/`; both are ignored by Git. The API accepts only validated, explicitly confirmed intake payloads and appends to the Codiva Google Sheet. It does not accept payments, contracts, arbitrary spreadsheet operations, or secrets from clients.
+
+For public use, route `api.codiva.cl` to the API through a named HTTPS tunnel or an explicitly configured reverse proxy. Do not bind port 8787 to `0.0.0.0`.
+
 ## Deploy
 
 Push a `main` dispara `.github/workflows/deploy.yml`, que construye con Astro y publica

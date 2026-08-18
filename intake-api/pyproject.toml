@@ -1,0 +1,22 @@
+[project]
+name = "codiva-intake-api"
+version = "0.1.0"
+description = "Secure intake endpoint for Codiva's Lena website assistant"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "google-api-python-client>=2.160,<3",
+  "google-auth>=2.37,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[dependency-groups]
+test = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]

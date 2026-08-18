@@ -9,5 +9,14 @@ node_modules/
 .env.production
 # logs
 npm-debug.log*
+
+# intake API runtime secrets and state
+intake-api/.venv/
+intake-api/.pytest_cache/
+intake-api/**/__pycache__/
+intake-api/secrets/
+intake-api/.env
+intake-api/data/
+
 # macOS / editors
 .DS_Store

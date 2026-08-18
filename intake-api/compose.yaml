@@ -1,0 +1,22 @@
+services:
+  intake-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: codiva-lena-intake:local
+    container_name: codiva-lena-intake
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:8787:8787"
+    env_file:
+      - .env
+    volumes:
+      - ./secrets/google_token.json:/run/secrets/google_token.json:rw
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
