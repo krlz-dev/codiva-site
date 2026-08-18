@@ -790,8 +790,11 @@ export default {
     },
     errors: {
       required: 'Completa este campo',
+      requestType: 'Elige una opción para continuar',
+      name: 'Escribe tu nombre para continuar',
       email: 'Correo no válido',
       phone: 'Teléfono no válido',
+      problem: 'Cuéntanos un poco más (mínimo 5 caracteres)',
       fileType: 'Solo se aceptan archivos PDF',
       fileSize: 'El archivo supera 5 MB',
       consent: 'Debes aceptar para continuar',

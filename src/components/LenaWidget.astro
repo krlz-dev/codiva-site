@@ -39,6 +39,8 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
 
       <form class="lena__form" novalidate></form>
 
+      <p class="lena__error" data-lena-error hidden></p>
+
       <div class="lena__nav">
         <button type="button" class="lena__back" data-lena-back hidden>{lena.back}</button>
         <button type="button" class="lena__next" data-lena-next>{lena.next}</button>
@@ -112,6 +114,7 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
     const resultEl = root.querySelector<HTMLElement>('.lena__result')!;
     const backBtn = root.querySelector<HTMLButtonElement>('[data-lena-back]')!;
     const nextBtn = root.querySelector<HTMLButtonElement>('[data-lena-next]')!;
+    const errorEl = root.querySelector<HTMLElement>('[data-lena-error]')!;
 
     const el = <K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<string, string> = {}, children: (Node | string)[] = []): HTMLElementTagNameMap[K] => {
       const node = document.createElement(tag);
@@ -261,20 +264,41 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
       document.head.appendChild(script);
     }
 
+    function showError(message: string) {
+      errorEl.textContent = message;
+      errorEl.hidden = false;
+    }
+
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.hidden = true;
+    }
+
     function validateStep(step: number): boolean {
-      if (step === 0) return !!state.requestType;
-      if (step === 1) {
-        if (!state.name) return false;
-        const emailOk = !state.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email);
-        const phoneOk = /^[+0-9 ()-]{7,32}$/.test(state.phone) || !state.phone;
-        return emailOk && phoneOk;
+      clearError();
+      if (step === 0) {
+        if (!state.requestType) { showError(i18n.errors.requestType); return false; }
+        return true;
       }
-      if (step === 2) return state.problem.length >= 10;
-      if (step === 4) return state.confirmed;
+      if (step === 1) {
+        if (!state.name) { showError(i18n.errors.name); return false; }
+        if (state.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) { showError(i18n.errors.email); return false; }
+        if (state.phone && !/^[+0-9 ()-]{7,32}$/.test(state.phone)) { showError(i18n.errors.phone); return false; }
+        return true;
+      }
+      if (step === 2) {
+        if (state.problem.length < 5) { showError(i18n.errors.problem); return false; }
+        return true;
+      }
+      if (step === 4) {
+        if (!state.confirmed) { showError(i18n.errors.consent); return false; }
+        return true;
+      }
       return true;
     }
 
     function render() {
+      clearError();
       form.querySelectorAll<HTMLElement>('.lena__step').forEach((s) => {
         const num = Number(s.dataset.step);
         s.hidden = num !== state.step;

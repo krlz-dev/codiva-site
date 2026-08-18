@@ -787,8 +787,11 @@ export default {
     },
     errors: {
       required: 'Please complete this field',
+      requestType: 'Choose an option to continue',
+      name: 'Enter your name to continue',
       email: 'Invalid email',
       phone: 'Invalid phone number',
+      problem: 'Tell us a bit more (at least 5 characters)',
       fileType: 'Only PDF files are accepted',
       fileSize: 'The file exceeds 5 MB',
       consent: 'You must accept to continue',
