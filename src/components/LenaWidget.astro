@@ -25,7 +25,7 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
     <header class="lena__header">
       <span class="lena__avatar" aria-hidden="true">💬</span>
       <div class="lena__header-text">
-        <strong class="lena__name">Lena</strong>
+        <strong class="lena__name">Codiva</strong>
         <span class="lena__subtitle">{lena.title}</span>
       </div>
       <button type="button" class="lena__close" data-lena-toggle aria-label={lena.closeLabel}>
@@ -329,7 +329,7 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
         scope: '',
         timeline: d.timeline || '',
         budget: d.budget || '',
-        preferred_next_step: 'Lena intake',
+        preferred_next_step: 'Formulario web',
         conversation_summary: d.problem.slice(0, 3000),
         client_confirmed: true,
         locale: document.documentElement.lang === 'es' ? 'es' : 'en',
