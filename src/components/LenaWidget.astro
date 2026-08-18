@@ -1,14 +1,12 @@
 ---
-// Lena — codiva's website assistant. A floating chat widget where Lena asks one
-// question at a time (chat bubbles + quick replies) and submits to the secure
-// intake API only after the client confirms. The booking URL is never surfaced.
+// codiva — contact form widget. A floating launcher opens a single-panel form
+// that submits to the secure intake API only after the client confirms.
 const { t } = Astro.props;
 const lena = t.lena;
 const apiUrl = 'https://api.codiva.cl';
-const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) || '';
 ---
 
-<div class="lena" data-api={apiUrl} data-turnstile-site-key={turnstileSiteKey}>
+<div class="lena" data-api={apiUrl}>
   <button
     type="button"
     class="lena__launcher"
@@ -33,18 +31,85 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
       </button>
     </header>
 
-    <div class="lena__messages" data-lena-messages></div>
+    <form class="lena__form" data-lena-form novalidate>
+      <p class="lena__intro">{lena.intro}</p>
+      <p class="lena__hint">{lena.requiredHint}</p>
 
-    <div class="lena__chips" data-lena-chips hidden></div>
+      <fieldset class="lena__types">
+        <legend class="lena__label">{lena.requestTypeLabel} <span class="lena__req">*</span></legend>
+        {Object.entries(lena.requestTypeOptions).map(([value, label]) => (
+          <label class="lena__type">
+            <input type="radio" name="request_type" value={value} />
+            <span>{label}</span>
+          </label>
+        ))}
+        <span class="lena__err" data-error="type" hidden></span>
+      </fieldset>
 
-    <form class="lena__composer" data-lena-composer novalidate>
-      <input class="lena__composer-input" type="text" data-lena-input placeholder={lena.placeholder} autocomplete="off" />
-      <button type="submit" class="lena__composer-send" data-lena-send aria-label={lena.send}>
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M3.4 20.4 20.85 12 3.4 3.6l-.01 6.53L15 12 3.39 13.87z" /></svg>
-      </button>
+      <div class="lena__field">
+        <label class="lena__label" for="lena-name">{lena.fields.name.label} <span class="lena__req">*</span></label>
+        <input class="lena__input" id="lena-name" name="name" type="text" placeholder={lena.fields.name.placeholder} autocomplete="name" aria-describedby="lena-err-name" />
+        <span class="lena__err" id="lena-err-name" data-error="name" hidden></span>
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-email">{lena.fields.email.label}</label>
+        <input class="lena__input" id="lena-email" name="email" type="email" placeholder={lena.fields.email.placeholder} autocomplete="email" aria-describedby="lena-err-email" />
+        <span class="lena__err" id="lena-err-email" data-error="email" hidden></span>
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-phone">{lena.fields.phone.label}</label>
+        <input class="lena__input" id="lena-phone" name="phone" type="tel" placeholder={lena.fields.phone.placeholder} autocomplete="tel" aria-describedby="lena-err-phone" />
+        <span class="lena__err" id="lena-err-phone" data-error="phone" hidden></span>
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-company">{lena.fields.company.label}</label>
+        <input class="lena__input" id="lena-company" name="company" type="text" placeholder={lena.fields.company.placeholder} autocomplete="organization" />
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-problem">{lena.fields.problem.label} <span class="lena__req">*</span></label>
+        <textarea class="lena__textarea" id="lena-problem" name="problem" placeholder={lena.fields.problem.placeholder} aria-describedby="lena-err-problem"></textarea>
+        <span class="lena__err" id="lena-err-problem" data-error="problem" hidden></span>
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-timeline">{lena.fields.timeline.label}</label>
+        <input class="lena__input" id="lena-timeline" name="timeline" type="text" placeholder={lena.fields.timeline.placeholder} />
+      </div>
+
+      <div class="lena__field">
+        <label class="lena__label" for="lena-budget">{lena.fields.budget.label}</label>
+        <input class="lena__input" id="lena-budget" name="budget" type="text" placeholder={lena.fields.budget.placeholder} />
+      </div>
+
+      <div class="lena__field">
+        <span class="lena__label">{lena.fields.file.label}</span>
+        <label class="lena__file" for="lena-file">
+          <span data-file-label>{lena.fileChoose}</span>
+        </label>
+        <input id="lena-file" name="file" type="file" accept=".pdf,application/pdf" hidden />
+        <span class="lena__err" data-error="file" hidden></span>
+      </div>
+
+      <label class="lena__confirm" for="lena-confirm">
+        <input id="lena-confirm" name="confirm" type="checkbox" />
+        <span>{lena.confirm}</span>
+      </label>
+      <span class="lena__err" data-error="confirm" hidden></span>
+
+      <input type="text" name="website" class="lena__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <button type="submit" class="lena__submit">{lena.submit}</button>
     </form>
 
-    <input type="file" accept=".pdf,application/pdf" hidden data-lena-file />
+    <div class="lena__result" data-lena-result hidden>
+      <p class="lena__result-title" data-result-title></p>
+      <p class="lena__result-body" data-result-body></p>
+      <button type="button" class="lena__again" data-lena-again></button>
+    </div>
   </div>
 
   <script type="application/json" data-lena-i18n set:html={JSON.stringify(lena)}></script>
@@ -55,48 +120,51 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
     const root = document.querySelector<HTMLElement>('.lena');
     if (!root) return;
     const panel = document.getElementById('lena-panel') as HTMLElement;
-    const launcher = root.querySelector<HTMLButtonElement>('[data-lena-toggle]') as HTMLButtonElement;
+    const toggles = root.querySelectorAll<HTMLButtonElement>('[data-lena-toggle]');
+    const form = root.querySelector<HTMLFormElement>('[data-lena-form]')!;
+    const resultEl = root.querySelector<HTMLElement>('[data-lena-result]')!;
+    const resultTitle = resultEl.querySelector<HTMLElement>('[data-result-title]')!;
+    const resultBody = resultEl.querySelector<HTMLElement>('[data-result-body]')!;
+    const againBtn = resultEl.querySelector<HTMLButtonElement>('[data-lena-again]')!;
     const i18n = JSON.parse((document.querySelector('[data-lena-i18n]') as HTMLScriptElement).textContent || '{}');
     const apiUrl = root.dataset.api || 'https://api.codiva.cl';
 
-    const messagesEl = root.querySelector<HTMLElement>('[data-lena-messages]')!;
-    const chipsEl = root.querySelector<HTMLElement>('[data-lena-chips]')!;
-    const composerEl = root.querySelector<HTMLElement>('[data-lena-composer]')!;
-    const inputEl = root.querySelector<HTMLInputElement>('[data-lena-input]')!;
-    const fileInput = root.querySelector<HTMLInputElement>('[data-lena-file]')!;
+    const fileInput = form.querySelector<HTMLInputElement>('input[name="file"]')!;
+    const fileLabel = form.querySelector<HTMLElement>('[data-file-label]')!;
+    let file: File | null = null;
+    let lastSuccess = true;
 
-    interface Field { requestType: string; name: string; email: string; phone: string; company: string; problem: string; timeline: string; budget: string }
+    function setError(key: string, message: string) {
+      const el = form.querySelector<HTMLElement>(`[data-error="${key}"]`);
+      if (!el) return;
+      if (message) {
+        el.textContent = message;
+        el.hidden = false;
+      } else {
+        el.hidden = true;
+      }
+    }
 
-    const state: { step: number; started: boolean; data: Field; file: File | null; turnstileToken: string } = {
-      step: 0,
-      started: false,
-      data: { requestType: '', name: '', email: '', phone: '', company: '', problem: '', timeline: '', budget: '' },
-      file: null,
-      turnstileToken: '',
-    };
+    function clearErrors() {
+      form.querySelectorAll<HTMLElement>('[data-error]').forEach((el) => {
+        el.hidden = true;
+      });
+    }
 
-    const el = <K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<string, string> = {}, children: (Node | string)[] = []): HTMLElementTagNameMap[K] => {
-      const node = document.createElement(tag);
-      for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
-      for (const child of children) node.append(child);
-      return node;
-    };
-    const text = (v: string) => document.createTextNode(v);
-
-    const open = () => {
+    function open() {
       panel.hidden = false;
-      launcher.setAttribute('aria-expanded', 'true');
-      if (!state.started) start();
-      window.gtag?.('event', 'lena_open', { language: document.documentElement.lang });
-    };
-    const close = () => {
-      panel.hidden = true;
-      launcher.setAttribute('aria-expanded', 'false');
-    };
-    const toggle = () => (panel.hidden ? open() : close());
+      toggles.forEach((b) => b.setAttribute('aria-expanded', 'true'));
+      window.gtag?.('event', 'form_open', { language: document.documentElement.lang });
+    }
 
-    launcher.addEventListener('click', toggle);
-    root.querySelectorAll<HTMLElement>('[data-lena-toggle]').forEach((btn) => btn.addEventListener('click', toggle));
+    function close() {
+      panel.hidden = true;
+      toggles.forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    }
+
+    const toggle = () => (panel.hidden ? open() : close());
+    toggles.forEach((b) => b.addEventListener('click', toggle));
+
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.closest('[data-lena-open]')) {
@@ -104,242 +172,113 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
         open();
       }
     });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !panel.hidden) {
         close();
-        launcher.focus();
+        (toggles[0] as HTMLElement | undefined)?.focus();
       }
     });
-
-    // ---- message rendering -------------------------------------------------
-
-    function addMessage(role: 'lena' | 'user', value: string, extraClass = '') {
-      const bubble = el('div', { class: `lena__msg lena__msg--${role}${extraClass ? ' ' + extraClass : ''}` }, [text(value)]);
-      messagesEl.appendChild(bubble);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-    const addLena = (value: string, extraClass = '') => addMessage('lena', value, extraClass);
-    const addUser = (value: string) => addMessage('user', value);
-
-    // ---- chips --------------------------------------------------------------
-
-    function showChips(options: { value: string; label: string }[]) {
-      chipsEl.replaceChildren();
-      if (!options.length) {
-        chipsEl.hidden = true;
-        return;
-      }
-      chipsEl.hidden = false;
-      options.forEach((opt) => {
-        const btn = el('button', { type: 'button', class: 'lena__chip', 'data-chip': opt.value }, [text(opt.label)]);
-        btn.addEventListener('click', () => onChip(opt.value));
-        chipsEl.appendChild(btn);
-      });
-    }
-    function hideChips() {
-      chipsEl.replaceChildren();
-      chipsEl.hidden = true;
-    }
-
-    // ---- composer -----------------------------------------------------------
-
-    function setComposer(enabled: boolean) {
-      composerEl.style.display = enabled ? 'flex' : 'none';
-    }
-
-    // ---- conversation flow ---------------------------------------------------
-
-    const flow: Array<{
-      key?: keyof Field;
-      kind: 'choice' | 'text' | 'confirm';
-      prompt: () => string;
-      options?: () => { value: string; label: string }[];
-      optional?: boolean;
-      validate?: (v: string) => boolean;
-      error?: string;
-    }> = [
-      { kind: 'choice', prompt: () => i18n.requestTypeLabel, options: () => Object.entries(i18n.requestTypeOptions).map(([v, l]) => ({ value: v, label: l as string })) },
-      { key: 'name', kind: 'text', prompt: () => i18n.prompts.name, validate: (v) => v.trim().length >= 2, error: i18n.errors.name },
-      { key: 'email', kind: 'text', optional: true, prompt: () => i18n.prompts.email, validate: (v) => !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), error: i18n.errors.email },
-      { key: 'phone', kind: 'text', optional: true, prompt: () => i18n.prompts.phone, validate: (v) => !v.trim() || /^[+0-9 ()-]{7,32}$/.test(v.trim()), error: i18n.errors.phone },
-      { key: 'company', kind: 'text', optional: true, prompt: () => i18n.prompts.company, validate: () => true },
-      { key: 'problem', kind: 'text', prompt: () => i18n.prompts.problem, validate: (v) => v.trim().length >= 5, error: i18n.errors.problem },
-      { key: 'timeline', kind: 'text', optional: true, prompt: () => i18n.prompts.timeline, validate: () => true },
-      { key: 'budget', kind: 'text', optional: true, prompt: () => i18n.prompts.budget, validate: () => true },
-      { kind: 'choice', prompt: () => i18n.prompts.file, options: () => [{ value: 'yes', label: i18n.fileYes }, { value: 'no', label: i18n.fileNo }] },
-      { kind: 'confirm', prompt: () => '' },
-    ];
-
-    function start() {
-      state.started = true;
-      state.step = 0;
-      state.data = { requestType: '', name: '', email: '', phone: '', company: '', problem: '', timeline: '', budget: '' };
-      state.file = null;
-      state.turnstileToken = '';
-      messagesEl.replaceChildren();
-      addLena(i18n.greeting);
-      addLena(i18n.introNote, 'lena__msg--note');
-      askStep();
-    }
-
-    function askStep() {
-      const s = flow[state.step];
-      if (!s || s.kind === 'confirm') {
-        showConfirm();
-        return;
-      }
-      if (s.kind === 'choice') {
-        addLena(s.prompt());
-        showChips(s.options ? s.options() : []);
-        setComposer(false);
-      } else if (s.kind === 'text') {
-        addLena(s.prompt());
-        showChips(s.optional ? [{ value: '__skip__', label: i18n.skip }] : []);
-        setComposer(true);
-        inputEl.value = '';
-        inputEl.focus();
-      }
-    }
-
-    function advance() {
-      state.step += 1;
-      askStep();
-    }
-
-    function onChip(value: string) {
-      const s = flow[state.step];
-      if (!s) return;
-      if (s.key === undefined && s.kind === 'choice') {
-        // request type or file choice — distinguish by whether options match
-        if (value === 'yes' || value === 'no') {
-          // file choice
-          if (value === 'yes') {
-            addUser(i18n.fileYes);
-            fileInput.click();
-          } else {
-            addUser(i18n.fileNo);
-            advance();
-          }
-        } else {
-          // request type
-          const label = i18n.requestTypeOptions[value] || value;
-          addUser(label);
-          state.data.requestType = value;
-          advance();
-        }
-      } else if (value === '__skip__') {
-        addUser(i18n.skip);
-        advance();
-      } else if (s.kind === 'confirm') {
-        if (value === 'yes') {
-          addUser(i18n.confirmYes);
-          void submit();
-        } else {
-          addUser(i18n.confirmNo);
-          start();
-        }
-      }
-    }
-
-    function onSend() {
-      const s = flow[state.step];
-      if (!s || s.kind !== 'text' || s.key === undefined) return;
-      const raw = inputEl.value;
-      const value = raw.trim();
-      if (!value) {
-        if (s.optional) {
-          addUser(i18n.skip);
-          advance();
-        } else {
-          addLena(s.error || '');
-        }
-        return;
-      }
-      if (s.validate && !s.validate(value)) {
-        addLena(s.error || '');
-        return;
-      }
-      addUser(value);
-      state.data[s.key] = value;
-      advance();
-    }
-
-    composerEl.addEventListener('submit', (e) => {
-      e.preventDefault();
-      onSend();
-    });
-
-    // ---- file ---------------------------------------------------------------
 
     fileInput.addEventListener('change', () => {
-      const file = fileInput.files?.[0] || null;
+      const picked = fileInput.files?.[0] || null;
       fileInput.value = '';
-      if (!file) return;
-      if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-        addLena(i18n.errors.fileType);
-        askStep();
+      if (!picked) return;
+      if (picked.type !== 'application/pdf' && !picked.name.toLowerCase().endsWith('.pdf')) {
+        file = null;
+        fileLabel.textContent = i18n.fileChoose;
+        setError('file', i18n.errors.fileType);
         return;
       }
-      if (file.size > 5 * 1024 * 1024) {
-        addLena(i18n.errors.fileSize);
-        askStep();
+      if (picked.size > 5 * 1024 * 1024) {
+        file = null;
+        fileLabel.textContent = i18n.fileChoose;
+        setError('file', i18n.errors.fileSize);
         return;
       }
-      state.file = file;
-      addLena(`${i18n.fileAttached}: ${file.name}`);
-      advance();
+      file = picked;
+      fileLabel.textContent = `📎 ${picked.name}`;
+      setError('file', '');
     });
 
-    // ---- confirm + submit ----------------------------------------------------
-
-    function showConfirm() {
-      const d = state.data;
-      const lines: string[] = [
-        `${i18n.summary.service}: ${i18n.requestTypeOptions[d.requestType]}`,
-        `${i18n.summary.name}: ${d.name}`,
-      ];
-      if (d.email) lines.push(`${i18n.summary.email}: ${d.email}`);
-      if (d.phone) lines.push(`${i18n.summary.phone}: ${d.phone}`);
-      if (d.company) lines.push(`${i18n.summary.company}: ${d.company}`);
-      lines.push(`${i18n.summary.need}: ${d.problem}`);
-      if (d.timeline) lines.push(`${i18n.summary.timeline}: ${d.timeline}`);
-      if (d.budget) lines.push(`${i18n.summary.budget}: ${d.budget}`);
-      if (state.file) lines.push(`${i18n.summary.file}: ${state.file.name}`);
-      addLena(i18n.summary.title);
-      addLena(lines.join('\n'));
-      addLena(i18n.summary.ask);
-      showChips([
-        { value: 'yes', label: i18n.confirmYes },
-        { value: 'no', label: i18n.confirmNo },
-      ]);
-      setComposer(false);
+    function valueOf(name: string): string {
+      const el = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${name}"]`);
+      return (el?.value || '').trim();
     }
 
-    async function submit() {
-      const d = state.data;
+    function validate(): boolean {
+      clearErrors();
+      let ok = true;
+
+      const type = form.querySelector<HTMLInputElement>('input[name="request_type"]:checked');
+      if (!type) {
+        setError('type', i18n.errors.type);
+        ok = false;
+      }
+
+      const name = valueOf('name');
+      const email = valueOf('email');
+      const phone = valueOf('phone');
+      const problem = valueOf('problem');
+      const confirmed = (form.querySelector<HTMLInputElement>('input[name="confirm"]') as HTMLInputElement).checked;
+
+      if (name.length < 2) {
+        setError('name', i18n.errors.name);
+        ok = false;
+      }
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError('email', i18n.errors.email);
+        ok = false;
+      }
+      if (phone && !/^[+0-9 ()-]{7,32}$/.test(phone)) {
+        setError('phone', i18n.errors.phone);
+        ok = false;
+      }
+      if (problem.length < 5) {
+        setError('problem', i18n.errors.problem);
+        ok = false;
+      }
+      if (!confirmed) {
+        setError('confirm', i18n.errors.confirm);
+        ok = false;
+      }
+
+      return ok;
+    }
+
+    async function submit(e: Event) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const type = form.querySelector<HTMLInputElement>('input[name="request_type"]:checked')!.value;
+      const problem = valueOf('problem');
+
       const payload = {
         submission_id: `web_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`,
-        client_name: d.name,
-        phone: d.phone || '',
-        email: d.email || '',
-        company: d.company || '',
-        request_type: d.requestType,
-        service_area: i18n.requestTypeOptions[d.requestType] || d.requestType,
-        problem_goal: d.problem,
-        scope: '',
-        timeline: d.timeline || '',
-        budget: d.budget || '',
+        client_name: valueOf('name'),
+        phone: valueOf('phone'),
+        email: valueOf('email') || null,
+        company: valueOf('company') || null,
+        request_type: type,
+        service_area: i18n.requestTypeOptions[type] || type,
+        problem_goal: problem,
+        scope: null,
+        timeline: valueOf('timeline') || null,
+        budget: valueOf('budget') || null,
         preferred_next_step: 'Formulario web',
-        conversation_summary: d.problem.slice(0, 3000),
+        conversation_summary: problem.slice(0, 3000),
         client_confirmed: true,
         locale: document.documentElement.lang === 'es' ? 'es' : 'en',
       };
 
       const fd = new FormData();
       fd.append('payload', JSON.stringify(payload));
-      fd.append('website', ''); // honeypot — humans leave this empty
-      if (state.turnstileToken) fd.append('turnstile_token', state.turnstileToken);
-      if (state.file) fd.append('file', state.file, state.file.name);
+      fd.append('website', valueOf('website'));
+      if (file) fd.append('file', file, file.name);
+
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      submitBtn.disabled = true;
+      submitBtn.textContent = i18n.submitting;
 
       try {
         const response = await fetch(`${apiUrl}/v1/intake`, { method: 'POST', body: fd });
@@ -348,28 +287,40 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
         showResult(true);
       } catch {
         showResult(false);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = i18n.submit;
       }
     }
 
     function showResult(success: boolean) {
-      hideChips();
-      setComposer(false);
-      if (success) {
-        addLena(i18n.success.title);
-        addLena(i18n.success.body);
-        window.gtag?.('event', 'generate_lead', { method: 'lena', location: window.location.pathname, language: document.documentElement.lang });
-      } else {
-        addLena(i18n.error.title);
-        addLena(i18n.error.body);
-      }
-      const again = el('button', { type: 'button', class: 'lena__chip lena__chip--again', 'data-lena-again': '' }, [text(success ? i18n.success.again : i18n.error.retry)]);
-      again.addEventListener('click', () => (success ? start() : void submit()));
-      chipsEl.replaceChildren(again);
-      chipsEl.hidden = false;
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+      lastSuccess = success;
+      form.hidden = true;
+      resultEl.hidden = false;
+      resultTitle.textContent = success ? i18n.success.title : i18n.error.title;
+      resultBody.textContent = success ? i18n.success.body : i18n.error.body;
+      againBtn.textContent = success ? i18n.success.again : i18n.error.retry;
+      window.gtag?.('event', 'generate_lead', {
+        method: 'form',
+        location: window.location.pathname,
+        language: document.documentElement.lang,
+      });
     }
 
-    // Expose for programmatic opening.
-    (window as unknown as { Lena: { open: () => void } }).Lena = { open };
+    againBtn.addEventListener('click', () => {
+      resultEl.hidden = true;
+      form.hidden = false;
+      if (lastSuccess) {
+        form.reset();
+        file = null;
+        fileLabel.textContent = i18n.fileChoose;
+      }
+      clearErrors();
+    });
+
+    form.addEventListener('submit', submit);
+
+    // Programmatic open (e.g. a "contact" CTA elsewhere on the page).
+    (window as unknown as { CodivaForm: { open: () => void } }).CodivaForm = { open };
   })();
 </script>

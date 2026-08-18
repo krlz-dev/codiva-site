@@ -556,11 +556,11 @@ check('offer ladder starts with rescue and exposes bounded risk', () => {
   }
 });
 
-check('GA4 tracks Lena opens/submits and email CTA channels', () => {
+check('GA4 tracks contact-form opens/submits and email CTA channels', () => {
   for (const token of ['generate_lead', 'email_click']) {
     assert.ok(all.includes(token), `missing analytics token: ${token}`);
   }
-  assert.ok(js.includes('lena_open'), 'Lena widget does not track opens');
+  assert.ok(all.includes('form_open'), 'contact form does not track opens');
 });
 
 check('fonts and analytics stay out of the critical rendering path', () => {
