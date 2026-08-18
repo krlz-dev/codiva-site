@@ -121,7 +121,6 @@ def test_oversized_file_is_rejected(monkeypatch):
 def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
     monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
     monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
-    monkeypatch.setenv("CAL_BOOKING_URL", "https://cal.com/example/30min")
 
     class FakeWriter:
         async def append(self, item, attachment):
@@ -133,5 +132,5 @@ def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
     response = submit(valid_payload())
     assert response.status_code == 200
     assert response.json()["status"] == "accepted"
-    assert response.json()["booking_url"] == "https://cal.com/example/30min"
+    assert "booking_url" not in response.json()
     assert response.json()["updated_range"] == "Sheet1!A2:R2"

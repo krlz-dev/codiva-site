@@ -383,4 +383,4 @@ async def create_intake(
             asyncio.to_thread(telegram_notify, bot_token, chat_id, build_notification_text(data, attachment))
         )
 
-    return {"status": "accepted", "booking_url": env("CAL_BOOKING_URL") or "", **result}
+    return {"status": "accepted", **result}
