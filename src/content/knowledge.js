@@ -3,8 +3,8 @@ export const knowledgeContent = {
     hub: {
       meta: {
         title: 'Conocimiento sobre software, gestión, datos e IA | codiva®',
-        description: 'Guías bilingües de codiva® sobre arquitectura, gestión de software, programación agéntica, IoT, PostgreSQL, datos e integraciones.',
-        keywords: 'arquitectura de software, patrones de diseño, Design Patterns, Gang of Four, gestión de proyectos software, Mythical Man-Month, programación agéntica, LLM, IoT, PostgreSQL, datos',
+        description: 'Guías bilingües de codiva® sobre arquitectura, gestión de software, agentes Hermes, programación agéntica, IoT, PostgreSQL, datos e integraciones.',
+        keywords: 'arquitectura de software, Hermes Agent, SOUL.md, agentes IA, patrones de diseño, gestión de proyectos software, programación agéntica, LLM, IoT, PostgreSQL, datos',
         canonical: 'https://codiva.cl/conocimiento/',
         ogUrl: 'https://codiva.cl/conocimiento/',
         ogTitle: 'Conocimiento técnico — codiva®',
@@ -46,6 +46,13 @@ export const knowledgeContent = {
           title: 'Programación agéntica: más velocidad exige más control',
           summary: 'LLMs y agentes de programación bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.',
           topics: ['LLM', 'agentes', 'TDD'],
+        },
+        {
+          href: '/conocimiento/hermes-agent/',
+          area: 'IA aplicada · Arquitectura',
+          title: 'Hermes Agent: arquitectura, capacidades y SOUL.md',
+          summary: 'Cómo construir agentes como perfiles completos: identidad, contexto, memoria, skills, herramientas, automatización, seguridad y entrega.',
+          topics: ['Hermes', 'SOUL.md', 'agentes'],
         },
         {
           href: '/conocimiento/deepseek-harness/',
@@ -255,8 +262,8 @@ export const knowledgeContent = {
     hub: {
       meta: {
         title: 'Knowledge on software, management, data, and AI | codiva®',
-        description: 'Bilingual codiva® guides on software architecture and management, agentic programming, IoT, PostgreSQL, data, and integrations.',
-        keywords: 'software architecture, design patterns, Gang of Four, software project management, Mythical Man-Month, agentic programming, LLM, IoT, PostgreSQL, data',
+        description: 'Bilingual codiva® guides on software architecture and management, Hermes agents, agentic programming, IoT, PostgreSQL, data, and integrations.',
+        keywords: 'software architecture, Hermes Agent, SOUL.md, AI agents, design patterns, software project management, agentic programming, LLM, IoT, PostgreSQL, data',
         canonical: 'https://codiva.cl/en/knowledge/',
         ogUrl: 'https://codiva.cl/en/knowledge/',
         ogTitle: 'Technical knowledge — codiva®',
@@ -275,6 +282,7 @@ export const knowledgeContent = {
         { href: '/en/knowledge/nominatim-geocoding/', area: 'Geospatial data', title: 'Nominatim: scalable service, persistent data', summary: 'A stateless application layer around Nominatim with persistent PostgreSQL/PostGIS, caching, and explicit operational limits.', topics: ['Nominatim', 'PostGIS', 'Redis'] },
         { href: '/en/knowledge/integrations-postgresql/', area: 'Integrations and data', title: 'REST/SOAP adapters and PostgreSQL under load', summary: 'Contracts, retries, idempotency, and domain isolation alongside partitioning, indexes, query plans, bloat, and autovacuum.', topics: ['REST', 'SOAP', 'PostgreSQL'] },
         { href: '/en/knowledge/agentic-software-engineering/', area: 'Applied AI and engineering', title: 'Agentic programming: more speed requires stronger controls', summary: 'LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.', topics: ['LLM', 'agents', 'TDD'] },
+        { href: '/en/knowledge/hermes-agent/', area: 'Applied AI · Architecture', title: 'Hermes Agent: architecture, capabilities, and SOUL.md', summary: 'How to build agents as complete profiles: identity, context, memory, skills, tools, automation, security, and delivery.', topics: ['Hermes', 'SOUL.md', 'agents'] },
         { href: '/en/knowledge/deepseek-harness/', area: 'Applied AI · Architecture', title: 'DeepSeek Harness and Cordis: composable agents with control', summary: 'What dsh is, how it relates to Cordis, and why DeepSeek-R1 is model context rather than the harness architecture.', topics: ['DeepSeek', 'Cordis', 'plugins'] },
         { href: '/en/knowledge/the-mythical-man-month/', area: 'Software management', title: 'The Mythical Man-Month: why more people can create more delay', summary: 'A short reading note on schedules, onboarding, communication, conceptual integrity, and the decisions a company faces when a project runs late.', topics: ["Brooks's Law", 'teams', 'schedules'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },
         { href: '/en/knowledge/design-patterns/', area: 'Software design', title: 'Design Patterns: how it still applies today', summary: 'A short reading note on Strategy, Adapter, Decorator, Observer, and the judgment to use patterns without over-designing.', topics: ['patterns', 'composition', 'coupling'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },

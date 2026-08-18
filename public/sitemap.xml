@@ -290,6 +290,24 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://codiva.cl/conocimiento/hermes-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/hermes-agent/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/hermes-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/hermes-agent/"/>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/knowledge/hermes-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/hermes-agent/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/hermes-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/hermes-agent/"/>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://codiva.cl/conocimiento/deepseek-harness/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/deepseek-harness/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/deepseek-harness/"/>

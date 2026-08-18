@@ -32,6 +32,8 @@ const pages = {
   enIntegrations: 'dist/en/knowledge/integrations-postgresql/index.html',
   esAgentic: 'dist/conocimiento/ingenieria-software-agentica/index.html',
   enAgentic: 'dist/en/knowledge/agentic-software-engineering/index.html',
+  esHermes: 'dist/conocimiento/hermes-agent/index.html',
+  enHermes: 'dist/en/knowledge/hermes-agent/index.html',
   esDeepSeek: 'dist/conocimiento/deepseek-harness/index.html',
   enDeepSeek: 'dist/en/knowledge/deepseek-harness/index.html',
   esMythicalManMonth: 'dist/conocimiento/el-mitico-hombre-mes/index.html',
@@ -298,6 +300,32 @@ check('agentic engineering content pairs faster execution with stronger controls
   assert.ok(sitemapText.includes('<loc>https://codiva.cl/en/knowledge/agentic-software-engineering/</loc>'));
   assert.ok(llmsText.includes('https://codiva.cl/conocimiento/ingenieria-software-agentica/'));
   assert.ok(llmsText.includes('https://codiva.cl/en/knowledge/agentic-software-engineering/'));
+});
+
+check('Hermes guide treats an agent as a profile with distinct layers', () => {
+  const pages = [
+    [html.esHermes, 'Hermes Agent: arquitectura, capacidades y SOUL.md | codiva®', 'Hermes Agent: construir un agente es diseñar un sistema, no solo un prompt', '/conocimiento/hermes-agent/'],
+    [html.enHermes, 'Hermes Agent: architecture, capabilities, and SOUL.md | codiva®', 'Hermes Agent: building an agent means designing a system, not just a prompt', '/en/knowledge/hermes-agent/'],
+  ];
+  const controls = ['surfaces', 'architecture', 'capabilities', 'learning', 'automation', 'soul', 'build-agent', 'prompt', 'security'];
+  for (const [source, title, h1, route] of pages) {
+    assert.ok(source.includes(`<title>${title}</title>`), `${route} is missing its search title`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `${route} is missing its thesis`);
+    for (const control of controls) {
+      assert.ok(source.includes(`data-agentic-control="${control}"`), `${route} omits ${control}`);
+    }
+    assert.ok(source.includes('HERMES_HOME'), `${route} does not locate SOUL.md in HERMES_HOME`);
+    assert.ok(source.includes('AGENTS.md'), `${route} does not distinguish project context`);
+    assert.ok(source.includes('hermes profile create research-bot'), `${route} omits the agent creation path`);
+    assert.ok(source.includes('developer-guide/architecture'), `${route} omits the official architecture source`);
+    assert.ok(source.includes('developer-guide/prompt-assembly'), `${route} omits the official prompt source`);
+  }
+  assert.ok(hasHref(html.esKnowledge, '/conocimiento/hermes-agent/'), 'Spanish Knowledge hub omits Hermes Agent');
+  assert.ok(hasHref(html.enKnowledge, '/en/knowledge/hermes-agent/'), 'English Knowledge hub omits Hermes Agent');
+  for (const route of ['/conocimiento/hermes-agent/', '/en/knowledge/hermes-agent/']) {
+    assert.ok(sitemapText.includes(`<loc>https://codiva.cl${route}</loc>`), `sitemap.xml omits ${route}`);
+    assert.ok(llmsText.includes(`https://codiva.cl${route}`), `llms.txt omits ${route}`);
+  }
 });
 
 check('DeepSeek Harness research distinguishes dsh, Cordis, and DeepSeek-R1', () => {
