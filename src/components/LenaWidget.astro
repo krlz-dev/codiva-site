@@ -281,7 +281,7 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
         return true;
       }
       if (step === 1) {
-        if (!state.name) { showError(i18n.errors.name); return false; }
+        if (state.name.length < 2) { showError(i18n.errors.name); return false; }
         if (state.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) { showError(i18n.errors.email); return false; }
         if (state.phone && !/^[+0-9 ()-]{7,32}$/.test(state.phone)) { showError(i18n.errors.phone); return false; }
         return true;
@@ -328,7 +328,7 @@ const turnstileSiteKey = (import.meta.env?.PUBLIC_TURNSTILE_SITE_KEY as string) 
       const payload = {
         submission_id: `web_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`,
         client_name: state.name,
-        phone: state.phone || '-',
+        phone: state.phone || '',
         email: state.email || '',
         company: state.company || '',
         request_type: state.requestType,

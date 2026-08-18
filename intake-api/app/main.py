@@ -41,24 +41,24 @@ class IntakePayload(BaseModel):
 
     submission_id: Annotated[str, Field(min_length=16, max_length=96, pattern=r"^[A-Za-z0-9_-]+$")]
     client_name: Annotated[str, Field(min_length=2, max_length=120)]
-    phone: Annotated[str, Field(min_length=7, max_length=32)]
+    phone: Annotated[str, Field(default="", max_length=32)]
     email: Annotated[str | None, Field(default=None, max_length=254)]
     company: Annotated[str | None, Field(default=None, max_length=160)]
     request_type: Annotated[str, Field(min_length=2, max_length=40)]
     service_area: Annotated[str, Field(min_length=2, max_length=100)]
-    problem_goal: Annotated[str, Field(min_length=10, max_length=2_000)]
+    problem_goal: Annotated[str, Field(min_length=5, max_length=2_000)]
     scope: Annotated[str | None, Field(default=None, max_length=1_000)]
     timeline: Annotated[str | None, Field(default=None, max_length=300)]
     budget: Annotated[str | None, Field(default=None, max_length=200)]
     preferred_next_step: Annotated[str, Field(min_length=2, max_length=120)]
-    conversation_summary: Annotated[str, Field(min_length=10, max_length=3_000)]
+    conversation_summary: Annotated[str, Field(min_length=5, max_length=3_000)]
     client_confirmed: bool
     locale: Annotated[str, Field(default="en", pattern=r"^(en|es)$")]
 
     @field_validator("phone")
     @classmethod
     def valid_phone(cls, value: str) -> str:
-        if not PHONE_RE.fullmatch(value):
+        if value and not PHONE_RE.fullmatch(value):
             raise ValueError("phone contains unsupported characters")
         return value
 
