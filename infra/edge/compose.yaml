@@ -1,0 +1,20 @@
+services:
+  edge:
+    image: caddy:2.11.3-alpine
+    container_name: codiva-edge
+    restart: unless-stopped
+    network_mode: host
+    init: true
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  caddy_data:
+  caddy_config:

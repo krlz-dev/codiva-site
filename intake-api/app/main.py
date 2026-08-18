@@ -124,7 +124,10 @@ class SheetsWriter:
                 lambda: service.spreadsheets().values().append(
                     spreadsheetId=self.spreadsheet_id,
                     range=self.append_range,
-                    valueInputOption="USER_ENTERED",
+                    # RAW stores values literally: preserves leading "+" in phone
+                    # numbers and prevents Google Sheets formula injection from
+                    # client-supplied free-text fields.
+                    valueInputOption="RAW",
                     insertDataOption="INSERT_ROWS",
                     body={"values": [self._values(item)]},
                 ).execute()

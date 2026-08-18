@@ -1,0 +1,16 @@
+{
+    email inf.carlos89@gmail.com
+    servers {
+        max_header_size 25MB
+    }
+}
+
+plane.codiva.cl {
+    reverse_proxy 127.0.0.1:8080 {
+        header_up X-Real-IP {remote_host}
+    }
+}
+
+api.codiva.cl {
+    reverse_proxy 127.0.0.1:8787
+}

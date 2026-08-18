@@ -55,7 +55,7 @@ curl http://127.0.0.1:8787/health
 
 Runtime credentials belong in `intake-api/.env` and `intake-api/secrets/`; both are ignored by Git. The API accepts only validated, explicitly confirmed intake payloads and appends to the Codiva Google Sheet. It does not accept payments, contracts, arbitrary spreadsheet operations, or secrets from clients.
 
-For public use, route `api.codiva.cl` to the API through a named HTTPS tunnel or an explicitly configured reverse proxy. Do not bind port 8787 to `0.0.0.0`.
+Public access is served by the edge proxy in `infra/edge/` at `https://api.codiva.cl`. Do not bind port 8787 to `0.0.0.0`.
 
 ## Deploy
 
