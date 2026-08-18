@@ -268,6 +268,48 @@ def get_uploader() -> DriveUploader:
     return _uploader
 
 
+def telegram_notify(bot_token: str, chat_id: str, text: str) -> None:
+    """Send a Telegram message. Blocking; best-effort; never raises."""
+    try:
+        body = urllib.parse.urlencode(
+            {"chat_id": chat_id, "text": text, "disable_web_page_preview": True}
+        ).encode()
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{bot_token}/sendMessage", data=body, method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            resp.read()
+    except Exception:
+        # Notifications must never affect the intake response.
+        pass
+
+
+def build_notification_text(item: IntakePayload, attachment: str | None) -> str:
+    lines = ["🔔 Nueva consulta — codiva.cl", ""]
+    if item.client_name:
+        lines.append(f"👤 {item.client_name}")
+    if item.company:
+        lines.append(f"🏢 {item.company}")
+    if item.request_type:
+        lines.append(f"📋 {item.request_type}")
+    if item.service_area:
+        lines.append(f"🔧 {item.service_area}")
+    if item.problem_goal:
+        problem = item.problem_goal.strip()
+        lines.append("")
+        lines.append(problem[:300] + ("…" if len(problem) > 300 else ""))
+    contact = " · ".join(x for x in [item.email, item.phone] if x)
+    if contact:
+        lines.append("")
+        lines.append(f"📞 {contact}")
+    if attachment:
+        lines.append(f"📎 {attachment}")
+    if item.preferred_next_step:
+        lines.append("")
+        lines.append(f"➡️ {item.preferred_next_step}")
+    return "\n".join(lines)
+
+
 @app.get("/health")
 async def health() -> dict[str, str]:
     return {"status": "ok", "service": "codiva-lena-intake"}
@@ -332,5 +374,13 @@ async def create_intake(
         result = await get_writer().append(data, attachment)
     except Exception:
         raise HTTPException(status_code=503, detail="intake storage is temporarily unavailable")
+
+    # Best-effort Telegram notification to the owner, never blocking the response.
+    bot_token = env("TELEGRAM_BOT_TOKEN")
+    chat_id = env("TELEGRAM_CHAT_ID")
+    if bot_token and chat_id:
+        asyncio.create_task(
+            asyncio.to_thread(telegram_notify, bot_token, chat_id, build_notification_text(data, attachment))
+        )
 
     return {"status": "accepted", "booking_url": env("CAL_BOOKING_URL") or "", **result}
