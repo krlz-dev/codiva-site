@@ -32,6 +32,8 @@ const pages = {
   enIntegrations: 'dist/en/knowledge/integrations-postgresql/index.html',
   esAgentic: 'dist/conocimiento/ingenieria-software-agentica/index.html',
   enAgentic: 'dist/en/knowledge/agentic-software-engineering/index.html',
+  esDeepSeek: 'dist/conocimiento/deepseek-harness/index.html',
+  enDeepSeek: 'dist/en/knowledge/deepseek-harness/index.html',
   esMythicalManMonth: 'dist/conocimiento/el-mitico-hombre-mes/index.html',
   enMythicalManMonth: 'dist/en/knowledge/the-mythical-man-month/index.html',
   esDesignPatterns: 'dist/conocimiento/patrones-de-diseno/index.html',
@@ -296,6 +298,29 @@ check('agentic engineering content pairs faster execution with stronger controls
   assert.ok(sitemapText.includes('<loc>https://codiva.cl/en/knowledge/agentic-software-engineering/</loc>'));
   assert.ok(llmsText.includes('https://codiva.cl/conocimiento/ingenieria-software-agentica/'));
   assert.ok(llmsText.includes('https://codiva.cl/en/knowledge/agentic-software-engineering/'));
+});
+
+check('DeepSeek Harness research distinguishes dsh, Cordis, and DeepSeek-R1', () => {
+  const pages = [
+    [html.esDeepSeek, 'DeepSeek Harness y Cordis: agentes componibles con control | codiva®', 'DeepSeek Harness: un runtime de agentes donde todo puede componerse', '/conocimiento/deepseek-harness/'],
+    [html.enDeepSeek, 'DeepSeek Harness and Cordis: composable agents with control | codiva®', 'DeepSeek Harness: an agent runtime where everything can be composed', '/en/knowledge/deepseek-harness/'],
+  ];
+  for (const [source, title, h1, route] of pages) {
+    assert.ok(source.includes(`<title>${title}</title>`), `${route} is missing its search title`);
+    assert.ok(source.includes(`<h1>${h1}</h1>`), `${route} is missing its thesis`);
+    for (const marker of ['data-agentic-control="definition"', 'data-agentic-control="composition"', 'data-agentic-control="runtime"', 'data-agentic-control="operations"', 'data-agentic-control="papers"']) {
+      assert.ok(source.includes(marker), `${route} omits ${marker}`);
+    }
+    assert.ok(source.includes('deepseek-ai/deepseek-harness'), `${route} omits the official repository source`);
+    assert.ok(source.includes('arxiv.org/abs/2501.12948'), `${route} omits the DeepSeek-R1 source`);
+    assert.ok(source.includes('github.com/cordiverse/paper'), `${route} omits the Cordis paper source`);
+  }
+  assert.ok(hasHref(html.esKnowledge, '/conocimiento/deepseek-harness/'), 'Spanish Knowledge hub omits DeepSeek Harness');
+  assert.ok(hasHref(html.enKnowledge, '/en/knowledge/deepseek-harness/'), 'English Knowledge hub omits DeepSeek Harness');
+  assert.ok(sitemapText.includes('<loc>https://codiva.cl/conocimiento/deepseek-harness/</loc>'));
+  assert.ok(sitemapText.includes('<loc>https://codiva.cl/en/knowledge/deepseek-harness/</loc>'));
+  assert.ok(llmsText.includes('https://codiva.cl/conocimiento/deepseek-harness/'));
+  assert.ok(llmsText.includes('https://codiva.cl/en/knowledge/deepseek-harness/'));
 });
 
 check('Mythical Man-Month reading note connects the book to company decisions', () => {

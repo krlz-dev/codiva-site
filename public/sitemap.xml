@@ -290,6 +290,24 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://codiva.cl/conocimiento/deepseek-harness/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/deepseek-harness/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/deepseek-harness/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/deepseek-harness/"/>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codiva.cl/en/knowledge/deepseek-harness/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/deepseek-harness/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/deepseek-harness/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://codiva.cl/en/knowledge/deepseek-harness/"/>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://codiva.cl/conocimiento/el-mitico-hombre-mes/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://codiva.cl/conocimiento/el-mitico-hombre-mes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://codiva.cl/en/knowledge/the-mythical-man-month/"/>

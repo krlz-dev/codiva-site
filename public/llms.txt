@@ -42,6 +42,7 @@ No se publican clientes, resultados, métricas, certificaciones, alianzas ni tes
 - [Cómo trabajamos](https://codiva.cl/como-construimos/): entregables, colaboración, control de riesgos y propiedad.
 - [Conocimiento](https://codiva.cl/conocimiento/): decisiones técnicas, datos, integraciones e interoperabilidad.
   - [Ingeniería de software agéntica](https://codiva.cl/conocimiento/ingenieria-software-agentica/): LLMs y agentes bajo especificaciones, TDD, aislamiento, revisión independiente y gates fail-closed.
+  - [DeepSeek Harness and Cordis](https://codiva.cl/conocimiento/deepseek-harness/): plugin composition, profiles, session logs, operational boundaries, and the distinction between dsh, Cordis, and DeepSeek-R1.
   - [El mítico hombre-mes](https://codiva.cl/conocimiento/el-mitico-hombre-mes/): lectura recomendada sobre plazos, incorporación, comunicación, arquitectura y decisiones ante proyectos atrasados.
   - [Design Patterns](https://codiva.cl/conocimiento/patrones-de-diseno/): lectura recomendada sobre Strategy, Adapter, Decorator, Observer y cómo aplicar patrones sin sobrediseñar.
   - [Ingesta IoT](https://codiva.cl/conocimiento/ingesta-iot/): duplicados, orden, idempotencia, dead-letter, replay y observabilidad.
@@ -114,6 +115,7 @@ No clients, outcomes, metrics, certifications, partnerships, or testimonials are
 - [How we work](https://codiva.cl/en/how-we-build/): deliverables, collaboration, risk control, and ownership.
 - [Knowledge](https://codiva.cl/en/knowledge/): technical decisions, data, integrations, and interoperability.
   - [Agentic software engineering](https://codiva.cl/en/knowledge/agentic-software-engineering/): LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.
+  - [DeepSeek Harness and Cordis](https://codiva.cl/en/knowledge/deepseek-harness/): plugin composition, profiles, session logs, operational boundaries, and the distinction between dsh, Cordis, and DeepSeek-R1.
   - [The Mythical Man-Month](https://codiva.cl/en/knowledge/the-mythical-man-month/): recommended reading on schedules, onboarding, communication, architecture, and decisions around late projects.
   - [Design Patterns](https://codiva.cl/en/knowledge/design-patterns/): recommended reading on Strategy, Adapter, Decorator, Observer, and applying patterns without over-designing.
   - [Reliable IoT ingestion](https://codiva.cl/en/knowledge/iot-ingestion/): duplicates, ordering, idempotency, dead-letter, replay, and observability.

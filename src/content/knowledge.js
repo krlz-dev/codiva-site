@@ -48,6 +48,13 @@ export const knowledgeContent = {
           topics: ['LLM', 'agentes', 'TDD'],
         },
         {
+          href: '/conocimiento/deepseek-harness/',
+          area: 'IA aplicada · Arquitectura',
+          title: 'DeepSeek Harness y Cordis: agentes componibles con control',
+          summary: 'Qué es dsh, cómo se relaciona con Cordis y por qué DeepSeek-R1 es contexto de modelo, no la arquitectura del harness.',
+          topics: ['DeepSeek', 'Cordis', 'plugins'],
+        },
+        {
           href: '/conocimiento/el-mitico-hombre-mes/',
           area: 'Gestión de software',
           title: 'El mítico hombre-mes: por qué más personas pueden producir más demora',
@@ -268,6 +275,7 @@ export const knowledgeContent = {
         { href: '/en/knowledge/nominatim-geocoding/', area: 'Geospatial data', title: 'Nominatim: scalable service, persistent data', summary: 'A stateless application layer around Nominatim with persistent PostgreSQL/PostGIS, caching, and explicit operational limits.', topics: ['Nominatim', 'PostGIS', 'Redis'] },
         { href: '/en/knowledge/integrations-postgresql/', area: 'Integrations and data', title: 'REST/SOAP adapters and PostgreSQL under load', summary: 'Contracts, retries, idempotency, and domain isolation alongside partitioning, indexes, query plans, bloat, and autovacuum.', topics: ['REST', 'SOAP', 'PostgreSQL'] },
         { href: '/en/knowledge/agentic-software-engineering/', area: 'Applied AI and engineering', title: 'Agentic programming: more speed requires stronger controls', summary: 'LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.', topics: ['LLM', 'agents', 'TDD'] },
+        { href: '/en/knowledge/deepseek-harness/', area: 'Applied AI · Architecture', title: 'DeepSeek Harness and Cordis: composable agents with control', summary: 'What dsh is, how it relates to Cordis, and why DeepSeek-R1 is model context rather than the harness architecture.', topics: ['DeepSeek', 'Cordis', 'plugins'] },
         { href: '/en/knowledge/the-mythical-man-month/', area: 'Software management', title: 'The Mythical Man-Month: why more people can create more delay', summary: 'A short reading note on schedules, onboarding, communication, conceptual integrity, and the decisions a company faces when a project runs late.', topics: ["Brooks's Law", 'teams', 'schedules'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },
         { href: '/en/knowledge/design-patterns/', area: 'Software design', title: 'Design Patterns: how it still applies today', summary: 'A short reading note on Strategy, Adapter, Decorator, Observer, and the judgment to use patterns without over-designing.', topics: ['patterns', 'composition', 'coupling'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },
       ],
