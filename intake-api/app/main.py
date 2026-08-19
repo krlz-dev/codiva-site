@@ -29,6 +29,7 @@ RATE_LIMIT_WINDOW_SECONDS = 600
 PHONE_RE = re.compile(r"^[+0-9 ()-]{7,32}$")
 ATTACHMENTS_FOLDER = "Codiva Intake Attachments"
 TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
+RESEND_API_URL = "https://api.resend.com/emails"
 
 
 def env(name: str, default: str | None = None) -> str | None:
@@ -310,6 +311,48 @@ def build_notification_text(item: IntakePayload, attachment: str | None) -> str:
     return "\n".join(lines)
 
 
+def send_ack_email(api_key: str, sender: str, item: IntakePayload) -> None:
+    """Best-effort auto-acknowledgement email to the client. Never raises."""
+    to_email = (item.email or "").strip()
+    if not to_email:
+        return
+    name = (item.client_name or "").strip() or "there"
+
+    if item.locale == "es":
+        subject = "Recibimos tu consulta — codiva"
+        body = (
+            f"Hola {name},\n\n"
+            "Gracias por escribir a codiva. Recibimos tu mensaje y te responderemos a la brevedad.\n\n"
+            "Ten en cuenta que esta confirmación no es un pedido ni un contrato: "
+            "primero conversaremos contigo para entender tu caso.\n\n"
+            "— Equipo codiva\nhttps://codiva.cl"
+        )
+    else:
+        subject = "We received your inquiry — codiva"
+        body = (
+            f"Hi {name},\n\n"
+            "Thanks for reaching out to codiva. We received your message and we'll get back to you shortly.\n\n"
+            "Please note this is not a confirmed order or contract — we'll talk first to understand your needs.\n\n"
+            "— The codiva team\nhttps://codiva.cl"
+        )
+
+    payload = json.dumps(
+        {"from": sender, "to": [to_email], "subject": subject, "text": body}
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        RESEND_API_URL,
+        data=payload,
+        method="POST",
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=10) as resp:
+            resp.read()
+        print(f"[email] ack sent to {to_email}")
+    except Exception as exc:  # never affect the intake response
+        print(f"[email] ack failed for {to_email}: {exc}")
+
+
 @app.get("/health")
 async def health() -> dict[str, str]:
     return {"status": "ok", "service": "codiva-lena-intake"}
@@ -381,6 +424,14 @@ async def create_intake(
     if bot_token and chat_id:
         asyncio.create_task(
             asyncio.to_thread(telegram_notify, bot_token, chat_id, build_notification_text(data, attachment))
+        )
+
+    # Best-effort auto-acknowledgement email to the client (only with a key + an email).
+    resend_key = env("RESEND_API_KEY")
+    if resend_key and data.email:
+        sender = env("RESEND_FROM") or "Codiva <contactos@codiva.cl>"
+        asyncio.create_task(
+            asyncio.to_thread(send_ack_email, resend_key, sender, data)
         )
 
     return {"status": "accepted", **result}

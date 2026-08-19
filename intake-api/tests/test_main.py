@@ -134,3 +134,37 @@ def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
     assert response.json()["status"] == "accepted"
     assert "booking_url" not in response.json()
     assert response.json()["updated_range"] == "Sheet1!A2:R2"
+
+
+def test_ack_email_skips_without_email():
+    from app.main import IntakePayload, send_ack_email
+
+    item = IntakePayload.model_validate(valid_payload(email=None))
+    assert send_ack_email("test-key", "Codiva <contactos@codiva.cl>", item) is None
+
+
+def test_ack_email_builds_resend_request(monkeypatch):
+    import app.main as m
+
+    item = m.IntakePayload.model_validate(valid_payload(email="client@example.com", locale="es"))
+    captured = {}
+
+    def fake_urlopen(request, timeout=None):
+        captured["url"] = request.full_url
+        captured["auth"] = request.get_header("Authorization")
+        captured["body"] = json.loads(request.data.decode("utf-8"))
+
+        class Resp:
+            def read(self):
+                return b"{}"
+
+        return Resp()
+
+    monkeypatch.setattr(m.urllib.request, "urlopen", fake_urlopen)
+    m.send_ack_email("test-key", "Codiva <contactos@codiva.cl>", item)
+
+    assert captured["url"] == "https://api.resend.com/emails"
+    assert captured["auth"] == "Bearer test-key"
+    assert captured["body"]["to"] == ["client@example.com"]
+    assert captured["body"]["from"] == "Codiva <contactos@codiva.cl>"
+    assert "Recibimos tu consulta" in captured["body"]["subject"]
