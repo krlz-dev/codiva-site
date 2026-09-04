@@ -14,3 +14,57 @@ plane.codiva.cl {
 api.codiva.cl {
     reverse_proxy 127.0.0.1:8787
 }
+
+www.vivesta.cl {
+    redir https://vivesta.cl{uri} permanent
+}
+
+vivesta.cl {
+    reverse_proxy 127.0.0.1:4322 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+}
+
+dev.vivesta.cl {
+    reverse_proxy 127.0.0.1:4321 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+}
+
+# ---------------------------------------------------------------------------
+# zoominder-stack — API backend (repo: /root/repositories/zoominder-stack)
+# TLS termina aqui; la API escucha solo HTTP en loopback.
+# ---------------------------------------------------------------------------
+
+api.zoo-minder.com {
+    reverse_proxy 127.0.0.1:8090 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+
+    # /actuator queda fuera del alcance publico: expone metricas y detalles
+    # de salud que no deben salir a internet. El healthcheck del contenedor lo
+    # consulta por loopback, no por aqui.
+    @actuator path /actuator*
+    respond @actuator 404
+
+    encode gzip zstd
+}
+
+api.dev.zoo-minder.com {
+    reverse_proxy 127.0.0.1:8091 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+
+    @actuator path /actuator*
+    respond @actuator 404
+
+    encode gzip zstd
+}
