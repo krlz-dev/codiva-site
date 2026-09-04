@@ -13,6 +13,13 @@ services:
       - .env
     volumes:
       - ./secrets/google_token.json:/run/secrets/google_token.json:rw
+      # Durable lead spool: every intake is written here BEFORE Google Sheets,
+      # so a Sheets/credentials outage can never lose a prospect again.
+      # Must be a real volume, not tmpfs — it has to survive a restart.
+      # NOTE: the container runs as uid 100 (app). After cloning or recreating
+      # this directory run:  chown -R 100:101 ./data/spool
+      # otherwise the spool write fails with PermissionError and leads are lost.
+      - ./data/spool:/data/spool:rw
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m

@@ -121,6 +121,8 @@ def test_oversized_file_is_rejected(monkeypatch):
 def test_confirmed_intake_is_forwarded_to_storage(monkeypatch):
     monkeypatch.delenv("INTAKE_WRITE_TOKEN", raising=False)
     monkeypatch.delenv("TURNSTILE_SECRET_KEY", raising=False)
+    # the Sheets mirror is opt-in now; declare it for this test
+    monkeypatch.setenv("GOOGLE_SHEET_ID", "sheet-under-test")
 
     class FakeWriter:
         async def append(self, item, attachment):

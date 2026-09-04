@@ -269,8 +269,13 @@ def get_uploader() -> DriveUploader:
     return _uploader
 
 
-def telegram_notify(bot_token: str, chat_id: str, text: str) -> None:
-    """Send a Telegram message. Blocking; best-effort; never raises."""
+def telegram_notify(bot_token: str, chat_id: str, text: str) -> bool:
+    """
+    Send a Telegram message. Blocking; never raises. Returns True on delivery.
+
+    Telegram IS the lead inbox, so a failure here must be visible in the logs —
+    the previous `except: pass` would have hidden the loss of every lead.
+    """
     try:
         body = urllib.parse.urlencode(
             {"chat_id": chat_id, "text": text, "disable_web_page_preview": True}
@@ -280,9 +285,10 @@ def telegram_notify(bot_token: str, chat_id: str, text: str) -> None:
         )
         with urllib.request.urlopen(req, timeout=10) as resp:
             resp.read()
-    except Exception:
-        # Notifications must never affect the intake response.
-        pass
+        return True
+    except Exception as exc:
+        print(f"[telegram] DELIVERY FAILED: {type(exc).__name__}: {exc}")
+        return False
 
 
 def build_notification_text(item: IntakePayload, attachment: str | None) -> str:
@@ -353,9 +359,143 @@ def send_ack_email(api_key: str, sender: str, item: IntakePayload) -> None:
         print(f"[email] ack failed for {to_email}: {exc}")
 
 
+def spool_dir() -> Path | None:
+    """Directory where leads are parked when Sheets is unavailable."""
+    raw = env("INTAKE_SPOOL_DIR") or "/data/spool"
+    try:
+        p = Path(raw)
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+    except Exception:
+        return None
+
+
+def spool_lead(data: IntakePayload, attachment: str | None, reason: str) -> str | None:
+    """
+    Persist a lead to disk so it is NEVER lost when Google Sheets is down.
+
+    This exists because a revoked Google token silently rejected every intake
+    with a 503 for ~13 days: real prospects filled the form, saw "No se pudo
+    enviar", and nothing was stored anywhere. Sheets is now a delivery target,
+    not the source of truth.
+    """
+    directory = spool_dir()
+    if directory is None:
+        print(f"[spool] CRITICAL: cannot spool lead {data.submission_id} — no writable dir")
+        return None
+    try:
+        path = directory / f"{data.submission_id}.json"
+        path.write_text(
+            json.dumps(
+                {
+                    "received_at": datetime.now(UTC).isoformat(),
+                    "reason": reason,
+                    "attachment": attachment,
+                    "payload": data.model_dump(),
+                },
+                ensure_ascii=False,
+                indent=1,
+            ),
+            encoding="utf-8",
+        )
+        print(f"[spool] lead {data.submission_id} parked at {path} ({reason})")
+        return str(path)
+    except Exception as exc:
+        print(f"[spool] CRITICAL: failed to park lead {data.submission_id}: {exc!r}")
+        return None
+
+
+def save_attachment(content: bytes, submission_id: str, original: str | None) -> str | None:
+    """
+    Store a PDF attachment on our own disk, next to the lead spool.
+
+    Previously this went to Google Drive, so a dead Google credential rejected
+    the whole intake with a 503 — losing the lead AND the file.
+    """
+    directory = spool_dir()
+    if directory is None:
+        return None
+    try:
+        safe = re.sub(r"[^A-Za-z0-9._-]+", "_", original or "attachment.pdf").strip("._-")
+        safe = (safe or "attachment.pdf")[:80]
+        if not safe.lower().endswith(".pdf"):
+            safe += ".pdf"
+        files_dir = directory / "attachments"
+        files_dir.mkdir(parents=True, exist_ok=True)
+        path = files_dir / f"{submission_id}_{safe}"
+        path.write_bytes(content)
+        print(f"[spool] attachment for {submission_id} saved at {path}")
+        return str(path)
+    except Exception as exc:
+        print(f"[spool] attachment save failed for {submission_id}: {exc!r}")
+        return None
+
+
 @app.get("/health")
 async def health() -> dict[str, str]:
     return {"status": "ok", "service": "codiva-lena-intake"}
+
+
+@app.get("/health/deep")
+async def health_deep() -> dict[str, object]:
+    """
+    Reports whether leads can actually be captured.
+
+    /health only proves the process is up — it stayed green while every lead was
+    rejected with a 503. What matters now is the disk spool (source of truth)
+    and Telegram (the lead inbox). Google Sheets is an optional mirror.
+    """
+    spool = spool_dir()
+    spool_ok = False
+    pending = 0
+    if spool is not None and spool.is_dir():
+        try:
+            probe = spool / ".write-probe"
+            probe.write_text("ok", encoding="utf-8")
+            probe.unlink()
+            spool_ok = True
+        except Exception:
+            spool_ok = False
+        pending = len(list(spool.glob("*.json")))
+
+    telegram_ok = bool(env("TELEGRAM_BOT_TOKEN") and env("TELEGRAM_CHAT_ID"))
+
+    sheets: dict[str, object] = {"enabled": bool(env("GOOGLE_SHEET_ID"))}
+    if sheets["enabled"]:
+        try:
+            token_file = Path(env("GOOGLE_TOKEN_FILE") or "/run/secrets/google_token.json")
+            if not token_file.is_file():
+                sheets["ok"] = False
+                sheets["detail"] = "token file missing"
+            else:
+                creds = Credentials.from_authorized_user_info(
+                    json.loads(token_file.read_text(encoding="utf-8"))
+                )
+                if creds.valid:
+                    sheets.update(ok=True, detail="valid")
+                elif creds.refresh_token:
+                    try:
+                        creds.refresh(GoogleAuthRequest())
+                        token_file.write_text(creds.to_json(), encoding="utf-8")
+                        sheets.update(ok=True, detail="refreshed")
+                    except Exception as exc:
+                        sheets.update(ok=False, detail=f"refresh failed: {type(exc).__name__}")
+                else:
+                    sheets.update(ok=False, detail="expired, no refresh token")
+        except Exception as exc:
+            sheets.update(ok=False, detail=type(exc).__name__)
+
+    # A lead survives with EITHER the disk or Telegram. Both down = real outage.
+    healthy = spool_ok or telegram_ok
+
+    return {
+        "status": "ok" if healthy else "degraded",
+        "service": "codiva-lena-intake",
+        "spool": {"ok": spool_ok, "path": str(spool) if spool else None},
+        "telegram": telegram_ok,
+        "sheets_mirror": sheets,
+        "spooled_leads": pending,
+    }
 
 
 @app.post("/v1/intake")
@@ -408,23 +548,42 @@ async def create_intake(
             raise HTTPException(status_code=413, detail="file too large")
         if not content.startswith(PDF_MAGIC):
             raise HTTPException(status_code=422, detail="only PDF files are accepted")
-        try:
-            attachment = await get_uploader().upload(content, data.submission_id, file.filename)
-        except Exception:
-            raise HTTPException(status_code=503, detail="attachment storage is temporarily unavailable")
+        # Attachments are stored on OUR disk. They used to go to Google Drive,
+        # which meant a dead Google credential also lost every lead that came
+        # with a PDF attached.
+        attachment = save_attachment(content, data.submission_id, file.filename)
+        if attachment is None:
+            print(f"[intake] attachment could not be stored for {data.submission_id}")
 
-    try:
-        result = await get_writer().append(data, attachment)
-    except Exception:
-        raise HTTPException(status_code=503, detail="intake storage is temporarily unavailable")
+    # Disk is the source of truth. Everything else is a delivery channel.
+    spool_path = spool_lead(data, attachment, "received")
 
-    # Best-effort Telegram notification to the owner, never blocking the response.
+    # Telegram is the lead inbox (Carlos reads leads there).
+    telegram_ok = False
     bot_token = env("TELEGRAM_BOT_TOKEN")
     chat_id = env("TELEGRAM_CHAT_ID")
     if bot_token and chat_id:
-        asyncio.create_task(
-            asyncio.to_thread(telegram_notify, bot_token, chat_id, build_notification_text(data, attachment))
-        )
+        text = build_notification_text(data, attachment)
+        if spool_path is None:
+            text = "⚠️ NO SE PUDO GUARDAR EN DISCO — este mensaje es la única copia.\n\n" + text
+        telegram_ok = telegram_notify(bot_token, chat_id, text)
+
+    # Google Sheets is now OPTIONAL: only attempted when explicitly configured.
+    # It is a convenience mirror, never a reason to reject a lead.
+    result: dict[str, object] = {"stored": "spool" if spool_path else "none"}
+    if env("GOOGLE_SHEET_ID"):
+        try:
+            result = await get_writer().append(data, attachment)
+        except Exception as exc:
+            # Never swallow the cause again: a bare `except` turned a revoked
+            # Google token into a mute 503 that cost days of leads.
+            print(f"[intake] sheets mirror failed for {data.submission_id} "
+                  f"(lead is safe on disk): {type(exc).__name__}: {exc}")
+
+    # Only reject the client if the lead reached NO destination at all.
+    if spool_path is None and not telegram_ok:
+        print(f"[intake] CRITICAL: lead {data.submission_id} reached no destination")
+        raise HTTPException(status_code=503, detail="intake storage is temporarily unavailable")
 
     # Best-effort auto-acknowledgement email to the client (only with a key + an email).
     resend_key = env("RESEND_API_KEY")
