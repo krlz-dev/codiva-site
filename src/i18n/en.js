@@ -6,7 +6,7 @@ export default {
   meta: {
     title: 'Business-critical B2B software and integrations | codiva®',
     description:
-      'We build and modernize business-critical B2B software, data platforms, and complex integrations. Work directly with Carlos and Marina.',
+      'We build and modernize business-critical B2B software, data platforms, and complex integrations. Work directly with the team writing the code.',
     keywords:
       'business-critical B2B software, data platforms, systems integration, software modernization, project rescue, senior engineers Chile',
     canonical: 'https://codiva.cl/en/',
@@ -97,7 +97,7 @@ export default {
         { '@type': 'Question', name: 'What services does codiva offer?', acceptedAnswer: { '@type': 'Answer', text: 'Three lines: build and evolve B2B products; modernize and rescue existing systems; and design data platforms and integrations.' } },
         { '@type': 'Question', name: 'Who owns the code?', acceptedAnswer: { '@type': 'Answer', text: 'You do, from the first commit. The repository is in your name and we hand over everything: code, infrastructure, and documentation, with no hidden dependencies.' } },
         { '@type': 'Question', name: 'Can you take over a project someone else started?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We take on inherited codebases — from a freelancer, a previous agency, or an earlier team — stabilize them, and keep building.' } },
-        { '@type': 'Question', name: "You're only two people — what happens if you get sick or fully booked?", acceptedAnswer: { '@type': 'Answer', text: "We take on a small number of projects at a time so we don't overcommit. We both know every project, so nothing depends on a single person, and your code and documentation always live in your repository." } },
+        { '@type': 'Question', name: "What happens if the team gets sick or fully booked?", acceptedAnswer: { '@type': 'Answer', text: "We take on a small number of projects at a time so we don't overcommit. The whole team knows every project, so nothing depends on a single person, and your code and documentation always live in your repository." } },
         { '@type': 'Question', name: 'Do you work with internal teams or replace them?', acceptedAnswer: { '@type': 'Answer', text: 'Both. We embed with your internal team when there is one, or act as your full product team when there is not.' } },
         { '@type': 'Question', name: 'How much does a project cost?', acceptedAnswer: { '@type': 'Answer', text: 'A Product Sprint starts at USD $3,000 and a full product usually runs between USD $16,000 and $65,000, depending on scope. On the first 30-minute call we give you a real range.' } },
         { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'A Product Sprint is 1–2 weeks. A full product runs between 6 and 16 weeks depending on scope. We put a date in the proposal and flag it the moment anything puts it at risk.' } },
@@ -159,7 +159,7 @@ export default {
     label: 'About',
     headingHtml: 'Direct engineering for products that <em>cannot be left half-built</em>',
     paragraphs: [
-      'Codiva combines Carlos’s 14+ years in backend, architecture, and distributed systems with Marina’s specialization in product, UX/UI, and frontend. Together we cover design, frontend, backend, AI, mobile, and deployment.',
+      'We are an engineering team with more than 14 years of combined experience across backend, architecture, distributed systems, product, and frontend. We cover design, frontend, backend, AI, mobile, and deployment without subcontracting the hard part.',
       'We take on a few projects at a time. That means you always talk to the people writing the code: no middlemen, no context handoffs, no explaining the same thing twice.',
       "And we take care of what shows up late: that the system holds as it grows, that another team can maintain it, that it doesn't go down at six on a Friday. Scalability, performance, availability, security, and maintainability aren't extras: they're what decides whether your product is still standing in three years.",
     ],
@@ -181,7 +181,7 @@ export default {
     label: 'Evidence, not promises',
     headingHtml: 'A small studio with experience in <em>large systems</em>',
     intro: 'Experience matters when the data is real, the integrations are difficult, and a failed deployment has a concrete cost. This is what we bring to each project.',
-    statsLabel: 'The founders’ professional experience',
+    statsLabel: 'The team’s professional experience',
     stats: [
       { value: '14+', label: 'years in software', detail: 'Backend, architecture, and distributed systems.' },
       { value: '4+', label: 'years in frontend', detail: 'Product, interfaces, SEO, and testing.' },
@@ -190,7 +190,7 @@ export default {
     ],
     products: {
       label: 'Codiva-owned products',
-      note: 'Built by Carlos and Marina under codiva. They are not client engagements: open them and inspect the work.',
+      note: 'Built by our team under codiva. They are not client engagements: open them and inspect the work.',
       items: [
         { name: 'kit-a', type: 'Visual architecture', url: 'https://kit-a.com/' },
         { name: 'ZooMinder', type: 'Pet health', url: 'https://zoo-minder.com/' },
@@ -200,7 +200,7 @@ export default {
     experience: {
       label: 'Previous professional experience',
       items: ['Tracktec', 'Portavita Health', 'Acronis', 'Previsible'],
-      disclosure: 'Work Carlos and Marina performed as part of previous employment. These companies are not codiva clients and their names do not imply endorsement.',
+      disclosure: 'Work performed by members of our team as part of previous employment. These companies are not codiva clients and their names do not imply endorsement.',
     },
     diagramsLabel: 'Technical capability diagrams',
     scrollHint: 'Swipe to explore the diagram →',
@@ -244,8 +244,8 @@ export default {
     },
     cta: {
       heading: 'Want to review your architecture with us?',
-      text: 'Talk with Carlos and Marina for 30 minutes about the system, the current risk, and the next reasonable step.',
-      label: 'Talk to the founders',
+      text: 'Talk with the team for 30 minutes about the system, the current risk, and the next reasonable step.',
+      label: 'Talk to the team',
     },
   },
 
@@ -321,7 +321,7 @@ export default {
         phase: 'Build',
         name: 'Build and Evolve',
         meta: '6–16 weeks · custom',
-        tagline: 'For building an end-to-end B2B product or continuing after a diagnostic or Sprint. The same two people cover product, frontend, backend, integrations, and deployment.',
+        tagline: 'For building an end-to-end B2B product or continuing after a diagnostic or Sprint. One team covers product, frontend, backend, integrations, and deployment.',
         features: [
           'Product design and frontend',
           'Backend, APIs and integrations',
@@ -348,7 +348,7 @@ export default {
     items: [
       { title: 'Your company owns the work from the first commit', detail: 'The repository, code, infrastructure, and documentation remain in your name.' },
       { title: 'You can stop after the Sprint', detail: 'Either side can decide not to continue. You keep the deliverables produced.' },
-      { title: 'Both founders know the project', detail: 'Carlos and Marina work directly on it and retain context, without rotating teams.' },
+      { title: 'The team knows your whole project', detail: 'We work on it directly and keep the context, with no rotating teams and no handoffs.' },
       { title: 'The diagnostic is not paid twice', detail: 'If we continue with stabilization, we credit its value toward the project.' },
     ],
     cta: 'Review frequently asked questions',
@@ -721,7 +721,7 @@ export default {
       { q: 'What services does codiva offer?', aHtml: '<p>Three lines: Build and evolve B2B products, internal platforms, and new modules; Modernize and rescue inherited or difficult-to-change systems; and Data and integrations for pipelines, APIs, interoperability, and data performance.</p>' },
       { q: 'Who owns the code?', aHtml: '<p>You do, from the first commit. The repository is in your name and we hand over everything — code, infrastructure, and documentation — with no hidden dependencies or lock-in. If one day you want to continue with another team, you can.</p>' },
       { q: 'Can you take over a project someone else started?', aHtml: '<p>Yes. We take on inherited codebases — from a freelancer who left, an agency that changed direction, or a previous team — stabilize them, and keep building. This is exactly where more than 14 years of backend architecture and distributed systems make the difference.</p>' },
-      { q: "You're only two people. What happens if you get sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. We both know every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },
+      { q: "What happens if the team gets sick or fully booked?", aHtml: "<p>We take on a small number of projects at a time, precisely so we don't overcommit and can give each one real attention. The whole team knows every project, so nothing depends on a single person, and your code, infrastructure, and documentation always live in your repository. If timing needs coordinating, we tell you before we start, not after.</p>" },
       { q: 'Do you work with internal teams or replace them?', aHtml: "<p>Both. We embed with your internal team when there is one, or act as your full product team when there isn't. We adapt to how you already work.</p>" },
       { q: 'How much does a project cost?', aHtml: "<p>It depends on scope, but we won't make you guess. A Product Sprint starts at USD $3,000 and a full product usually runs between USD $16,000 and $65,000. On the first 30-minute call we give you a real range — not a 20-page proposal three weeks later.</p>" },
       { q: 'How long does it take?', aHtml: '<p>A Product Sprint is 1–2 weeks. A full product runs between 6 and 16 weeks depending on scope. We put a date in the proposal and flag it the moment anything puts it at risk — we would rather have an awkward conversation early than a surprise at the end.</p>' },
@@ -819,7 +819,7 @@ export default {
       'We talk for 30 minutes over video or a call.',
       'We send you a clear plan and proposal.',
     ],
-    trust: ['Carlos: 14+ years in software', 'Direct work with both founders', 'Ñuñoa, Santiago, Chile'],
+    trust: ['Team with 14+ years of experience', 'Direct work with the engineers', 'Ñuñoa, Santiago, Chile'],
     seeWork: { label: 'See projects', href: '/en/projects/' },
     back: '← Back to home',
     waMessage: 'Hi codiva 👋, I want to tell you about my project.',

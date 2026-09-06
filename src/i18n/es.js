@@ -7,7 +7,7 @@ export default {
   meta: {
     title: 'Software B2B y modernización de aplicaciones | codiva®',
     description:
-      'Construimos y modernizamos software B2B crítico, plataformas de datos e integraciones complejas. Trabajo directo con Carlos y Marina.',
+      'Construimos y modernizamos software B2B crítico, plataformas de datos e integraciones complejas. Trabajo directo con el equipo que escribe el código.',
     keywords:
       'desarrollo de software B2B, modernización de aplicaciones legacy, ingeniería de datos, integraciones de software, sistemas heredados',
     canonical: 'https://codiva.cl/',
@@ -100,7 +100,7 @@ export default {
         { '@type': 'Question', name: '¿Qué servicios ofrece codiva?', acceptedAnswer: { '@type': 'Answer', text: 'Tres líneas: construir y evolucionar productos B2B; modernizar y rescatar sistemas existentes; y diseñar plataformas de datos e integraciones.' } },
         { '@type': 'Question', name: '¿Quién es dueño del código?', acceptedAnswer: { '@type': 'Answer', text: 'Tú, desde el primer commit. El repositorio queda a tu nombre y te entregamos todo: código, infraestructura y documentación, sin dependencias ocultas.' } },
         { '@type': 'Question', name: '¿Pueden tomar un proyecto que ya empezó otra persona?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Tomamos bases de código heredadas —de un freelancer, una agencia anterior o un equipo previo—, las estabilizamos y seguimos construyendo sobre ellas.' } },
-        { '@type': 'Question', name: 'Son solo dos personas, ¿qué pasa si se enferman o se llenan de trabajo?', acceptedAnswer: { '@type': 'Answer', text: 'Tomamos pocos proyectos a la vez para no sobrecomprometernos. Ambos conocemos cada proyecto, así que nada depende de una sola persona, y tu código y documentación siempre viven en tu repositorio.' } },
+        { '@type': 'Question', name: '¿Qué pasa si el equipo se enferma o se llena de trabajo?', acceptedAnswer: { '@type': 'Answer', text: 'Tomamos pocos proyectos a la vez para no sobrecomprometernos. Todo el equipo conoce cada proyecto, así que nada depende de una sola persona, y tu código y documentación siempre viven en tu repositorio.' } },
         { '@type': 'Question', name: '¿Trabajan con equipos internos o reemplazan al equipo?', acceptedAnswer: { '@type': 'Answer', text: 'Ambos. Nos integramos a tu equipo interno cuando lo hay, o funcionamos como tu equipo de producto completo cuando no.' } },
         { '@type': 'Question', name: '¿Cuánto cuesta un proyecto?', acceptedAnswer: { '@type': 'Answer', text: 'Un Sprint de Producto parte desde CLP $2.500.000 y un proyecto completo suele estar entre CLP $15.000.000 y $60.000.000, según alcance. En la primera llamada de 30 minutos te damos un rango real.' } },
         { '@type': 'Question', name: '¿Cuánto se demora un proyecto?', acceptedAnswer: { '@type': 'Answer', text: 'Un Sprint de Producto son 1–2 semanas. Un producto completo, entre 6 y 16 semanas según alcance. Te damos una fecha en la propuesta y te avisamos apenas algo la ponga en riesgo.' } },
@@ -162,7 +162,7 @@ export default {
     label: 'Nosotros',
     headingHtml: 'Ingeniería directa para productos que <em>no pueden quedar a medias</em>',
     paragraphs: [
-      'Codiva combina los 14+ años de Carlos en backend, arquitectura y sistemas distribuidos con la especialización de Marina en producto, UX/UI y frontend. Entre ambos cubrimos diseño, frontend, backend, IA, móvil y despliegue.',
+      'Somos un equipo de ingeniería con más de 14 años de experiencia acumulada en backend, arquitectura, sistemas distribuidos, producto y frontend. Cubrimos diseño, frontend, backend, IA, móvil y despliegue sin subcontratar la parte difícil.',
       'Tomamos pocos proyectos a la vez. Eso significa que hablas siempre con quienes escriben el código: sin intermediarios, sin traspasos de contexto, sin explicar dos veces lo mismo.',
       'Y cuidamos lo que se nota tarde: que el sistema aguante cuando crezca, que otro equipo pueda mantenerlo, que no se caiga un viernes a las seis. Escalabilidad, rendimiento, disponibilidad, seguridad y mantenibilidad no son extras: son lo que decide si tu producto sigue en pie en tres años.',
     ],
@@ -184,7 +184,7 @@ export default {
     label: 'Evidencia, no promesas',
     headingHtml: 'Un estudio pequeño con experiencia en <em>sistemas grandes</em>',
     intro: 'La experiencia importa cuando hay datos reales, integraciones difíciles y un despliegue fallido tiene un costo concreto. Esto es lo que traemos a cada proyecto.',
-    statsLabel: 'Experiencia profesional de los fundadores',
+    statsLabel: 'Experiencia profesional del equipo',
     stats: [
       { value: '14+', label: 'años en software', detail: 'Backend, arquitectura y sistemas distribuidos.' },
       { value: '4+', label: 'años en frontend', detail: 'Producto, interfaces, SEO y testing.' },
@@ -193,7 +193,7 @@ export default {
     ],
     products: {
       label: 'Productos propios de codiva',
-      note: 'Construidos por Carlos y Marina bajo codiva. No son trabajos para clientes: puedes abrirlos y probar el trabajo.',
+      note: 'Construidos por nuestro equipo bajo codiva. No son trabajos para clientes: puedes abrirlos y probar el trabajo.',
       items: [
         { name: 'kit-a', type: 'Arquitectura visual', url: 'https://kit-a.com/' },
         { name: 'ZooMinder', type: 'Salud de mascotas', url: 'https://zoo-minder.com/' },
@@ -203,7 +203,7 @@ export default {
     experience: {
       label: 'Experiencia profesional previa',
       items: ['Tracktec', 'Portavita Health', 'Acronis', 'Previsible'],
-      disclosure: 'Trabajo realizado por Carlos y Marina como parte de empleos anteriores. Estas empresas no son clientes de codiva ni implican una recomendación.',
+      disclosure: 'Trabajo realizado por integrantes de nuestro equipo como parte de empleos anteriores. Estas empresas no son clientes de codiva ni implican una recomendación.',
     },
     diagramsLabel: 'Diagramas de capacidad técnica',
     scrollHint: 'Desliza para recorrer el diagrama →',
@@ -247,8 +247,8 @@ export default {
     },
     cta: {
       heading: '¿Quieres revisar tu arquitectura con nosotros?',
-      text: 'Conversa 30 minutos con Carlos y Marina sobre el sistema, el riesgo actual y el siguiente paso razonable.',
-      label: 'Hablar con los fundadores',
+      text: 'Conversa 30 minutos con el equipo sobre el sistema, el riesgo actual y el siguiente paso razonable.',
+      label: 'Hablar con el equipo',
     },
   },
 
@@ -324,7 +324,7 @@ export default {
         phase: 'Construir',
         name: 'Construcción y Evolución',
         meta: '6–16 semanas · a medida',
-        tagline: 'Para construir un producto B2B de punta a punta o continuar después del diagnóstico o Sprint. Las mismas dos personas cubren producto, frontend, backend, integraciones y despliegue.',
+        tagline: 'Para construir un producto B2B de punta a punta o continuar después del diagnóstico o Sprint. Un solo equipo cubre producto, frontend, backend, integraciones y despliegue.',
         features: [
           'Diseño de producto y frontend',
           'Backend, APIs e integraciones',
@@ -351,7 +351,7 @@ export default {
     items: [
       { title: 'Tu empresa es dueña desde el primer commit', detail: 'El repositorio, el código, la infraestructura y la documentación quedan a tu nombre.' },
       { title: 'Puedes detenerte después del Sprint', detail: 'Cualquiera puede decidir no continuar. Conservas los entregables producidos.' },
-      { title: 'Ambos fundadores conocen el proyecto', detail: 'Carlos y Marina participan directamente y mantienen el contexto, sin equipos rotativos.' },
+      { title: 'El equipo conoce tu proyecto completo', detail: 'Trabajamos directamente en él y mantenemos el contexto, sin equipos rotativos ni traspasos.' },
       { title: 'El diagnóstico no se paga dos veces', detail: 'Si continuamos con la estabilización, descontamos su valor del proyecto.' },
     ],
     cta: 'Revisar preguntas frecuentes',
@@ -724,7 +724,7 @@ export default {
       { q: '¿Qué servicios ofrece codiva?', aHtml: '<p>Tres líneas: Construir y evolucionar productos B2B, plataformas internas y nuevos módulos; Modernizar y rescatar sistemas heredados o difíciles de cambiar; y Datos e integraciones para pipelines, APIs, interoperabilidad y rendimiento de datos.</p>' },
       { q: '¿Quién es dueño del código?', aHtml: '<p>Tú, desde el primer commit. El repositorio queda a tu nombre y te entregamos todo —código, infraestructura y documentación—, sin dependencias ocultas ni candados. Si algún día quieres continuar con otro equipo, puedes.</p>' },
       { q: '¿Pueden tomar un proyecto que ya empezó otra persona?', aHtml: '<p>Sí. Tomamos bases de código heredadas —de un freelancer que se fue, una agencia que cambió de rumbo o un equipo anterior—, las estabilizamos y seguimos construyendo. Es justo donde más de 14 años de arquitectura backend y sistemas distribuidos hacen la diferencia.</p>' },
-      { q: 'Son solo dos personas. ¿Qué pasa si se enferman o se llenan de trabajo?', aHtml: '<p>Tomamos pocos proyectos a la vez, justamente para no sobrecomprometernos y darle atención real a cada uno. Ambos conocemos cada proyecto, así que nada depende de una sola persona, y tu código, tu infraestructura y tu documentación siempre viven en tu repositorio. Si necesitamos coordinar tiempos, te lo decimos antes de empezar, no después.</p>' },
+      { q: '¿Qué pasa si el equipo se enferma o se llena de trabajo?', aHtml: '<p>Tomamos pocos proyectos a la vez, justamente para no sobrecomprometernos y darle atención real a cada uno. Todo el equipo conoce cada proyecto, así que nada depende de una sola persona, y tu código, tu infraestructura y tu documentación siempre viven en tu repositorio. Si necesitamos coordinar tiempos, te lo decimos antes de empezar, no después.</p>' },
       { q: '¿Trabajan con equipos internos o reemplazan al equipo?', aHtml: '<p>Ambos. Nos integramos a tu equipo interno cuando lo hay, o funcionamos como tu equipo de producto completo cuando no. Nos adaptamos a cómo ya trabajas.</p>' },
       { q: '¿Cuánto cuesta un proyecto?', aHtml: '<p>Depende del alcance, pero no te vamos a hacer adivinar. Un Sprint de Producto parte desde CLP $2.500.000 y un proyecto completo suele estar entre CLP $15.000.000 y $60.000.000. En la primera llamada de 30 minutos te damos un rango real, no una propuesta de 20 páginas tres semanas después.</p>' },
       { q: '¿Cuánto se demora?', aHtml: '<p>Un Sprint de Producto son 1–2 semanas. Un producto completo, entre 6 y 16 semanas según alcance. Te damos una fecha en la propuesta y te avisamos apenas algo la ponga en riesgo — preferimos una conversación incómoda temprano que una sorpresa al final.</p>' },
@@ -822,7 +822,7 @@ export default {
       'Conversamos 30 minutos por video o llamada.',
       'Te enviamos un plan y una propuesta claros.',
     ],
-    trust: ['Carlos: 14+ años en software', 'Trabajo directo con ambos fundadores', 'Ñuñoa, Santiago de Chile'],
+    trust: ['Equipo con 14+ años de experiencia', 'Trabajo directo con quienes programan', 'Ñuñoa, Santiago de Chile'],
     seeWork: { label: 'Ver proyectos', href: '/proyectos/' },
     back: '← Volver al inicio',
     waMessage: 'Hola codiva 👋, quiero contarte mi proyecto.',
