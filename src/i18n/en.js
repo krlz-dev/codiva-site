@@ -337,7 +337,7 @@ export default {
     starter: {
       label: 'Just starting out?',
       title: 'We put small ideas online too',
-      text: 'If you sell on WhatsApp or Instagram and want your own site, online payments, or to learn how to use AI, we have a separate track built for that. From CLP $80,000.',
+      text: 'If you sell on WhatsApp or Instagram and want your own site, online payments, or to learn how to use AI, we have a separate track built for that. From CLP $120,000.',
       cta: 'See how to start',
       href: '/en/launch/',
     },
@@ -893,7 +893,7 @@ export default {
       items: [
         {
           name: 'Your idea online',
-          meta: 'from CLP $150,000',
+          meta: 'from CLP $360,000',
           tagline: 'A simple site or shop, built and published. With your domain, your photos, and your words, working on a phone.',
           features: [
             'A small site or shop, ready to show',
@@ -905,7 +905,7 @@ export default {
         },
         {
           name: 'Take payments online',
-          meta: 'from CLP $120,000',
+          meta: 'from CLP $200,000',
           tagline: 'We connect your site to Flow.cl so you can accept card, debit, and transfer payments. Without you having to understand the technical part.',
           features: [
             'Flow.cl integration configured and tested',
@@ -917,7 +917,7 @@ export default {
         },
         {
           name: 'Your own server',
-          meta: 'from CLP $90,000',
+          meta: 'from CLP $140,000',
           tagline: 'We help you run your own server (VPS): cheap, yours, without being locked into a platform that raises the price whenever it likes.',
           features: [
             'We pick and configure the server with you',
@@ -929,7 +929,7 @@ export default {
         },
         {
           name: 'Learn to use AI',
-          meta: 'from CLP $80,000 · 2 sessions',
+          meta: 'from CLP $120,000 · 2 sessions',
           tagline: 'Practical training on AI agents applied to what you actually do: answering customers, writing posts, keeping your books, quoting faster.',
           features: [
             'Live sessions, using your real business',
@@ -952,7 +952,7 @@ export default {
     },
     price: {
       title: 'About the prices',
-      text: 'The figures above are real starting points, not bait. Before you pay anything we give you the final price in writing. If your case is simpler than expected, we charge less.',
+      text: 'These are senior-engineer rates, lower than our larger projects but without lowering the quality: the same people do the work. The figures above are real starting points, not bait. Before you pay anything we give you the final price in writing, and if your case is simpler than expected, we charge less.',
     },
     ctaLabel: 'Tell us your idea',
     ctaNote: 'A free conversation, no strings attached. If we are not what you need, we will point you to someone who is.',

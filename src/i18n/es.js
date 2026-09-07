@@ -340,7 +340,7 @@ export default {
     starter: {
       label: '¿Recién partiendo?',
       title: 'También ponemos ideas pequeñas en línea',
-      text: 'Si vendes por WhatsApp o Instagram y quieres tu sitio, cobrar en línea o aprender a usar IA, tenemos una línea aparte pensada para eso. Desde CLP $80.000.',
+      text: 'Si vendes por WhatsApp o Instagram y quieres tu sitio, cobrar en línea o aprender a usar IA, tenemos una línea aparte pensada para eso. Desde CLP $120.000.',
       cta: 'Ver cómo empezar',
       href: '/emprende/',
     },
@@ -896,7 +896,7 @@ export default {
       items: [
         {
           name: 'Tu idea en línea',
-          meta: 'desde CLP $150.000',
+          meta: 'desde CLP $360.000',
           tagline: 'Una página o tienda simple, hecha y publicada. Con tu dominio, tus fotos y tus textos, funcionando en el teléfono.',
           features: [
             'Página o tienda pequeña, lista para mostrar',
@@ -908,7 +908,7 @@ export default {
         },
         {
           name: 'Cobra por internet',
-          meta: 'desde CLP $120.000',
+          meta: 'desde CLP $200.000',
           tagline: 'Conectamos tu sitio con Flow.cl para que recibas pagos con tarjeta, débito y transferencia. Sin que tengas que entender la parte técnica.',
           features: [
             'Integración con Flow.cl configurada y probada',
@@ -920,7 +920,7 @@ export default {
         },
         {
           name: 'Tu propio servidor',
-          meta: 'desde CLP $90.000',
+          meta: 'desde CLP $140.000',
           tagline: 'Te ayudamos a tener tu propio servidor (VPS): barato, tuyo, sin quedar amarrado a una plataforma que sube el precio cuando quiere.',
           features: [
             'Elegimos y configuramos el servidor contigo',
@@ -932,7 +932,7 @@ export default {
         },
         {
           name: 'Aprende a usar IA',
-          meta: 'desde CLP $80.000 · 2 sesiones',
+          meta: 'desde CLP $120.000 · 2 sesiones',
           tagline: 'Capacitación práctica en agentes de IA aplicada a lo que tú haces: responder clientes, escribir publicaciones, ordenar tus cuentas, cotizar más rápido.',
           features: [
             'Sesiones en vivo, sobre tu negocio real',
@@ -955,7 +955,7 @@ export default {
     },
     price: {
       title: 'Sobre los precios',
-      text: 'Los valores de arriba son puntos de partida reales, no ganchos. Antes de que pagues nada te decimos el precio final por escrito. Si tu caso es más simple de lo que pensabas, cobramos menos.',
+      text: 'Son precios de ingeniero senior, más bajos que nuestros proyectos grandes pero sin bajar la calidad: te atiende la misma gente. Los valores de arriba son puntos de partida reales, no ganchos. Antes de que pagues nada te decimos el precio final por escrito, y si tu caso es más simple de lo que pensabas, cobramos menos.',
     },
     ctaLabel: 'Cuéntanos tu idea',
     ctaNote: 'Conversamos sin costo y sin compromiso. Si no somos lo que necesitas, te decimos a quién acudir.',
