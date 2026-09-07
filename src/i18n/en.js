@@ -116,6 +116,7 @@ export default {
     logoAria: 'codiva - Home',
     links: [
       { href: '/en/#plans', label: 'Services' },
+      { href: '/en/launch/', label: 'Start out' },
       { href: '/en/projects/', label: 'Work' },
       { href: '/en/how-we-build/', label: 'How we work' },
       { href: '/en/knowledge/', label: 'Knowledge' },
@@ -333,6 +334,13 @@ export default {
       },
     ],
     note: 'We take on a small number of projects at a time so each one gets real focus and the same hands from start to finish, not a rotating team.',
+    starter: {
+      label: 'Just starting out?',
+      title: 'We put small ideas online too',
+      text: 'If you sell on WhatsApp or Instagram and want your own site, online payments, or to learn how to use AI, we have a separate track built for that. From CLP $80,000.',
+      cta: 'See how to start',
+      href: '/en/launch/',
+    },
     priceAnchor: 'The Rescue Diagnostic and Product Sprint start at USD $3,000. Full builds typically run between USD $16,000 and $65,000, depending on scope. We confirm the range before requesting access or committing to implementation.',
     more: {
       text: 'Behind each phase there is a method. The detail of how we design and build — discovery, specs, components and architecture — lives on its own page.',
@@ -846,6 +854,118 @@ export default {
     ],
     cta: "Let's review your code",
     ctaHref: '/en/project-rescue/',
+  },
+
+  // Dedicated page /en/launch — the entry-level offer for first-time founders.
+  emprende: {
+    meta: {
+      title: 'Get your idea online — support for first-time founders | codiva®',
+      description:
+        'We help you put your small business online: a site or shop, your own server, payments with Flow.cl, and practical AI training. Priced for people just starting out.',
+      keywords:
+        'get my business online, small business website Chile, accept online payments Flow.cl, VPS setup for founders, practical AI training small business',
+      canonical: 'https://codiva.cl/en/launch/',
+      ogUrl: 'https://codiva.cl/en/launch/',
+      ogTitle: 'Get your idea online — codiva®',
+      ogDescription:
+        'For people with an idea and no clue where to start. We get you online, teach you to run it, and stay with you.',
+    },
+    eyebrow: 'For people just starting out',
+    heading: 'You have an idea. Let us get it online.',
+    intro: [
+      'If you sell through WhatsApp, Instagram, or word of mouth and it feels like time to have something of your own online, this is for you.',
+      'You do not need to know about technology. You do not need a registered company. You do not need a big budget. You need someone to walk you through it in plain language.',
+      'We take a business that is just starting as seriously as a large system: same care, same people, different price.',
+    ],
+    forWho: {
+      title: 'This is for you if…',
+      items: [
+        'You sell on WhatsApp or Instagram and want something more official',
+        'You have a clear idea but no idea where to start',
+        'You got quoted for a website and it seemed absurdly expensive',
+        'You want to take payments online and do not know how',
+        'You keep hearing about AI and want to use it, but for what?',
+      ],
+    },
+    services: {
+      title: 'Four ways to start',
+      note: 'Take one or combine them. We will tell you honestly which one suits your case, even if it is the cheapest.',
+      items: [
+        {
+          name: 'Your idea online',
+          meta: 'from CLP $150,000',
+          tagline: 'A simple site or shop, built and published. With your domain, your photos, and your words, working on a phone.',
+          features: [
+            'A small site or shop, ready to show',
+            'Your own domain (yourbusiness.cl)',
+            'Looks right on a phone, which is where people will look',
+            'We teach you to change text and photos yourself',
+          ],
+          waMessage: 'Hi codiva 👋, I want to get my idea online.',
+        },
+        {
+          name: 'Take payments online',
+          meta: 'from CLP $120,000',
+          tagline: 'We connect your site to Flow.cl so you can accept card, debit, and transfer payments. Without you having to understand the technical part.',
+          features: [
+            'Flow.cl integration configured and tested',
+            'You receive the payment and get notified',
+            'We explain fees and payout times before starting',
+            'We test with a real charge before handing over',
+          ],
+          waMessage: 'Hi codiva 👋, I want to take payments with Flow.',
+        },
+        {
+          name: 'Your own server',
+          meta: 'from CLP $90,000',
+          tagline: 'We help you run your own server (VPS): cheap, yours, without being locked into a platform that raises the price whenever it likes.',
+          features: [
+            'We pick and configure the server with you',
+            'Domain, security certificate, and backups',
+            'It stays in your name, with your credentials',
+            'We teach you to look at it without fear of breaking it',
+          ],
+          waMessage: 'Hi codiva 👋, I want help setting up my server.',
+        },
+        {
+          name: 'Learn to use AI',
+          meta: 'from CLP $80,000 · 2 sessions',
+          tagline: 'Practical training on AI agents applied to what you actually do: answering customers, writing posts, keeping your books, quoting faster.',
+          features: [
+            'Live sessions, using your real business',
+            'Free or cheap tools, no hype',
+            'We leave you written instructions to repeat it',
+            'No magic promises: what works and what does not',
+          ],
+          waMessage: 'Hi codiva 👋, I want the AI training.',
+        },
+      ],
+    },
+    showcase: {
+      title: 'And we give you a spot here',
+      text: 'The businesses we support appear in a showcase on our own site, with their link and a short description. At no extra cost: if you do well, we do well.',
+      note: 'Appearing in the showcase is optional and you can leave whenever you want.',
+    },
+    honesty: {
+      title: 'What we will not do',
+      text: 'We will not sell you something you do not need. If a well-run Instagram account is enough for now, we will say so. We would rather you come back in a year when you genuinely need it.',
+    },
+    price: {
+      title: 'About the prices',
+      text: 'The figures above are real starting points, not bait. Before you pay anything we give you the final price in writing. If your case is simpler than expected, we charge less.',
+    },
+    ctaLabel: 'Tell us your idea',
+    ctaNote: 'A free conversation, no strings attached. If we are not what you need, we will point you to someone who is.',
+    faq: {
+      title: 'Questions from people just starting',
+      items: [
+        { q: 'Do I need a registered company?', a: 'For a website, no. To take payments with Flow.cl you do need to be able to issue invoices, and we explain how before we start.' },
+        { q: 'I know nothing about computers. Can I still do this?', a: 'Yes. That is exactly the point. We speak without technical jargon and leave everything running, plus instructions for whatever you want to change yourself.' },
+        { q: 'What if I want to grow later?', a: 'Everything is in your name: the domain, the server, and the code. You can keep working with us or take it elsewhere whenever you want.' },
+        { q: 'How long does it take?', a: 'A simple site, one to two weeks. Flow payments, a few days. Training is scheduled around your availability.' },
+        { q: 'Can I pay in instalments?', a: 'Yes, let us talk about it. We would rather work around your budget than have you shelve the idea over price.' },
+      ],
+    },
   },
 
   // Dedicated page /en/project-rescue — the takeover offer expanded.

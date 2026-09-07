@@ -36,6 +36,17 @@ const { plans } = t;
       <p class="plans__price" data-animate="fade">{plans.priceAnchor}</p>
     )}
 
+    {plans.starter && (
+      <aside class="plans__starter" data-animate="fade">
+        <div class="plans__starter-body">
+          <p class="plans__starter-label">{plans.starter.label}</p>
+          <h3 class="plans__starter-title">{plans.starter.title}</h3>
+          <p class="plans__starter-text">{plans.starter.text}</p>
+        </div>
+        <a class="btn btn--primary plans__starter-cta" href={plans.starter.href}>{plans.starter.cta} <span aria-hidden="true">→</span></a>
+      </aside>
+    )}
+
     <p class="plans__note" data-animate="fade">{plans.note}</p>
 
     {plans.more && (
@@ -46,3 +57,31 @@ const { plans } = t;
     )}
   </div>
 </section>
+
+<style>
+  /* Entry point to /emprende — placed right after the price anchor, which is
+     exactly where a small founder decides "this isn't for me". */
+  .plans__starter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.1rem;
+    margin: 1.6rem 0 0;
+    padding: 1.35rem 1.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 1rem;
+  }
+  .plans__starter-body { min-width: min(100%, 18rem); flex: 1; }
+  .plans__starter-label {
+    margin: 0 0 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .plans__starter-title { margin: 0 0 0.4rem; font-size: 1.15rem; letter-spacing: -0.01em; }
+  .plans__starter-text { margin: 0; color: var(--muted); line-height: 1.6; font-size: 0.95rem; }
+  .plans__starter-cta { flex: none; }
+</style>

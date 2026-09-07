@@ -119,6 +119,7 @@ export default {
     logoAria: 'codiva - Inicio',
     links: [
       { href: '/#plans', label: 'Servicios' },
+      { href: '/emprende/', label: 'Emprende' },
       { href: '/proyectos/', label: 'Trabajo' },
       { href: '/como-construimos/', label: 'Cómo trabajamos' },
       { href: '/conocimiento/', label: 'Conocimiento' },
@@ -336,6 +337,13 @@ export default {
       },
     ],
     note: 'Tomamos pocos proyectos a la vez para dedicarle a cada uno atención real, con las mismas manos de principio a fin.',
+    starter: {
+      label: '¿Recién partiendo?',
+      title: 'También ponemos ideas pequeñas en línea',
+      text: 'Si vendes por WhatsApp o Instagram y quieres tu sitio, cobrar en línea o aprender a usar IA, tenemos una línea aparte pensada para eso. Desde CLP $80.000.',
+      cta: 'Ver cómo empezar',
+      href: '/emprende/',
+    },
     priceAnchor: 'El Diagnóstico de Rescate y el Sprint de Producto parten desde CLP $2.500.000. Los proyectos completos suelen estar entre CLP $15.000.000 y $60.000.000, según alcance. Confirmamos el rango antes de pedir acceso o comprometer una implementación.',
     more: {
       text: 'Detrás de cada fase hay un método. El detalle de cómo diseñamos y construimos —descubrimiento, specs, componentes y arquitectura— vive en una página aparte.',
@@ -851,7 +859,118 @@ export default {
     ctaHref: '/rescate-de-proyectos/',
   },
 
-  // Dedicated page /rescate-de-proyectos — the takeover offer expanded.
+  // Dedicated page /emprende — the entry-level offer for first-time founders.
+  emprende: {
+    meta: {
+      title: 'Pon tu idea en línea — acompañamiento para emprendedores | codiva®',
+      description:
+        'Te ayudamos a poner tu emprendimiento en internet: sitio o tienda, tu propio servidor, cobros con Flow.cl y capacitación en agentes de IA. Precios para quien recién parte.',
+      keywords:
+        'poner mi negocio en internet, crear tienda online Chile, cobrar con Flow.cl, asesoría VPS emprendedores, capacitación inteligencia artificial pymes, página web emprendimiento Chile',
+      canonical: 'https://codiva.cl/emprende/',
+      ogUrl: 'https://codiva.cl/emprende/',
+      ogTitle: 'Pon tu idea en línea — codiva®',
+      ogDescription:
+        'Para quien tiene una idea y no sabe por dónde partir. Te ponemos en línea, te enseñamos a mantenerlo y te acompañamos.',
+    },
+    eyebrow: 'Para quien recién parte',
+    heading: 'Tienes una idea. Vamos a ponerla en línea.',
+    intro: [
+      'Si vendes por WhatsApp, por Instagram o de boca en boca y sientes que ya es hora de tener algo tuyo en internet, esto es para ti.',
+      'No necesitas saber de tecnología. No necesitas tener una empresa constituida. No necesitas un presupuesto grande. Necesitas que alguien te acompañe y te explique en simple.',
+      'Trabajamos igual de en serio con un emprendimiento que recién parte que con un sistema grande: mismo cuidado, misma gente, precio distinto.',
+    ],
+    forWho: {
+      title: 'Esto es para ti si…',
+      items: [
+        'Vendes por WhatsApp o Instagram y quieres algo más formal',
+        'Tienes una idea clara pero no sabes por dónde empezar',
+        'Te cotizaron una página y te pareció carísimo',
+        'Quieres cobrar en línea y no sabes cómo se hace',
+        'Escuchas hablar de la IA y quieres usarla, pero no sabes para qué',
+      ],
+    },
+    services: {
+      title: 'Cuatro formas de partir',
+      note: 'Puedes tomar una sola o combinarlas. Te decimos con franqueza cuál te conviene según tu caso, aunque sea la más barata.',
+      items: [
+        {
+          name: 'Tu idea en línea',
+          meta: 'desde CLP $150.000',
+          tagline: 'Una página o tienda simple, hecha y publicada. Con tu dominio, tus fotos y tus textos, funcionando en el teléfono.',
+          features: [
+            'Página o tienda pequeña, lista para mostrar',
+            'Tu propio dominio (tunegocio.cl)',
+            'Se ve bien en celular, que es donde te van a mirar',
+            'Te enseñamos a cambiar textos y fotos tú mismo',
+          ],
+          waMessage: 'Hola codiva 👋, quiero poner mi idea en línea.',
+        },
+        {
+          name: 'Cobra por internet',
+          meta: 'desde CLP $120.000',
+          tagline: 'Conectamos tu sitio con Flow.cl para que recibas pagos con tarjeta, débito y transferencia. Sin que tengas que entender la parte técnica.',
+          features: [
+            'Integración con Flow.cl configurada y probada',
+            'Recibes el pago y te llega el aviso',
+            'Te explicamos comisiones y plazos antes de partir',
+            'Probamos con un cobro real antes de entregarte',
+          ],
+          waMessage: 'Hola codiva 👋, quiero cobrar por internet con Flow.',
+        },
+        {
+          name: 'Tu propio servidor',
+          meta: 'desde CLP $90.000',
+          tagline: 'Te ayudamos a tener tu propio servidor (VPS): barato, tuyo, sin quedar amarrado a una plataforma que sube el precio cuando quiere.',
+          features: [
+            'Elegimos y configuramos el servidor contigo',
+            'Dominio, certificado de seguridad y respaldos',
+            'Te queda a tu nombre, con tus claves',
+            'Te enseñamos a mirarlo sin miedo a romperlo',
+          ],
+          waMessage: 'Hola codiva 👋, quiero asesoría para mi servidor.',
+        },
+        {
+          name: 'Aprende a usar IA',
+          meta: 'desde CLP $80.000 · 2 sesiones',
+          tagline: 'Capacitación práctica en agentes de IA aplicada a lo que tú haces: responder clientes, escribir publicaciones, ordenar tus cuentas, cotizar más rápido.',
+          features: [
+            'Sesiones en vivo, sobre tu negocio real',
+            'Herramientas gratis o baratas, sin humo',
+            'Te dejamos las instrucciones escritas para repetirlo',
+            'Sin promesas mágicas: lo que sirve y lo que no',
+          ],
+          waMessage: 'Hola codiva 👋, quiero la capacitación de IA.',
+        },
+      ],
+    },
+    showcase: {
+      title: 'Y te damos un espacio acá',
+      text: 'Los emprendimientos que acompañamos aparecen en una vitrina en nuestro sitio, con su link y una descripción. Sin costo adicional: si a ti te va bien, a nosotros nos va bien.',
+      note: 'Aparecer en la vitrina es opcional y puedes salir cuando quieras.',
+    },
+    honesty: {
+      title: 'Lo que no vamos a hacer',
+      text: 'No te vamos a vender algo que no necesitas. Si con una cuenta de Instagram bien hecha te basta por ahora, te lo vamos a decir. Preferimos que vuelvas en un año cuando de verdad lo necesites.',
+    },
+    price: {
+      title: 'Sobre los precios',
+      text: 'Los valores de arriba son puntos de partida reales, no ganchos. Antes de que pagues nada te decimos el precio final por escrito. Si tu caso es más simple de lo que pensabas, cobramos menos.',
+    },
+    ctaLabel: 'Cuéntanos tu idea',
+    ctaNote: 'Conversamos sin costo y sin compromiso. Si no somos lo que necesitas, te decimos a quién acudir.',
+    faq: {
+      title: 'Preguntas de quien recién parte',
+      items: [
+        { q: '¿Necesito tener empresa o iniciar actividades?', a: 'Para tener tu sitio, no. Para cobrar con Flow.cl sí necesitas boleta o factura, y te explicamos cómo hacerlo antes de empezar.' },
+        { q: 'No sé nada de computación. ¿Igual puedo?', a: 'Sí. Esa es justamente la idea. Te hablamos sin términos técnicos y te dejamos todo andando, más las instrucciones para lo que quieras cambiar tú.' },
+        { q: '¿Y si después quiero crecer?', a: 'Todo queda a tu nombre: el dominio, el servidor y el código. Puedes seguir con nosotros o llevártelo a otra parte cuando quieras.' },
+        { q: '¿Cuánto se demoran?', a: 'Una página simple, entre 1 y 2 semanas. Los cobros con Flow, unos días. La capacitación se agenda según tu disponibilidad.' },
+        { q: '¿Puedo pagar en cuotas?', a: 'Sí, conversémoslo. Preferimos acomodarnos a que dejes tu idea guardada por el precio.' },
+      ],
+    },
+  },
+
   rescate: {
     meta: {
       title: 'Rescate de proyectos de software — retomamos tu desarrollo | codiva®',

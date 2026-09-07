@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Launch from '../../components/Launch.astro';
+import Footer from '../../components/Footer.astro';
+import en from '../../i18n/en.js';
+
+const e = en.emprende;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Support for first-time founders — get your idea online',
+    serviceType: 'Web development, online payments, server setup and AI training',
+    description: e.meta.description,
+    url: e.meta.canonical,
+    areaServed: { '@type': 'Country', name: 'Chile' },
+    provider: { '@type': 'Organization', name: 'codiva', url: 'https://codiva.cl' },
+    audience: { '@type': 'Audience', audienceType: 'Founders and micro businesses' },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: e.services.title,
+      itemListElement: e.services.items.map((item) => ({
+        '@type': 'Offer',
+        name: item.name,
+        description: item.tagline,
+        priceCurrency: 'CLP',
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: e.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://codiva.cl/en/' },
+      { '@type': 'ListItem', position: 2, name: 'Launch', item: e.meta.canonical },
+    ],
+  },
+];
+
+const t = { ...en, meta: e.meta, schema };
+---
+
+<Layout t={t} altEs="https://codiva.cl/emprende/" altEn="https://codiva.cl/en/launch/">
+  <main class="launch-page" id="main-content" tabindex="-1">
+    <Launch t={en} />
+  </main>
+  <Footer t={en} />
+</Layout>
