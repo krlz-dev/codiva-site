@@ -945,6 +945,14 @@ export default {
       title: 'And we give you a spot here',
       text: 'The businesses we support appear in a showcase on our own site, with their link and a short description. At no extra cost: if you do well, we do well.',
       note: 'Appearing in the showcase is optional and you can leave whenever you want.',
+      // Real clients only. Empty until the first one launches — an invented
+      // showcase would be the exact opposite of what this page promises.
+      items: [],
+      empty: {
+        title: 'The first spot is open',
+        text: 'This track is just starting, so no businesses are published yet. Whoever works with us first opens the showcase — and keeps the best spot.',
+      },
+      visitLabel: 'Visit site',
     },
     honesty: {
       title: 'What we will not do',

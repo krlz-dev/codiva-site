@@ -56,11 +56,6 @@ const e = t.emprende;
     </div>
 
     <div class="launch__notes">
-      <div class="launch__note launch__note--showcase">
-        <h3 class="launch__note-title">{e.showcase.title}</h3>
-        <p class="launch__note-text">{e.showcase.text}</p>
-        <p class="launch__note-small">{e.showcase.note}</p>
-      </div>
       <div class="launch__note">
         <h3 class="launch__note-title">{e.honesty.title}</h3>
         <p class="launch__note-text">{e.honesty.text}</p>
@@ -69,6 +64,33 @@ const e = t.emprende;
         <h3 class="launch__note-title">{e.price.title}</h3>
         <p class="launch__note-text">{e.price.text}</p>
       </div>
+    </div>
+
+    <div class="launch__showcase">
+      <h2 class="launch__block-title">{e.showcase.title}</h2>
+      <p class="launch__showcase-text">{e.showcase.text}</p>
+
+      {e.showcase.items.length > 0 ? (
+        <ul class="launch__showcase-grid">
+          {e.showcase.items.map((item) => (
+            <li class="launch__showcase-card">
+              <h3 class="launch__showcase-name">{item.name}</h3>
+              <p class="launch__showcase-type">{item.type}</p>
+              {item.description && <p class="launch__showcase-desc">{item.description}</p>}
+              <a class="launch__showcase-link" href={item.url} target="_blank" rel="noopener">
+                {e.showcase.visitLabel} <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="launch__showcase-empty">
+          <h3 class="launch__showcase-empty-title">{e.showcase.empty.title}</h3>
+          <p class="launch__showcase-empty-text">{e.showcase.empty.text}</p>
+        </div>
+      )}
+
+      <p class="launch__showcase-note">{e.showcase.note}</p>
     </div>
 
     <div class="launch__faq">
@@ -150,6 +172,49 @@ const e = t.emprende;
   .launch__note-title { margin: 0 0 0.55rem; font-size: 1.02rem; }
   .launch__note-text { margin: 0; color: var(--muted); line-height: 1.65; font-size: 0.94rem; }
   .launch__note-small { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--muted); opacity: 0.85; }
+
+  /* Showcase — a real promise on this page, so it renders honestly while empty
+     instead of faking clients we do not have yet. */
+  .launch__showcase { margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+  .launch__showcase-text { margin: 0 0 1.4rem; color: var(--muted); line-height: 1.7; max-width: 44rem; }
+  .launch__showcase-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .launch__showcase-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: color-mix(in srgb, currentColor 3%, transparent);
+  }
+  .launch__showcase-name { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .launch__showcase-type { margin: 0; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+  .launch__showcase-desc { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+  .launch__showcase-link {
+    margin-top: auto;
+    padding-top: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent);
+  }
+  .launch__showcase-link:hover { text-decoration: underline; }
+  .launch__showcase-empty {
+    padding: 1.6rem;
+    border: 1px dashed var(--accent);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+  .launch__showcase-empty-title { margin: 0 0 0.5rem; font-size: 1.05rem; }
+  .launch__showcase-empty-text { margin: 0; color: var(--muted); line-height: 1.65; font-size: 0.95rem; max-width: 42rem; }
+  .launch__showcase-note { margin: 0; font-size: 0.85rem; color: var(--muted); opacity: 0.9; }
 
   .launch__faq { margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
   .launch__faq-list { margin: 0; display: grid; gap: 1rem; }

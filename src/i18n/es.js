@@ -948,6 +948,23 @@ export default {
       title: 'Y te damos un espacio acá',
       text: 'Los emprendimientos que acompañamos aparecen en una vitrina en nuestro sitio, con su link y una descripción. Sin costo adicional: si a ti te va bien, a nosotros nos va bien.',
       note: 'Aparecer en la vitrina es opcional y puedes salir cuando quieras.',
+      // Real clients only. Empty until the first one launches — an invented
+      // showcase would be the exact opposite of what this page promises.
+      //
+      // To publish a business, add an entry here AND the matching one in
+      // en.js (the site-quality test checks ES/EN parity). The grid renders
+      // itself and the "first spot open" message disappears automatically:
+      //   { name: 'Panadería La Espiga',
+      //     type: 'Tienda en línea',
+      //     description: 'Pedidos de pan artesanal con retiro en local.',
+      //     url: 'https://laespiga.cl/' }
+      // Ask the owner before publishing: the page promises it is optional.
+      items: [],
+      empty: {
+        title: 'El primer espacio está disponible',
+        text: 'Esta línea recién parte, así que todavía no hay emprendimientos publicados. El primero que trabaje con nosotros abre la vitrina — y se queda con el mejor lugar.',
+      },
+      visitLabel: 'Visitar sitio',
     },
     honesty: {
       title: 'Lo que no vamos a hacer',
