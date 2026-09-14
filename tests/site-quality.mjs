@@ -567,16 +567,36 @@ check('fonts and analytics stay out of the critical rendering path', () => {
   for (const [name, source] of Object.entries(html)) {
     assert.ok(!source.includes('fonts.googleapis.com'), `${name} still connects to Google Fonts CSS`);
     assert.ok(!source.includes('fonts.gstatic.com'), `${name} still connects to Google Fonts assets`);
-    assert.ok(!source.includes('<script async src="https://www.googletagmanager.com'), `${name} eagerly loads GA4`);
-    assert.ok(source.includes('data-analytics-loader'), `${name} has no deferred analytics loader`);
+    // Umami sustituye a GA4: no debe quedar rastro de Google Analytics.
+    assert.ok(!source.includes('googletagmanager.com'), `${name} still loads GA4`);
+    assert.ok(!source.includes('data-analytics-loader'), `${name} keeps the obsolete gtag loader`);
+    // El script de Umami (~2 KB) va con `defer`: no bloquea el render y, a
+    // diferencia del cargador que sustituye, cuenta tambien las visitas cortas.
+    assert.ok(source.includes('umami.codiva.cl/script.js'), `${name} has no analytics script`);
+    assert.match(source, /<script[^>]*\bdefer\b[^>]*umami\.codiva\.cl|umami\.codiva\.cl[^>]*\bdefer\b/s,
+      `${name} loads analytics without defer`);
   }
   assert.ok(html.esHome.includes('/fonts/ibm-plex-sans-latin-wght-normal.woff2'), 'critical sans font is not preloaded locally');
   assert.match(rawCss, /@font-face\s*\{[^}]*font-family:\s*'IBM Plex Sans'[^}]*font-weight:\s*300 700[^}]*font-display:\s*swap/s);
   for (const weight of [400, 500, 600]) {
     assert.match(rawCss, new RegExp(`@font-face\\s*\\{[^}]*font-family:\\s*'IBM Plex Mono'[^}]*font-weight:\\s*${weight}[^}]*font-display:\\s*swap`, 's'));
   }
-  assert.match(html.esHome, /window\.gtag\s*=.*dataLayer\.push/s, 'gtag queue is unavailable before the network script');
-  assert.ok(html.esHome.includes('8000'), 'analytics fallback delay is not explicit');
+  // Sin cookies no hace falta banner de consentimiento.
+  assert.ok(!html.esHome.includes('window.gtag'), 'gtag queue still present');
+  // Los eventos de negocio deben seguir midiendose, ahora en Umami.
+  //
+  // OJO con dos cosas que hicieron fallar la primera version de esta prueba:
+  //  1. el widget no esta en la home, sino en las paginas de proyectos;
+  //  2. el minificador reescribe las comillas simples como backticks.
+  // Por eso se busca en TODO el HTML generado y sin asumir el tipo de comilla.
+  const todoElHtml = Object.values(html).join('\n');
+  for (const evento of ['form_open', 'generate_lead', 'email_click']) {
+    assert.match(
+      todoElHtml,
+      new RegExp(`umami\\??\\.track\\(['"\`]${evento}['"\`]`),
+      `${evento} event lost in migration`,
+    );
+  }
 });
 
 check('contact pages are linked internally from each homepage', () => {

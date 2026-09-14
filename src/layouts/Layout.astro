@@ -108,7 +108,7 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
       // codiva® — interactions & animations (nav scroll, mobile menu, scroll reveal, smooth anchors)
       declare global {
         interface Window {
-          gtag?: (...args: unknown[]) => void;
+          umami?: { track: (name: string, data?: Record<string, unknown>) => void };
         }
       }
 
@@ -234,7 +234,7 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
           if (!link) return;
           const href = link.getAttribute('href') || '';
           if (!href.startsWith('mailto:')) return;
-          if (typeof window.gtag !== 'function') return;
+          if (typeof window.umami?.track !== 'function') return;
           const ctaLocation = link.dataset.ctaLocation || link.closest('[id]')?.id || window.location.pathname;
           const params = {
             method: 'email',
@@ -244,8 +244,8 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
             location: ctaLocation,
             language: document.documentElement.lang,
           };
-          window.gtag('event', 'generate_lead', params);
-          window.gtag('event', 'email_click', params);
+          window.umami.track('generate_lead', params);
+          window.umami.track('email_click', params);
         },
         { capture: true }
       );

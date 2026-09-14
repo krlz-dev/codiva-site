@@ -154,7 +154,9 @@ const apiUrl = 'https://api.codiva.cl';
     function open() {
       panel.hidden = false;
       toggles.forEach((b) => b.setAttribute('aria-expanded', 'true'));
-      window.gtag?.('event', 'form_open', { language: document.documentElement.lang });
+      // Evento a Umami (antes GA4). `umami` puede no existir en desarrollo,
+      // por eso el encadenamiento opcional.
+      window.umami?.track('form_open', { language: document.documentElement.lang });
     }
 
     function close() {
@@ -300,7 +302,7 @@ const apiUrl = 'https://api.codiva.cl';
       resultTitle.textContent = success ? i18n.success.title : i18n.error.title;
       resultBody.textContent = success ? i18n.success.body : i18n.error.body;
       againBtn.textContent = success ? i18n.success.again : i18n.error.retry;
-      window.gtag?.('event', 'generate_lead', {
+      window.umami?.track('generate_lead', {
         method: 'form',
         location: window.location.pathname,
         language: document.documentElement.lang,
