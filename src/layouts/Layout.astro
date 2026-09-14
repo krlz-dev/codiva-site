@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { GA_ID, GOOGLE_SITE_VERIFICATION } from '../config.js';
+import { GOOGLE_SITE_VERIFICATION } from '../config.js';
 import Nav from '../components/Nav.astro';
 import LenaWidget from '../components/LenaWidget.astro';
 
@@ -83,33 +83,19 @@ const langSwitchHref = `${alternateUrl.pathname}${alternateUrl.search}${alternat
     {schema.map((block) => <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
     <!--
-      Performance-first analytics tradeoff: GA4 queues immediately, but its network
-      script waits for interaction or 8 seconds. A short visit that ends before either
-      trigger is intentionally not transmitted. This protects the critical rendering
-      path at the cost of undercounting non-interacting bounces.
+      Analitica: Umami autoalojada, sin cookies.
+
+      Sustituye a GA4 y hace innecesario el cargador diferido que habia aqui:
+      aquel bloque existia para que gtag.js (~50 KB) no bloqueara el renderizado,
+      al precio de NO contar las visitas que terminaban antes de interactuar.
+
+      El script de Umami pesa ~2 KB y carga con `defer`, asi que no estorba al
+      render y cuenta todas las visitas. Sin cookies -> sin banner.
+      Panel: https://umami.codiva.cl
     -->
-    {GA_ID && (
-      <script is:inline data-analytics-loader set:html={`(function () {
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-  window.gtag('js', new Date());
-  window.gtag('config', '${GA_ID}');
-
-  var loaded = false;
-  function loadAnalytics() {
-    if (loaded) return;
-    loaded = true;
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
-    document.head.appendChild(script);
-  }
-
-  ['pointerdown', 'keydown', 'scroll'].forEach(function (eventName) {
-    window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
-  });
-  window.setTimeout(loadAnalytics, 8000);
-})();`}></script>
+    {import.meta.env.PROD && (
+      <script is:inline defer src="https://umami.codiva.cl/script.js"
+              data-website-id="7532df3d-808e-4327-9b5a-c694c138954f"></script>
     )}
   </head>
   <body class={isHome ? 'site-home' : 'site-subpage'}>
