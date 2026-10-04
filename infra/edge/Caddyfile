@@ -68,3 +68,46 @@ api.dev.zoo-minder.com {
 
     encode gzip zstd
 }
+
+reporte-bolivia.com, www.reporte-bolivia.com {
+    reverse_proxy 127.0.0.1:8021 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+
+    encode gzip zstd
+}
+
+umami.codiva.cl {
+    reverse_proxy 127.0.0.1:8022 {
+        header_up X-Real-IP {remote_host}
+    }
+
+    encode gzip zstd
+}
+
+tubewords.com, www.tubewords.com {
+    reverse_proxy 127.0.0.1:8023 {
+        header_up X-Real-IP {remote_host}
+    }
+
+    encode gzip zstd
+}
+
+# ---------------------------------------------------------------------------
+# agent-bus — message channel between agents on different machines
+# (repo: github.com/krlz-dev/agent-bus)
+#
+# Telegram blocks bot-to-bot messaging, so this is the bridge. The service
+# binds 127.0.0.1 only; TLS and the public surface live here. Every endpoint
+# except /v1/health requires a bearer token.
+# ---------------------------------------------------------------------------
+
+chat.codiva.cl {
+    reverse_proxy 127.0.0.1:8800 {
+        header_up X-Real-IP {remote_host}
+    }
+
+    encode gzip zstd
+}
