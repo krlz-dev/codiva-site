@@ -8,7 +8,7 @@
 // es estatico y no permite un 301 de servidor, asi que se usa meta refresh
 // mas canonical apuntando al destino — es lo que Google interpreta como
 // redireccion permanente en sitios estaticos.
-const destino = '/servicios/';
+const destino = '/#plans';
 ---
 
 <!doctype html>
@@ -16,7 +16,7 @@ const destino = '/servicios/';
   <head>
     <meta charset="utf-8" />
     <title>Redirigiendo a servicios · codiva</title>
-    <link rel="canonical" href={`https://codiva.cl${destino}`} />
+    <link rel="canonical" href="https://codiva.cl/" />
     <meta http-equiv="refresh" content={`0; url=${destino}`} />
     <meta name="robots" content="noindex, follow" />
   </head>

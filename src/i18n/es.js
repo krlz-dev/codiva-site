@@ -137,7 +137,7 @@ export default {
     subtitle: 'Productos, plataformas de datos e integraciones complejas. Cuando el sistema ya existe, lo entendemos, estabilizamos y evolucionamos por etapas.',
     ctaPrimary: 'Conversemos sobre tu sistema',
     ctaGhost: 'Ver trabajos y arquitecturas',
-    ctaGhostHref: '/servicios/',
+    ctaGhostHref: '/#plans',
     ctaNote: 'Conversación sin costo con los fundadores. Si hace falta una revisión técnica, te explicaremos el diagnóstico de rescate de 2 semanas.',
   },
 
@@ -370,7 +370,7 @@ export default {
     teaserHeading: 'Productos construidos por Codiva',
     intro: 'Productos propios que puedes inspeccionar. Más abajo separamos experiencia profesional previa y arquitecturas de referencia para que la procedencia sea inequívoca.',
     viewAll: 'Ver trabajo y arquitecturas',
-    viewAllHref: '/servicios/',
+    viewAllHref: '/#plans',
     screenshotAlt: 'captura de pantalla',
     back: '← Volver al inicio',
     cta: {
@@ -830,7 +830,7 @@ export default {
       'Te enviamos un plan y una propuesta claros.',
     ],
     trust: ['Equipo con 14+ años de experiencia', 'Trabajo directo con quienes programan', 'Ñuñoa, Santiago de Chile'],
-    seeWork: { label: 'Ver servicios', href: '/servicios/' },
+    seeWork: { label: 'Ver servicios', href: '/#plans' },
     back: '← Volver al inicio',
     waMessage: 'Hola codiva 👋, quiero contarte mi proyecto.',
   },
