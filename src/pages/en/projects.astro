@@ -1,64 +1,26 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Portfolio from '../../components/Portfolio.astro';
-import WorkCases from '../../components/WorkCases.astro';
-import Footer from '../../components/Footer.astro';
-import en from '../../i18n/en.js';
-import { workContent } from '../../content/work.js';
-
-const pr = en.projects;
-
-const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: pr.meta.ogTitle,
-    description: pr.meta.description,
-    url: pr.meta.canonical,
-    inLanguage: 'en-US',
-    isPartOf: { '@type': 'WebSite', name: 'codiva®', url: 'https://codiva.cl' },
-    mainEntity: {
-      '@type': 'ItemList',
-      itemListElement: pr.items.map((p, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        item: {
-          '@type': 'CreativeWork',
-          name: p.name,
-          description: p.desc,
-          ...(p.url ? { url: p.url } : {}),
-          image: `https://codiva.cl${p.image}`,
-          creator: { '@type': 'Organization', name: 'codiva', url: 'https://codiva.cl' },
-        },
-      })),
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://codiva.cl/en/' },
-      { '@type': 'ListItem', position: 2, name: 'Projects', item: pr.meta.canonical },
-    ],
-  },
-];
-
-const t = { ...en, meta: pr.meta, schema };
+// Redirect from /en/projects/ to the services section.
+//
+// The work section was removed: with only two published cases, the portfolio
+// was working against our credibility.
+//
+// No 404 here: the URL may be indexed or shared. GitHub Pages is static and
+// cannot issue a server-side 301, so we use meta refresh plus a canonical
+// pointing at the destination — what Google treats as a permanent redirect on
+// static sites.
+const destino = '/en/#plans';
 ---
 
-<Layout t={t} altEs="https://codiva.cl/proyectos/" altEn="https://codiva.cl/en/projects/">
-  <main class="projects-page" id="main-content" tabindex="-1">
-    <Portfolio t={en} variant="full" />
-    <WorkCases content={workContent.en.index} />
-    <aside class="related" aria-label={en.takeover.eyebrow}>
-      <div class="container related__inner">
-        <div>
-          <span class="related__eyebrow">{en.takeover.eyebrow}</span>
-          <p class="related__text">{en.takeover.heading}</p>
-        </div>
-        <a class="btn btn--ghost" href={en.takeover.ctaHref}>{en.takeover.cta} ↗</a>
-      </div>
-    </aside>
-  </main>
-  <Footer t={en} />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting to services · codiva</title>
+    <link rel="canonical" href="https://codiva.cl/en/" />
+    <meta http-equiv="refresh" content={`0; url=${destino}`} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>This page moved. If you are not redirected, <a href={destino}>go to services</a>.</p>
+  </body>
+</html>

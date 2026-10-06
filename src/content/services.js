@@ -60,8 +60,6 @@ export const services = {
         label: 'Producto propio de Codiva',
         title: 'Productos donde producto y operación se encuentran',
         text: 'kit-a, ZooMinder y eConstitucional son productos propios. Demuestran construcción end-to-end, no resultados atribuidos a clientes externos.',
-        href: '/proyectos/#codiva-product',
-        link: 'Ver productos y procedencia',
       },
       relatedTitle: 'Criterio que puedes inspeccionar',
       related: [
@@ -245,8 +243,6 @@ export const services = {
         label: 'Codiva-owned products',
         title: 'Products where software meets operations',
         text: 'kit-a, ZooMinder, and eConstitucional are Codiva-owned products. They demonstrate end-to-end building, not outcomes attributed to external clients.',
-        href: '/en/projects/#codiva-product',
-        link: 'See products and provenance',
       },
       relatedTitle: 'Judgment you can inspect',
       related: [

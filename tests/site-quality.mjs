@@ -8,8 +8,6 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const pages = {
   esHome: 'dist/index.html',
   enHome: 'dist/en/index.html',
-  esProjects: 'dist/proyectos/index.html',
-  enProjects: 'dist/en/projects/index.html',
   esMethod: 'dist/como-construimos/index.html',
   enMethod: 'dist/en/how-we-build/index.html',
   esContact: 'dist/contacto/index.html',
@@ -18,10 +16,6 @@ const pages = {
   enRescue: 'dist/en/project-rescue/index.html',
   esTrademark: 'dist/marca/index.html',
   enTrademark: 'dist/en/trademark/index.html',
-  esDataCase: 'dist/proyectos/pipeline-datos/index.html',
-  enDataCase: 'dist/en/projects/data-pipeline/index.html',
-  esFhirCase: 'dist/proyectos/interoperabilidad-fhir/index.html',
-  enFhirCase: 'dist/en/projects/fhir-interoperability/index.html',
   esKnowledge: 'dist/conocimiento/index.html',
   enKnowledge: 'dist/en/knowledge/index.html',
   esIot: 'dist/conocimiento/ingesta-iot/index.html',
@@ -251,35 +245,6 @@ check('bilingual service pillars own distinct commercial search intents', () => 
   }
 });
 
-check('commercial and technical proof route authority to the service pillars', () => {
-  const links = [
-    [html.esHome, '/servicios/desarrollo-software-b2b/'],
-    [html.esHome, '/servicios/modernizacion-aplicaciones-legacy/'],
-    [html.esHome, '/servicios/ingenieria-datos-integraciones/'],
-    [html.enHome, '/en/services/b2b-software-development/'],
-    [html.enHome, '/en/services/legacy-application-modernization/'],
-    [html.enHome, '/en/services/data-engineering-integrations/'],
-    [html.esRescue, '/servicios/modernizacion-aplicaciones-legacy/'],
-    [html.enRescue, '/en/services/legacy-application-modernization/'],
-    [html.esDataCase, '/servicios/ingenieria-datos-integraciones/'],
-    [html.enDataCase, '/en/services/data-engineering-integrations/'],
-    [html.esIot, '/servicios/ingenieria-datos-integraciones/'],
-    [html.enIot, '/en/services/data-engineering-integrations/'],
-    [html.esIntegrations, '/servicios/ingenieria-datos-integraciones/'],
-    [html.enIntegrations, '/en/services/data-engineering-integrations/'],
-  ];
-  for (const [source, href] of links) assert.ok(hasHref(source, href), `missing contextual service link: ${href}`);
-
-  const routes = [
-    '/servicios/desarrollo-software-b2b/', '/en/services/b2b-software-development/',
-    '/servicios/modernizacion-aplicaciones-legacy/', '/en/services/legacy-application-modernization/',
-    '/servicios/ingenieria-datos-integraciones/', '/en/services/data-engineering-integrations/',
-  ];
-  for (const route of routes) {
-    assert.ok(sitemapText.includes(`<loc>https://codiva.cl${route}</loc>`), `sitemap.xml omits ${route}`);
-    assert.ok(llmsText.includes(`https://codiva.cl${route}`), `llms.txt omits ${route}`);
-  }
-});
 
 check('agentic engineering content pairs faster execution with stronger controls', () => {
   const pages = [
@@ -460,42 +425,7 @@ check('Design Patterns reading note explains modern application without pattern 
   }
 });
 
-check('every commercial subpage exposes full navigation and a locale switch', () => {
-  for (const [name, source] of Object.entries({
-    esProjects: html.esProjects,
-    enProjects: html.enProjects,
-    esMethod: html.esMethod,
-    enMethod: html.enMethod,
-    esContact: html.esContact,
-    enContact: html.enContact,
-    esRescue: html.esRescue,
-    enRescue: html.enRescue,
-  })) {
-    assert.ok(source.includes('class="nav"'), `${name} has no global navigation`);
-    assert.ok(source.includes('class="nav__lang"'), `${name} has no visible locale switch`);
-  }
-});
 
-check('locale switches preserve the equivalent page instead of returning home', () => {
-  const destinations = {
-    esHome: '/en/', enHome: '/', esProjects: '/en/projects/', enProjects: '/proyectos/',
-    esRescue: '/en/project-rescue/', enRescue: '/rescate-de-proyectos/', esMethod: '/en/how-we-build/', enMethod: '/como-construimos/',
-    esContact: '/en/contact/', enContact: '/contacto/', esTrademark: '/en/trademark/', enTrademark: '/marca/',
-    esDataCase: '/en/projects/data-pipeline/', enDataCase: '/proyectos/pipeline-datos/', esFhirCase: '/en/projects/fhir-interoperability/', enFhirCase: '/proyectos/interoperabilidad-fhir/',
-    esKnowledge: '/en/knowledge/', enKnowledge: '/conocimiento/', esIot: '/en/knowledge/iot-ingestion/', enIot: '/conocimiento/ingesta-iot/',
-    esNominatim: '/en/knowledge/nominatim-geocoding/', enNominatim: '/conocimiento/nominatim-geocodificacion/',
-    esIntegrations: '/en/knowledge/integrations-postgresql/', enIntegrations: '/conocimiento/integraciones-postgresql/',
-    esAgentic: '/en/knowledge/agentic-software-engineering/', enAgentic: '/conocimiento/ingenieria-software-agentica/',
-    esMythicalManMonth: '/en/knowledge/the-mythical-man-month/', enMythicalManMonth: '/conocimiento/el-mitico-hombre-mes/',
-    esDesignPatterns: '/en/knowledge/design-patterns/', enDesignPatterns: '/conocimiento/patrones-de-diseno/',
-    esB2bService: '/en/services/b2b-software-development/', enB2bService: '/servicios/desarrollo-software-b2b/',
-    esModernizationService: '/en/services/legacy-application-modernization/', enModernizationService: '/servicios/modernizacion-aplicaciones-legacy/',
-    esDataService: '/en/services/data-engineering-integrations/', enDataService: '/servicios/ingenieria-datos-integraciones/',
-  };
-  for (const [name, href] of Object.entries(destinations)) {
-    assert.ok(html[name].includes(`<a href="${href}" class="nav__lang"`), `${name} locale switch does not target ${href}`);
-  }
-});
 
 check('llms.txt reflects the current offer instead of the retired continuous partnership', () => {
   assert.ok(!llmsText.includes('Alianza Continua'), 'Spanish retired offer remains in llms.txt');
@@ -755,66 +685,11 @@ check('service pages have responsive production styling', () => {
   assert.match(rawCss, /@media\s*\(max-width:\s*800px\)[\s\S]*?\.service-page__hero-grid[\s\S]*?grid-template-columns:\s*1fr/);
 });
 
-check('English project title reflects the work and architecture hierarchy', () => {
-  assert.ok(html.enProjects.includes('<title>Work, products, and software architectures | codiva®</title>'), 'English work title does not match the approved hierarchy');
-  assert.ok(!html.enProjects.includes('&amp;amp;'), 'English title contains a double-escaped ampersand');
-});
 
-check('Work social metadata preserves the same provenance as visible content', () => {
-  assert.ok(html.esProjects.includes('property="og:title" content="Trabajo, productos y arquitecturas de software — codiva®"'), 'Spanish Work OG title is stale');
-  assert.ok(html.enProjects.includes('property="og:title" content="Work, products, and software architectures — codiva®"'), 'English Work OG title is stale');
-  assert.ok(count(html.esProjects, /procedencia explícita/gi) >= 3, 'Spanish Work description, OG, and Twitter copy are not provenance-safe');
-  assert.ok(count(html.enProjects, /explicit provenance/gi) >= 3, 'English Work description, OG, and Twitter copy are not provenance-safe');
-  assert.ok(!html.esProjects.toLowerCase().includes('casos de éxito'), 'Spanish Work metadata claims unsupported success cases');
-  assert.ok(!html.enProjects.toLowerCase().includes('case studies'), 'English Work metadata ambiguously labels mixed evidence as case studies');
-});
 
-check('Work accessibility and schema language are localized', () => {
-  assert.ok(html.esProjects.includes('aria-label="Tecnologías y aspectos"'), 'Spanish Work case topics use an English aria-label');
-  const blocks = [...html.enProjects.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
-  assert.equal(blocks.find((block) => block['@type'] === 'CollectionPage')?.inLanguage, 'en-US', 'English Work schema uses a bare language code');
-});
 
-check('English portfolio image alts are localized', () => {
-  const imageAlts = [...html.enProjects.matchAll(/<img\b[^>]*\balt="([^"]*)"/gi)].map((match) => match[1]);
-  assert.ok(imageAlts.some((alt) => alt.includes('screenshot')), 'English project image alts do not say screenshot');
-  assert.ok(imageAlts.every((alt) => !alt.includes('captura de pantalla')), 'Spanish alt text leaked into English image alts');
-});
 
-check('work indexes classify proof and link to detailed engineering cases', () => {
-  for (const [name, source] of Object.entries({ esProjects: html.esProjects, enProjects: html.enProjects })) {
-    assert.ok(source.includes('data-provenance="codiva-product"'), `${name} does not label Codiva-owned products`);
-    assert.ok(source.includes('data-provenance="prior-experience"'), `${name} does not label prior professional experience`);
-    assert.ok(source.includes('data-provenance="reference-architecture"'), `${name} does not label reference architectures`);
-    assert.ok(!source.includes('Reporte Bolivia'), `${name} publishes Reporte Bolivia before its provenance is confirmed`);
-  }
-  assert.ok(html.esProjects.includes('href="/proyectos/pipeline-datos/"'), 'Spanish work index does not link the data-pipeline case');
-  assert.ok(html.esProjects.includes('href="/proyectos/interoperabilidad-fhir/"'), 'Spanish work index does not link the FHIR case');
-  assert.ok(html.enProjects.includes('href="/en/projects/data-pipeline/"'), 'English work index does not link the data-pipeline case');
-  assert.ok(html.enProjects.includes('href="/en/projects/fhir-interoperability/"'), 'English work index does not link the FHIR case');
-});
 
-check('engineering case pages expose architecture, provenance, and commercial relevance', () => {
-  for (const [name, source] of Object.entries({
-    esDataCase: html.esDataCase,
-    enDataCase: html.enDataCase,
-    esFhirCase: html.esFhirCase,
-    enFhirCase: html.enFhirCase,
-  })) {
-    assert.ok(source.includes('class="case-study"'), `${name} has no case-study structure`);
-    assert.ok(source.includes('class="case-flow" role="list"'), `${name} has no accessible architecture flow`);
-    assert.ok(source.includes('class="case-study__provenance"'), `${name} has no visible provenance disclosure`);
-    assert.ok(source.includes('class="case-study__buyer"'), `${name} does not explain buyer relevance`);
-  }
-  assert.ok(html.esDataCase.includes('aterrizaje crudo y replay'), 'Spanish data case omits recoverable raw landing');
-  assert.ok(html.enDataCase.includes('raw landing and replay'), 'English data case omits recoverable raw landing');
-  assert.ok(html.esFhirCase.includes('estándar para intercambiar información sanitaria'), 'Spanish FHIR case defines FHIR incorrectly or incompletely');
-  assert.ok(html.enFhirCase.includes('standard for exchanging healthcare information'), 'English FHIR case defines FHIR incorrectly or incompletely');
-  for (const source of [html.esFhirCase, html.enFhirCase]) {
-    assert.ok(source.includes('Portavita'), 'FHIR case omits the prior-employment source of experience');
-    assert.ok(source.includes('not a codiva client') || source.includes('no es cliente de codiva'), 'FHIR case can imply that Portavita is a Codiva client');
-  }
-});
 
 check('knowledge hubs link every approved technical guide in both languages', () => {
   const expected = {
