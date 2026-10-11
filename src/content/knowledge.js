@@ -48,6 +48,13 @@ export const knowledgeContent = {
           topics: ['LLM', 'agentes', 'TDD'],
         },
         {
+          href: '/conocimiento/fabricas-software-ia/',
+          area: 'IA aplicada · Revisión de evidencia',
+          title: 'Fábricas de software con IA: qué dice la evidencia',
+          summary: 'Estudios controlados de productividad, costo real de revisión, deuda introducida y supervisión humana efectiva en desarrollo con agentes.',
+          topics: ['evidencia', 'revisión', 'gobernanza'],
+        },
+        {
           href: '/conocimiento/hermes-agent/',
           area: 'IA aplicada · Arquitectura',
           title: 'Hermes Agent: arquitectura, capacidades y SOUL.md',
@@ -282,6 +289,7 @@ export const knowledgeContent = {
         { href: '/en/knowledge/nominatim-geocoding/', area: 'Geospatial data', title: 'Nominatim: scalable service, persistent data', summary: 'A stateless application layer around Nominatim with persistent PostgreSQL/PostGIS, caching, and explicit operational limits.', topics: ['Nominatim', 'PostGIS', 'Redis'] },
         { href: '/en/knowledge/integrations-postgresql/', area: 'Integrations and data', title: 'REST/SOAP adapters and PostgreSQL under load', summary: 'Contracts, retries, idempotency, and domain isolation alongside partitioning, indexes, query plans, bloat, and autovacuum.', topics: ['REST', 'SOAP', 'PostgreSQL'] },
         { href: '/en/knowledge/agentic-software-engineering/', area: 'Applied AI and engineering', title: 'Agentic programming: more speed requires stronger controls', summary: 'LLMs and coding agents governed by specifications, TDD, isolation, independent review, and fail-closed gates.', topics: ['LLM', 'agents', 'TDD'] },
+        { href: '/en/knowledge/ai-software-factories/', area: 'Applied AI · Evidence review', title: 'AI software factories: what the evidence says', summary: 'Controlled productivity studies, the real cost of review, introduced debt, and effective human oversight in agent-assisted development.', topics: ['evidence', 'review', 'governance'] },
         { href: '/en/knowledge/hermes-agent/', area: 'Applied AI · Architecture', title: 'Hermes Agent: architecture, capabilities, and SOUL.md', summary: 'How to build agents as complete profiles: identity, context, memory, skills, tools, automation, security, and delivery.', topics: ['Hermes', 'SOUL.md', 'agents'] },
         { href: '/en/knowledge/deepseek-harness/', area: 'Applied AI · Architecture', title: 'DeepSeek Harness and Cordis: composable agents with control', summary: 'What dsh is, how it relates to Cordis, and why DeepSeek-R1 is model context rather than the harness architecture.', topics: ['DeepSeek', 'Cordis', 'plugins'] },
         { href: '/en/knowledge/the-mythical-man-month/', area: 'Software management', title: 'The Mythical Man-Month: why more people can create more delay', summary: 'A short reading note on schedules, onboarding, communication, conceptual integrity, and the decisions a company faces when a project runs late.', topics: ["Brooks's Law", 'teams', 'schedules'], provenanceKind: 'recommended-reading', provenance: 'Recommended reading' },
